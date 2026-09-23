@@ -1,0 +1,14 @@
+.DS_Store
+*.textClipping
+.env
+.env.*
+!.env.example
+*.backup.json
+*.sqlite
+*.sqlite3
+*.db
+backups/
+local-data/
+app/node_modules/
+app/dist/
+app/coverage/

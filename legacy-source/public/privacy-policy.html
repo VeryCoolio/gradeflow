@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Datenschutzerklärung | Mündliche Notengebung</title>
+    <meta
+      name="description"
+      content="Datenschutzerklärung der App Mündliche Notengebung"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6efe3;
+        --panel: rgba(255, 255, 255, 0.92);
+        --text: #20354a;
+        --muted: #5a6d7f;
+        --accent: #d98952;
+        --border: rgba(32, 53, 74, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(225, 171, 83, 0.28), transparent 24%),
+          linear-gradient(180deg, #fcfaf6 0%, var(--bg) 100%);
+        color: var(--text);
+      }
+
+      main {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+      }
+
+      .hero,
+      section {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 28px;
+        box-shadow: 0 20px 40px rgba(37, 58, 78, 0.08);
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #243d55 0%, #5f7990 100%);
+        color: #fff;
+      }
+
+      h1,
+      h2 {
+        margin: 0 0 16px;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        line-height: 0.95;
+        max-width: 10ch;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .hero p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .stack {
+        display: grid;
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        padding: 10px 14px;
+        background: rgba(255, 255, 255, 0.16);
+        font-weight: 700;
+      }
+
+      .cta {
+        display: inline-block;
+        margin-top: 8px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #efc35f 0%, var(--accent) 100%);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      a {
+        color: #1f5d91;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="hero">
+        <span class="badge">Datenschutzerklärung</span>
+        <h1>Mündliche Notengebung</h1>
+        <p>
+          Diese Seite beschreibt, welche Daten in der App „Mündliche Notengebung“
+          verarbeitet werden und wie Nutzerinnen und Nutzer die Löschung ihrer Daten
+          anfragen können.
+        </p>
+      </div>
+
+      <div class="stack">
+        <section>
+          <h2>1. Verantwortliche Stelle</h2>
+          <p>
+            Verantwortlich für die Datenverarbeitung in dieser App ist der Betreiber der App.
+            Kontakt für Datenschutzanfragen:
+            <a href="mailto:benutzerunterstuetzung@web.de">benutzerunterstuetzung@web.de</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>2. Welche Daten verarbeitet werden</h2>
+          <ul>
+            <li>E-Mail-Adresse und Anmeldedaten für das Benutzerkonto</li>
+            <li>Klassen, Schülernamen, Bewertungen, Notenverläufe und Sitzungsdaten</li>
+            <li>Lokale Sicherungsdateien auf dem verwendeten Gerät</li>
+            <li>Technische Daten, die für Anmeldung, Synchronisierung und Passwort-Reset nötig sind</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>3. Zweck der Verarbeitung</h2>
+          <ul>
+            <li>Bereitstellung der App-Funktionen zur Dokumentation mündlicher Leistungen</li>
+            <li>Synchronisierung der Daten zwischen Windows-, Android- und künftig iOS-Geräten</li>
+            <li>Export, Sicherung und Wiederherstellung von Notenheft-Daten</li>
+            <li>Bearbeitung von Support-, Datenschutz- und Löschanfragen</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>4. Wo Daten gespeichert werden</h2>
+          <ul>
+            <li>Lokal auf dem Gerät, z. B. im App-Speicher oder in einer Sicherungsdatei</li>
+            <li>In der Cloud über Supabase, wenn sich Nutzerinnen oder Nutzer mit einem Konto anmelden</li>
+          </ul>
+          <p>
+            Eine Weitergabe an Dritte erfolgt nur insoweit, wie sie technisch für Hosting,
+            Authentifizierung und Synchronisierung erforderlich ist.
+          </p>
+        </section>
+
+        <section>
+          <h2>5. Speicherdauer und Löschung</h2>
+          <p>
+            Cloud-Daten bleiben gespeichert, bis das Konto gelöscht oder eine Löschung angefragt wird.
+            Lokale Sicherungen auf dem eigenen Gerät bleiben erhalten, bis sie von der Nutzerin oder dem
+            Nutzer selbst gelöscht werden.
+          </p>
+          <p>
+            Eine Anfrage zur Löschung des Kontos und der Cloud-Daten ist jederzeit möglich:
+            <a class="cta" href="account-deletion.html">Konto und Daten löschen</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>6. Rechte der Nutzerinnen und Nutzer</h2>
+          <ul>
+            <li>Auskunft über gespeicherte personenbezogene Daten</li>
+            <li>Berichtigung unrichtiger Daten</li>
+            <li>Löschung oder Einschränkung der Verarbeitung</li>
+            <li>Widerspruch gegen die Verarbeitung, soweit rechtlich anwendbar</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>7. Weitere rechtliche Informationen</h2>
+          <p>
+            Weitere Informationen findest du im
+            <a href="impressum.html">Impressum</a>
+            sowie auf der Seite zur
+            <a href="account-deletion.html">Konto- und Datenlöschung</a>.
+          </p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>

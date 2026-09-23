@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:gradeflow:notebook:v1",
+  "title": "Lokales Notebook, Version 1",
+  "type": "object",
+  "required": ["schemaVersion", "currentClassId", "classes"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "currentClassId": { "type": ["string", "null"] },
+    "classes": { "type": "array", "items": { "$ref": "#/$defs/class" } }
+  },
+  "$comment": "Eindeutige IDs, Referenzen sowie höchstens zwei Stunden je Klasse und Datum werden zusätzlich durch die Laufzeitvalidierung geprüft.",
+  "$defs": {
+    "class": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "periodLabel",
+        "archived",
+        "createdAt",
+        "updatedAt",
+        "students",
+        "sessions"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "periodLabel": { "type": "string", "minLength": 1 },
+        "archived": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "students": {
+          "type": "array",
+          "maxItems": 45,
+          "items": { "$ref": "#/$defs/student" }
+        },
+        "sessions": { "type": "array", "items": { "$ref": "#/$defs/session" } }
+      }
+    },
+    "student": {
+      "type": "object",
+      "required": ["id", "displayName", "startGradeQuarterSteps"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "displayName": { "type": "string", "minLength": 1 },
+        "startGradeQuarterSteps": { "const": 8 }
+      }
+    },
+    "session": {
+      "type": "object",
+      "required": [
+        "id",
+        "date",
+        "lessonSequence",
+        "createdAt",
+        "updatedAt",
+        "observations"
+      ],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "date": { "type": "string", "format": "date" },
+        "lessonSequence": { "enum": [1, 2] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "observations": {
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/observation" }
+        }
+      }
+    },
+    "observation": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["status", "symbol"],
+          "properties": {
+            "status": { "const": "bewertet" },
+            "symbol": { "enum": ["--", "-", "0", "+", "++"] }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["status"],
+          "properties": { "status": { "const": "abwesend" } }
+        },
+        {
+          "type": "object",
+          "required": ["status"],
+          "properties": { "status": { "const": "nicht_beobachtet" } }
+        }
+      ]
+    }
+  }
+}

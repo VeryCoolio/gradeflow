@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Impressum | Mündliche Notengebung</title>
+    <meta
+      name="description"
+      content="Impressum der App Mündliche Notengebung"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f6efe3;
+        --panel: rgba(255, 255, 255, 0.94);
+        --text: #20354a;
+        --muted: #5a6d7f;
+        --accent: #d98952;
+        --border: rgba(32, 53, 74, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(225, 171, 83, 0.28), transparent 24%),
+          linear-gradient(180deg, #fcfaf6 0%, var(--bg) 100%);
+        color: var(--text);
+      }
+
+      main {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 32px 20px 56px;
+      }
+
+      .hero,
+      section {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 28px;
+        padding: 28px;
+        box-shadow: 0 20px 40px rgba(37, 58, 78, 0.08);
+      }
+
+      .hero {
+        background: linear-gradient(135deg, #243d55 0%, #5f7990 100%);
+        color: #fff;
+      }
+
+      h1,
+      h2 {
+        margin: 0 0 16px;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 0.98;
+        max-width: 8ch;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .hero p {
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .stack {
+        display: grid;
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .warning {
+        border-left: 4px solid var(--accent);
+        padding-left: 14px;
+      }
+
+      .data-box {
+        background: rgba(32, 53, 74, 0.04);
+        border: 1px dashed rgba(32, 53, 74, 0.22);
+        border-radius: 18px;
+        padding: 16px 18px;
+      }
+
+      .data-box p {
+        margin: 0;
+        white-space: pre-line;
+      }
+
+      a {
+        color: #1f5d91;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="hero">
+        <h1>Impressum</h1>
+        <p>
+          Anbieterkennzeichnung für die App und die zugehörigen öffentlich erreichbaren
+          Rechtsseiten.
+        </p>
+      </div>
+
+      <div class="stack">
+        <section>
+          <h2>Pflichtangaben</h2>
+          <div class="data-box">
+            <p><strong>Name / Anbieter:</strong> [VOLLSTÄNDIGER NAME ODER FIRMENNAME]
+<strong>Ladungsfähige Anschrift:</strong> [STRASSE HAUSNUMMER]
+[PLZ ORT]
+<strong>E-Mail:</strong> <a href="mailto:benutzerunterstuetzung@web.de">benutzerunterstuetzung@web.de</a></p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Optionale bzw. nur falls vorhanden nötige Angaben</h2>
+          <div class="data-box">
+            <p><strong>Vertreten durch:</strong> [NUR WENN FIRMA / VEREIN]
+<strong>Telefon:</strong> [OPTIONAL]
+<strong>Umsatzsteuer-ID:</strong> [NUR FALLS VORHANDEN]
+<strong>Registereintrag:</strong> [NUR FALLS FIRMA / VEREIN]
+<strong>Berufsrechtliche Angaben:</strong> [NUR FALLS BERUFSRECHTLICH ERFORDERLICH]</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>Wichtiger Hinweis vor Veröffentlichung</h2>
+          <p class="warning">
+            Dieses Impressum ist erst dann rechtlich belastbar, wenn die Platzhalter durch
+            echte Angaben ersetzt wurden. Die E-Mail allein reicht in der Regel nicht aus.
+          </p>
+        </section>
+
+        <section>
+          <h2>Weitere Rechtsseiten</h2>
+          <p>
+            <a href="privacy-policy.html">Datenschutzerklärung</a><br />
+            <a href="account-deletion.html">Konto- und Datenlöschung</a><br />
+            <a href="legal-index.html">Übersicht Rechtliches</a>
+          </p>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
