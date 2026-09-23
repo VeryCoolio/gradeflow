@@ -54,7 +54,8 @@ Mindestens zu prüfen:
 - Bearbeiten einer alten Stunde,
 - Stundennummer nur bei zwei Einträgen desselben Datums sichtbar; deren Reihenfolge ist durch einen atomaren Tausch korrigierbar,
 - Tabellen- und Verlaufsanzeige,
-- Export und Reimport einer Sicherung,
+- CSV-Export mit dokumentierter Spaltenfolge, allen Statuswerten, chronologischen Fachkernwerten und Schutz gegen Formelausführung,
+- vollständiger JSON-Export und Reimport einer Sicherung mit Validierung, Ersetzungswarnung und lokalem Rückfallstand,
 - verständliche Fehlermeldung bei Speicherfehlern,
 - Tastaturbedienung und Fokusreihenfolge.
 

@@ -6,6 +6,7 @@ import {
   render,
   screen,
   waitFor,
+  within,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { App } from "./App";
@@ -14,6 +15,8 @@ import {
   NOTEBOOK_STORAGE_KEY,
   type StoragePort,
 } from "./infrastructure/local/localRepository";
+import { EMPTY_NOTEBOOK } from "./infrastructure/local/schema";
+import { reportClass } from "./test/reportClass";
 
 const now = "2026-09-23T12:00:00.000Z";
 
@@ -34,7 +37,11 @@ class MemoryStorage implements StoragePort {
   }
 }
 
-function makeApp(storage = new MemoryStorage(), confirmDiscard = () => true) {
+function makeApp(
+  storage = new MemoryStorage(),
+  confirmDiscard = () => true,
+  download?: (filename: string, contents: string, mime: string) => void,
+) {
   const repository = new LocalRepository(storage, () => now);
   let nextId = 0;
   const props = {
@@ -43,6 +50,7 @@ function makeApp(storage = new MemoryStorage(), confirmDiscard = () => true) {
     today: () => "2026-09-23",
     now: () => now,
     confirmDiscard,
+    download,
   };
   return { storage, repository, props, ...render(<App {...props} />) };
 }
@@ -232,5 +240,174 @@ describe("Kernoberfläche", () => {
     await waitFor(() =>
       expect(screen.getByText("2 von 2 Personen erfasst")).toBeTruthy(),
     );
+  });
+
+  it("zeigt Tabelle und Verlauf aus dem Fachkern und berechnet nach Korrektur einer frühen Stunde alles neu", async () => {
+    const user = userEvent.setup();
+    const repository = new LocalRepository(new MemoryStorage(), () => now);
+    const classRecord = {
+      ...reportClass(),
+      sessions: reportClass().sessions.slice(0, 2),
+    };
+    repository.save({
+      ...EMPTY_NOTEBOOK,
+      currentClassId: "c1",
+      classes: [classRecord],
+    });
+    const downloads: string[] = [];
+    render(
+      <App
+        repository={repository}
+        download={(_name, contents) => downloads.push(contents)}
+        confirmDiscard={() => true}
+      />,
+    );
+
+    await user.click(screen.getByRole("button", { name: "Tabelle" }));
+    const row = screen.getByRole("row", { name: /Fiktiv Ada/ });
+    expect(
+      within(row)
+        .getAllByRole("cell")
+        .map((cell) => cell.textContent),
+    ).toEqual([
+      "2,00",
+      "Bewertet: ++Stand: 1,50",
+      "Bewertet: -Stand: 1,75",
+      "1,75",
+      "0/3",
+    ]);
+    expect(screen.getByRole("row", { name: /Fiktiv Bea/ }).textContent).toMatch(
+      /Abwesend.*Nicht beobachtet/,
+    );
+
+    await user.click(screen.getByRole("button", { name: "Verlauf" }));
+    expect(
+      screen.getByRole("img", { name: /Notenverlauf von Fiktiv Ada/ }),
+    ).toBeTruthy();
+    await user.selectOptions(screen.getByLabelText("Person"), "p2");
+    expect(screen.getByText(/Nicht beobachtet/)).toBeTruthy();
+    await user.click(screen.getByRole("button", { name: "Stunden" }));
+    const first = screen.getByText("23.09.2026 · 1. Stunde").closest("li")!;
+    await user.click(within(first).getByRole("button", { name: "Bearbeiten" }));
+    await user.click(screen.getByRole("button", { name: /Fiktiv Ada/ }));
+    await user.click(screen.getByRole("button", { name: "--" }));
+    await user.click(screen.getByRole("button", { name: /Zur Klasse/ }));
+    await user.click(screen.getByRole("button", { name: "Tabelle" }));
+    expect(screen.getByRole("row", { name: /Fiktiv Ada/ }).textContent).toMatch(
+      /Stand: 2,50.*Stand: 2,75.*2,75/,
+    );
+    await user.click(
+      screen.getByRole("button", { name: "Klasse als CSV exportieren" }),
+    );
+    expect(downloads[0]).toContain('"current";"";"";"";"";"";"11";"2,75";"0"');
+
+    await user.click(screen.getByRole("button", { name: "Stunden" }));
+    const firstAgain = screen
+      .getByText("23.09.2026 · 1. Stunde")
+      .closest("li")!;
+    await user.click(
+      within(firstAgain).getByRole("button", { name: "Bearbeiten" }),
+    );
+    await user.click(screen.getByRole("button", { name: /Fiktiv Ada/ }));
+    await user.click(screen.getByRole("button", { name: "Eintrag entfernen" }));
+    expect(
+      repository
+        .load()
+        .classes[0].sessions.find((session) => session.id === "s1")
+        ?.observations.p1,
+    ).toBeUndefined();
+    await user.click(screen.getByRole("button", { name: /Zur Klasse/ }));
+    await user.click(screen.getByRole("button", { name: "Tabelle" }));
+    expect(screen.getByRole("row", { name: /Fiktiv Ada/ }).textContent).toMatch(
+      /Offen.*Stand: 2,25.*2,25/,
+    );
+  });
+
+  it("tauscht zwei Stunden atomar und normalisiert nach Löschung die verbleibende Nummer", async () => {
+    const user = userEvent.setup();
+    const repository = new LocalRepository(new MemoryStorage(), () => now);
+    const classRecord = {
+      ...reportClass(),
+      sessions: reportClass().sessions.slice(0, 2),
+    };
+    repository.save({
+      ...EMPTY_NOTEBOOK,
+      currentClassId: "c1",
+      classes: [classRecord],
+    });
+    render(<App repository={repository} confirmDiscard={() => true} />);
+    await user.click(
+      screen.getByRole("button", { name: "Reihenfolge tauschen" }),
+    );
+    expect(
+      repository
+        .load()
+        .classes[0].sessions.map((session) => session.lessonSequence),
+    ).toEqual([1, 2]);
+    expect(
+      repository
+        .load()
+        .classes[0].sessions.find((session) => session.id === "s1")
+        ?.lessonSequence,
+    ).toBe(2);
+    await user.click(screen.getByRole("button", { name: "Tabelle" }));
+    expect(screen.getByRole("row", { name: /Fiktiv Ada/ }).textContent).toMatch(
+      /Stand: 2,25.*Stand: 1,75/,
+    );
+    await user.click(screen.getByRole("button", { name: "Stunden" }));
+    const second = screen.getByText("23.09.2026 · 2. Stunde").closest("li")!;
+    await user.click(
+      within(second).getByRole("button", { name: "Stunde löschen" }),
+    );
+    expect(repository.load().classes[0].sessions).toHaveLength(1);
+    expect(repository.load().classes[0].sessions[0].lessonSequence).toBe(1);
+    expect(screen.queryByText(/1\. Stunde/)).toBeNull();
+  });
+
+  it("exportiert JSON, warnt vor Ersetzen, weist defekte Dateien ab und bietet den Rückfall an", async () => {
+    const user = userEvent.setup();
+    let allowed = false;
+    const downloads: string[] = [];
+    const { repository } = makeApp(
+      undefined,
+      () => allowed,
+      (_name, contents) => downloads.push(contents),
+    );
+    await importTwoStudents(user);
+    await user.click(
+      screen.getByRole("button", {
+        name: "Vollständige JSON-Sicherung herunterladen",
+      }),
+    );
+    expect(JSON.parse(downloads[0]).classes).toHaveLength(1);
+    const upload = async (raw: string) => {
+      const file = new File([raw], "sicherung.json", {
+        type: "application/json",
+      });
+      Object.defineProperty(file, "text", { value: async () => raw });
+      await user.upload(
+        screen.getByLabelText("JSON-Sicherung auswählen"),
+        file,
+      );
+      fireEvent.submit(
+        screen.getByLabelText("JSON-Sicherung auswählen").closest("form")!,
+      );
+    };
+    await upload("kaputt");
+    await waitFor(() =>
+      expect(screen.getByRole("alert").textContent).toMatch(/gültiges JSON/),
+    );
+    expect(repository.load().classes).toHaveLength(1);
+    await upload(JSON.stringify(EMPTY_NOTEBOOK));
+    expect(repository.load().classes).toHaveLength(1);
+    allowed = true;
+    await upload(JSON.stringify(EMPTY_NOTEBOOK));
+    await waitFor(() => expect(repository.load().classes).toHaveLength(0));
+    await user.click(
+      screen.getByRole("button", {
+        name: "Stand vor letztem Import wiederherstellen",
+      }),
+    );
+    expect(repository.load().classes).toHaveLength(1);
   });
 });

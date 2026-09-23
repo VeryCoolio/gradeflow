@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import {
   LEGACY_APP_KEY,
   LEGACY_DRAFT_KEY,
+  IMPORT_REPLACEMENT_BACKUP_KEY,
   LocalRepository,
   MIGRATION_BACKUP_KEY,
   NOTEBOOK_STORAGE_KEY,
@@ -192,6 +193,71 @@ describe("lokales Repository", () => {
       p1: { status: "abwesend" },
       p2: { status: "nicht_beobachtet" },
     });
+  });
+
+  it("entfernt eine alte Beobachtung mit einem Schreibvorgang und berechnet später erneut", () => {
+    const storage = new MemoryStorage();
+    const repository = new LocalRepository(storage, () => now);
+    repository.save(notebook());
+    repository.createSession("c1", { id: "s1", date: "2026-09-23" });
+    repository.saveObservation("c1", "s1", "p1", {
+      status: "bewertet",
+      symbol: "++",
+    });
+    repository.createSession("c1", { id: "s2", date: "2026-09-24" });
+    repository.saveObservation("c1", "s2", "p1", {
+      status: "bewertet",
+      symbol: "+",
+    });
+    const before = storage.writes.length;
+    const changed = repository.removeObservation("c1", "s1", "p1");
+    expect(storage.writes).toHaveLength(before + 1);
+    expect(changed.classes[0].sessions[0].observations.p1).toBeUndefined();
+    expect(() => repository.removeObservation("c1", "s1", "p1")).toThrow(
+      /existiert nicht/,
+    );
+    expect(repository.load().classes[0].sessions[1].observations.p1).toEqual({
+      status: "bewertet",
+      symbol: "+",
+    });
+  });
+
+  it("prüft JSON-Sicherungen vor dem Ersetzen und erhält einen Rückfallstand", () => {
+    const storage = new MemoryStorage();
+    const repository = new LocalRepository(storage, () => now);
+    repository.save(notebook());
+    const originalRaw = storage.getItem(NOTEBOOK_STORAGE_KEY)!;
+    const imported: NotebookV1 = {
+      ...notebook(),
+      currentClassId: null,
+      classes: [],
+    };
+    expect(() => repository.importNotebookBackup("defekt", true)).toThrow(
+      /gültiges JSON/,
+    );
+    expect(storage.getItem(IMPORT_REPLACEMENT_BACKUP_KEY)).toBeNull();
+    expect(() =>
+      repository.importNotebookBackup(JSON.stringify(imported)),
+    ).toThrow(/Bestätigung/);
+    expect(storage.getItem(NOTEBOOK_STORAGE_KEY)).toBe(originalRaw);
+    expect(
+      repository.importNotebookBackup(JSON.stringify(imported), true),
+    ).toEqual(imported);
+    expect(storage.getItem(IMPORT_REPLACEMENT_BACKUP_KEY)).toBe(originalRaw);
+    expect(() => repository.restorePreImportBackup()).toThrow(/bestätigt/);
+    expect(repository.restorePreImportBackup(true)).toEqual(notebook());
+  });
+
+  it("bricht einen JSON-Import ab, wenn die Rückfallsicherung nicht geschrieben werden kann", () => {
+    const storage = new MemoryStorage();
+    const repository = new LocalRepository(storage, () => now);
+    repository.save(notebook());
+    const originalRaw = storage.getItem(NOTEBOOK_STORAGE_KEY);
+    storage.failKey = IMPORT_REPLACEMENT_BACKUP_KEY;
+    expect(() =>
+      repository.importNotebookBackup(JSON.stringify(EMPTY_NOTEBOOK), true),
+    ).toThrow(/Lokales Speichern fehlgeschlagen/);
+    expect(storage.getItem(NOTEBOOK_STORAGE_KEY)).toBe(originalRaw);
   });
 
   it("vergibt dieselbe Datum-Nummer-Kombination in verschiedenen Klassen unabhängig", () => {

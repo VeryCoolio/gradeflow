@@ -15,6 +15,8 @@ import {
 
 export const NOTEBOOK_STORAGE_KEY = "oral-grading-notebook-v1";
 export const MIGRATION_BACKUP_KEY = "oral-grading-migration-backup-v1";
+export const IMPORT_REPLACEMENT_BACKUP_KEY =
+  "oral-grading-import-replacement-backup-v1";
 export const LEGACY_APP_KEY = "oral-grading-app-v4";
 export const LEGACY_DRAFT_KEY = "oral-grading-session-drafts-v1";
 
@@ -208,6 +210,39 @@ export class LocalRepository {
     return updated;
   }
 
+  removeObservation(
+    classId: string,
+    sessionId: string,
+    studentId: string,
+  ): NotebookV1 {
+    const notebook = this.load();
+    const classRecord = notebook.classes.find((item) => item.id === classId);
+    const session = classRecord?.sessions.find((item) => item.id === sessionId);
+    if (!session || !Object.hasOwn(session.observations, studentId)) {
+      throw new RangeError("Der zu entfernende Eintrag existiert nicht.");
+    }
+    const timestamp = this.now();
+    const updated: NotebookV1 = {
+      ...notebook,
+      classes: notebook.classes.map((item) =>
+        item.id === classId
+          ? {
+              ...item,
+              updatedAt: timestamp,
+              sessions: item.sessions.map((existing) => {
+                if (existing.id !== sessionId) return existing;
+                const observations = { ...existing.observations };
+                delete observations[studentId];
+                return { ...existing, updatedAt: timestamp, observations };
+              }),
+            }
+          : item,
+      ),
+    };
+    this.save(updated);
+    return updated;
+  }
+
   swapSessions(classId: string, date: string): NotebookV1 {
     return this.changeSessions(classId, (sessions) =>
       swapLessonSequences(sessions, date),
@@ -255,5 +290,37 @@ export class LocalRepository {
     } else {
       this.write(LEGACY_DRAFT_KEY, backup.rawDrafts);
     }
+  }
+
+  importNotebookBackup(raw: string, allowReplace = false): NotebookV1 {
+    const imported = parseNotebook(raw);
+    const current = this.load();
+    if (current.classes.length > 0 && !allowReplace) {
+      throw new RangeError(
+        "Die Sicherung würde vorhandene Klassen ersetzen. Bestätigung erforderlich.",
+      );
+    }
+    const currentRaw = this.read(NOTEBOOK_STORAGE_KEY);
+    if (currentRaw !== null) {
+      this.write(IMPORT_REPLACEMENT_BACKUP_KEY, currentRaw);
+    }
+    this.save(imported);
+    return imported;
+  }
+
+  readPreImportBackup(): NotebookV1 | null {
+    const raw = this.read(IMPORT_REPLACEMENT_BACKUP_KEY);
+    return raw === null ? null : parseNotebook(raw);
+  }
+
+  restorePreImportBackup(confirmed = false): NotebookV1 {
+    if (!confirmed)
+      throw new RangeError("Wiederherstellung muss bestätigt werden.");
+    const raw = this.read(IMPORT_REPLACEMENT_BACKUP_KEY);
+    if (raw === null)
+      throw new RangeError("Keine frühere Sicherung vorhanden.");
+    const previous = parseNotebook(raw);
+    this.save(previous);
+    return previous;
   }
 }

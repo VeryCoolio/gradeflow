@@ -86,14 +86,16 @@ Umfang:
 - sichtbare Unterscheidung aller drei Beobachtungsstatus,
 - Verlaufsdarstellung,
 - nachträgliche Bearbeitung und Neuberechnung,
-- CSV- und JSON-Export.
+- CSV-Export sowie JSON-Vollsicherung mit validiertem Reimport und lokalem Rückfallstand.
 
 Abnahme:
 
 - Tabellen-, Verlaufs- und Exportwerte stimmen mit dem Fachkern überein,
 - Änderung einer frühen Stunde aktualisiert alle späteren Werte,
-- mehrere Stunden am selben Tag bleiben unterscheidbar.
+- mehrere Stunden am selben Tag bleiben unterscheidbar,
 - höchstens zwei Stunden je Klasse und Datum; Tausch und Löschung halten ihre Nummern konsistent.
+
+Umsetzungsstand vom 23.09.2026: Die Phase ist in Meilenstein 4 umgesetzt. Das [CSV-Format](csv-exportformat.md) ist versioniert dokumentiert. Vor dem JSON-Reimport wird der bisherige Notebook-Stand im selben Browser gesichert; ein externer Schutz gegen Verlust des Browser-Speichers entsteht erst durch die heruntergeladene JSON-Datei.
 
 ## Phase 5 – Usability-fähiger Release
 

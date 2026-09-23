@@ -17,14 +17,18 @@ body {
   margin: 0;
 }
 button,
-input {
+input,
+select {
   font: inherit;
 }
 button {
   cursor: pointer;
 }
 button:focus-visible,
-input:focus-visible {
+input:focus-visible,
+select:focus-visible,
+.table-scroll:focus-visible,
+.chart-scroll:focus-visible {
   outline: 3px solid #d17526;
   outline-offset: 3px;
 }
@@ -319,6 +323,88 @@ legend {
 .discard-area p {
   font-size: 0.85rem;
   margin-top: 0.5rem;
+}
+.backup-panel {
+  display: grid;
+  gap: 0.55rem;
+}
+.backup-panel form {
+  margin-top: 0.35rem;
+}
+.backup-panel button {
+  text-align: left;
+}
+.view-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1.1rem 0;
+}
+.view-tabs button[aria-current] {
+  background: #176d58;
+  color: #fff;
+  border-color: #176d58;
+}
+.session-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: flex-end;
+}
+.session-actions button {
+  font-size: 0.84rem;
+}
+.table-scroll,
+.chart-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+table {
+  border-collapse: collapse;
+  min-width: 100%;
+}
+th,
+td {
+  border: 1px solid #d7e2de;
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+thead th {
+  background: #e9f3ef;
+}
+tbody tr:nth-child(even) {
+  background: #f7faf8;
+}
+td small {
+  display: block;
+  margin-top: 0.25rem;
+}
+.history-events {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.history-events li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.4rem 1rem;
+  border-top: 1px solid #d7e2de;
+  padding: 0.65rem 0;
+}
+.remove-observation {
+  margin-bottom: 0.6rem;
+}
+select {
+  min-height: 2.6rem;
+  border: 1px solid #8b9fa6;
+  border-radius: 0.4rem;
+  background: #fff;
+  color: #172c38;
+  padding: 0.45rem 0.65rem;
+  margin: 0.5rem 0 0.7rem;
 }
 @media (max-width: 950px) {
   .assessment-layout {

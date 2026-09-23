@@ -11,9 +11,17 @@ import {
   compareLessonSessions,
   hasVisibleLessonSequence,
 } from "./domain/sessions/lessonSequence";
-import { recalculateClassState } from "./domain/sessions/recalculate";
+import { buildClassReport } from "./application/reporting";
 import type { LessonSession } from "./domain/sessions/types";
+import { StudentHistory } from "./features/history/StudentHistory";
+import { observationLabel, sessionLabel } from "./features/presentation";
+import { ClassTable } from "./features/table/ClassTable";
 import { parseClassImport } from "./infrastructure/importExport/classImport";
+import { exportClassCsv } from "./infrastructure/importExport/csvExport";
+import {
+  exportNotebookJson,
+  importNotebookJson,
+} from "./infrastructure/importExport/jsonBackup";
 import { LocalRepository } from "./infrastructure/local/localRepository";
 import type { ClassRecord, NotebookV1 } from "./infrastructure/local/schema";
 
@@ -28,23 +36,22 @@ function messageFrom(error: unknown): string {
     : "Ein unbekannter Fehler ist aufgetreten.";
 }
 
-function observationLabel(observation: Observation | undefined): string {
-  if (!observation) return "Noch offen";
-  if (observation.status === "bewertet")
-    return `Bewertet: ${observation.symbol}`;
-  return observation.status === "abwesend" ? "Abwesend" : "Nicht beobachtet";
+function downloadText(filename: string, contents: string, mime: string): void {
+  const url = URL.createObjectURL(new Blob([contents], { type: mime }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = filename;
+  link.click();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
-function sessionLabel(
-  session: LessonSession,
-  sessions: readonly LessonSession[],
-): string {
-  const date = new Intl.DateTimeFormat("de-DE", { dateStyle: "medium" }).format(
-    new Date(`${session.date}T12:00:00`),
+function fileName(value: string): string {
+  return (
+    value
+      .trim()
+      .replace(/[^\p{L}\p{N}-]+/gu, "_")
+      .replace(/^_+|_+$/g, "") || "klasse"
   );
-  return hasVisibleLessonSequence(sessions, session.date)
-    ? `${date} · ${session.lessonSequence}. Stunde`
-    : date;
 }
 
 function firstIncompleteSession(
@@ -67,6 +74,7 @@ interface AppProps {
   today?: () => string;
   now?: () => string;
   confirmDiscard?: (message: string) => boolean;
+  download?: (filename: string, contents: string, mime: string) => void;
 }
 
 export function App({
@@ -75,6 +83,7 @@ export function App({
   today = localToday,
   now = () => new Date().toISOString(),
   confirmDiscard = (message) => window.confirm(message),
+  download = downloadText,
 }: AppProps) {
   const localRepository = useMemo(
     () => repository ?? new LocalRepository(window.localStorage),
@@ -95,6 +104,18 @@ export function App({
   const [className, setClassName] = useState("");
   const [periodLabel, setPeriodLabel] = useState("");
   const [importFile, setImportFile] = useState<File | null>(null);
+  const [backupFile, setBackupFile] = useState<File | null>(null);
+  const [hasPreImportBackup, setHasPreImportBackup] = useState(() => {
+    try {
+      return localRepository.readPreImportBackup() !== null;
+    } catch {
+      return false;
+    }
+  });
+  const [dashboardView, setDashboardView] = useState<
+    "stunden" | "tabelle" | "verlauf"
+  >("stunden");
+  const [historyStudentId, setHistoryStudentId] = useState<string | null>(null);
   const [lessonDate, setLessonDate] = useState(today);
   const [activeSessionId, setActiveSessionId] = useState<string | null>(() => {
     const selected = loadResult.notebook?.classes.find(
@@ -130,11 +151,9 @@ export function App({
   const capturedCount = activeSession
     ? Object.keys(activeSession.observations).length
     : 0;
-  const calculated = currentClass
-    ? recalculateClassState(currentClass.students, currentClass.sessions)
-    : null;
-  const currentGrade = calculated?.students.find(
-    (student) => student.studentId === selectedStudent?.id,
+  const report = currentClass ? buildClassReport(currentClass) : null;
+  const currentGrade = report?.students.find(
+    (student) => student.student.id === selectedStudent?.id,
   )?.current;
 
   function apply(action: () => NotebookV1, success: string): NotebookV1 | null {
@@ -201,6 +220,8 @@ export function App({
       );
       setSelectedStudentId(null);
       setEditingDetails(false);
+      setDashboardView("stunden");
+      setHistoryStudentId(null);
       startingRef.current = false;
     }
   }
@@ -302,11 +323,11 @@ export function App({
     setSelectedStudentId(next?.id ?? selectedStudent.id);
   }
 
-  function leaveSession() {
+  function leaveSession(announceSaved = true) {
     setActiveSessionId(null);
     setSelectedStudentId(null);
     startingRef.current = false;
-    setNotice("Der aktuelle Stand ist lokal gespeichert.");
+    if (announceSaved) setNotice("Der aktuelle Stand ist lokal gespeichert.");
   }
 
   function discardSession() {
@@ -319,7 +340,142 @@ export function App({
         "Die Stunde wurde verworfen.",
       )
     )
-      leaveSession();
+      leaveSession(false);
+  }
+
+  function removeCurrentObservation() {
+    if (!currentClass || !activeSession || !selectedStudent) return;
+    if (!activeSession.observations[selectedStudent.id]) return;
+    if (
+      !confirmDiscard(
+        `Eintrag für ${selectedStudent.displayName} in dieser Stunde wirklich entfernen?`,
+      )
+    )
+      return;
+    apply(
+      () =>
+        localRepository.removeObservation(
+          currentClass.id,
+          activeSession.id,
+          selectedStudent.id,
+        ),
+      "Eintrag entfernt. Der Verlauf wurde neu berechnet.",
+    );
+  }
+
+  function swapSessions(date: string) {
+    if (!currentClass) return;
+    apply(
+      () => localRepository.swapSessions(currentClass.id, date),
+      "Stundenreihenfolge getauscht. Der Verlauf wurde neu berechnet.",
+    );
+  }
+
+  function deleteStoredSession(session: LessonSession) {
+    if (!currentClass) return;
+    if (
+      !confirmDiscard(
+        `${sessionLabel(session, currentClass.sessions)} samt aller Einträge wirklich löschen?`,
+      )
+    )
+      return;
+    apply(
+      () => localRepository.deleteSession(currentClass.id, session.id),
+      "Stunde gelöscht. Der Verlauf wurde neu berechnet.",
+    );
+  }
+
+  function exportCsv() {
+    if (!currentClass) return;
+    try {
+      download(
+        `${fileName(currentClass.name)}-stunden-v1.csv`,
+        exportClassCsv(currentClass),
+        "text/csv;charset=utf-8",
+      );
+      setError("");
+      setNotice("CSV-Datei erstellt.");
+    } catch (caught) {
+      setError(messageFrom(caught));
+      setNotice("");
+    }
+  }
+
+  function exportJson() {
+    if (!notebook) return;
+    try {
+      download(
+        "gradeflow-notebook-v1.json",
+        exportNotebookJson(notebook),
+        "application/json;charset=utf-8",
+      );
+      setError("");
+      setNotice("Vollständige JSON-Sicherung erstellt.");
+    } catch (caught) {
+      setError(messageFrom(caught));
+      setNotice("");
+    }
+  }
+
+  async function importBackup(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    if (!backupFile) {
+      setError("Bitte eine JSON-Sicherung auswählen.");
+      return;
+    }
+    try {
+      const raw = await backupFile.text();
+      const validated = importNotebookJson(raw);
+      if (
+        notebook?.classes.length &&
+        !confirmDiscard(
+          `Die Sicherung enthält ${validated.classes.length} Klassen. Sie ersetzt den aktuellen Datenstand mit ${notebook.classes.length} Klassen. Der bisherige Stand wird zuvor lokal als Rückfall gesichert. Wirklich fortfahren?`,
+        )
+      )
+        return;
+      const imported = apply(
+        () => localRepository.importNotebookBackup(raw, true),
+        "Sicherung importiert.",
+      );
+      if (imported) {
+        const hasFallback = localRepository.readPreImportBackup() !== null;
+        setHasPreImportBackup(hasFallback);
+        if (hasFallback)
+          setNotice(
+            "Sicherung importiert. Der vorherige Stand bleibt lokal als Rückfall erhalten.",
+          );
+        setBackupFile(null);
+        setActiveSessionId(null);
+        setSelectedStudentId(null);
+        setDashboardView("stunden");
+        setHistoryStudentId(null);
+        form.reset();
+      }
+    } catch (caught) {
+      setError(messageFrom(caught));
+      setNotice("");
+    }
+  }
+
+  function restorePreImportBackup() {
+    if (
+      !confirmDiscard(
+        "Den Datenstand vor dem letzten JSON-Import wiederherstellen? Der aktuell importierte Stand wird ersetzt.",
+      )
+    )
+      return;
+    if (
+      apply(
+        () => localRepository.restorePreImportBackup(true),
+        "Vorheriger Datenstand wiederhergestellt.",
+      )
+    ) {
+      setActiveSessionId(null);
+      setSelectedStudentId(null);
+      setDashboardView("stunden");
+      setHistoryStudentId(null);
+    }
   }
 
   if (!notebook) {
@@ -410,6 +566,34 @@ export function App({
               </button>
             </form>
           </section>
+          <section className="backup-panel">
+            <h2>Datensicherung</h2>
+            <p className="muted">
+              Die JSON-Datei enthält alle Klassen und Stunden. Bewahre sie
+              geschützt auf.
+            </p>
+            <button type="button" onClick={exportJson}>
+              Vollständige JSON-Sicherung herunterladen
+            </button>
+            <form onSubmit={importBackup}>
+              <label htmlFor="backup-file">JSON-Sicherung auswählen</label>
+              <input
+                id="backup-file"
+                type="file"
+                accept=".json,application/json"
+                onChange={(event) =>
+                  setBackupFile(event.target.files?.[0] ?? null)
+                }
+                required
+              />
+              <button type="submit">JSON-Sicherung importieren</button>
+            </form>
+            {hasPreImportBackup ? (
+              <button type="button" onClick={restorePreImportBackup}>
+                Stand vor letztem Import wiederherstellen
+              </button>
+            ) : null}
+          </section>
         </aside>
         <main className="content">
           {error ? (
@@ -493,6 +677,9 @@ export function App({
                         ? "Zeitraum wieder öffnen"
                         : "Zeitraum archivieren"}
                     </button>
+                    <button type="button" onClick={exportCsv}>
+                      Klasse als CSV exportieren
+                    </button>
                   </div>
                 )}
                 <p className="muted">
@@ -521,48 +708,111 @@ export function App({
                   </p>
                 </section>
               ) : null}
-              <section className="card">
-                <h2>Unterrichtsstunden</h2>
-                {currentClass.sessions.length === 0 ? (
-                  <p className="muted">Noch keine Stunde angelegt.</p>
-                ) : (
-                  <ul className="session-list">
-                    {[...currentClass.sessions]
-                      .sort(compareLessonSessions)
-                      .reverse()
-                      .map((session) => {
-                        const complete =
-                          Object.keys(session.observations).length ===
-                          currentClass.students.length;
-                        return (
-                          <li key={session.id}>
-                            <span>
-                              <strong>
-                                {sessionLabel(session, currentClass.sessions)}
-                              </strong>
-                              <small>
-                                {Object.keys(session.observations).length} von{" "}
-                                {currentClass.students.length} erfasst ·{" "}
-                                {complete ? "vollständig" : "laufend"}
-                              </small>
-                            </span>
-                            {!complete && !currentClass.archived ? (
-                              <button
-                                type="button"
-                                onClick={() => {
-                                  setActiveSessionId(session.id);
-                                  setSelectedStudentId(null);
-                                }}
-                              >
-                                Fortsetzen
-                              </button>
-                            ) : null}
-                          </li>
-                        );
-                      })}
-                  </ul>
-                )}
-              </section>
+              <nav className="view-tabs" aria-label="Klassenansichten">
+                <button
+                  type="button"
+                  aria-current={
+                    dashboardView === "stunden" ? "page" : undefined
+                  }
+                  onClick={() => setDashboardView("stunden")}
+                >
+                  Stunden
+                </button>
+                <button
+                  type="button"
+                  aria-current={
+                    dashboardView === "tabelle" ? "page" : undefined
+                  }
+                  onClick={() => setDashboardView("tabelle")}
+                >
+                  Tabelle
+                </button>
+                <button
+                  type="button"
+                  aria-current={
+                    dashboardView === "verlauf" ? "page" : undefined
+                  }
+                  onClick={() => setDashboardView("verlauf")}
+                >
+                  Verlauf
+                </button>
+              </nav>
+              {dashboardView === "stunden" ? (
+                <section className="card">
+                  <h2>Unterrichtsstunden</h2>
+                  {currentClass.sessions.length === 0 ? (
+                    <p className="muted">Noch keine Stunde angelegt.</p>
+                  ) : (
+                    <ul className="session-list">
+                      {[...currentClass.sessions]
+                        .sort(compareLessonSessions)
+                        .reverse()
+                        .map((session) => {
+                          const complete =
+                            Object.keys(session.observations).length ===
+                            currentClass.students.length;
+                          return (
+                            <li key={session.id}>
+                              <span>
+                                <strong>
+                                  {sessionLabel(session, currentClass.sessions)}
+                                </strong>
+                                <small>
+                                  {Object.keys(session.observations).length} von{" "}
+                                  {currentClass.students.length} erfasst ·{" "}
+                                  {complete ? "vollständig" : "laufend"}
+                                </small>
+                              </span>
+                              {!currentClass.archived ? (
+                                <div className="session-actions">
+                                  <button
+                                    type="button"
+                                    onClick={() => {
+                                      setActiveSessionId(session.id);
+                                      setSelectedStudentId(null);
+                                    }}
+                                  >
+                                    {complete ? "Bearbeiten" : "Fortsetzen"}
+                                  </button>
+                                  {session.lessonSequence === 1 &&
+                                  hasVisibleLessonSequence(
+                                    currentClass.sessions,
+                                    session.date,
+                                  ) ? (
+                                    <button
+                                      type="button"
+                                      onClick={() => swapSessions(session.date)}
+                                    >
+                                      Reihenfolge tauschen
+                                    </button>
+                                  ) : null}
+                                  <button
+                                    type="button"
+                                    onClick={() => deleteStoredSession(session)}
+                                  >
+                                    Stunde löschen
+                                  </button>
+                                </div>
+                              ) : null}
+                            </li>
+                          );
+                        })}
+                    </ul>
+                  )}
+                </section>
+              ) : null}
+              {dashboardView === "tabelle" && report ? (
+                <ClassTable report={report} />
+              ) : null}
+              {dashboardView === "verlauf" && report ? (
+                <StudentHistory
+                  report={report}
+                  studentId={
+                    historyStudentId ?? report.students[0]?.student.id ?? ""
+                  }
+                  onStudentChange={setHistoryStudentId}
+                />
+              ) : null}
             </>
           ) : null}
           {currentClass && activeSession ? (
@@ -571,7 +821,7 @@ export function App({
                 <button
                   className="text-button"
                   type="button"
-                  onClick={leaveSession}
+                  onClick={() => leaveSession()}
                 >
                   ← Zur Klasse
                 </button>
@@ -649,6 +899,15 @@ export function App({
                           )}
                         </strong>
                       </p>
+                      {activeSession.observations[selectedStudent.id] ? (
+                        <button
+                          type="button"
+                          className="remove-observation"
+                          onClick={removeCurrentObservation}
+                        >
+                          Eintrag entfernen
+                        </button>
+                      ) : null}
                       <fieldset>
                         <legend>
                           Gesamtleistung in dieser Stunde bewerten

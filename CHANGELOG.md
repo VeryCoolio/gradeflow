@@ -2,6 +2,16 @@
 
 Der Git-Verlauf beginnt mit dem Projektstand nach Meilenstein 2. Frühere Arbeitsschritte sind im [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) festgehalten; dafür werden keine rückdatierten Commits erzeugt.
 
+## 0.4.0 – 23.09.2026
+
+- Stundentabelle mit Startwert, jeder Stunde, aktuellem Stand, Puffer und ausdrücklich sichtbaren Beobachtungsstatus.
+- Personenbezogener Verlauf aus derselben chronologischen Berechnung; fehlende Bewertungen bleiben in der Ereignisliste sichtbar.
+- Ältere Einträge bearbeiten oder entfernen, zwei Stunden eines Datums tauschen und Stunden mit anschließender Nummernnormalisierung löschen.
+- Dokumentierter CSV-Export pro Klasse sowie versionierte JSON-Vollsicherung mit geprüftem Import, Ersetzungswarnung und lokalem Rückfallstand.
+- Unit- und Integrationstests für Neuberechnung, Ansichten, Exporte und Wiederherstellung.
+
+Die Bachelorarbeitsversion enthält weiterhin keine Cloud-Synchronisierung. Ein Usability-Test mit Lehramtsstudierenden und eine Datenschutzprüfung für echte Schülerdaten stehen aus.
+
 ## 0.3.0 – 23.09.2026
 
 - Kernoberfläche für Klassenimport, Klassenauswahl, frei benannten Bewertungszeitraum und Stundenerfassung.
