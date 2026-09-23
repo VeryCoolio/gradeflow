@@ -1,0 +1,367 @@
+:root {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: #172c38;
+  background: #f2f5f3;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+button,
+input {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+}
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #d17526;
+  outline-offset: 3px;
+}
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+h1 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 0;
+}
+h2 {
+  font-size: 1.35rem;
+}
+h3 {
+  font-size: 1.15rem;
+}
+.app-shell {
+  min-height: 100vh;
+}
+.topbar {
+  background: #123446;
+  color: #fff;
+  padding: 1.2rem clamp(1rem, 3vw, 2.8rem);
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: center;
+}
+.topbar .eyebrow {
+  color: #b7dacc;
+}
+.scope {
+  max-width: 29rem;
+  line-height: 1.5;
+  margin: 0;
+  color: #e1ebec;
+}
+.eyebrow {
+  text-transform: uppercase;
+  font-size: 0.73rem;
+  letter-spacing: 0.12em;
+  font-weight: 750;
+  color: #36705f;
+  margin-bottom: 0.4rem;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(15rem, 19rem) minmax(0, 1fr);
+  max-width: 90rem;
+  margin: auto;
+}
+.sidebar {
+  background: #e5eee9;
+  border-right: 1px solid #c7d7d1;
+  min-height: calc(100vh - 7rem);
+  padding: 2rem 1.3rem;
+}
+.sidebar section + section {
+  margin-top: 2.3rem;
+}
+.content {
+  padding: clamp(1rem, 3vw, 2.5rem);
+  min-width: 0;
+}
+.card,
+.empty-state,
+.load-error {
+  background: #fff;
+  border: 1px solid #d4e0dd;
+  border-radius: 0.85rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px #1234460b;
+  margin-bottom: 1.25rem;
+}
+.load-error {
+  max-width: 42rem;
+  margin: 3rem auto;
+}
+.muted {
+  color: #536b75;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.class-list {
+  display: grid;
+  gap: 0.45rem;
+}
+.class-list button,
+.student-list button {
+  border: 1px solid transparent;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  padding: 0.75rem;
+  border-radius: 0.55rem;
+  display: grid;
+  gap: 0.2rem;
+}
+.class-list button:hover,
+.student-list button:hover {
+  background: #d5e4dd;
+}
+.class-list button[aria-current],
+.student-list button.selected {
+  border-color: #3d806c;
+  background: #edf8f1;
+}
+small {
+  color: #526976;
+  font-size: 0.8rem;
+}
+form {
+  display: grid;
+  gap: 0.55rem;
+}
+label,
+legend {
+  font-weight: 650;
+}
+input {
+  width: 100%;
+  min-height: 2.6rem;
+  border: 1px solid #8b9fa6;
+  border-radius: 0.4rem;
+  background: #fff;
+  color: #172c38;
+  padding: 0.45rem 0.65rem;
+}
+input[type="file"] {
+  padding: 0.55rem;
+}
+form button {
+  margin-top: 0.6rem;
+}
+button:not(.text-button) {
+  border: 1px solid #9db5b2;
+  border-radius: 0.45rem;
+  background: #fff;
+  color: #174453;
+  padding: 0.55rem 0.8rem;
+  font-weight: 650;
+}
+button:not(.text-button):hover {
+  background: #e8f1ed;
+}
+button.primary {
+  background: #176d58;
+  color: #fff;
+  border-color: #176d58;
+}
+button.primary:hover {
+  background: #0f5848;
+}
+.text-button {
+  border: 0;
+  background: transparent;
+  color: #176d58;
+  padding: 0.4rem 0;
+  font-weight: 700;
+}
+.feedback {
+  border-radius: 0.5rem;
+  padding: 0.8rem 1rem;
+  font-weight: 650;
+}
+.error {
+  background: #ffeded;
+  color: #822929;
+  border: 1px solid #e8abab;
+}
+.success {
+  background: #e6f5e9;
+  color: #225d3a;
+  border: 1px solid #a5d3b3;
+}
+.section-heading,
+.progress-row,
+.session-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.count-pill {
+  background: #e8f2ee;
+  color: #195941;
+  border-radius: 2rem;
+  padding: 0.35rem 0.7rem;
+  white-space: nowrap;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.details-form {
+  max-width: 30rem;
+  margin: 1rem 0;
+}
+.new-session {
+  grid-template-columns: minmax(10rem, 15rem) auto;
+  align-items: end;
+  max-width: 32rem;
+}
+.new-session label {
+  grid-column: 1 / -1;
+}
+.new-session button {
+  margin: 0;
+}
+.session-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.session-list li {
+  padding: 0.9rem 0;
+  border-top: 1px solid #e1e9e6;
+}
+.session-list li span {
+  display: grid;
+  gap: 0.15rem;
+}
+.assessment-header progress {
+  width: 100%;
+  height: 1rem;
+  accent-color: #176d58;
+}
+.progress-row {
+  margin: 1.2rem 0 0.4rem;
+}
+.assessment-layout {
+  display: grid;
+  grid-template-columns: minmax(13rem, 18rem) minmax(0, 1fr);
+  gap: 1.25rem;
+}
+.student-list {
+  align-self: start;
+  display: grid;
+  gap: 0.2rem;
+}
+.student-list h3 {
+  margin-bottom: 0.4rem;
+}
+.student-list button {
+  width: 100%;
+}
+.grading-panel h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.current-grade strong {
+  font-size: 1.3rem;
+}
+fieldset {
+  border: 0;
+  border-top: 1px solid #d7e2de;
+  padding: 1.2rem 0;
+  margin: 1.1rem 0 0;
+}
+legend {
+  padding-right: 1rem;
+}
+.rating-grid,
+.status-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.35rem;
+}
+.rating-grid button {
+  min-width: 3.6rem;
+  font-size: 1.1rem;
+}
+.grading-panel button[aria-pressed="true"] {
+  background: #176d58;
+  color: #fff;
+  border-color: #176d58;
+}
+.discard-area {
+  margin: 1.5rem 0;
+  color: #6f4545;
+}
+.discard-area button {
+  color: #822929;
+  border-color: #bb8d8d;
+}
+.discard-area p {
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+@media (max-width: 950px) {
+  .assessment-layout {
+    grid-template-columns: 1fr;
+  }
+  .student-list {
+    max-height: 18rem;
+    overflow: auto;
+  }
+}
+@media (max-width: 780px) {
+  .topbar {
+    display: block;
+  }
+  .scope {
+    margin-top: 0.8rem;
+  }
+  .layout {
+    display: block;
+  }
+  .sidebar {
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid #c7d7d1;
+    padding: 1.1rem;
+  }
+  .sidebar section + section {
+    margin-top: 1.2rem;
+  }
+}
+@media (max-width: 470px) {
+  .card {
+    padding: 1rem;
+  }
+  .new-session {
+    grid-template-columns: 1fr;
+  }
+  .section-heading,
+  .progress-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .session-list li {
+    align-items: flex-start;
+  }
+}
