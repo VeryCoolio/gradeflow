@@ -1,10 +1,13 @@
 import { useMemo, useRef, useState, type FormEvent } from "react";
 import {
   addClass,
+  removeClass,
+  renameStudent,
   selectClass,
   setClassArchived,
   updateClassDetails,
 } from "./application/classService";
+import { addDemoClass } from "./application/demoClass";
 import { formatGradeDecimal } from "./domain/grading/gradeFormat";
 import { RATING_SYMBOLS, type Observation } from "./domain/grading/types";
 import {
@@ -105,9 +108,24 @@ export function App({
   const [periodLabel, setPeriodLabel] = useState("");
   const [importFile, setImportFile] = useState<File | null>(null);
   const [backupFile, setBackupFile] = useState<File | null>(null);
+  const [recoveryFile, setRecoveryFile] = useState<File | null>(null);
   const [hasPreImportBackup, setHasPreImportBackup] = useState(() => {
     try {
       return localRepository.readPreImportBackup() !== null;
+    } catch {
+      return false;
+    }
+  });
+  const [hasClassDeletionBackup, setHasClassDeletionBackup] = useState(() => {
+    try {
+      return localRepository.readClassDeletionBackup() !== null;
+    } catch {
+      return false;
+    }
+  });
+  const [hasMigrationBackup] = useState(() => {
+    try {
+      return localRepository.readMigrationBackup() !== null;
     } catch {
       return false;
     }
@@ -131,6 +149,8 @@ export function App({
   const [editingDetails, setEditingDetails] = useState(false);
   const [detailName, setDetailName] = useState("");
   const [detailPeriod, setDetailPeriod] = useState("");
+  const [editingStudentId, setEditingStudentId] = useState<string | null>(null);
+  const [studentName, setStudentName] = useState("");
   const startingRef = useRef(false);
 
   const currentClass = notebook?.classes.find(
@@ -203,6 +223,21 @@ export function App({
     }
   }
 
+  function createDemoClass() {
+    if (!notebook) return;
+    if (
+      apply(() => {
+        const updated = addDemoClass(notebook, createId, now());
+        localRepository.save(updated);
+        return updated;
+      }, "Demo-Klasse mit ausschließlich fiktiven Namen lokal angelegt.")
+    ) {
+      setActiveSessionId(null);
+      setSelectedStudentId(null);
+      setDashboardView("stunden");
+    }
+  }
+
   function chooseClass(classId: string) {
     if (!notebook) return;
     const updated = selectClass(notebook, classId);
@@ -220,6 +255,7 @@ export function App({
       );
       setSelectedStudentId(null);
       setEditingDetails(false);
+      setEditingStudentId(null);
       setDashboardView("stunden");
       setHistoryStudentId(null);
       startingRef.current = false;
@@ -243,6 +279,71 @@ export function App({
       }, "Klasse und Bewertungszeitraum gespeichert.")
     ) {
       setEditingDetails(false);
+    }
+  }
+
+  function saveStudentName(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!notebook || !currentClass || !editingStudentId) return;
+    if (
+      apply(() => {
+        const updated = renameStudent(
+          notebook,
+          currentClass.id,
+          editingStudentId,
+          studentName,
+          now(),
+        );
+        localRepository.save(updated);
+        return updated;
+      }, "Personenname lokal gespeichert.")
+    ) {
+      setEditingStudentId(null);
+      setStudentName("");
+    }
+  }
+
+  function deleteCurrentClass() {
+    if (!notebook || !currentClass) return;
+    if (
+      !confirmDiscard(
+        `Klasse ${currentClass.name} samt aller Stunden wirklich löschen? Der bisherige Stand wird zuvor lokal als Rückfall gesichert.`,
+      )
+    )
+      return;
+    const classId = currentClass.id;
+    if (
+      apply(() => {
+        const updated = removeClass(notebook, classId);
+        localRepository.saveAfterClassDeletion(classId, updated);
+        return updated;
+      }, "Klasse gelöscht. Der vorherige Stand kann lokal wiederhergestellt werden.")
+    ) {
+      setHasClassDeletionBackup(true);
+      setActiveSessionId(null);
+      setSelectedStudentId(null);
+      setEditingStudentId(null);
+      setDashboardView("stunden");
+    }
+  }
+
+  function restoreDeletedClass() {
+    if (
+      !confirmDiscard(
+        "Den Stand vor der letzten Klassenlöschung wiederherstellen? Alle seitdem vorgenommenen Änderungen werden ersetzt.",
+      )
+    )
+      return;
+    if (
+      apply(
+        () => localRepository.restoreClassDeletionBackup(true),
+        "Stand vor der Klassenlöschung wiederhergestellt.",
+      )
+    ) {
+      setActiveSessionId(null);
+      setSelectedStudentId(null);
+      setEditingStudentId(null);
+      setDashboardView("stunden");
     }
   }
 
@@ -417,6 +518,42 @@ export function App({
     }
   }
 
+  function exportMigrationBackup() {
+    try {
+      const backup = localRepository.readMigrationBackup();
+      if (!backup) throw new RangeError("Keine Migrationssicherung vorhanden.");
+      download(
+        "gradeflow-legacy-migrationssicherung.json",
+        `${JSON.stringify(backup, null, 2)}\n`,
+        "application/json;charset=utf-8",
+      );
+      setError("");
+      setNotice("Originaldaten vor der Migration heruntergeladen.");
+    } catch (caught) {
+      setError(messageFrom(caught));
+      setNotice("");
+    }
+  }
+
+  function restoreLegacyKeys() {
+    if (
+      !confirmDiscard(
+        "Originale Legacy-Schlüssel in diesem Browser wiederherstellen? Das neue Notebook bleibt unverändert; der alte App-Ursprung muss derselbe sein.",
+      )
+    )
+      return;
+    try {
+      localRepository.restoreLegacyBackup();
+      setError("");
+      setNotice(
+        "Legacy-Schlüssel im selben Browser wiederhergestellt. Das neue Notebook bleibt erhalten.",
+      );
+    } catch (caught) {
+      setError(messageFrom(caught));
+      setNotice("");
+    }
+  }
+
   async function importBackup(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
@@ -478,21 +615,91 @@ export function App({
     }
   }
 
+  function downloadUnreadableRaw() {
+    try {
+      const raw = localRepository.readRawNotebook();
+      if (raw === null)
+        throw new RangeError("Keine Notebook-Rohdaten vorhanden.");
+      download(
+        "gradeflow-unlesbare-rohdaten.json",
+        raw,
+        "application/json;charset=utf-8",
+      );
+      setNotice("Rohdaten heruntergeladen. Bewahre sie geschützt auf.");
+    } catch (caught) {
+      setError(messageFrom(caught));
+    }
+  }
+
+  async function recoverUnreadableNotebook(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!recoveryFile) {
+      setError("Bitte eine JSON-Sicherung auswählen.");
+      return;
+    }
+    try {
+      const raw = await recoveryFile.text();
+      importNotebookJson(raw);
+      if (
+        !confirmDiscard(
+          "Die lokale Datenbank ist nicht lesbar. Die ausgewählte JSON-Sicherung ersetzt sie. Vorhandene Rohdaten werden zuvor lokal gesichert. Wirklich fortfahren?",
+        )
+      )
+        return;
+      const imported = localRepository.recoverFromUnreadableNotebook(raw, true);
+      setNotebook(imported);
+      setError("");
+      setNotice("Daten aus der JSON-Sicherung wiederhergestellt.");
+      setRecoveryFile(null);
+      setActiveSessionId(null);
+      setSelectedStudentId(null);
+    } catch (caught) {
+      setError(messageFrom(caught));
+    }
+  }
+
   if (!notebook) {
     return (
       <main className="load-error">
         <h1>Mündliche Mitarbeit</h1>
         <p role="alert">{error}</p>
         <p>
-          Die vorhandenen Daten wurden nicht verändert. Bitte den lokalen
-          Datenstand prüfen, bevor du erneut öffnest.
+          Die vorhandenen Daten wurden nicht verändert. Sichere bei Bedarf die
+          Rohdaten und wähle dann eine zuvor heruntergeladene JSON-Sicherung.
         </p>
+        <button type="button" onClick={downloadUnreadableRaw}>
+          Vorhandene Notebook-Rohdaten herunterladen
+        </button>
+        {hasMigrationBackup ? (
+          <button type="button" onClick={exportMigrationBackup}>
+            Legacy-Migrationssicherung herunterladen
+          </button>
+        ) : null}
+        {notice ? <p role="status">{notice}</p> : null}
+        <form onSubmit={recoverUnreadableNotebook}>
+          <label htmlFor="recovery-file">
+            JSON-Sicherung zur Wiederherstellung
+          </label>
+          <input
+            id="recovery-file"
+            type="file"
+            accept=".json,application/json"
+            onChange={(event) =>
+              setRecoveryFile(event.target.files?.[0] ?? null)
+            }
+            required
+          />
+          <button type="submit">Aus Sicherung wiederherstellen</button>
+        </form>
       </main>
     );
   }
 
   return (
     <div className="app-shell">
+      <a className="skip-link" href="#main-content">
+        Zum Inhalt springen
+      </a>
       <header className="topbar">
         <div>
           <p className="eyebrow">Gradeflow · lokal</p>
@@ -529,12 +736,15 @@ export function App({
               ))}
             </div>
           </section>
-          <section className="import-panel">
-            <h2>Klasse importieren</h2>
+          <details className="import-panel" open={!currentClass}>
+            <summary>Klasse importieren</summary>
             <p className="muted">
               CSV oder TXT: ein Name pro Zeile oder Vorname und Nachname in zwei
               Spalten.
             </p>
+            <a href="./demo-klasse.csv" download>
+              Fiktive Beispiel-Klassenliste herunterladen
+            </a>
             <form onSubmit={importClass}>
               <label htmlFor="class-name">Klassenname</label>
               <input
@@ -565,9 +775,9 @@ export function App({
                 Klasse lokal anlegen
               </button>
             </form>
-          </section>
-          <section className="backup-panel">
-            <h2>Datensicherung</h2>
+          </details>
+          <details className="backup-panel">
+            <summary>Datensicherung</summary>
             <p className="muted">
               Die JSON-Datei enthält alle Klassen und Stunden. Bewahre sie
               geschützt auf.
@@ -593,9 +803,29 @@ export function App({
                 Stand vor letztem Import wiederherstellen
               </button>
             ) : null}
-          </section>
+            {hasClassDeletionBackup ? (
+              <button type="button" onClick={restoreDeletedClass}>
+                Stand vor letzter Klassenlöschung wiederherstellen
+              </button>
+            ) : null}
+            {hasMigrationBackup ? (
+              <div className="legacy-recovery">
+                <p className="muted">
+                  Die unveränderten Daten vor der Legacy-Migration können
+                  gesichert oder im selben Browser wiederhergestellt werden. Das
+                  neue Notebook bleibt dabei erhalten.
+                </p>
+                <button type="button" onClick={exportMigrationBackup}>
+                  Legacy-Migrationssicherung herunterladen
+                </button>
+                <button type="button" onClick={restoreLegacyKeys}>
+                  Legacy-Schlüssel wiederherstellen
+                </button>
+              </div>
+            ) : null}
+          </details>
         </aside>
-        <main className="content">
+        <main className="content" id="main-content" tabIndex={-1}>
           {error ? (
             <p className="feedback error" role="alert">
               {error}
@@ -613,6 +843,11 @@ export function App({
                 Importiere eine Klassenliste, um die mündliche Mitarbeit über
                 einen frei gewählten Zeitraum zu dokumentieren.
               </p>
+              {notebook.classes.length === 0 ? (
+                <button type="button" onClick={createDemoClass}>
+                  Demo-Klasse mit fiktiven Namen anlegen
+                </button>
+              ) : null}
             </section>
           ) : null}
           {currentClass && !activeSession ? (
@@ -680,13 +915,70 @@ export function App({
                     <button type="button" onClick={exportCsv}>
                       Klasse als CSV exportieren
                     </button>
+                    <button type="button" onClick={deleteCurrentClass}>
+                      Klasse löschen
+                    </button>
                   </div>
                 )}
                 <p className="muted">
                   Der Zeitraum endet nur, wenn du ihn archivierst. Noten werden
                   nicht automatisch zurückgesetzt.
                 </p>
+                <p className="muted">
+                  Der errechnete Stand unterstützt die Dokumentation. Die
+                  pädagogische Bewertung und eine Endnote entscheidet die
+                  Lehrkraft.
+                </p>
               </section>
+              <details className="card class-students">
+                <summary>Personennamen bearbeiten</summary>
+                <p className="muted">
+                  Namen lassen sich korrigieren; bisherige Stunden und
+                  Bewertungen bleiben erhalten.
+                </p>
+                <ul>
+                  {currentClass.students.map((student) => (
+                    <li key={student.id}>
+                      <span>{student.displayName}</span>
+                      <button
+                        type="button"
+                        aria-label={`Namen von ${student.displayName} bearbeiten`}
+                        onClick={() => {
+                          setEditingStudentId(student.id);
+                          setStudentName(student.displayName);
+                        }}
+                      >
+                        Namen bearbeiten
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+                {editingStudentId ? (
+                  <form
+                    onSubmit={saveStudentName}
+                    className="student-name-form"
+                  >
+                    <label htmlFor="student-name">Neuer Personenname</label>
+                    <input
+                      id="student-name"
+                      value={studentName}
+                      onChange={(event) => setStudentName(event.target.value)}
+                      required
+                    />
+                    <div className="actions">
+                      <button className="primary" type="submit">
+                        Namen speichern
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setEditingStudentId(null)}
+                      >
+                        Abbrechen
+                      </button>
+                    </div>
+                  </form>
+                ) : null}
+              </details>
               {!currentClass.archived ? (
                 <section className="card">
                   <h2>Neue Unterrichtsstunde</h2>
@@ -832,7 +1124,7 @@ export function App({
                   Erfassung jederzeit unterbrechen.
                 </p>
                 <div className="progress-row">
-                  <strong>
+                  <strong aria-live="polite" aria-atomic="true">
                     {capturedCount} von {currentClass.students.length} Personen
                     erfasst
                   </strong>
@@ -879,7 +1171,9 @@ export function App({
                   {selectedStudent ? (
                     <>
                       <p className="eyebrow">Aktuelle Person</p>
-                      <h3>{selectedStudent.displayName}</h3>
+                      <h3 aria-live="polite" aria-atomic="true">
+                        {selectedStudent.displayName}
+                      </h3>
                       <p className="current-grade">
                         Aktueller Stand:{" "}
                         <strong>

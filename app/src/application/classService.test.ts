@@ -1,7 +1,10 @@
 import { describe, expect, it } from "vitest";
 import { EMPTY_NOTEBOOK } from "../infrastructure/local/schema";
+import { reportClass } from "../test/reportClass";
 import {
   addClass,
+  removeClass,
+  renameStudent,
   selectClass,
   setClassArchived,
   updateClassDetails,
@@ -83,5 +86,69 @@ describe("Klassen und Bewertungszeitraum", () => {
         now,
       ),
     ).toThrow(/1 bis 45/);
+  });
+
+  it("ändert einen Personennamen ohne Bewertungen zu verlieren und entfernt eine Klasse mit neuer Auswahl", () => {
+    let nextId = 0;
+    const first = addClass(
+      EMPTY_NOTEBOOK,
+      { name: "8b", periodLabel: "Offen", students: ["Fiktiv Ada"] },
+      () => `id-${++nextId}`,
+      now,
+    );
+    const second = addClass(
+      first,
+      { name: "9b", periodLabel: "Offen", students: ["Fiktiv Bea"] },
+      () => `id-${++nextId}`,
+      now,
+    );
+    const renamed = renameStudent(
+      second,
+      "id-1",
+      "id-2",
+      " Fiktiv  Alma ",
+      now,
+    );
+    expect(renamed.classes[0].students[0]).toMatchObject({
+      id: "id-2",
+      displayName: "Fiktiv Alma",
+      startGradeQuarterSteps: 8,
+    });
+    expect(renamed.classes[1]).toBe(second.classes[1]);
+    expect(() => renameStudent(second, "id-1", "falsch", "Name", now)).toThrow(
+      /existiert nicht/,
+    );
+    expect(() => renameStudent(second, "id-1", "id-2", " ", now)).toThrow(
+      /Personenname/,
+    );
+    const removed = removeClass(renamed, "id-3");
+    expect(removed.classes.map((item) => item.id)).toEqual(["id-1"]);
+    expect(removed.currentClassId).toBe("id-1");
+    expect(removeClass(removed, "id-1").currentClassId).toBeNull();
+  });
+
+  it("behält beim Umbenennen alle früheren Beobachtungen und IDs bei", () => {
+    const source = reportClass();
+    const notebook = {
+      ...EMPTY_NOTEBOOK,
+      currentClassId: source.id,
+      classes: [source],
+    };
+    const updated = renameStudent(
+      notebook,
+      source.id,
+      "p1",
+      "Fiktiv Alma",
+      now,
+    );
+    expect(updated.classes[0].students[0]).toMatchObject({
+      id: "p1",
+      displayName: "Fiktiv Alma",
+    });
+    expect(updated.classes[0].sessions).toBe(source.sessions);
+    expect(updated.classes[0].sessions[0].observations.p1).toEqual({
+      status: "bewertet",
+      symbol: "-",
+    });
   });
 });

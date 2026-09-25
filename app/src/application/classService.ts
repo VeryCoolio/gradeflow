@@ -101,3 +101,44 @@ export function setClassArchived(
     ),
   };
 }
+
+export function renameStudent(
+  notebook: NotebookV1,
+  classId: string,
+  studentId: string,
+  nameInput: string,
+  now: string,
+): NotebookV1 {
+  const classRecord = existingClass(notebook, classId);
+  if (!classRecord.students.some((student) => student.id === studentId)) {
+    throw new RangeError("Die ausgewählte Person existiert nicht.");
+  }
+  const displayName = requiredName(nameInput, "Personenname");
+  return {
+    ...notebook,
+    classes: notebook.classes.map((item) =>
+      item.id === classId
+        ? {
+            ...item,
+            updatedAt: now,
+            students: item.students.map((student) =>
+              student.id === studentId ? { ...student, displayName } : student,
+            ),
+          }
+        : item,
+    ),
+  };
+}
+
+export function removeClass(notebook: NotebookV1, classId: string): NotebookV1 {
+  existingClass(notebook, classId);
+  const classes = notebook.classes.filter((item) => item.id !== classId);
+  return {
+    ...notebook,
+    classes,
+    currentClassId:
+      notebook.currentClassId === classId
+        ? (classes[0]?.id ?? null)
+        : notebook.currentClassId,
+  };
+}

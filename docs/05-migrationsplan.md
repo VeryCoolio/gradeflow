@@ -54,7 +54,7 @@ Abnahme:
 - beschädigte Dateien überschreiben keinen funktionierenden Stand,
 - Rückfall auf Backup ist dokumentiert und getestet.
 
-Technischer Rückfallstand für Meilenstein 2: Vor einem automatischen Schreiben in `oral-grading-notebook-v1` werden die unveränderten Rohwerte aus `oral-grading-app-v4` und `oral-grading-session-drafts-v1` gemeinsam unter `oral-grading-migration-backup-v1` gesichert. Die Legacy-Schlüssel werden bei der Migration nicht gelöscht. Ein fehlerhafter oder mit der Sicherung nicht mehr übereinstimmender Quellstand stoppt die Migration, ohne den neuen Stand zu überschreiben. `LocalRepository.restoreLegacyBackup()` kann die ursprünglichen Legacy-Schlüssel aus der Sicherung wiederherstellen; dieser Rückfall ist mit fiktiven Daten getestet. Das neue Schema wird dabei nicht automatisch entfernt. Die spätere Oberfläche muss einen verständlichen Wiederherstellungsweg bereitstellen. Browser-Speicher ist an den jeweiligen Ursprung gebunden; ein Wechsel des Ursprungs erfordert eine gesonderte Übertragung der Rohdaten oder Sicherung.
+Technischer Rückfallstand für Meilenstein 2: Vor einem automatischen Schreiben in `oral-grading-notebook-v1` werden die unveränderten Rohwerte aus `oral-grading-app-v4` und `oral-grading-session-drafts-v1` gemeinsam unter `oral-grading-migration-backup-v1` gesichert. Die Legacy-Schlüssel werden bei der Migration nicht gelöscht. Ein fehlerhafter oder mit der Sicherung nicht mehr übereinstimmender Quellstand stoppt die Migration, ohne den neuen Stand zu überschreiben. `LocalRepository.restoreLegacyBackup()` kann die ursprünglichen Legacy-Schlüssel aus der Sicherung wiederherstellen; dieser Rückfall ist mit fiktiven Daten getestet. Das neue Schema wird dabei nicht automatisch entfernt. Seit Meilenstein 5 sind Download der Migrationssicherung und Wiederherstellung der alten Schlüssel über die Oberfläche erreichbar. Browser-Speicher ist an den jeweiligen Ursprung gebunden; ein Wechsel des Ursprungs erfordert eine gesonderte Übertragung der Rohdaten oder Sicherung.
 
 ## Phase 3 – Kernoberfläche
 
@@ -115,3 +115,5 @@ Abnahme:
 - Testaufgaben aus `06-testkonzept.md` vollständig durchführbar,
 - Versionsnummer und Commit eindeutig dokumentiert,
 - keine Änderungen an der Testversion während laufender Erhebung.
+
+Umsetzungsstand vom 25.09.2026: Der Tag `v0.5.0` definiert die Testversion. Reproduzierbarer Start, fiktiver Datensatz und Aufgabenfolge stehen in [usability-testversion.md](usability-testversion.md); die technische Teilprüfung der Barrierefreiheit in [barrierefreiheitspruefung.md](barrierefreiheitspruefung.md). Ein Test mit Lehramtsstudierenden und eine umfassende Prüfung mit assistiver Technik folgen als eigene Erhebung.

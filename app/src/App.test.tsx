@@ -11,6 +11,9 @@ import {
 import userEvent from "@testing-library/user-event";
 import { App } from "./App";
 import {
+  CLASS_DELETION_BACKUP_KEY,
+  DAMAGED_NOTEBOOK_BACKUP_KEY,
+  LEGACY_APP_KEY,
   LocalRepository,
   NOTEBOOK_STORAGE_KEY,
   type StoragePort,
@@ -209,6 +212,11 @@ describe("Kernoberfläche", () => {
   it("lässt die vollständige Erfassung per Tastatur zu", async () => {
     const user = userEvent.setup();
     makeApp();
+    expect(
+      screen
+        .getByRole("link", { name: "Zum Inhalt springen" })
+        .getAttribute("href"),
+    ).toBe("#main-content");
     await importTwoStudents(user);
     const start = screen.getByRole("button", { name: "Stunde beginnen" });
     for (
@@ -374,6 +382,7 @@ describe("Kernoberfläche", () => {
       (_name, contents) => downloads.push(contents),
     );
     await importTwoStudents(user);
+    await user.click(screen.getByText("Datensicherung"));
     await user.click(
       screen.getByRole("button", {
         name: "Vollständige JSON-Sicherung herunterladen",
@@ -409,5 +418,141 @@ describe("Kernoberfläche", () => {
       }),
     );
     expect(repository.load().classes).toHaveLength(1);
+  });
+
+  it("legt eine feste Demo-Klasse an und korrigiert einen Personennamen ohne Datenverlust", async () => {
+    const user = userEvent.setup();
+    const { repository } = makeApp();
+    await user.click(
+      screen.getByRole("button", {
+        name: "Demo-Klasse mit fiktiven Namen anlegen",
+      }),
+    );
+    expect(
+      repository
+        .load()
+        .classes[0].students.map((student) => student.displayName),
+    ).toEqual(["Fiktiv Ada", "Fiktiv Bea", "Fiktiv Cem", "Fiktiv Dana"]);
+    await user.click(screen.getByText("Klasse importieren"));
+    expect(
+      screen
+        .getByRole("link", {
+          name: "Fiktive Beispiel-Klassenliste herunterladen",
+        })
+        .getAttribute("href"),
+    ).toBe("./demo-klasse.csv");
+    await user.click(screen.getByText("Personennamen bearbeiten"));
+    await user.click(
+      screen.getByRole("button", { name: "Namen von Fiktiv Ada bearbeiten" }),
+    );
+    await user.clear(screen.getByLabelText("Neuer Personenname"));
+    await user.type(screen.getByLabelText("Neuer Personenname"), "Fiktiv Alma");
+    await user.click(screen.getByRole("button", { name: "Namen speichern" }));
+    expect(repository.load().classes[0].students[0]).toMatchObject({
+      id: "id-2",
+      displayName: "Fiktiv Alma",
+    });
+  });
+
+  it("löscht eine Klasse nur nach Bestätigung und stellt den vorherigen Stand wieder her", async () => {
+    const user = userEvent.setup();
+    let allowed = false;
+    const { repository, storage } = makeApp(undefined, () => allowed);
+    await importTwoStudents(user);
+    await user.click(screen.getByRole("button", { name: "Klasse löschen" }));
+    expect(repository.load().classes).toHaveLength(1);
+    expect(storage.getItem(CLASS_DELETION_BACKUP_KEY)).toBeNull();
+    allowed = true;
+    await user.click(screen.getByRole("button", { name: "Klasse löschen" }));
+    expect(repository.load().classes).toHaveLength(0);
+    expect(storage.getItem(CLASS_DELETION_BACKUP_KEY)).not.toBeNull();
+    await user.click(screen.getByText("Datensicherung"));
+    await user.click(
+      screen.getByRole("button", {
+        name: "Stand vor letzter Klassenlöschung wiederherstellen",
+      }),
+    );
+    expect(repository.load().classes).toHaveLength(1);
+  });
+
+  it("rettet einen unlesbaren Stand nur mit valider JSON-Datei und sichert die Rohdaten", async () => {
+    const user = userEvent.setup();
+    const storage = new MemoryStorage();
+    storage.setItem(NOTEBOOK_STORAGE_KEY, "beschädigt");
+    let allowed = false;
+    const downloads: string[] = [];
+    const { repository } = makeApp(
+      storage,
+      () => allowed,
+      (_name, contents) => downloads.push(contents),
+    );
+    expect(screen.getByRole("alert").textContent).toMatch(/gültiges JSON/);
+    await user.click(
+      screen.getByRole("button", {
+        name: "Vorhandene Notebook-Rohdaten herunterladen",
+      }),
+    );
+    expect(downloads).toEqual(["beschädigt"]);
+    const upload = async (raw: string) => {
+      const file = new File([raw], "sicherung.json", {
+        type: "application/json",
+      });
+      Object.defineProperty(file, "text", { value: async () => raw });
+      await user.upload(
+        screen.getByLabelText("JSON-Sicherung zur Wiederherstellung"),
+        file,
+      );
+      fireEvent.submit(
+        screen
+          .getByLabelText("JSON-Sicherung zur Wiederherstellung")
+          .closest("form")!,
+      );
+    };
+    await upload("kaputt");
+    await waitFor(() =>
+      expect(screen.getByRole("alert").textContent).toMatch(/gültiges JSON/),
+    );
+    expect(storage.getItem(NOTEBOOK_STORAGE_KEY)).toBe("beschädigt");
+    await upload(JSON.stringify(EMPTY_NOTEBOOK));
+    expect(storage.getItem(NOTEBOOK_STORAGE_KEY)).toBe("beschädigt");
+    allowed = true;
+    await upload(JSON.stringify(EMPTY_NOTEBOOK));
+    await waitFor(() => expect(repository.load()).toEqual(EMPTY_NOTEBOOK));
+    expect(storage.getItem(DAMAGED_NOTEBOOK_BACKUP_KEY)).toBe("beschädigt");
+  });
+
+  it("stellt eine Legacy-Migrationssicherung als Datei und Rückfall im selben Browser bereit", async () => {
+    const user = userEvent.setup();
+    const storage = new MemoryStorage();
+    const legacyRaw = JSON.stringify({
+      currentClassId: "c1",
+      classes: [
+        {
+          id: "c1",
+          name: "Fiktive Altklasse",
+          students: [{ id: "p1", name: "Fiktiv Ada", startGrade: 2 }],
+          sessions: [],
+        },
+      ],
+    });
+    storage.setItem(LEGACY_APP_KEY, legacyRaw);
+    const downloads: string[] = [];
+    makeApp(
+      storage,
+      () => true,
+      (_name, contents) => downloads.push(contents),
+    );
+    await user.click(screen.getByText("Datensicherung"));
+    await user.click(
+      screen.getByRole("button", {
+        name: "Legacy-Migrationssicherung herunterladen",
+      }),
+    );
+    expect(JSON.parse(downloads[0]).rawApp).toBe(legacyRaw);
+    storage.removeItem(LEGACY_APP_KEY);
+    await user.click(
+      screen.getByRole("button", { name: "Legacy-Schlüssel wiederherstellen" }),
+    );
+    expect(storage.getItem(LEGACY_APP_KEY)).toBe(legacyRaw);
   });
 });

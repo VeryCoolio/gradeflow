@@ -2,6 +2,17 @@
 
 Der Git-Verlauf beginnt mit dem Projektstand nach Meilenstein 2. Frühere Arbeitsschritte sind im [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) festgehalten; dafür werden keine rückdatierten Commits erzeugt.
 
+## 0.5.0 – 25.09.2026
+
+- Reproduzierbare Usability-Testversion mit fiktiver Demo-Klasse, herunterladbarer Beispiel-Klassenliste und festgelegter Aufgabenfolge.
+- Nachträgliche Korrektur von Personennamen bei unveränderten Bewertungen.
+- Bewusst bestätigte Klassenlöschung mit vorheriger lokaler Sicherung und Wiederherstellung.
+- Wiederherstellung eines unlesbaren lokalen Notebooks aus einer validierten JSON-Sicherung; alte Rohdaten werden vor dem Ersetzen gesichert.
+- Download und Wiederherstellung der originalen Legacy-Migrationsdaten im selben Browser.
+- Tastatursprung zum Hauptinhalt, angekündigte Änderungen bei Person und Fortschritt sowie größere Bedienelemente.
+
+Die Version ist für einen Usability-Test mit fiktiven Daten bestimmt. Ein Einsatz mit echten Schülerdaten benötigt eine gesonderte Datenschutz- und Betriebsprüfung.
+
 ## 0.4.0 – 23.09.2026
 
 - Stundentabelle mit Startwert, jeder Stunde, aktuellem Stand, Puffer und ausdrücklich sichtbaren Beobachtungsstatus.

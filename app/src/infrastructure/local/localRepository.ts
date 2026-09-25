@@ -17,6 +17,10 @@ export const NOTEBOOK_STORAGE_KEY = "oral-grading-notebook-v1";
 export const MIGRATION_BACKUP_KEY = "oral-grading-migration-backup-v1";
 export const IMPORT_REPLACEMENT_BACKUP_KEY =
   "oral-grading-import-replacement-backup-v1";
+export const CLASS_DELETION_BACKUP_KEY =
+  "oral-grading-class-deletion-backup-v1";
+export const DAMAGED_NOTEBOOK_BACKUP_KEY =
+  "oral-grading-damaged-notebook-backup-v1";
 export const LEGACY_APP_KEY = "oral-grading-app-v4";
 export const LEGACY_DRAFT_KEY = "oral-grading-session-drafts-v1";
 
@@ -135,6 +139,53 @@ export class LocalRepository {
   save(notebook: NotebookV1): void {
     assertNotebook(notebook);
     this.write(NOTEBOOK_STORAGE_KEY, JSON.stringify(notebook));
+  }
+
+  saveAfterClassDeletion(deletedClassId: string, updated: NotebookV1): void {
+    const current = this.load();
+    if (!current.classes.some((item) => item.id === deletedClassId)) {
+      throw new RangeError("Die zu löschende Klasse existiert nicht.");
+    }
+    if (
+      updated.classes.length !== current.classes.length - 1 ||
+      updated.classes.some((item) => item.id === deletedClassId)
+    ) {
+      throw new RangeError("Der neue Stand entfernt nicht genau diese Klasse.");
+    }
+    assertNotebook(updated);
+    this.write(CLASS_DELETION_BACKUP_KEY, JSON.stringify(current));
+    this.save(updated);
+  }
+
+  readClassDeletionBackup(): NotebookV1 | null {
+    const raw = this.read(CLASS_DELETION_BACKUP_KEY);
+    return raw === null ? null : parseNotebook(raw);
+  }
+
+  restoreClassDeletionBackup(confirmed = false): NotebookV1 {
+    if (!confirmed)
+      throw new RangeError("Wiederherstellung muss bestätigt werden.");
+    const previous = this.readClassDeletionBackup();
+    if (!previous)
+      throw new RangeError("Keine Klassenlöschsicherung vorhanden.");
+    this.save(previous);
+    return previous;
+  }
+
+  readRawNotebook(): string | null {
+    return this.read(NOTEBOOK_STORAGE_KEY);
+  }
+
+  recoverFromUnreadableNotebook(raw: string, confirmed = false): NotebookV1 {
+    if (!confirmed)
+      throw new RangeError("Wiederherstellung muss bestätigt werden.");
+    const imported = parseNotebook(raw);
+    const currentRaw = this.read(NOTEBOOK_STORAGE_KEY);
+    if (currentRaw !== null) {
+      this.write(DAMAGED_NOTEBOOK_BACKUP_KEY, currentRaw);
+    }
+    this.save(imported);
+    return imported;
   }
 
   createSession(

@@ -103,6 +103,10 @@ Ein kurzer standardisierter Fragebogen kann Verständlichkeit und wahrgenommene 
 - festgelegte Aufgabenreihenfolge oder dokumentierte Gegenbalancierung,
 - Testversion und Datensatz vor Beginn einfrieren.
 
+Die technische Vorbereitung, der fiktive Datensatz und eine konkrete Aufgabenfolge für Version `v0.5.0` stehen in [usability-testversion.md](usability-testversion.md). Die Erhebung selbst ist damit noch nicht durchgeführt.
+
+Die technische Teilprüfung von Tastaturbedienung, Semantik, Kontrast und responsivem Layout ist in [barrierefreiheitspruefung.md](barrierefreiheitspruefung.md) dokumentiert.
+
 ## 7. Nicht zulässige Schlussfolgerungen
 
 Aus einem erfolgreichen Usability-Test folgt nicht, dass:

@@ -1,5 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
+  CLASS_DELETION_BACKUP_KEY,
+  DAMAGED_NOTEBOOK_BACKUP_KEY,
   LEGACY_APP_KEY,
   LEGACY_DRAFT_KEY,
   IMPORT_REPLACEMENT_BACKUP_KEY,
@@ -258,6 +260,58 @@ describe("lokales Repository", () => {
       repository.importNotebookBackup(JSON.stringify(EMPTY_NOTEBOOK), true),
     ).toThrow(/Lokales Speichern fehlgeschlagen/);
     expect(storage.getItem(NOTEBOOK_STORAGE_KEY)).toBe(originalRaw);
+  });
+
+  it("löscht eine Klasse erst nach lokalem Rückfallstand und kann diesen wiederherstellen", () => {
+    const storage = new MemoryStorage();
+    const repository = new LocalRepository(storage, () => now);
+    repository.save(notebook());
+    const deleted: NotebookV1 = { ...EMPTY_NOTEBOOK, classes: [] };
+    storage.failKey = CLASS_DELETION_BACKUP_KEY;
+    expect(() => repository.saveAfterClassDeletion("c1", deleted)).toThrow(
+      /Speichern fehlgeschlagen/,
+    );
+    expect(repository.load()).toEqual(notebook());
+    storage.failKey = null;
+    repository.saveAfterClassDeletion("c1", deleted);
+    expect(storage.writes.slice(-2)).toEqual([
+      CLASS_DELETION_BACKUP_KEY,
+      NOTEBOOK_STORAGE_KEY,
+    ]);
+    expect(repository.load().classes).toHaveLength(0);
+    expect(() => repository.restoreClassDeletionBackup()).toThrow(/bestätigt/);
+    expect(repository.restoreClassDeletionBackup(true)).toEqual(notebook());
+  });
+
+  it("validiert eine Rettungsdatei und sichert unlesbare Rohdaten vor dem Ersetzen", () => {
+    const storage = new MemoryStorage();
+    const repository = new LocalRepository(storage, () => now);
+    storage.items.set(NOTEBOOK_STORAGE_KEY, "beschädigt");
+    expect(() => repository.load()).toThrow(/gültiges JSON/);
+    expect(() =>
+      repository.recoverFromUnreadableNotebook("kaputt", true),
+    ).toThrow(/gültiges JSON/);
+    expect(storage.getItem(DAMAGED_NOTEBOOK_BACKUP_KEY)).toBeNull();
+    expect(() =>
+      repository.recoverFromUnreadableNotebook(JSON.stringify(notebook())),
+    ).toThrow(/bestätigt/);
+    storage.failKey = DAMAGED_NOTEBOOK_BACKUP_KEY;
+    expect(() =>
+      repository.recoverFromUnreadableNotebook(
+        JSON.stringify(notebook()),
+        true,
+      ),
+    ).toThrow(/Speichern fehlgeschlagen/);
+    expect(storage.getItem(NOTEBOOK_STORAGE_KEY)).toBe("beschädigt");
+    storage.failKey = null;
+    expect(
+      repository.recoverFromUnreadableNotebook(
+        JSON.stringify(notebook()),
+        true,
+      ),
+    ).toEqual(notebook());
+    expect(storage.getItem(DAMAGED_NOTEBOOK_BACKUP_KEY)).toBe("beschädigt");
+    expect(repository.load()).toEqual(notebook());
   });
 
   it("vergibt dieselbe Datum-Nummer-Kombination in verschiedenen Klassen unabhängig", () => {
