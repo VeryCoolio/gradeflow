@@ -116,3 +116,16 @@ Aus einem erfolgreichen Usability-Test folgt nicht, dass:
 - Schülerinnen und Schüler motivierter werden,
 - das System schulrechtlich überall eingesetzt werden darf,
 - die App für einen produktiven Betrieb mit echten Schülerdaten ausreichend abgesichert ist.
+
+## 8. Ergänzende Abnahme der Überarbeitung 0.6.0
+
+- Manuelle Klasse mit Vorname/Nachname, mehreren Personen und vorbelegtem Schuljahr anlegen. Bezeichnung ändern, ohne Daten oder Noten zurückzusetzen.
+- Excel/CSV/TXT mit Kopfzeile `Vorname`, `Nachname` einlesen; einspaltige, vertauschte, leere, zusätzliche oder unvollständige Spalten verständlich abweisen. Grenze 45; Dateigröße maximal 5 MB. XLSX mit mehreren Blättern, Formeln oder anderen Zelltypen abweisen.
+- Leere Musterklassenliste prüfen; ausgefüllte Vorlage kann lokal importiert werden. Demo-Schaltfläche und Beispiel-CSV enthalten dieselben 20 fiktiven Namen.
+- Bei alter Stunde bleibt die Vergleichsgrundlage der Stand vor dieser Stunde. Symbolhinweise zeigen die vom Fachkern berechneten Ergebnisse.
+- Letzte Eingabe mit simuliertem Speicherfehler: kein vollständiger Status und keine Erfolgsmeldung. Nach erfolgreichem Wiederholen: Abschlussbestätigung, Tastaturfokus und Rückweg zur Übersicht.
+- Excel besitzt Klassenübersicht plus ein Blatt pro Person mit typisierten Zahlen und Daten, ohne IDs oder ausführbare Formeln; gleichnamige und lange Namen erhalten eindeutige gültige Blattnamen. CSV verwendet die dokumentierte deutsche Spaltenfolge.
+- Wechsel einer Person im Verlauf behält Achse, Datumsbeschriftungen und Stundennummern bei. Unbewertete Stunden werden nicht als bewertete Leistungsdatenpunkte dargestellt.
+- Navigation, Bewertung und Dateiabläufe bei 390, 768 und Desktopbreite prüfen; Farben sind zusätzliche Hinweise, die Texte bleiben maßgeblich.
+
+Die neue Version ersetzt keine bereits laufende Erhebung mit `v0.5.0`. Eine weitere Erhebung benötigt einen separat festgelegten Versionsstand und Datensatz.

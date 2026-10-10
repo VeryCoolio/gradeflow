@@ -4,7 +4,9 @@ Dieses Repository enthält den Neubau einer App zur Dokumentation der fortlaufen
 
 ## Projektstand
 
-Meilensteine 1 bis 5 sind umgesetzt. Die [Usability-Testversion](docs/usability-testversion.md) ist als Git-Tag `v0.5.0` mit festem fiktivem Datensatz und Aufgabenfolge beschrieben. Klassen können aus CSV/TXT importiert oder als Demo-Klasse angelegt werden. Unterrichtsstunden werden unmittelbar lokal erfasst und nach einer Unterbrechung fortgesetzt. Tabelle und Verlauf zeigen den chronologisch neu berechneten Stand; ältere Einträge und Personennamen lassen sich korrigieren. CSV-Export und eine vollständige JSON-Sicherung mit geprüftem Reimport stehen bereit. Klassen können nach Bestätigung mit lokalem Rückfallstand gelöscht werden. Eine frühere Legacy-Migrationssicherung ist über die Oberfläche herunterladbar und im selben Browser wiederherstellbar. Der unveränderte Vorläufer liegt unter `legacy-source/`; die Anforderungen, Entscheidungen und Prüfungen unter `docs/`. Der [Versionsverlauf](CHANGELOG.md) und das [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) halten Änderungen fest.
+Meilensteine 1 bis 5 sind umgesetzt; Version 0.6.0 überarbeitet die Bedienung nach Nutzerfeedback. Feste Seiten für Klassen, Klassenerstellung, Sicherung und Bewertungshilfe ersetzen die Aufklappbereiche. Klassen lassen sich manuell oder aus zweispaltigen Excel-/CSV-/TXT-Listen anlegen. Neue Klassen erhalten eine änderbare Schuljahresbezeichnung ohne Enddatum oder automatischen Reset. Die Demo enthält 20 fiktive Personen. Farbige Symbole zeigen Bedeutung und konkretes Ergebnis; jede Beobachtung wird sofort lokal gespeichert. Vollständige Stunden erhalten eine Speicherbestätigung mit Rückweg zur Übersicht. Tabelle, Verlauf mit Datumsachse, Excel mit Personenblättern, vereinfachte CSV und wiederherstellbare JSON-Vollsicherung stehen bereit. Vorhandene Daten und `legacy-source/` bleiben erhalten. [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) und [Versionsverlauf](CHANGELOG.md) beschreiben die Änderungen.
+
+Der Tag `v0.5.0` bleibt der unveränderte historische [Usability-Teststand](docs/usability-testversion.md). Die Überarbeitung wird separat geprüft und vor einer neuen Erhebung erneut festgelegt.
 
 ## Entwicklung
 
@@ -31,10 +33,10 @@ GitHub Actions führt diese Prüfungen bei Pushes und Pull Requests aus. Änderu
 
 ## Klassenliste
 
-CSV- und TXT-Dateien enthalten ohne Kopfzeile einen Namen pro Zeile oder Vorname und Nachname in zwei durch Semikolon, Komma oder Tab getrennten Spalten. Höchstens 45 Personen werden übernommen. Verwende für Tests nur fiktive Namen.
+Genau zwei Spalten, in dieser Reihenfolge: `Vorname` und `Nachname`. Zeile 1 enthält diese Überschriften, ab Zeile 2 steht je Person ein vollständiges Namenspaar. Höchstens 45 Personen, maximal 5 MB. Excel (.xlsx) enthält ein Blatt ohne Formeln; CSV/TXT verwendet UTF-8 mit Semikolon, Komma oder Tabulator. Einspaltige Listen werden abgewiesen. Die App bietet eine leere Musterklassenliste als Excel oder CSV an. Für Tests ausschließlich fiktive Namen verwenden.
 
 ## Daten
 
-Der [CSV-Export](docs/csv-exportformat.md) enthält eine Klasse samt Startwert, Stunden und aktuellem Stand. Die JSON-Sicherung enthält das gesamte lokale Notebook und kann nach einer Formatprüfung wieder importiert werden. Beim Ersetzen vorhandener Klassen erscheint eine Warnung; der vorherige Datenstand wird im selben Browser als Rückfall gespeichert. Bewahre eine heruntergeladene JSON-Datei geschützt außerhalb des Browsers auf, da lokaler Speicher und lokaler Rückfall gemeinsam verloren gehen können.
+Der Excel-Export enthält eine Klassenübersicht und je Person ein Blatt mit den chronologischen Stunden. [Excel und CSV](docs/csv-exportformat.md) sind lesbare Auswertungen ohne technische IDs, keine Wiederherstellungsformate. Die JSON-Sicherung enthält das gesamte lokale Notebook und kann nach einer Formatprüfung wieder importiert werden. Beim Ersetzen vorhandener Klassen erscheint eine Warnung; der vorherige Datenstand wird im selben Browser als Rückfall gespeichert. Bewahre eine heruntergeladene JSON-Datei geschützt außerhalb des Browsers auf, da lokaler Speicher und lokaler Rückfall gemeinsam verloren gehen können.
 
 Tests und Beispiele verwenden ausschließlich fiktive Personen. Lokale Notebook-Daten, Sicherungen, Zugangsdaten, `node_modules/` und Build-Dateien gehören nicht in Git. Ein produktiver Einsatz mit echten Schülerdaten erfordert eine gesonderte Datenschutz- und Betriebsprüfung.

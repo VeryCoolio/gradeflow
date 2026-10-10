@@ -77,3 +77,23 @@ Entscheidung vom 23.09.2026, anschließend präzisiert: Pro Klasse und Datum sin
 - 23.09.2026: O5 bestätigt; die Bachelorarbeitsversion bleibt lokal und enthält keine Cloud-Synchronisierung.
 - 23.09.2026: O7 bestätigt; `lessonSequence` unterscheidet Stunden am selben Datum und bestimmt ihre Berechnungsreihenfolge.
 - 23.09.2026: O7 präzisiert; höchstens zwei Stunden je Klasse und Datum, Nummer nur bei zwei Stunden sichtbar, atomarer Tausch und Normalisierung nach Löschung.
+
+## Rückmeldung und Entscheidungen vom 10.10.2026
+
+### O8 – Klassenerstellung und Import – entschieden
+
+Manuelle Erstellung ist zusätzlich zum Dateiimport erforderlich. Für Dateien gelten genau zwei Spalten mit den Überschriften `Vorname` und `Nachname`, in dieser Reihenfolge. Einspaltige Namenslisten werden nicht mehr angeboten. Eine leere Musterklassenliste ersetzt den bisherigen einspaltigen Download im Importablauf.
+
+### O9 – Bezeichnung des Bewertungszeitraums – entschieden
+
+Ein Schuljahr ist bei neuen Klassen vorbelegt; ohne besondere Wünsche ist keine Auswahl erforderlich. Die Bezeichnung bleibt änderbar. O4 bleibt verbindlich: kein automatisches Ende, keine zeitliche Beschränkung und kein automatischer Noten-Reset. **Technischer Vorschlag:** Bezeichnung ab August auf das nächste Schuljahr beziehen, ohne bestehende Zeiträume zu verändern.
+
+### O10 – Lesbarer Bericht und Vollsicherung – entschieden
+
+Excel-Berichte enthalten eine Klassenübersicht und je Person ein Tabellenblatt. Technische Klassen-, Personen- und Sitzungs-IDs gehören nicht in den lesbaren Bericht; `periodLabel` heißt dort „Bewertungszeitraum“. Die wiederherstellbare Vollsicherung bleibt JSON. CSV wird als zusätzliche Auswertung vereinfacht. PDF wurde als mögliche Ergänzung genannt und bleibt außerhalb dieser Überarbeitung.
+
+### O11 – Verständlichkeit der Bewertung und Bedienung – entschieden
+
+Grün- und Rotabstufungen der positiven/negativen Symbole; sichtbare Bedeutung und Berechnung einschließlich Puffer. Deutliche Erklärung des Bewertungsgegenstands. Feste Navigation ersetzt Aufklappbereiche. Nach vollständiger erfolgreicher Erfassung: Speicherbestätigung und Rückweg zur Übersicht. Der Verlauf erhält dieselbe Datumsachse für alle Personen und eine übersichtlichere Tabelle darunter. Eine größere Demo-Klasse ist verlangt; 20 Namen sind eine technische Ausgestaltungsentscheidung.
+
+**Weiter offen:** konkrete fachliche Beobachtungskriterien und ein optionaler PDF-Bericht. Aus der technischen Darstellung werden keine neuen Bewertungsmaßstäbe abgeleitet.

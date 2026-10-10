@@ -43,9 +43,10 @@ Der Abschlusstest ist ein reiner Usability- und Bedientest. Er untersucht unter 
 
 ### A. Klassen und Personen
 
-- Klassen aus CSV- oder TXT-Dateien importieren.
+- Klassen manuell mit Klassenname und je Person Vorname und Nachname anlegen oder aus Excel (.xlsx), CSV oder TXT importieren.
+- Klassenlisten besitzen genau zwei Spalten: `Vorname` und `Nachname`, in dieser Reihenfolge und mit Kopfzeile. Beide Namensfelder sind erforderlich, maximal 45 Personen. Eine leere Musterklassenliste steht als Excel und CSV bereit.
 - Klassennamen eindeutig anzeigen und bearbeiten.
-- Für eine Klasse beziehungsweise einen Kurs kann die Lehrkraft einen frei benannten Bewertungszeitraum anlegen.
+- Bei einer neuen Klasse wird eine änderbare Schuljahresbezeichnung vorbelegt. Eine Auswahl ist im normalen Ablauf nicht erforderlich. Die Lehrkraft kann eine andere Bezeichnung (auch Halbjahr oder frei gewählter Zeitraum) verwenden.
 - Der Bewertungszeitraum besitzt kein automatisch vorgegebenes Enddatum. Er läuft weiter, bis die Lehrkraft ihn selbst beendet oder archiviert.
 - Es erfolgt kein automatischer Wechsel und kein automatisches Zurücksetzen nach einem Halbjahr oder Schuljahr.
 - Namen nachträglich bearbeiten.
@@ -81,7 +82,8 @@ Der Abschlusstest ist ein reiner Usability- und Bedientest. Er untersucht unter 
 ### D. Dokumentation und Export
 
 - Tabellenansicht mit Ausgangswert, Stunden, aktuellem Stand und Puffer.
-- CSV-Export in einem eindeutig dokumentierten Format.
+- Excel-Klassenbericht mit Übersicht und einem Tabellenblatt je Person, ohne technische IDs; deutsche Bezeichnungen für Klasse, Bewertungszeitraum, Datum, Status, Symbol, Stand und Puffer.
+- CSV bleibt als zusätzliche lesbare Auswertung ohne technische IDs verfügbar.
 - Vollständige Datensicherung in einem versionierten JSON-Format.
 - Import einer Sicherung darf bestehende Daten nicht ohne klare Warnung ersetzen.
 - Exporte und Beispiele dürfen keine Zugangsdaten enthalten.
@@ -92,7 +94,11 @@ Der Abschlusstest ist ein reiner Usability- und Bedientest. Er untersucht unter 
 - Bedienung auf Smartphone, Tablet und Desktop.
 - Bewertung einer Klasse mit möglichst wenigen, klaren Eingaben.
 - Aktueller Name, aktueller Stand, gewählter Stundenstatus und Fortschritt sind jederzeit sichtbar.
-- Die Bedeutung der Symbole und des Puffers ist direkt in der App erreichbar.
+- Feste Navigation zu Klassen, Klassenerstellung, Datensicherung und Bewertungshilfe; keine Aufklappbereiche für diese Abläufe.
+- Die Symbole sind zusätzlich zu Text und Auswahlzustand farblich abgestuft: `++` dunkelgrün, `+` hellgrün, `0` neutral, `-` hellrot, `--` dunkelrot.
+- Bedeutung, Berechnung, Grenzen und Puffer sind direkt erklärt. Bei der Bewertung zeigt jedes Symbol das konkrete Ergebnis vom Stand vor der Stunde aus an.
+- Nach der letzten erfolgreichen Speicherung erscheint eine eindeutige Abschlussbestätigung mit Rückweg zur Klassenübersicht. Speicherfehler dürfen keine Erfolgsmeldung auslösen.
+- Der Verlauf verwendet für alle Personen dieselbe Achse mit allen Unterrichtsdaten, auch bei Abwesenheit, Nichtbeobachtung und offenen Einträgen. Die Ereignisse stehen in einer lesbaren Tabelle.
 - Die Oberfläche darf nicht suggerieren, dass der errechnete Stand automatisch eine rechtssichere oder objektive Endnote darstellt.
 
 ## 5. Anforderungen außerhalb des Bachelorarbeitskerns

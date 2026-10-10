@@ -1,6 +1,15 @@
 import type { Observation } from "../domain/grading/types";
+import { RATING_GUIDE } from "../application/ratingGuide";
 import { hasVisibleLessonSequence } from "../domain/sessions/lessonSequence";
 import type { LessonSession } from "../domain/sessions/types";
+
+export function observationTone(
+  observation: Observation | null | undefined,
+): string {
+  return observation?.status === "bewertet"
+    ? RATING_GUIDE[observation.symbol].tone
+    : "neutral";
+}
 
 export function observationLabel(
   observation: Observation | null | undefined,

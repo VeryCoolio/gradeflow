@@ -111,7 +111,7 @@ Eine laufende Stunde darf eine unvollständige Liste von Beobachtungen enthalten
 
 Pro Klasse und Datum sind höchstens zwei Sitzungen erlaubt. Bei der ersten wird intern `lessonSequence = 1`, bei der zweiten `lessonSequence = 2` vergeben. Ein dritter Eintrag wird mit verständlicher Fehlermeldung abgewiesen. Ausschließlich `1` und `2` sind gültig; Datum und Nummer bilden je Klasse einen eindeutigen Schlüssel. Die Oberfläche zeigt die Nummer nur bei zwei Sitzungen desselben Datums. Zur Korrektur werden die beiden Nummern in einem Zustandswechsel atomar getauscht. Nach dem Löschen einer von zwei Sitzungen wird die verbleibende auf `1` normalisiert und ihre Nummer verborgen; eine später angelegte zweite Sitzung erhält `2`. Tausch und Löschung lösen jeweils eine vollständige Neuberechnung nach Datum, `lessonSequence` und stabiler Sitzungs-ID aus.
 
-`periodLabel` ist eine frei gewählte Bezeichnung, zum Beispiel `Klasse 8b – 1. Halbjahr 2026/27`. Das Datenmodell erzwingt weder eine feste Laufzeit noch ein Enddatum. Ein Bewertungszeitraum bleibt aktiv, bis die Lehrkraft ihn bewusst archiviert. Dabei darf kein automatischer Noten-Reset stattfinden.
+`periodLabel` ist eine frei änderbare, beim Anlegen mit einem Schuljahr vorbelegte Bezeichnung, zum Beispiel `Klasse 8b – 1. Halbjahr 2026/27`. Das Datenmodell erzwingt weder eine feste Laufzeit noch ein Enddatum. Ein Bewertungszeitraum bleibt aktiv, bis die Lehrkraft ihn bewusst archiviert. Dabei darf kein automatischer Noten-Reset stattfinden.
 
 ## 5. Zuständigkeiten
 
@@ -143,3 +143,13 @@ Pro Klasse und Datum sind höchstens zwei Sitzungen erlaubt. Bei der ersten wird
 ## 6. Datenschutz und Betrieb
 
 Die technische Neufassung allein macht die App nicht automatisch bereit für echte Schülerdaten. Vor einem produktiven Schuleinsatz sind unter anderem Rechtsgrundlage, Verantwortlichkeit, Löschkonzept, Zugriffsregeln und Schutz der lokalen Daten gesondert zu prüfen. Dafür liegt in diesem Paket keine abschließende rechtliche Bewertung vor.
+
+## 7. Oberflächenüberarbeitung 0.6.0
+
+- `features/classes/ClassCreation.tsx`: manuelle Klassenerstellung und zweispaltiger Dateiimport in einem klaren Ablauf.
+- `features/assessment/RatingGuide.tsx`: sichtbar erklärte Bedeutung und Grenzen des Modells. Reine Anzeigemetadaten liegen in `application/ratingGuide.ts`.
+- `application/schoolYear.ts`: Vorschlag einer Bezeichnung; kein zeitlicher Eingriff in gespeicherte Klassen. Der technische Vorschlag wechselt am 1. August, die Bezeichnung bleibt manuell änderbar. Das ist keine Aussage über landesspezifische Unterrichtstermine.
+- `infrastructure/importExport/excelWorkbook.ts`: echte XLSX-Dateien mit ExcelJS 4.4.0 ([offizielle Dokumentation](https://github.com/exceljs/exceljs#readme)). **Technische Entscheidung:** Eine zusätzliche Produktionsabhängigkeit ist für das verlangte mehrblättrige Excel-Format und dessen lokalen Import begründet. Sie wird erst bei Excel-Import oder -Export geladen. CSV und JSON bleiben eigenständige Formate.
+- npm-Override auf `uuid` 11.1.1 und Aktualisierung von `source-map-js` beheben konkret gemeldete Audit-Befunde; XLSX-Erzeugung und -Einlesen sind mit diesen Versionen getestet.
+- Das Notebook-Schema bleibt Version 1. Bestehende Klassen, Zeitraumnamen, IDs und Beobachtungen werden nicht automatisch verändert. Neue Demo-Klassen enthalten 20 fiktive Namen; vorhandene Demo-Klassen bleiben erhalten.
+- Die Datumsachse entsteht aus allen sortierten Klassensitzungen. Leistungsdatenpunkte entstehen ausschließlich bei `bewertet`; unbewertete Stunden bleiben in der Tabelle und durch Achsenmarker zugänglich.

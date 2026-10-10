@@ -18,13 +18,13 @@ Diese Begründung ist eine Produktentscheidung. Wissenschaftliche Bezüge in der
 
 ## 3. Eingaben und Änderung
 
-| Symbol | Änderung des Zahlenwerts | Bedeutung in der App |
-|---|---:|---|
-| `--` | `+0,50` | deutlich schlechter als der bisherige Stand |
-| `-` | `+0,25` | etwas schlechter als der bisherige Stand |
-| `0` | `0,00` | ungefähr auf dem bisherigen Stand |
-| `+` | `-0,25` | etwas besser als der bisherige Stand |
-| `++` | `-0,50` | deutlich besser als der bisherige Stand |
+| Symbol | Änderung des Zahlenwerts | Bedeutung in der App                        |
+| ------ | -----------------------: | ------------------------------------------- |
+| `--`   |                  `+0,50` | deutlich schlechter als der bisherige Stand |
+| `-`    |                  `+0,25` | etwas schlechter als der bisherige Stand    |
+| `0`    |                   `0,00` | ungefähr auf dem bisherigen Stand           |
+| `+`    |                  `-0,25` | etwas besser als der bisherige Stand        |
+| `++`   |                  `-0,50` | deutlich besser als der bisherige Stand     |
 
 Im deutschen Notensystem ist ein kleinerer Zahlenwert besser. Der erlaubte Bereich reicht von `1,00` bis `6,00`.
 
@@ -40,12 +40,12 @@ Empfehlung für die neue Implementierung:
 Dadurch werden Rundungsfehler vermieden. Die Anzeige wandelt den Wert in die schulübliche Schreibweise um:
 
 | Zahlenwert | Anzeige |
-|---:|---|
-| 1,00 | `1` |
-| 1,25 | `1-` |
-| 1,50 | `1-2` |
-| 1,75 | `2+` |
-| 2,00 | `2` |
+| ---------: | ------- |
+|       1,00 | `1`     |
+|       1,25 | `1-`    |
+|       1,50 | `1-2`   |
+|       1,75 | `2+`    |
+|       2,00 | `2`     |
 
 ## 5. Puffer bei Note 1
 
@@ -71,10 +71,10 @@ Der Puffer soll verhindern, dass eine zuvor über längere Zeit sehr gute Entwic
 
 ## 6. Status ohne Bewertung
 
-| Status | Notenänderung | Pufferänderung | Bedeutung |
-|---|---:|---:|---|
-| `abwesend` | keine | keine | Person war in der Stunde nicht anwesend |
-| `nicht_beobachtet` | keine | keine | Es lag keine ausreichende Beobachtungsgrundlage für eine Bewertung der ganzen Stunde vor |
+| Status             | Notenänderung | Pufferänderung | Bedeutung                                                                                |
+| ------------------ | ------------: | -------------: | ---------------------------------------------------------------------------------------- |
+| `abwesend`         |         keine |          keine | Person war in der Stunde nicht anwesend                                                  |
+| `nicht_beobachtet` |         keine |          keine | Es lag keine ausreichende Beobachtungsgrundlage für eine Bewertung der ganzen Stunde vor |
 
 Diese Zustände werden als Ereignisse dokumentiert, aber nicht als Datenpunkt einer bewerteten Leistung behandelt. In einem Liniendiagramm kann die Linie zwischen bewerteten Stunden verbunden werden; der Status muss zusätzlich erkennbar oder in einer Ereignisliste zugänglich sein.
 
@@ -101,3 +101,11 @@ Pufferpunkte können nur beim Stand `1,00` vorhanden sein. Eine Verschlechterung
 Der Startwert `2,00` ist für die erste Version fest vorgegeben. Die Übernahme eines überschüssigen Verbesserungsschritts in den Puffer ist bestätigt.
 
 Siehe `07-offene-entscheidungen.md`.
+
+## 9. Darstellung nach der Rückmeldung vom 10.10.2026
+
+**Entscheidung:** Die fünf Symbole erhalten Grün- beziehungsweise Rotabstufungen; `0` bleibt neutral. Beschriftung und sichtbarer Auswahlzustand ergänzen die Farben. Die Bedeutung bezieht sich auf den berechneten Stand **vor der betreffenden Stunde**. Das gilt auch bei der Korrektur einer älteren Stunde; spätere Stunden beeinflussen diese Vergleichsgrundlage nicht. Die Ergebnishinweise auf den Schaltflächen verwenden dieselbe Puffer- und Grenzlogik wie die gespeicherte Berechnung.
+
+**Entscheidung:** Eine vorbelegte Schuljahresbezeichnung verändert weder den Berechnungszeitraum noch den Startwert. Kein Enddatum, kein automatischer Reset.
+
+**Offen:** Ein fachspezifischer Kriterienkatalog für die Beobachtung der mündlichen Mitarbeit wurde nicht vorgegeben. Die Oberfläche erläutert das bestätigte relative Modell, ohne neue Kriterien, feste Symbolnoten oder automatische pädagogische Urteile zu erfinden.

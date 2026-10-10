@@ -12,19 +12,18 @@ describe("Dateiexporte", () => {
       .replace(/^\uFEFF/, "")
       .split("\r\n");
     expect(lines).toHaveLength(1 + 2 * (1 + 3 + 1));
-    expect(lines[0]).toContain('"gradeQuarterSteps"');
+    expect(lines[0]).toContain('"Bewertungszeitraum"');
+    expect(lines[0]).not.toMatch(/Id|Quarter|formatVersion|periodLabel/);
     expect(lines.join("\n")).toContain(
-      '"session";"s1";"2026-09-23";"1";"bewertet";"\'++";"6";"1,50";"0"',
+      '"Unterrichtsstunde";"2026-09-23";"1";"Bewertet";"\'++";"1,50";"0"',
     );
     expect(lines.join("\n")).toContain(
-      '"session";"s2";"2026-09-23";"2";"nicht_beobachtet";"";"";"";""',
+      '"Unterrichtsstunde";"2026-09-23";"2";"Nicht beobachtet";"";"";""',
     );
     expect(lines.join("\n")).toContain(
-      '"session";"s3";"2026-09-24";"1";"offen";"";"";"";""',
+      '"Unterrichtsstunde";"2026-09-24";"";"Offen";"";"";""',
     );
-    expect(lines.join("\n")).toContain(
-      '"current";"";"";"";"";"";"6";"1,50";"0"',
-    );
+    expect(lines.join("\n")).toContain('"Aktuell";"";"";"";"";"1,50";"0"');
   });
 
   it("schützt Namen mit Trennzeichen, Zeilenumbrüchen und Formeleinstiegen", () => {

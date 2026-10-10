@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, type FormEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import {
   addClass,
   removeClass,
@@ -19,7 +19,10 @@ import type { LessonSession } from "./domain/sessions/types";
 import { StudentHistory } from "./features/history/StudentHistory";
 import { observationLabel, sessionLabel } from "./features/presentation";
 import { ClassTable } from "./features/table/ClassTable";
-import { parseClassImport } from "./infrastructure/importExport/classImport";
+import { ClassCreation } from "./features/classes/ClassCreation";
+import { RatingGuide, RATING_GUIDE } from "./features/assessment/RatingGuide";
+import { applyRating } from "./domain/grading/gradingEngine";
+import { schoolYearLabel } from "./application/schoolYear";
 import { exportClassCsv } from "./infrastructure/importExport/csvExport";
 import {
   exportNotebookJson,
@@ -39,7 +42,11 @@ function messageFrom(error: unknown): string {
     : "Ein unbekannter Fehler ist aufgetreten.";
 }
 
-function downloadText(filename: string, contents: string, mime: string): void {
+function downloadText(
+  filename: string,
+  contents: string | Uint8Array<ArrayBuffer>,
+  mime: string,
+): void {
   const url = URL.createObjectURL(new Blob([contents], { type: mime }));
   const link = document.createElement("a");
   link.href = url;
@@ -77,7 +84,11 @@ interface AppProps {
   today?: () => string;
   now?: () => string;
   confirmDiscard?: (message: string) => boolean;
-  download?: (filename: string, contents: string, mime: string) => void;
+  download?: (
+    filename: string,
+    contents: string | Uint8Array<ArrayBuffer>,
+    mime: string,
+  ) => void;
 }
 
 export function App({
@@ -104,9 +115,10 @@ export function App({
   );
   const [error, setError] = useState(loadResult.error);
   const [notice, setNotice] = useState("");
-  const [className, setClassName] = useState("");
-  const [periodLabel, setPeriodLabel] = useState("");
-  const [importFile, setImportFile] = useState<File | null>(null);
+  const [page, setPage] = useState<
+    "klasse" | "anlegen" | "sicherung" | "hilfe"
+  >("klasse");
+  const [exporting, setExporting] = useState(false);
   const [backupFile, setBackupFile] = useState<File | null>(null);
   const [recoveryFile, setRecoveryFile] = useState<File | null>(null);
   const [hasPreImportBackup, setHasPreImportBackup] = useState(() => {
@@ -131,7 +143,7 @@ export function App({
     }
   });
   const [dashboardView, setDashboardView] = useState<
-    "stunden" | "tabelle" | "verlauf"
+    "stunden" | "tabelle" | "verlauf" | "personen" | "einstellungen"
   >("stunden");
   const [historyStudentId, setHistoryStudentId] = useState<string | null>(null);
   const [lessonDate, setLessonDate] = useState(today);
@@ -152,6 +164,7 @@ export function App({
   const [editingStudentId, setEditingStudentId] = useState<string | null>(null);
   const [studentName, setStudentName] = useState("");
   const startingRef = useRef(false);
+  const completionRef = useRef<HTMLButtonElement>(null);
 
   const currentClass = notebook?.classes.find(
     (item) => item.id === notebook.currentClassId,
@@ -159,6 +172,11 @@ export function App({
   const activeSession = currentClass?.sessions.find(
     (item) => item.id === activeSessionId,
   );
+  useEffect(() => {
+    const main = document.getElementById("main-content");
+    main?.focus({ preventScroll: true });
+    window.scrollTo({ top: 0 });
+  }, [page, dashboardView, currentClass?.id, activeSessionId]);
   const firstOpenStudent = currentClass?.students.find(
     (student) => activeSession && !activeSession.observations[student.id],
   );
@@ -171,10 +189,32 @@ export function App({
   const capturedCount = activeSession
     ? Object.keys(activeSession.observations).length
     : 0;
+  useEffect(() => {
+    if (
+      activeSessionId &&
+      capturedCount === currentClass?.students.length &&
+      !error
+    ) {
+      completionRef.current?.focus();
+      completionRef.current?.scrollIntoView?.({ block: "center" });
+    }
+  }, [activeSessionId, capturedCount, currentClass?.students.length, error]);
   const report = currentClass ? buildClassReport(currentClass) : null;
   const currentGrade = report?.students.find(
     (student) => student.student.id === selectedStudent?.id,
   )?.current;
+
+  const gradeBeforeLesson =
+    currentClass && activeSession
+      ? (buildClassReport({
+          ...currentClass,
+          sessions: currentClass.sessions.filter(
+            (session) => compareLessonSessions(session, activeSession) < 0,
+          ),
+        }).students.find(
+          (student) => student.student.id === selectedStudent?.id,
+        )?.current ?? { gradeQuarterSteps: 8, bufferPoints: 0 })
+      : { gradeQuarterSteps: 8, bufferPoints: 0 };
 
   function apply(action: () => NotebookV1, success: string): NotebookV1 | null {
     try {
@@ -190,37 +230,29 @@ export function App({
     }
   }
 
-  async function importClass(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    if (!notebook || !importFile) {
-      setError("Bitte eine Klassenliste als CSV- oder TXT-Datei auswählen.");
-      return;
-    }
-    try {
-      const names = parseClassImport(await importFile.text(), importFile.name);
+  function createClass(
+    name: string,
+    periodLabel: string,
+    names: string[],
+  ): boolean {
+    if (!notebook) return false;
+    const saved = apply(() => {
       const updated = addClass(
         notebook,
-        { name: className, periodLabel, students: names },
+        { name, periodLabel, students: names },
         createId,
         now(),
       );
-      const saved = apply(() => {
-        localRepository.save(updated);
-        return updated;
-      }, `${names.length} Personen wurden lokal importiert.`);
-      if (saved) {
-        setClassName("");
-        setPeriodLabel("");
-        setImportFile(null);
-        setActiveSessionId(null);
-        setSelectedStudentId(null);
-        form.reset();
-      }
-    } catch (caught) {
-      setError(messageFrom(caught));
-      setNotice("");
-    }
+      localRepository.save(updated);
+      return updated;
+    }, `Klasse mit ${names.length} Personen angelegt und lokal gespeichert.`);
+    if (!saved) return false;
+    setPage("klasse");
+    setDashboardView("stunden");
+    setActiveSessionId(null);
+    setSelectedStudentId(null);
+    startingRef.current = false;
+    return true;
   }
 
   function createDemoClass() {
@@ -235,6 +267,8 @@ export function App({
       setActiveSessionId(null);
       setSelectedStudentId(null);
       setDashboardView("stunden");
+      setPage("klasse");
+      startingRef.current = false;
     }
   }
 
@@ -258,6 +292,7 @@ export function App({
       setEditingStudentId(null);
       setDashboardView("stunden");
       setHistoryStudentId(null);
+      setPage("klasse");
       startingRef.current = false;
     }
   }
@@ -422,13 +457,18 @@ export function App({
       (student) => !updatedSession.observations[student.id],
     );
     setSelectedStudentId(next?.id ?? selectedStudent.id);
+    if (!next)
+      setNotice(
+        "Alle Personen sind erfasst. Die gesamte Stunde ist lokal gespeichert.",
+      );
   }
 
   function leaveSession(announceSaved = true) {
     setActiveSessionId(null);
     setSelectedStudentId(null);
     startingRef.current = false;
-    if (announceSaved) setNotice("Der aktuelle Stand ist lokal gespeichert.");
+    if (announceSaved && !error)
+      setNotice("Der aktuelle Stand ist lokal gespeichert.");
   }
 
   function discardSession() {
@@ -490,7 +530,7 @@ export function App({
     if (!currentClass) return;
     try {
       download(
-        `${fileName(currentClass.name)}-stunden-v1.csv`,
+        `${fileName(currentClass.name)}-stunden-v2.csv`,
         exportClassCsv(currentClass),
         "text/csv;charset=utf-8",
       );
@@ -499,6 +539,31 @@ export function App({
     } catch (caught) {
       setError(messageFrom(caught));
       setNotice("");
+    }
+  }
+
+  async function exportExcel() {
+    if (!currentClass || exporting) return;
+    setExporting(true);
+    setNotice("Excel-Bericht wird erstellt …");
+    try {
+      const { exportClassXlsx, XLSX_MIME } =
+        await import("./infrastructure/importExport/excelWorkbook");
+      const contents = await exportClassXlsx(currentClass);
+      download(
+        `${fileName(currentClass.name)}-klassenbericht.xlsx`,
+        contents,
+        XLSX_MIME,
+      );
+      setError("");
+      setNotice(
+        "Excel-Bericht erstellt: Klassenübersicht und ein Tabellenblatt pro Person. Der Download wurde gestartet.",
+      );
+    } catch (caught) {
+      setError(messageFrom(caught));
+      setNotice("");
+    } finally {
+      setExporting(false);
     }
   }
 
@@ -711,10 +776,34 @@ export function App({
         </p>
       </header>
       <div className="layout">
-        <aside className="sidebar" aria-label="Klassen und Import">
-          <section>
+        <aside className="sidebar" aria-label="Hauptnavigation">
+          <p className="eyebrow">Arbeitsbereich</p>
+          <nav className="primary-nav" aria-label="Hauptseiten">
+            {(
+              [
+                ["klasse", "Meine Klassen"],
+                ["anlegen", "Klasse anlegen"],
+                ["sicherung", "Datensicherung"],
+                ["hilfe", "Bewertung verstehen"],
+              ] as const
+            ).map(([key, label]) => (
+              <button
+                key={key}
+                type="button"
+                aria-current={page === key ? "page" : undefined}
+                onClick={() => {
+                  setPage(key);
+                  setError("");
+                  setNotice("");
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </nav>
+          <section className="sidebar-classes">
             <h2>Klassen</h2>
-            {notebook.classes.length === 0 ? (
+            {!notebook.classes.length ? (
               <p className="muted">Noch keine Klasse vorhanden.</p>
             ) : null}
             <div className="class-list">
@@ -723,7 +812,9 @@ export function App({
                   key={item.id}
                   type="button"
                   aria-current={
-                    item.id === notebook.currentClassId ? "page" : undefined
+                    page === "klasse" && item.id === notebook.currentClassId
+                      ? "page"
+                      : undefined
                   }
                   onClick={() => chooseClass(item.id)}
                 >
@@ -736,94 +827,9 @@ export function App({
               ))}
             </div>
           </section>
-          <details className="import-panel" open={!currentClass}>
-            <summary>Klasse importieren</summary>
-            <p className="muted">
-              CSV oder TXT: ein Name pro Zeile oder Vorname und Nachname in zwei
-              Spalten.
-            </p>
-            <a href="./demo-klasse.csv" download>
-              Fiktive Beispiel-Klassenliste herunterladen
-            </a>
-            <form onSubmit={importClass}>
-              <label htmlFor="class-name">Klassenname</label>
-              <input
-                id="class-name"
-                value={className}
-                onChange={(event) => setClassName(event.target.value)}
-                required
-              />
-              <label htmlFor="period-label">Bewertungszeitraum</label>
-              <input
-                id="period-label"
-                value={periodLabel}
-                onChange={(event) => setPeriodLabel(event.target.value)}
-                placeholder="z. B. Kurs 8b"
-                required
-              />
-              <label htmlFor="class-file">Klassenliste</label>
-              <input
-                id="class-file"
-                type="file"
-                accept=".csv,.txt,text/plain,text/csv"
-                onChange={(event) =>
-                  setImportFile(event.target.files?.[0] ?? null)
-                }
-                required
-              />
-              <button className="primary" type="submit">
-                Klasse lokal anlegen
-              </button>
-            </form>
-          </details>
-          <details className="backup-panel">
-            <summary>Datensicherung</summary>
-            <p className="muted">
-              Die JSON-Datei enthält alle Klassen und Stunden. Bewahre sie
-              geschützt auf.
-            </p>
-            <button type="button" onClick={exportJson}>
-              Vollständige JSON-Sicherung herunterladen
-            </button>
-            <form onSubmit={importBackup}>
-              <label htmlFor="backup-file">JSON-Sicherung auswählen</label>
-              <input
-                id="backup-file"
-                type="file"
-                accept=".json,application/json"
-                onChange={(event) =>
-                  setBackupFile(event.target.files?.[0] ?? null)
-                }
-                required
-              />
-              <button type="submit">JSON-Sicherung importieren</button>
-            </form>
-            {hasPreImportBackup ? (
-              <button type="button" onClick={restorePreImportBackup}>
-                Stand vor letztem Import wiederherstellen
-              </button>
-            ) : null}
-            {hasClassDeletionBackup ? (
-              <button type="button" onClick={restoreDeletedClass}>
-                Stand vor letzter Klassenlöschung wiederherstellen
-              </button>
-            ) : null}
-            {hasMigrationBackup ? (
-              <div className="legacy-recovery">
-                <p className="muted">
-                  Die unveränderten Daten vor der Legacy-Migration können
-                  gesichert oder im selben Browser wiederhergestellt werden. Das
-                  neue Notebook bleibt dabei erhalten.
-                </p>
-                <button type="button" onClick={exportMigrationBackup}>
-                  Legacy-Migrationssicherung herunterladen
-                </button>
-                <button type="button" onClick={restoreLegacyKeys}>
-                  Legacy-Schlüssel wiederherstellen
-                </button>
-              </div>
-            ) : null}
-          </details>
+          <p className="local-hint">
+            Auf diesem Gerät gespeichert · ohne Cloud
+          </p>
         </aside>
         <main className="content" id="main-content" tabIndex={-1}>
           {error ? (
@@ -836,21 +842,112 @@ export function App({
               {notice}
             </p>
           ) : null}
-          {!currentClass ? (
-            <section className="empty-state">
-              <h2>Mit einer Klasse beginnen</h2>
-              <p>
-                Importiere eine Klassenliste, um die mündliche Mitarbeit über
-                einen frei gewählten Zeitraum zu dokumentieren.
+          {page === "anlegen" ? (
+            <ClassCreation
+              today={today()}
+              onCreate={createClass}
+              onDemo={createDemoClass}
+              onError={(message) => {
+                setError(message);
+                setNotice("");
+              }}
+            />
+          ) : null}
+          {page === "sicherung" ? (
+            <section className="card backup-panel">
+              <p className="eyebrow">
+                Alle Klassen sichern und wiederherstellen
               </p>
-              {notebook.classes.length === 0 ? (
-                <button type="button" onClick={createDemoClass}>
-                  Demo-Klasse mit fiktiven Namen anlegen
+              <h2>Datensicherung</h2>
+              <p className="muted">
+                Die vollständige Sicherung enthält alle Klassen, Personen und
+                Stunden als JSON-Datei und kann hier wieder eingelesen werden.
+                Der Excel-Bericht einer Klasse ist über die Klassenübersicht
+                erreichbar und dient zum Lesen und Weiterverarbeiten. Bewahre
+                beide Dateien geschützt auf.
+              </p>
+              <button type="button" onClick={exportJson}>
+                Vollständige JSON-Sicherung herunterladen
+              </button>
+              <form onSubmit={importBackup}>
+                <label htmlFor="backup-file">JSON-Sicherung auswählen</label>
+                <input
+                  id="backup-file"
+                  type="file"
+                  accept=".json,application/json"
+                  onChange={(event) =>
+                    setBackupFile(event.target.files?.[0] ?? null)
+                  }
+                  required
+                />
+                <button type="submit">JSON-Sicherung importieren</button>
+              </form>
+              {hasPreImportBackup ? (
+                <button type="button" onClick={restorePreImportBackup}>
+                  Stand vor letztem Import wiederherstellen
                 </button>
+              ) : null}
+              {hasClassDeletionBackup ? (
+                <button type="button" onClick={restoreDeletedClass}>
+                  Stand vor letzter Klassenlöschung wiederherstellen
+                </button>
+              ) : null}
+              {hasMigrationBackup ? (
+                <div className="legacy-recovery">
+                  <p className="muted">
+                    Die unveränderten Daten vor der Legacy-Migration können
+                    gesichert oder im selben Browser wiederhergestellt werden.
+                    Das neue Notebook bleibt dabei erhalten.
+                  </p>
+                  <button type="button" onClick={exportMigrationBackup}>
+                    Legacy-Migrationssicherung herunterladen
+                  </button>
+                  <button type="button" onClick={restoreLegacyKeys}>
+                    Legacy-Schlüssel wiederherstellen
+                  </button>
+                </div>
               ) : null}
             </section>
           ) : null}
-          {currentClass && !activeSession ? (
+          {page === "hilfe" ? (
+            <>
+              <button
+                type="button"
+                className="text-button"
+                onClick={() => setPage("klasse")}
+              >
+                {activeSession
+                  ? "← Zur laufenden Stunde"
+                  : "← Zur Klassenübersicht"}
+              </button>
+              <RatingGuide />
+            </>
+          ) : null}
+          {page === "klasse" && !currentClass ? (
+            <section className="empty-state">
+              <h2>Mit einer Klasse beginnen</h2>
+              <p>
+                Lege eine Klasse manuell an oder importiere eine Klassenliste.
+                Du kannst die Bedienung auch mit 20 fiktiven Personen
+                ausprobieren.
+              </p>
+              <div className="actions">
+                <button
+                  className="primary"
+                  type="button"
+                  onClick={() => setPage("anlegen")}
+                >
+                  Klasse anlegen
+                </button>
+                {notebook.classes.length === 0 ? (
+                  <button type="button" onClick={createDemoClass}>
+                    Demo-Klasse mit fiktiven Namen anlegen
+                  </button>
+                ) : null}
+              </div>
+            </section>
+          ) : null}
+          {page === "klasse" && currentClass && !activeSession ? (
             <>
               <section className="card class-overview">
                 <div className="section-heading">
@@ -867,119 +964,190 @@ export function App({
                     {currentClass.students.length} Personen
                   </span>
                 </div>
-                {editingDetails ? (
-                  <form className="details-form" onSubmit={saveDetails}>
-                    <label htmlFor="detail-name">Klassenname</label>
-                    <input
-                      id="detail-name"
-                      value={detailName}
-                      onChange={(event) => setDetailName(event.target.value)}
-                      required
-                    />
-                    <label htmlFor="detail-period">Bewertungszeitraum</label>
-                    <input
-                      id="detail-period"
-                      value={detailPeriod}
-                      onChange={(event) => setDetailPeriod(event.target.value)}
-                      required
-                    />
+                <div className="actions">
+                  <button
+                    className="primary"
+                    type="button"
+                    disabled={exporting}
+                    onClick={exportExcel}
+                  >
+                    {exporting
+                      ? "Excel wird erstellt …"
+                      : "Klasse als Excel exportieren"}
+                  </button>
+                  <button type="button" onClick={exportCsv}>
+                    Klasse als CSV exportieren
+                  </button>
+                </div>
+                <p className="muted">
+                  Der Zeitraum endet nur durch deine Archivierung. Kein
+                  automatischer Noten-Reset.
+                </p>
+              </section>
+              <nav className="view-tabs" aria-label="Klassenansichten">
+                {(
+                  [
+                    ["stunden", "Stunden"],
+                    ["tabelle", "Tabelle"],
+                    ["verlauf", "Verlauf"],
+                    ["personen", "Personen"],
+                    ["einstellungen", "Klasse bearbeiten"],
+                  ] as const
+                ).map(([key, label]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    aria-current={dashboardView === key ? "page" : undefined}
+                    onClick={() => setDashboardView(key)}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </nav>
+              {dashboardView === "einstellungen" ? (
+                <section className="card">
+                  <h2>Klasse und Bewertungszeitraum</h2>{" "}
+                  {editingDetails ? (
+                    <form className="details-form" onSubmit={saveDetails}>
+                      <label htmlFor="detail-name">Klassenname</label>
+                      <input
+                        id="detail-name"
+                        value={detailName}
+                        onChange={(event) => setDetailName(event.target.value)}
+                        required
+                      />
+                      <label htmlFor="detail-period">Bewertungszeitraum</label>
+                      <input
+                        id="detail-period"
+                        value={detailPeriod}
+                        onChange={(event) =>
+                          setDetailPeriod(event.target.value)
+                        }
+                        required
+                      />
+                      <div className="actions">
+                        <button className="primary" type="submit">
+                          Änderungen speichern
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setEditingDetails(false)}
+                        >
+                          Abbrechen
+                        </button>
+                      </div>
+                    </form>
+                  ) : (
                     <div className="actions">
-                      <button className="primary" type="submit">
-                        Änderungen speichern
-                      </button>
                       <button
                         type="button"
-                        onClick={() => setEditingDetails(false)}
+                        onClick={() => {
+                          setDetailName(currentClass.name);
+                          setDetailPeriod(currentClass.periodLabel);
+                          setEditingDetails(true);
+                        }}
                       >
-                        Abbrechen
+                        Namen und Zeitraum bearbeiten
+                      </button>
+                      <button type="button" onClick={archiveClass}>
+                        {currentClass.archived
+                          ? "Zeitraum wieder öffnen"
+                          : "Zeitraum archivieren"}
+                      </button>
+
+                      <button type="button" onClick={deleteCurrentClass}>
+                        Klasse löschen
                       </button>
                     </div>
-                  </form>
-                ) : (
+                  )}
+                  <p className="muted">
+                    Der Zeitraum endet nur, wenn du ihn archivierst. Noten
+                    werden nicht automatisch zurückgesetzt.
+                  </p>
+                  <p className="muted">
+                    Der errechnete Stand unterstützt die Dokumentation. Die
+                    pädagogische Bewertung und eine Endnote entscheidet die
+                    Lehrkraft.
+                  </p>
                   <div className="actions">
                     <button
                       type="button"
                       onClick={() => {
+                        setDetailPeriod(schoolYearLabel(today()));
                         setDetailName(currentClass.name);
-                        setDetailPeriod(currentClass.periodLabel);
                         setEditingDetails(true);
                       }}
                     >
-                      Namen und Zeitraum bearbeiten
-                    </button>
-                    <button type="button" onClick={archiveClass}>
-                      {currentClass.archived
-                        ? "Zeitraum wieder öffnen"
-                        : "Zeitraum archivieren"}
-                    </button>
-                    <button type="button" onClick={exportCsv}>
-                      Klasse als CSV exportieren
-                    </button>
-                    <button type="button" onClick={deleteCurrentClass}>
-                      Klasse löschen
+                      Aktuelles Schuljahr als Bezeichnung
                     </button>
                   </div>
-                )}
-                <p className="muted">
-                  Der Zeitraum endet nur, wenn du ihn archivierst. Noten werden
-                  nicht automatisch zurückgesetzt.
-                </p>
-                <p className="muted">
-                  Der errechnete Stand unterstützt die Dokumentation. Die
-                  pädagogische Bewertung und eine Endnote entscheidet die
-                  Lehrkraft.
-                </p>
-              </section>
-              <details className="card class-students">
-                <summary>Personennamen bearbeiten</summary>
-                <p className="muted">
-                  Namen lassen sich korrigieren; bisherige Stunden und
-                  Bewertungen bleiben erhalten.
-                </p>
-                <ul>
-                  {currentClass.students.map((student) => (
-                    <li key={student.id}>
-                      <span>{student.displayName}</span>
-                      <button
-                        type="button"
-                        aria-label={`Namen von ${student.displayName} bearbeiten`}
-                        onClick={() => {
-                          setEditingStudentId(student.id);
-                          setStudentName(student.displayName);
-                        }}
-                      >
-                        Namen bearbeiten
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-                {editingStudentId ? (
-                  <form
-                    onSubmit={saveStudentName}
-                    className="student-name-form"
-                  >
-                    <label htmlFor="student-name">Neuer Personenname</label>
-                    <input
-                      id="student-name"
-                      value={studentName}
-                      onChange={(event) => setStudentName(event.target.value)}
-                      required
-                    />
-                    <div className="actions">
-                      <button className="primary" type="submit">
-                        Namen speichern
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setEditingStudentId(null)}
-                      >
-                        Abbrechen
-                      </button>
-                    </div>
-                  </form>
-                ) : null}
-              </details>
-              {!currentClass.archived ? (
+                </section>
+              ) : null}
+              {dashboardView === "personen" ? (
+                <section className="card class-students">
+                  <h2>Personennamen bearbeiten</h2>
+                  <p className="muted">
+                    Namen lassen sich korrigieren; bisherige Stunden und
+                    Bewertungen bleiben erhalten.
+                  </p>
+                  <ul>
+                    {currentClass.students.map((student) => (
+                      <li key={student.id}>
+                        <span>{student.displayName}</span>
+                        <button
+                          type="button"
+                          aria-label={`Namen von ${student.displayName} bearbeiten`}
+                          onClick={() => {
+                            setEditingStudentId(student.id);
+                            setStudentName(student.displayName);
+                          }}
+                        >
+                          Namen bearbeiten
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                  {editingStudentId ? (
+                    <form
+                      onSubmit={saveStudentName}
+                      className="student-name-form"
+                    >
+                      <label htmlFor="student-name">Neuer Personenname</label>
+                      <input
+                        id="student-name"
+                        value={studentName}
+                        onChange={(event) => setStudentName(event.target.value)}
+                        required
+                      />
+                      <div className="actions">
+                        <button className="primary" type="submit">
+                          Namen speichern
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setEditingStudentId(null)}
+                        >
+                          Abbrechen
+                        </button>
+                      </div>
+                    </form>
+                  ) : null}
+                </section>
+              ) : null}
+              {dashboardView === "stunden" ? (
+                <section className="scope-card">
+                  <h3>Mündliche Mitarbeit während der ganzen Stunde</h3>
+                  <p>
+                    Eine zusammenfassende Einschätzung pro Person, im Vergleich
+                    zum bisherigen Stand. Keine Einzelwortmeldungen, Prüfungen
+                    oder Referate.
+                  </p>
+                  <button type="button" onClick={() => setPage("hilfe")}>
+                    Symbole und Berechnung verstehen
+                  </button>
+                </section>
+              ) : null}
+              {dashboardView === "stunden" && !currentClass.archived ? (
                 <section className="card">
                   <h2>Neue Unterrichtsstunde</h2>
                   <form className="new-session" onSubmit={startSession}>
@@ -1000,35 +1168,7 @@ export function App({
                   </p>
                 </section>
               ) : null}
-              <nav className="view-tabs" aria-label="Klassenansichten">
-                <button
-                  type="button"
-                  aria-current={
-                    dashboardView === "stunden" ? "page" : undefined
-                  }
-                  onClick={() => setDashboardView("stunden")}
-                >
-                  Stunden
-                </button>
-                <button
-                  type="button"
-                  aria-current={
-                    dashboardView === "tabelle" ? "page" : undefined
-                  }
-                  onClick={() => setDashboardView("tabelle")}
-                >
-                  Tabelle
-                </button>
-                <button
-                  type="button"
-                  aria-current={
-                    dashboardView === "verlauf" ? "page" : undefined
-                  }
-                  onClick={() => setDashboardView("verlauf")}
-                >
-                  Verlauf
-                </button>
-              </nav>
+
               {dashboardView === "stunden" ? (
                 <section className="card">
                   <h2>Unterrichtsstunden</h2>
@@ -1107,7 +1247,7 @@ export function App({
               ) : null}
             </>
           ) : null}
-          {currentClass && activeSession ? (
+          {page === "klasse" && currentClass && activeSession ? (
             <>
               <section className="card assessment-header">
                 <button
@@ -1117,7 +1257,9 @@ export function App({
                 >
                   ← Zur Klasse
                 </button>
-                <p className="eyebrow">Unterrichtsstunde</p>
+                <p className="eyebrow">
+                  {currentClass.name} · Unterrichtsstunde
+                </p>
                 <h2>{sessionLabel(activeSession, currentClass.sessions)}</h2>
                 <p>
                   Jede Auswahl wird sofort lokal gespeichert. Du kannst die
@@ -1141,6 +1283,25 @@ export function App({
                   {capturedCount} von {currentClass.students.length}
                 </progress>
               </section>
+              {capturedCount === currentClass.students.length && !error ? (
+                <section className="card completion-panel">
+                  <p className="eyebrow">Stunde vollständig</p>
+                  <h2>Alle Eingaben sind lokal gespeichert</h2>
+                  <p>
+                    Alle {capturedCount} Personen sind erfasst. Du kannst zur
+                    Klassenübersicht zurückkehren oder unten einen Eintrag
+                    korrigieren.
+                  </p>
+                  <button
+                    className="primary"
+                    type="button"
+                    ref={completionRef}
+                    onClick={() => leaveSession()}
+                  >
+                    Zur Klassenübersicht
+                  </button>
+                </section>
+              ) : null}
               <div className="assessment-layout">
                 <section className="card student-list">
                   <h3>Personen</h3>
@@ -1175,14 +1336,16 @@ export function App({
                         {selectedStudent.displayName}
                       </h3>
                       <p className="current-grade">
-                        Aktueller Stand:{" "}
+                        Stand vor dieser Stunde:{" "}
                         <strong>
                           {currentGrade
-                            ? formatGradeDecimal(currentGrade.gradeQuarterSteps)
+                            ? formatGradeDecimal(
+                                gradeBeforeLesson.gradeQuarterSteps,
+                              )
                             : "–"}
                         </strong>
-                        {currentGrade && currentGrade.bufferPoints > 0
-                          ? ` · Puffer ${currentGrade.bufferPoints}/3`
+                        {currentGrade && gradeBeforeLesson.bufferPoints > 0
+                          ? ` · Puffer ${gradeBeforeLesson.bufferPoints}/3`
                           : ""}
                       </p>
                       <p>
@@ -1204,7 +1367,8 @@ export function App({
                       ) : null}
                       <fieldset>
                         <legend>
-                          Gesamtleistung in dieser Stunde bewerten
+                          Mitarbeit der ganzen Stunde – relativ zum bisherigen
+                          Stand
                         </legend>
                         <div className="rating-grid">
                           {RATING_SYMBOLS.map((symbol) => {
@@ -1214,6 +1378,9 @@ export function App({
                               <button
                                 key={symbol}
                                 type="button"
+                                aria-label={symbol}
+                                aria-describedby={`rating-${symbol}`}
+                                className={`rating-option ${RATING_GUIDE[symbol].tone}`}
                                 aria-pressed={
                                   selectedObservation?.status === "bewertet" &&
                                   selectedObservation.symbol === symbol
@@ -1228,7 +1395,23 @@ export function App({
                                   )
                                 }
                               >
-                                {symbol}
+                                <strong>{symbol}</strong>
+                                <span id={`rating-${symbol}`}>
+                                  {RATING_GUIDE[symbol].meaning}
+                                </span>
+                                <small>
+                                  Ergebnis:{" "}
+                                  {formatGradeDecimal(
+                                    applyRating(gradeBeforeLesson, symbol)
+                                      .gradeQuarterSteps,
+                                  )}{" "}
+                                  · Puffer{" "}
+                                  {
+                                    applyRating(gradeBeforeLesson, symbol)
+                                      .bufferPoints
+                                  }
+                                  /3
+                                </small>
                               </button>
                             );
                           })}
@@ -1275,6 +1458,9 @@ export function App({
                         der bisherige Stand. Bei Note 1,00 können bis zu drei
                         Pufferpunkte entstehen.
                       </p>
+                      <button type="button" onClick={() => setPage("hilfe")}>
+                        Bewertung und Puffer erklärt
+                      </button>
                     </>
                   ) : null}
                 </section>

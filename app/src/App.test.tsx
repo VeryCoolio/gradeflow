@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-import { afterEach, describe, expect, it } from "vitest";
+import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import {
   cleanup,
   fireEvent,
@@ -9,6 +9,7 @@ import {
   within,
 } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import ExcelJS from "exceljs";
 import { App } from "./App";
 import {
   CLASS_DELETION_BACKUP_KEY,
@@ -43,7 +44,11 @@ class MemoryStorage implements StoragePort {
 function makeApp(
   storage = new MemoryStorage(),
   confirmDiscard = () => true,
-  download?: (filename: string, contents: string, mime: string) => void,
+  download?: (
+    filename: string,
+    contents: string | Uint8Array<ArrayBuffer>,
+    mime: string,
+  ) => void,
 ) {
   const repository = new LocalRepository(storage, () => now);
   let nextId = 0;
@@ -59,17 +64,23 @@ function makeApp(
 }
 
 async function importTwoStudents(user: ReturnType<typeof userEvent.setup>) {
+  await user.click(
+    within(screen.getByRole("navigation", { name: "Hauptseiten" })).getByRole(
+      "button",
+      { name: "Klasse anlegen" },
+    ),
+  );
+  await user.click(screen.getByRole("button", { name: "Klasse importieren" }));
   await user.type(screen.getByLabelText("Klassenname"), "8b");
+  await user.click(screen.getByRole("button", { name: "Bezeichnung ändern" }));
+  await user.clear(screen.getByLabelText("Bewertungszeitraum"));
   await user.type(
     screen.getByLabelText("Bewertungszeitraum"),
     "Offener Zeitraum",
   );
-  const file = new File(["Fiktiv Ada\nFiktiv Bea"], "klasse.txt", {
-    type: "text/plain",
-  });
-  Object.defineProperty(file, "text", {
-    value: async () => "Fiktiv Ada\nFiktiv Bea",
-  });
+  const contents = "Vorname;Nachname\nFiktiv;Ada\nFiktiv;Bea";
+  const file = new File([contents], "klasse.csv", { type: "text/csv" });
+  Object.defineProperty(file, "text", { value: async () => contents });
   await user.upload(screen.getByLabelText("Klassenliste"), file);
   expect(
     (screen.getByLabelText("Klassenliste") as HTMLInputElement).files?.[0],
@@ -79,6 +90,137 @@ async function importTwoStudents(user: ReturnType<typeof userEvent.setup>) {
 }
 
 afterEach(cleanup);
+beforeEach(() => {
+  window.scrollTo = () => {};
+});
+
+it("importiert eine ausgefüllte Excel-Klassenliste über den Dateiablauf", async () => {
+  const user = userEvent.setup();
+  const { repository } = makeApp();
+  await user.click(
+    within(screen.getByRole("navigation", { name: "Hauptseiten" })).getByRole(
+      "button",
+      { name: "Klasse anlegen" },
+    ),
+  );
+  await user.click(screen.getByRole("button", { name: "Klasse importieren" }));
+  await user.type(screen.getByLabelText("Klassenname"), "Fiktive Excel-Klasse");
+  const workbook = new ExcelJS.Workbook();
+  const sheet = workbook.addWorksheet("Klassenliste");
+  sheet.addRow(["Vorname", "Nachname"]);
+  sheet.addRow(["Fiktiv", "Ada"]);
+  sheet.addRow(["Fiktiv", "Bea"]);
+  const bytes = new Uint8Array(await workbook.xlsx.writeBuffer());
+  const file = new File([bytes], "klasse.xlsx", {
+    type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  });
+  Object.defineProperty(file, "arrayBuffer", {
+    value: async () => bytes.buffer,
+  });
+  await user.upload(screen.getByLabelText("Klassenliste"), file);
+  expect(
+    (screen.getByLabelText("Klassenliste") as HTMLInputElement).files?.[0],
+  ).toBe(file);
+  fireEvent.submit(screen.getByLabelText("Klassenliste").closest("form")!);
+  await screen.findByRole("heading", { name: "Fiktive Excel-Klasse" });
+  expect(
+    repository.load().classes[0].students.map((person) => person.displayName),
+  ).toEqual(["Fiktiv Ada", "Fiktiv Bea"]);
+});
+
+it("legt eine Klasse manuell mit zwei Namensfeldern und vorbelegtem Schuljahr an", async () => {
+  const user = userEvent.setup();
+  const { repository } = makeApp();
+  await user.click(
+    within(screen.getByRole("navigation", { name: "Hauptseiten" })).getByRole(
+      "button",
+      { name: "Klasse anlegen" },
+    ),
+  );
+  await user.type(screen.getByLabelText("Klassenname"), "Fiktiv 9a");
+  await user.type(screen.getByLabelText("Vorname 1"), "Fiktiv");
+  await user.type(screen.getByLabelText("Nachname 1"), "Ada");
+  await user.click(screen.getByRole("button", { name: "Weitere Person" }));
+  await user.type(screen.getByLabelText("Vorname 2"), "Fiktiv");
+  await user.type(screen.getByLabelText("Nachname 2"), "Bea");
+  await user.click(
+    screen.getByRole("button", { name: "Klasse lokal anlegen" }),
+  );
+  expect(repository.load().classes[0].periodLabel).toBe("Schuljahr 2026/27");
+  expect(
+    repository.load().classes[0].students.map((person) => person.displayName),
+  ).toEqual(["Fiktiv Ada", "Fiktiv Bea"]);
+  expect(screen.getByRole("status").textContent).toMatch(/lokal gespeichert/);
+});
+
+it("bestätigt den Abschluss erst nach erfolgreicher letzter Speicherung und führt zur Übersicht", async () => {
+  const user = userEvent.setup();
+  const { storage, repository } = makeApp();
+  await importTwoStudents(user);
+  await user.click(screen.getByRole("button", { name: "Stunde beginnen" }));
+  await user.click(screen.getByRole("button", { name: "+" }));
+  storage.fail = true;
+  await user.click(screen.getByRole("button", { name: "Abwesend" }));
+  expect(
+    screen.queryByRole("heading", {
+      name: "Alle Eingaben sind lokal gespeichert",
+    }),
+  ).toBeNull();
+  expect(screen.getByText("1 von 2 Personen erfasst")).toBeTruthy();
+  expect(
+    Object.keys(repository.load().classes[0].sessions[0].observations),
+  ).toHaveLength(1);
+  storage.fail = false;
+  await user.click(screen.getByRole("button", { name: "Abwesend" }));
+  expect(
+    screen.getByRole("heading", {
+      name: "Alle Eingaben sind lokal gespeichert",
+    }),
+  ).toBeTruthy();
+  await user.click(
+    screen.getByRole("button", { name: "Zur Klassenübersicht" }),
+  );
+  expect(
+    screen.getByRole("heading", { name: "Unterrichtsstunden" }),
+  ).toBeTruthy();
+  expect(screen.getByText(/2 von 2 erfasst · vollständig/)).toBeTruthy();
+});
+
+it("erklärt die Bedeutung der Symbole und zeigt bei alter Stunde den Stand davor", async () => {
+  const user = userEvent.setup();
+  const { repository, unmount } = makeApp();
+  repository.save({
+    ...EMPTY_NOTEBOOK,
+    currentClassId: "c1",
+    classes: [
+      { ...reportClass(), sessions: reportClass().sessions.slice(0, 2) },
+    ],
+  });
+  unmount();
+  render(<App repository={repository} />);
+  const first = screen.getByText("23.09.2026 · 1. Stunde").closest("li")!;
+  await user.click(within(first).getByRole("button", { name: "Bearbeiten" }));
+  expect(screen.getByText(/Stand vor dieser Stunde/).textContent).toContain(
+    "2,00",
+  );
+  const positive = screen.getByRole("button", { name: "++" });
+  expect(positive.textContent).toMatch(/Deutlich besser.*1,50/);
+  expect(positive.className).toContain("positive-strong");
+  expect(screen.getByRole("button", { name: "--" }).className).toContain(
+    "negative-strong",
+  );
+  await user.click(
+    screen.getByRole("button", { name: "Bewertung und Puffer erklärt" }),
+  );
+  expect(
+    screen.getByRole("heading", {
+      name: "Die Mitarbeit über die gesamte Stunde",
+    }),
+  ).toBeTruthy();
+  expect(screen.getByText(/1,25 mit/)).toBeTruthy();
+  await user.click(screen.getByRole("button", { name: "Meine Klassen" }));
+  expect(screen.getByRole("button", { name: "++" })).toBeTruthy();
+});
 
 describe("Kernoberfläche", () => {
   it("importiert eine Klasse, speichert jede Auswahl sofort und setzt eine unvollständige Stunde nach Neuladen fort", async () => {
@@ -119,13 +261,13 @@ describe("Kernoberfläche", () => {
     fireEvent.click(start);
     fireEvent.click(start);
     expect(repository.load().classes[0].sessions).toHaveLength(1);
-    await user.click(screen.getByRole("button", { name: /Zur Klasse/ }));
+    await user.click(screen.getByRole("button", { name: /^← Zur Klasse$/ }));
     expect(screen.queryByText(/1\. Stunde/)).toBeNull();
     await user.click(screen.getByRole("button", { name: "Stunde beginnen" }));
     expect(
       repository.load().classes[0].sessions.map((item) => item.lessonSequence),
     ).toEqual([1, 2]);
-    await user.click(screen.getByRole("button", { name: /Zur Klasse/ }));
+    await user.click(screen.getByRole("button", { name: /^← Zur Klasse$/ }));
     expect(screen.getByText(/1\. Stunde/)).toBeTruthy();
     expect(screen.getByText(/2\. Stunde/)).toBeTruthy();
     await user.click(screen.getByRole("button", { name: "Stunde beginnen" }));
@@ -180,6 +322,7 @@ describe("Kernoberfläche", () => {
     const user = userEvent.setup();
     const { repository } = makeApp();
     await importTwoStudents(user);
+    await user.click(screen.getByRole("button", { name: "Klasse bearbeiten" }));
     await user.click(
       screen.getByRole("button", { name: "Namen und Zeitraum bearbeiten" }),
     );
@@ -266,7 +409,7 @@ describe("Kernoberfläche", () => {
     render(
       <App
         repository={repository}
-        download={(_name, contents) => downloads.push(contents)}
+        download={(_name, contents) => downloads.push(String(contents))}
         confirmDiscard={() => true}
       />,
     );
@@ -293,13 +436,13 @@ describe("Kernoberfläche", () => {
       screen.getByRole("img", { name: /Notenverlauf von Fiktiv Ada/ }),
     ).toBeTruthy();
     await user.selectOptions(screen.getByLabelText("Person"), "p2");
-    expect(screen.getByText(/Nicht beobachtet/)).toBeTruthy();
+    expect(screen.getByRole("cell", { name: "Nicht beobachtet" })).toBeTruthy();
     await user.click(screen.getByRole("button", { name: "Stunden" }));
     const first = screen.getByText("23.09.2026 · 1. Stunde").closest("li")!;
     await user.click(within(first).getByRole("button", { name: "Bearbeiten" }));
     await user.click(screen.getByRole("button", { name: /Fiktiv Ada/ }));
     await user.click(screen.getByRole("button", { name: "--" }));
-    await user.click(screen.getByRole("button", { name: /Zur Klasse/ }));
+    await user.click(screen.getByRole("button", { name: /^← Zur Klasse$/ }));
     await user.click(screen.getByRole("button", { name: "Tabelle" }));
     expect(screen.getByRole("row", { name: /Fiktiv Ada/ }).textContent).toMatch(
       /Stand: 2,50.*Stand: 2,75.*2,75/,
@@ -307,7 +450,7 @@ describe("Kernoberfläche", () => {
     await user.click(
       screen.getByRole("button", { name: "Klasse als CSV exportieren" }),
     );
-    expect(downloads[0]).toContain('"current";"";"";"";"";"";"11";"2,75";"0"');
+    expect(downloads[0]).toContain('"Aktuell";"";"";"";"";"2,75";"0"');
 
     await user.click(screen.getByRole("button", { name: "Stunden" }));
     const firstAgain = screen
@@ -324,7 +467,7 @@ describe("Kernoberfläche", () => {
         .classes[0].sessions.find((session) => session.id === "s1")
         ?.observations.p1,
     ).toBeUndefined();
-    await user.click(screen.getByRole("button", { name: /Zur Klasse/ }));
+    await user.click(screen.getByRole("button", { name: /^← Zur Klasse$/ }));
     await user.click(screen.getByRole("button", { name: "Tabelle" }));
     expect(screen.getByRole("row", { name: /Fiktiv Ada/ }).textContent).toMatch(
       /Offen.*Stand: 2,25.*2,25/,
@@ -379,10 +522,10 @@ describe("Kernoberfläche", () => {
     const { repository } = makeApp(
       undefined,
       () => allowed,
-      (_name, contents) => downloads.push(contents),
+      (_name, contents) => downloads.push(String(contents)),
     );
     await importTwoStudents(user);
-    await user.click(screen.getByText("Datensicherung"));
+    await user.click(screen.getByRole("button", { name: "Datensicherung" }));
     await user.click(
       screen.getByRole("button", {
         name: "Vollständige JSON-Sicherung herunterladen",
@@ -432,16 +575,8 @@ describe("Kernoberfläche", () => {
       repository
         .load()
         .classes[0].students.map((student) => student.displayName),
-    ).toEqual(["Fiktiv Ada", "Fiktiv Bea", "Fiktiv Cem", "Fiktiv Dana"]);
-    await user.click(screen.getByText("Klasse importieren"));
-    expect(
-      screen
-        .getByRole("link", {
-          name: "Fiktive Beispiel-Klassenliste herunterladen",
-        })
-        .getAttribute("href"),
-    ).toBe("./demo-klasse.csv");
-    await user.click(screen.getByText("Personennamen bearbeiten"));
+    ).toHaveLength(20);
+    await user.click(screen.getByRole("button", { name: "Personen" }));
     await user.click(
       screen.getByRole("button", { name: "Namen von Fiktiv Ada bearbeiten" }),
     );
@@ -459,6 +594,7 @@ describe("Kernoberfläche", () => {
     let allowed = false;
     const { repository, storage } = makeApp(undefined, () => allowed);
     await importTwoStudents(user);
+    await user.click(screen.getByRole("button", { name: "Klasse bearbeiten" }));
     await user.click(screen.getByRole("button", { name: "Klasse löschen" }));
     expect(repository.load().classes).toHaveLength(1);
     expect(storage.getItem(CLASS_DELETION_BACKUP_KEY)).toBeNull();
@@ -466,7 +602,7 @@ describe("Kernoberfläche", () => {
     await user.click(screen.getByRole("button", { name: "Klasse löschen" }));
     expect(repository.load().classes).toHaveLength(0);
     expect(storage.getItem(CLASS_DELETION_BACKUP_KEY)).not.toBeNull();
-    await user.click(screen.getByText("Datensicherung"));
+    await user.click(screen.getByRole("button", { name: "Datensicherung" }));
     await user.click(
       screen.getByRole("button", {
         name: "Stand vor letzter Klassenlöschung wiederherstellen",
@@ -484,7 +620,7 @@ describe("Kernoberfläche", () => {
     const { repository } = makeApp(
       storage,
       () => allowed,
-      (_name, contents) => downloads.push(contents),
+      (_name, contents) => downloads.push(String(contents)),
     );
     expect(screen.getByRole("alert").textContent).toMatch(/gültiges JSON/);
     await user.click(
@@ -540,9 +676,9 @@ describe("Kernoberfläche", () => {
     makeApp(
       storage,
       () => true,
-      (_name, contents) => downloads.push(contents),
+      (_name, contents) => downloads.push(String(contents)),
     );
-    await user.click(screen.getByText("Datensicherung"));
+    await user.click(screen.getByRole("button", { name: "Datensicherung" }));
     await user.click(
       screen.getByRole("button", {
         name: "Legacy-Migrationssicherung herunterladen",

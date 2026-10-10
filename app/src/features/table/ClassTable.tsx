@@ -1,6 +1,10 @@
 import type { ClassReport } from "../../application/reporting";
 import { formatGradeDecimal } from "../../domain/grading/gradeFormat";
-import { observationLabel, sessionLabel } from "../presentation";
+import {
+  observationLabel,
+  observationTone,
+  sessionLabel,
+} from "../presentation";
 
 export function ClassTable({ report }: { report: ClassReport }) {
   return (
@@ -37,7 +41,11 @@ export function ClassTable({ report }: { report: ClassReport }) {
                 <td>{formatGradeDecimal(row.start.gradeQuarterSteps)}</td>
                 {row.cells.map((cell) => (
                   <td key={cell.session.id}>
-                    <span>{observationLabel(cell.observation)}</span>
+                    <span
+                      className={`observation-badge ${observationTone(cell.observation)}`}
+                    >
+                      {observationLabel(cell.observation)}
+                    </span>
                     {cell.after ? (
                       <small>
                         Stand:{" "}

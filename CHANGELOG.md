@@ -2,6 +2,16 @@
 
 Der Git-Verlauf beginnt mit dem Projektstand nach Meilenstein 2. Frühere Arbeitsschritte sind im [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) festgehalten; dafür werden keine rückdatierten Commits erzeugt.
 
+## 0.6.0 – 10.10.2026
+
+- Feste Navigation, manuelle Klassenerstellung und änderbar vorbelegtes Schuljahr ohne automatisches Ende oder Reset.
+- Zweispaltiger Excel-/CSV-/TXT-Import mit Kopfzeile, leere Musterklassenliste und größere Demo mit 20 fiktiven Personen.
+- Abgestufte rote/grüne Bewertungssymbole mit Bedeutung und konkretem Ergebnis vom Stand vor der Stunde aus.
+- Ausführliche Erklärung des Bewertungsgegenstands, der Symbole, Grenzen und Pufferlogik.
+- Abschlussbestätigung nach erfolgreicher letzter Speicherung mit Rückweg zur Klassenübersicht.
+- Excel-Bericht mit Klassenübersicht und je Person einem Blatt; CSV mit deutschen Spalten ohne technische IDs. JSON bleibt vollständige Wiederherstellungssicherung.
+- Gemeinsame Datumsachse, Statusmarker und chronologische Tabelle im Verlauf.
+
 ## 0.5.0 – 25.09.2026
 
 - Reproduzierbare Usability-Testversion mit fiktiver Demo-Klasse, herunterladbarer Beispiel-Klassenliste und festgelegter Aufgabenfolge.
