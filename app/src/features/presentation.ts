@@ -1,4 +1,4 @@
-import type { Observation } from "../domain/grading/types";
+import { RATING_SYMBOLS, type Observation } from "../domain/grading/types";
 import { RATING_GUIDE } from "../application/ratingGuide";
 import { hasVisibleLessonSequence } from "../domain/sessions/lessonSequence";
 import type { LessonSession } from "../domain/sessions/types";
@@ -18,6 +18,26 @@ export function observationLabel(
   if (observation.status === "bewertet")
     return `Bewertet: ${observation.symbol}`;
   return observation.status === "abwesend" ? "Abwesend" : "Nicht beobachtet";
+}
+
+export function observationShortLabel(
+  observation: Observation | null | undefined,
+): string {
+  if (!observation) return "Offen";
+  if (observation.status === "bewertet") return observation.symbol;
+  return observation.status === "abwesend" ? "AW" : "NB";
+}
+
+export function sessionAssessmentSummary(session: LessonSession): string {
+  const observations = Object.values(session.observations);
+  const labels = [...RATING_SYMBOLS, "AW", "NB"];
+  const counts = labels.flatMap((label) => {
+    const count = observations.filter(
+      (observation) => observationShortLabel(observation) === label,
+    ).length;
+    return count ? [`${count} × ${label}`] : [];
+  });
+  return counts.length ? counts.join(" · ") : "Noch keine Eingaben";
 }
 
 export function sessionLabel(

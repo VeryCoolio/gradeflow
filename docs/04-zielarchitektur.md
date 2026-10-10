@@ -153,3 +153,12 @@ Die technische Neufassung allein macht die App nicht automatisch bereit für ech
 - npm-Override auf `uuid` 11.1.1 und Aktualisierung von `source-map-js` beheben konkret gemeldete Audit-Befunde; XLSX-Erzeugung und -Einlesen sind mit diesen Versionen getestet.
 - Das Notebook-Schema bleibt Version 1. Bestehende Klassen, Zeitraumnamen, IDs und Beobachtungen werden nicht automatisch verändert. Neue Demo-Klassen enthalten 20 fiktive Namen; vorhandene Demo-Klassen bleiben erhalten.
 - Die Datumsachse entsteht aus allen sortierten Klassensitzungen. Leistungsdatenpunkte entstehen ausschließlich bei `bewertet`; unbewertete Stunden bleiben in der Tabelle und durch Achsenmarker zugänglich.
+
+## 8. Bedienkorrekturen 0.6.1
+
+- `RatingGuide.tsx` nutzt die ausdrücklich geordnete Symbolfolge statt der Objektschlüsselreihenfolge. Diese hatte die numerische Zeichenkette `0` vor die übrigen Schlüssel gesetzt.
+- `features/presentation.ts` liefert eindeutige Kurztexte und Eingabezahlen für die Darstellung; gespeichert werden weiterhin die bisherigen Statuswerte.
+- `ClassTable.tsx` hält Kompakt-/Detailansicht, Tabellengröße und Stundenfenster als reine Ansichtszustände. Standard: zehn neueste Stunden; umschaltbar auf 20 oder alle, mit Navigation zu älteren/neueren Fenstern. Die Berechnung erhält immer den vollständigen Klassenbericht. Fixierte Namen, Spaltenköpfe und Gesamtstände erleichtern das Scrollen.
+- `StudentHistory.tsx` verwendet 112 SVG-Einheiten pro Unterrichtsstunde. Zusätzliche Stunden vergrößern die scrollbare Zeichnung, ohne vorhandene Abstände zu verändern. `AW`, `NB` und `Offen` ersetzen die gleichen unbewerteten Quadratmarker.
+- `App.tsx` sortiert die Stundenliste nach Datum absteigend, innerhalb eines Datums nach Nummer aufsteigend. Der fachliche Verlauf bleibt insgesamt aufsteigend. Tausch erfolgt weiterhin atomar über das Repository; sichtbare Zusammenfassungen, Personenauszug und Erfolgshinweis zeigen die Veränderung. Fehler setzen keinen Erfolgshinweis.
+- Keine neue Abhängigkeit, Schemaänderung oder Migration.

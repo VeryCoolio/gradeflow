@@ -1,4 +1,5 @@
 import { RATING_GUIDE } from "../../application/ratingGuide";
+import { RATING_SYMBOLS } from "../../domain/grading/types";
 export { RATING_GUIDE } from "../../application/ratingGuide";
 
 export function RatingGuide() {
@@ -12,11 +13,14 @@ export function RatingGuide() {
         Stunde – einzelne Wortmeldungen sind keine eigenen Notenereignisse.
       </p>
       <div className="guide-grid">
-        {Object.entries(RATING_GUIDE).map(([symbol, rule]) => (
-          <div key={symbol} className={`rating-tile ${rule.tone}`}>
+        {RATING_SYMBOLS.map((symbol) => (
+          <div
+            key={symbol}
+            className={`rating-tile ${RATING_GUIDE[symbol].tone}`}
+          >
             <strong>{symbol}</strong>
-            <span>{rule.meaning}</span>
-            <small>Zahlenwert {rule.change}</small>
+            <span>{RATING_GUIDE[symbol].meaning}</span>
+            <small>Zahlenwert {RATING_GUIDE[symbol].change}</small>
           </div>
         ))}
       </div>

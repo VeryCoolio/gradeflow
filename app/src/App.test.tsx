@@ -209,6 +209,13 @@ it("erklärt die Bedeutung der Symbole und zeigt bei alter Stunde den Stand davo
   expect(screen.getByRole("button", { name: "--" }).className).toContain(
     "negative-strong",
   );
+  expect(
+    Array.from(
+      document.querySelectorAll(".rating-grid button > strong"),
+      (element) => element.textContent,
+    ),
+  ).toEqual(["--", "-", "0", "+", "++"]);
+  expect(screen.queryByText(/^Symbole:/)).toBeNull();
   await user.click(
     screen.getByRole("button", { name: "Bewertung und Puffer erklärt" }),
   );
@@ -218,6 +225,12 @@ it("erklärt die Bedeutung der Symbole und zeigt bei alter Stunde den Stand davo
     }),
   ).toBeTruthy();
   expect(screen.getByText(/1,25 mit/)).toBeTruthy();
+  expect(
+    Array.from(
+      document.querySelectorAll(".rating-tile > strong"),
+      (element) => element.textContent,
+    ),
+  ).toEqual(["--", "-", "0", "+", "++"]);
   await user.click(screen.getByRole("button", { name: "Meine Klassen" }));
   expect(screen.getByRole("button", { name: "++" })).toBeTruthy();
 });
@@ -415,6 +428,7 @@ describe("Kernoberfläche", () => {
     );
 
     await user.click(screen.getByRole("button", { name: "Tabelle" }));
+    await user.click(screen.getByRole("button", { name: "Mit Notenverlauf" }));
     const row = screen.getByRole("row", { name: /Fiktiv Ada/ });
     expect(
       within(row)
@@ -444,6 +458,7 @@ describe("Kernoberfläche", () => {
     await user.click(screen.getByRole("button", { name: "--" }));
     await user.click(screen.getByRole("button", { name: /^← Zur Klasse$/ }));
     await user.click(screen.getByRole("button", { name: "Tabelle" }));
+    await user.click(screen.getByRole("button", { name: "Mit Notenverlauf" }));
     expect(screen.getByRole("row", { name: /Fiktiv Ada/ }).textContent).toMatch(
       /Stand: 2,50.*Stand: 2,75.*2,75/,
     );
@@ -469,6 +484,7 @@ describe("Kernoberfläche", () => {
     ).toBeUndefined();
     await user.click(screen.getByRole("button", { name: /^← Zur Klasse$/ }));
     await user.click(screen.getByRole("button", { name: "Tabelle" }));
+    await user.click(screen.getByRole("button", { name: "Mit Notenverlauf" }));
     expect(screen.getByRole("row", { name: /Fiktiv Ada/ }).textContent).toMatch(
       /Offen.*Stand: 2,25.*2,25/,
     );
@@ -487,6 +503,17 @@ describe("Kernoberfläche", () => {
       classes: [classRecord],
     });
     render(<App repository={repository} confirmDiscard={() => true} />);
+    expect(
+      Array.from(document.querySelectorAll(".session-list li"), (element) =>
+        element.getAttribute("data-session-id"),
+      ),
+    ).toEqual(["s1", "s2"]);
+    expect(
+      screen.getByText("23.09.2026 · 1. Stunde").closest("li")?.textContent,
+    ).toContain("1 × ++ · 1 × AW");
+    expect(
+      screen.getByText("23.09.2026 · 1. Stunde").closest("li")?.textContent,
+    ).toContain("Fiktiv Ada: ++");
     await user.click(
       screen.getByRole("button", { name: "Reihenfolge tauschen" }),
     );
@@ -501,7 +528,31 @@ describe("Kernoberfläche", () => {
         .classes[0].sessions.find((session) => session.id === "s1")
         ?.lessonSequence,
     ).toBe(2);
+    expect(
+      Array.from(document.querySelectorAll(".session-list li"), (element) =>
+        element.getAttribute("data-session-id"),
+      ),
+    ).toEqual(["s2", "s1"]);
+    expect(
+      screen.getByText("23.09.2026 · 1. Stunde").closest("li")?.textContent,
+    ).toContain("1 × - · 1 × NB");
+    expect(
+      screen.getByText("23.09.2026 · 1. Stunde").closest("li")?.textContent,
+    ).toContain("Fiktiv Ada: -");
+    expect(screen.getByText(/Tausch gespeichert/)).toBeTruthy();
+    expect(document.activeElement).toBe(
+      screen.getByRole("button", { name: "Reihenfolge tauschen" }),
+    );
+    expect(
+      repository
+        .load()
+        .classes[0].sessions.find((session) => session.id === "s1")
+        ?.observations,
+    ).toEqual(
+      classRecord.sessions.find((session) => session.id === "s1")?.observations,
+    );
     await user.click(screen.getByRole("button", { name: "Tabelle" }));
+    await user.click(screen.getByRole("button", { name: "Mit Notenverlauf" }));
     expect(screen.getByRole("row", { name: /Fiktiv Ada/ }).textContent).toMatch(
       /Stand: 2,25.*Stand: 1,75/,
     );
@@ -691,4 +742,41 @@ describe("Kernoberfläche", () => {
     );
     expect(storage.getItem(LEGACY_APP_KEY)).toBe(legacyRaw);
   });
+});
+
+it("täuscht bei einem fehlgeschlagenen Stundentausch keine geänderte Reihenfolge vor", async () => {
+  const user = userEvent.setup();
+  const storage = new MemoryStorage();
+  const repository = new LocalRepository(storage, () => now);
+  repository.save({
+    ...EMPTY_NOTEBOOK,
+    currentClassId: "c1",
+    classes: [
+      { ...reportClass(), sessions: reportClass().sessions.slice(0, 2) },
+    ],
+  });
+  render(<App repository={repository} />);
+  storage.fail = true;
+  await user.click(
+    screen.getByRole("button", { name: "Reihenfolge tauschen" }),
+  );
+  expect(screen.getByRole("alert").textContent).toContain(
+    "Lokales Speichern fehlgeschlagen",
+  );
+  expect(screen.queryByText(/Tausch gespeichert/)).toBeNull();
+  expect(
+    screen.getByText("23.09.2026 · 1. Stunde").closest("li")?.textContent,
+  ).toContain("1 × ++ · 1 × AW");
+  expect(
+    repository.load().classes[0].sessions.find((session) => session.id === "s1")
+      ?.lessonSequence,
+  ).toBe(1);
+  storage.fail = false;
+  await user.click(
+    screen.getByRole("button", { name: "Reihenfolge tauschen" }),
+  );
+  expect(screen.getByText(/Tausch gespeichert/)).toBeTruthy();
+  expect(
+    screen.getByText("23.09.2026 · 1. Stunde").closest("li")?.textContent,
+  ).toContain("1 × - · 1 × NB");
 });

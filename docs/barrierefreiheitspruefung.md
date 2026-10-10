@@ -25,3 +25,13 @@ Die Befunde oben beschreiben weiterhin den historischen Stand 0.5.0. Für die ü
 - Die Verlaufsansicht verwendet dieselbe beschriftete Datumsachse für alle Personen; Status und Zahlen sind zusätzlich als semantische Tabelle lesbar.
 
 Diese Ergänzung ist weiterhin keine vollständige WCAG-Prüfung. Screenreader, Vergrößerung, eine systematische Kontrastmessung aller neuen Zustände und die Erhebung mit Testpersonen sind offen.
+
+## Ergänzende Teilprüfung 0.6.1 – 10.10.2026
+
+- Symbolfolge in Bewertung und Hilfe: `--`, `-`, `0`, `+`, `++`. Ergebnis und Puffer sind über `aria-describedby` den Buttons zugeordnet; Symbol, Bedeutung und Auswahl bleiben zusätzlich zu den Farben erkennbar.
+- Aus Browserfarben berechnete Textkontraste der fünf Bewertungsflächen: `--` 6,41:1; `-` 6,33:1; `0` 7,67:1; `+` 6,17:1; `++` 6,54:1. Alle fünf liegen über 4,5:1. Dies umfasst die Textfarben der Flächen, nicht einen vollständigen Kontrast-Audit sämtlicher Zustände.
+- Bei 390 und 768 CSS-Pixeln kein horizontales Seitenüberlaufen; bei 1280 Desktopdarstellung visuell geprüft. Die mobile Bewertung trennt Bedeutung, Ergebnis und kleine Pufferangabe räumlich, ohne Überschneidung.
+- Kompakt-/Detailansicht, Größenwahl und Stundenfenster sind benannte Standard-Bedienelemente. AW/NB/Offen besitzen ausgeschriebene zugängliche Beschriftungen und eine sichtbare Legende. Namen und aktueller Stand bleiben beim tatsächlichen horizontalen Scrollen im Tabellenbereich sichtbar.
+- Stundentausch besitzt eine Erfolgsmeldung nach Speicherung und eine direkt sichtbare Änderung am Personenauszug. Ein Integrationstest prüft den Fehlerfall ohne vorgetäuschten Erfolg.
+
+Screenreader, umfassende Vergrößerungsprüfung, vollständiger WCAG-Audit und Test mit Lehramtsstudierenden bleiben offen.

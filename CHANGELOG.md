@@ -2,6 +2,14 @@
 
 Der Git-Verlauf beginnt mit dem Projektstand nach Meilenstein 2. Frühere Arbeitsschritte sind im [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) festgehalten; dafür werden keine rückdatierten Commits erzeugt.
 
+## 0.6.1 – 10.10.2026
+
+- Ruhigere Bewertungsfarben, größere getrennte Ergebnishinweise, sekundäre Pufferangabe und kompakter Status; doppelte Symbolerklärung entfernt.
+- Symbolfolge mit `0` zwischen Minus und Plus auch in der Hilfe korrigiert.
+- Wahrnehmbarer Stundentausch mit Eingabezusammenfassung, Personenauszug, geänderter Listenreihenfolge und tatsächlicher Speicherbestätigung.
+- Kompakte Stundentabelle mit AW/NB/Offen, Legende, zuschaltbaren Zwischenständen, Stundenfenstern und drei Größen; Namen und aktueller Stand beim Scrollen fixiert.
+- Feste horizontale Abstände pro Stunde im Verlauf; unterschiedliche Kurztexte ersetzen gleiche Quadratmarker.
+
 ## 0.6.0 – 10.10.2026
 
 - Feste Navigation, manuelle Klassenerstellung und änderbar vorbelegtes Schuljahr ohne automatisches Ende oder Reset.

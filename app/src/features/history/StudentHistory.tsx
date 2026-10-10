@@ -1,6 +1,12 @@
 import type { ClassReport } from "../../application/reporting";
 import { formatGradeDecimal } from "../../domain/grading/gradeFormat";
-import { observationLabel, sessionLabel } from "../presentation";
+import {
+  observationLabel,
+  observationShortLabel,
+  sessionLabel,
+} from "../presentation";
+
+const SESSION_SPACING = 112;
 
 export function StudentHistory({
   report,
@@ -16,10 +22,9 @@ export function StudentHistory({
     report.students[0];
   if (!row) return null;
   const index = report.students.indexOf(row);
-  const width = Math.max(660, (report.sessions.length + 1) * 110 + 80);
+  const width = Math.max(660, report.sessions.length * SESSION_SPACING + 105);
   // Identische Datumsachse für alle Personen, einschließlich unbewerteter Stunden.
-  const x = (index: number) =>
-    60 + (index * (width - 105)) / Math.max(1, report.sessions.length);
+  const x = (index: number) => 60 + index * SESSION_SPACING;
   const y = (quarterSteps: number) => 30 + (quarterSteps - 4) * 9;
   const points = [
     {
@@ -76,9 +81,9 @@ export function StudentHistory({
         {row.current.bufferPoints}/3
       </p>
       <p className="muted">
-        Alle Personen haben dieselbe Datumsachse. Die Linie verbindet
-        ausschließlich bewertete Stunden. Unbewertete Stunden sind unten an der
-        Achse markiert; die Tabelle nennt den jeweiligen Status.
+        Jede Unterrichtsstunde hat denselben horizontalen Abstand, bei allen
+        Personen. Die Linie verbindet ausschließlich bewertete Stunden. AW =
+        abwesend, NB = nicht beobachtet, Offen = noch nicht erfasst.
       </p>
       {!row.cells.some((cell) => cell.after) ? (
         <p className="feedback">
@@ -148,16 +153,17 @@ export function StudentHistory({
                 stroke="#536b75"
               />
               {!cell.after ? (
-                <rect
-                  x={x(index + 1) - 4}
-                  y="233"
-                  width="8"
-                  height="8"
-                  fill="none"
-                  stroke="#536b75"
+                <text
+                  x={x(index + 1)}
+                  y="240"
+                  textAnchor="middle"
+                  fontSize="11"
+                  fill="#536b75"
+                  aria-label={observationLabel(cell.observation)}
                 >
                   <title>{`${sessionLabel(cell.session, report.sessions)}: ${observationLabel(cell.observation)}`}</title>
-                </rect>
+                  {observationShortLabel(cell.observation)}
+                </text>
               ) : null}
               <text
                 x={x(index + 1)}

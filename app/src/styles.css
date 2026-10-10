@@ -661,14 +661,14 @@ button[aria-pressed="true"] {
   color: inherit;
 }
 .negative-strong {
-  --rating-bg: #a32939;
-  --rating-color: #fff;
-  --rating-border: #a32939;
+  --rating-bg: #efdadd;
+  --rating-color: #7d3541;
+  --rating-border: #c69aa3;
 }
 .negative {
-  --rating-bg: #fbe5e7;
-  --rating-color: #902333;
-  --rating-border: #bb6874;
+  --rating-bg: #faf0f1;
+  --rating-color: #87444f;
+  --rating-border: #d3b5ba;
 }
 .neutral {
   --rating-bg: #eef1f4;
@@ -676,14 +676,14 @@ button[aria-pressed="true"] {
   --rating-border: #8e9ba7;
 }
 .positive {
-  --rating-bg: #def2e6;
-  --rating-color: #176042;
-  --rating-border: #579477;
+  --rating-bg: #eff7f2;
+  --rating-color: #36654c;
+  --rating-border: #b5cdbe;
 }
 .positive-strong {
-  --rating-bg: #176042;
-  --rating-color: #fff;
-  --rating-border: #176042;
+  --rating-bg: #dcece2;
+  --rating-color: #255a43;
+  --rating-border: #96b6a3;
 }
 .rating-grid {
   display: grid;
@@ -695,15 +695,15 @@ button.rating-option:hover,
 .grading-panel button.rating-option[aria-pressed="true"] {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  padding: 1rem 0.6rem;
+  gap: 0.8rem;
+  padding: 1.1rem 0.65rem 0.8rem;
   background: var(--rating-bg);
   color: var(--rating-color);
   border-color: var(--rating-border);
   min-width: 0;
 }
 button.rating-option strong {
-  font-size: 1.7rem;
+  font-size: 2rem;
 }
 button.rating-option span {
   font-size: 0.85rem;
@@ -713,6 +713,30 @@ button.rating-option small {
   color: inherit;
   font-size: 0.75rem;
   line-height: 1.5;
+}
+button.rating-option .rating-result {
+  display: grid;
+  gap: 0.25rem;
+  margin-top: auto;
+  padding-top: 0.7rem;
+  border-top: 1px solid var(--rating-border);
+  width: 100%;
+}
+button.rating-option .rating-result b {
+  font-size: 1.4rem;
+  line-height: 1.3;
+}
+button.rating-option .rating-buffer {
+  font-weight: 400;
+  font-size: 0.72rem;
+}
+.observation-status {
+  font-size: 0.85rem;
+  color: #536b75;
+  margin: 0.7rem 0 1rem;
+}
+.observation-status strong {
+  font-weight: 550;
 }
 .grading-panel button.rating-option[aria-pressed="true"] {
   outline: 3px solid #123446;
@@ -781,15 +805,45 @@ button.rating-option small {
     margin: 1rem 0 0;
   }
   .guide-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, minmax(7rem, 1fr));
+    overflow-x: auto;
   }
 }
 @media (max-width: 600px) {
   .rating-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
-  .rating-grid button:last-child {
-    grid-column: 1 / -1;
+  button.rating-option,
+  button.rating-option:hover,
+  .grading-panel button.rating-option[aria-pressed="true"] {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr) 4.5rem;
+    gap: 0.3rem 0.7rem;
+    padding: 0.85rem 1rem;
+    text-align: left;
+    align-items: center;
+  }
+  button.rating-option > strong {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    text-align: center;
+  }
+  button.rating-option > .rating-meaning {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  button.rating-option .rating-buffer {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  button.rating-option .rating-result {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    border-top: 0;
+    border-left: 1px solid var(--rating-border);
+    padding: 0 0 0 0.7rem;
+    margin: 0;
+    text-align: center;
   }
   .name-row {
     grid-template-columns: 1fr 1fr;
@@ -798,10 +852,17 @@ button.rating-option small {
     grid-column: 1 / -1;
   }
   .guide-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    overflow: visible;
   }
-  .guide-grid > :last-child {
-    grid-column: 1 / -1;
+  .rating-tile {
+    grid-template-columns: 3rem minmax(0, 1fr);
+    text-align: left;
+    align-items: center;
+  }
+  .rating-tile strong {
+    grid-row: 1 / 3;
+    text-align: center;
   }
   .person-navigation {
     display: grid;
@@ -833,4 +894,139 @@ button.rating-option small {
   .student-list {
     max-height: 12rem;
   }
+}
+
+/* Lesbare Stundenübersicht und begrenzte Tabellenfenster. */
+.session-summary {
+  color: #405b68;
+  font-weight: 600;
+  margin-top: 0.35rem;
+}
+.order-feedback {
+  color: #255a43;
+  font-weight: 650;
+  max-width: 38ch;
+}
+.table-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 0.8rem 1.2rem;
+  margin-bottom: 1rem;
+}
+.table-controls label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 550;
+}
+.table-controls select {
+  margin: 0;
+}
+.table-modes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.table-legend {
+  color: #536b75;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  max-width: 80ch;
+}
+.table-pagination {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  margin: 1rem 0;
+}
+.table-pagination p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.class-report-scroll {
+  max-height: 34rem;
+  overflow: auto;
+  border: 1px solid #d7e2de;
+  border-radius: 0.35rem;
+  font-size: 0.85rem;
+}
+.class-report-scroll th,
+.class-report-scroll td {
+  padding: 0.55rem 0.65rem;
+}
+.class-report-scroll thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: #e9f3ef;
+}
+.class-report-scroll .person-column {
+  position: sticky;
+  left: 0;
+  background: #f3f7f5;
+  z-index: 1;
+  border-right: 2px solid #bccfc7;
+  max-width: 12rem;
+  white-space: normal;
+  min-width: 9rem;
+}
+.class-report-scroll thead .person-column {
+  z-index: 3;
+}
+.class-report-scroll .current-column {
+  position: sticky;
+  right: 0;
+  z-index: 1;
+  background: #edf5ef;
+  border-left: 2px solid #bccfc7;
+}
+.class-report-scroll thead .current-column {
+  z-index: 3;
+}
+.class-report-scroll th small {
+  display: block;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+.compact-table td {
+  text-align: center;
+}
+.observation-code {
+  color: var(--rating-color);
+  font-weight: 700;
+}
+.table-size-small {
+  font-size: 0.75rem;
+}
+.table-size-small th,
+.table-size-small td {
+  padding: 0.4rem 0.45rem;
+}
+.table-size-large {
+  font-size: 1rem;
+}
+.table-size-large th,
+.table-size-large td {
+  padding: 0.8rem 0.9rem;
+}
+@media (max-width: 600px) {
+  .table-controls,
+  .table-pagination {
+    gap: 0.7rem;
+  }
+  .table-pagination p {
+    width: 100%;
+    order: -1;
+  }
+  .class-report-scroll .person-column {
+    min-width: 7rem;
+    max-width: 8rem;
+  }
+}
+.session-excerpt {
+  color: #536b75;
+  font-weight: 400;
+  line-height: 1.5;
 }

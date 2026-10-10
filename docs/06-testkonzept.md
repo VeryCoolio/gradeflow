@@ -129,3 +129,13 @@ Aus einem erfolgreichen Usability-Test folgt nicht, dass:
 - Navigation, Bewertung und Dateiabläufe bei 390, 768 und Desktopbreite prüfen; Farben sind zusätzliche Hinweise, die Texte bleiben maßgeblich.
 
 Die neue Version ersetzt keine bereits laufende Erhebung mit `v0.5.0`. Eine weitere Erhebung benötigt einen separat festgelegten Versionsstand und Datensatz.
+
+## 9. Abnahme der Bedienkorrekturen 0.6.1
+
+- Fünf Symbole in Bewertung und Hilfe in der Reihenfolge `--`, `-`, `0`, `+`, `++`; keine zusätzliche Symbolaufzählung im Bewertungsbildschirm.
+- Ergebnishinweis und Puffer getrennt, zurückhaltende Farben und kleine Statusangabe; Darstellung auf Smartphone, Tablet und Desktop visuell prüfen.
+- Zwei vollständige Stunden tauschen: stabile IDs und zugehörige Beobachtungen bleiben erhalten; Nummern, sichtbare Reihenfolge, Personenauszug und chronologische Zwischenstände ändern sich. Bei simuliertem Speicherfehler bleibt die vorherige Reihenfolge erhalten und eine Fehlermeldung erscheint.
+- Klasse mit mindestens 24 Stunden: zehn neueste anzeigen, zu früheren Fenstern blättern, auf 20 oder alle umschalten. Der Gesamtstand bleibt aus sämtlichen Stunden berechnet. Kein gültiger Eintrag wird abgeschnitten oder gelöscht.
+- Kompakt-/Detailansicht und drei Schriftgrößen wechseln. `AW`, `NB`, `Offen` und bewertete `0` bleiben unterscheidbar; nur bewertete Zellen zeigen einen Zwischenstand.
+- Diagramm mit einer und mit 20 Stunden: identischer fester horizontaler Stundenabstand. Personenwechsel erhält alle Datumspunkte. Unbewertete Stunden tragen Kurztexte und keine erfundenen Leistungsdatenpunkte.
+- Namen, Gesamtstand und Spaltenköpfe beim internen Scrollen prüfen; auch die große Tabelle erzeugt kein horizontales Überlaufen der Seite bei 390 und 768 CSS-Pixeln.

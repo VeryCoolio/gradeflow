@@ -58,6 +58,7 @@ Der Abschlusstest ist ein reiner Usability- und Bedientest. Er untersucht unter 
 - Eine Unterrichtsstunde besitzt eine stabile ID, Datum und Erstellungszeit.
 - Pro Klasse und Datum sind höchstens zwei Unterrichtsstunden zulässig. Die erste erhält intern `lessonSequence = 1`, die zweite `lessonSequence = 2`; ein dritter Eintrag wird mit verständlicher Fehlermeldung abgewiesen.
 - Nur bei zwei Stunden am selben Datum zeigt die Oberfläche ihre Nummern als erste und zweite Stunde an. Diese Reihenfolge ist durch einen atomaren Tausch der Nummern korrigierbar.
+- Beim Tausch bleiben die Eingaben ihrer stabilen Stunde zugeordnet. Zusammenfassung und Personenauszug machen die beiden Stunden unterscheidbar; eine Rückmeldung bestätigt die erfolgreiche lokale Speicherung. Innerhalb eines Datums steht die erste Stunde vor der zweiten.
 - Wird eine von zwei Stunden gelöscht, erhält die verbleibende intern wieder `lessonSequence = 1`; ihre Nummer wird nicht mehr angezeigt. Eine später neu angelegte zweite Stunde erhält `2`.
 - Innerhalb derselben Klasse darf die Kombination aus Datum und Stundennummer nicht doppelt vorkommen. Andere Werte als `1` und `2` sind unzulässig.
 - Für jede Person wird genau einer der folgenden Zustände gespeichert:
@@ -95,10 +96,13 @@ Der Abschlusstest ist ein reiner Usability- und Bedientest. Er untersucht unter 
 - Bewertung einer Klasse mit möglichst wenigen, klaren Eingaben.
 - Aktueller Name, aktueller Stand, gewählter Stundenstatus und Fortschritt sind jederzeit sichtbar.
 - Feste Navigation zu Klassen, Klassenerstellung, Datensicherung und Bewertungshilfe; keine Aufklappbereiche für diese Abläufe.
-- Die Symbole sind zusätzlich zu Text und Auswahlzustand farblich abgestuft: `++` dunkelgrün, `+` hellgrün, `0` neutral, `-` hellrot, `--` dunkelrot.
+- Die Symbole stehen in Bewertung und Hilfe stets in der Reihenfolge `--`, `-`, `0`, `+`, `++`. Dezente Grün-/Rotabstufungen ergänzen Text und Auswahlzustand; die stärkeren Symbole verwenden eine etwas sattere helle Fläche.
 - Bedeutung, Berechnung, Grenzen und Puffer sind direkt erklärt. Bei der Bewertung zeigt jedes Symbol das konkrete Ergebnis vom Stand vor der Stunde aus an.
+- Das Ergebnis hat Vorrang vor der kleineren, getrennten Pufferangabe. Der gewählte Status ist kompakt; die Symbolerklärung wird im Bewertungsbildschirm nicht zusätzlich als Textabsatz wiederholt.
 - Nach der letzten erfolgreichen Speicherung erscheint eine eindeutige Abschlussbestätigung mit Rückweg zur Klassenübersicht. Speicherfehler dürfen keine Erfolgsmeldung auslösen.
 - Der Verlauf verwendet für alle Personen dieselbe Achse mit allen Unterrichtsdaten, auch bei Abwesenheit, Nichtbeobachtung und offenen Einträgen. Die Ereignisse stehen in einer lesbaren Tabelle.
+- Jede Unterrichtsstunde erhält denselben festen horizontalen Abstand, auch bei unterschiedlicher Zahl gespeicherter Stunden. Unbewertete Stunden tragen `AW`, `NB` oder `Offen`, ohne Leistungsdatenpunkte zu erzeugen.
+- Die Stundentabelle besitzt eine kompakte Ansicht mit klarer Legende (`AW` = abwesend, `NB` = nicht beobachtet), zuschaltbare Zwischenstände, begrenzte Stundenfenster und eine veränderbare Tabellengröße. Namen und aktueller Gesamtstand bleiben beim Scrollen sichtbar. Das sichtbare Stundenfenster begrenzt die Berechnung nicht.
 - Die Oberfläche darf nicht suggerieren, dass der errechnete Stand automatisch eine rechtssichere oder objektive Endnote darstellt.
 
 ## 5. Anforderungen außerhalb des Bachelorarbeitskerns

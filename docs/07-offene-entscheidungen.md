@@ -97,3 +97,17 @@ Excel-Berichte enthalten eine Klassenübersicht und je Person ein Tabellenblatt.
 Grün- und Rotabstufungen der positiven/negativen Symbole; sichtbare Bedeutung und Berechnung einschließlich Puffer. Deutliche Erklärung des Bewertungsgegenstands. Feste Navigation ersetzt Aufklappbereiche. Nach vollständiger erfolgreicher Erfassung: Speicherbestätigung und Rückweg zur Übersicht. Der Verlauf erhält dieselbe Datumsachse für alle Personen und eine übersichtlichere Tabelle darunter. Eine größere Demo-Klasse ist verlangt; 20 Namen sind eine technische Ausgestaltungsentscheidung.
 
 **Weiter offen:** konkrete fachliche Beobachtungskriterien und ein optionaler PDF-Bericht. Aus der technischen Darstellung werden keine neuen Bewertungsmaßstäbe abgeleitet.
+
+## Präzisierung nach weiterer Rückmeldung – 0.6.1
+
+### O12 – Bewertungshierarchie – entschieden
+
+Die spätere Präzisierung ersetzt den anfänglichen Wunsch, Puffer vollständig auszublenden: Der Puffer darf als dezent getrennte Zusatzinformation bleiben. Notenergebnis und Symbol erhalten mehr Raum und Gewicht; gewählter Status wird kompakter. Starke vollflächige Rot-/Grüntöne werden durch zurückhaltende Abstufungen ersetzt. `0` steht überall zwischen Minus und Plus. Der doppelte erklärende Symbolabsatz im Bewertungsbildschirm entfällt; die ausführliche Hilfe bleibt erreichbar.
+
+### O13 – Umfangreiche Stundenansichten – entschieden / technische Ausgestaltung
+
+Eine kompakte, vergrößerbare oder verkleinerbare Tabelle und klare Kürzel für unbewertete Status sind verlangt. **Technische Ausgestaltung:** `AW` bedeutet abwesend, `NB` nicht beobachtet; fehlende Eingabe heißt weiterhin `Offen`. Zehn neueste Stunden sind Standard, mit Fenstern von 20 oder allen Stunden und Navigation. Die Detailansicht zeigt Zwischenstände. Die Diagrammachse verwendet einen festen Abstand je Unterrichtsstunde. Eine längere Strecke zwischen bewerteten Punkten kann mehrere unbewertete Stunden überspannen; diese werden ausdrücklich beschriftet. Die Berechnung bleibt vollständig, das Fenster setzt keine zeitliche Grenze.
+
+### O14 – Wahrnehmbarer Reihenfolgetausch – technische Korrektur
+
+Die bestätigte atomare Tauschregel O7 bleibt bestehen. Die Listenreihenfolge innerhalb eines Datums, eine Eingabezusammenfassung, ein Personenauszug und ein ausdrücklicher Speicherhinweis machen den Tausch sichtbar. Dies ist eine Bedienkorrektur und keine neue Bewertungsregel.

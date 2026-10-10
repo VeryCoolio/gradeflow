@@ -6,6 +6,8 @@ Dieses Repository enthält den Neubau einer App zur Dokumentation der fortlaufen
 
 Meilensteine 1 bis 5 sind umgesetzt; Version 0.6.0 überarbeitet die Bedienung nach Nutzerfeedback. Feste Seiten für Klassen, Klassenerstellung, Sicherung und Bewertungshilfe ersetzen die Aufklappbereiche. Klassen lassen sich manuell oder aus zweispaltigen Excel-/CSV-/TXT-Listen anlegen. Neue Klassen erhalten eine änderbare Schuljahresbezeichnung ohne Enddatum oder automatischen Reset. Die Demo enthält 20 fiktive Personen. Farbige Symbole zeigen Bedeutung und konkretes Ergebnis; jede Beobachtung wird sofort lokal gespeichert. Vollständige Stunden erhalten eine Speicherbestätigung mit Rückweg zur Übersicht. Tabelle, Verlauf mit Datumsachse, Excel mit Personenblättern, vereinfachte CSV und wiederherstellbare JSON-Vollsicherung stehen bereit. Vorhandene Daten und `legacy-source/` bleiben erhalten. [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) und [Versionsverlauf](CHANGELOG.md) beschreiben die Änderungen.
 
+Version 0.6.1 verfeinert die Bewertungshierarchie und Symbolfolge, macht den Stundentausch sichtbar und ergänzt eine kompakte, größenveränderbare Tabelle mit Stundenfenstern. Der Verlauf verwendet feste Stundenabstände und klare Statuskürzel. [Bedienkorrekturen 0.6.1](docs/bedienkorrekturen-0.6.1.md) dokumentiert Änderungen und Prüfungen.
+
 Der Tag `v0.5.0` bleibt der unveränderte historische [Usability-Teststand](docs/usability-testversion.md). Die Überarbeitung wird separat geprüft und vor einer neuen Erhebung erneut festgelegt.
 
 ## Entwicklung

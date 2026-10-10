@@ -109,3 +109,5 @@ Siehe `07-offene-entscheidungen.md`.
 **Entscheidung:** Eine vorbelegte Schuljahresbezeichnung verändert weder den Berechnungszeitraum noch den Startwert. Kein Enddatum, kein automatischer Reset.
 
 **Offen:** Ein fachspezifischer Kriterienkatalog für die Beobachtung der mündlichen Mitarbeit wurde nicht vorgegeben. Die Oberfläche erläutert das bestätigte relative Modell, ohne neue Kriterien, feste Symbolnoten oder automatische pädagogische Urteile zu erfinden.
+
+**Darstellungskorrektur 0.6.1:** `0` steht in Bewertung und Hilfe zwischen Minus und Plus. Das Notenergebnis erhält eine eigene hervorgehobene Zeile; Puffer bleibt als kleinere Zusatzinformation. Die Rechenregeln bleiben unverändert. Kompakte Tabellen und Stundenfenster blenden ausschließlich Anzeigeinformationen aus; der aktuelle Stand wird weiterhin aus allen chronologisch sortierten Stunden berechnet. Ein fester horizontaler Diagrammabstand bezeichnet eine Unterrichtsstunde, keine verstrichene Kalenderzeit. Unbewertete Stunden werden ausdrücklich markiert und erzeugen weiterhin keinen bewerteten Punkt.

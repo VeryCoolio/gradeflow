@@ -17,7 +17,12 @@ import {
 import { buildClassReport } from "./application/reporting";
 import type { LessonSession } from "./domain/sessions/types";
 import { StudentHistory } from "./features/history/StudentHistory";
-import { observationLabel, sessionLabel } from "./features/presentation";
+import {
+  observationLabel,
+  observationShortLabel,
+  sessionLabel,
+  sessionAssessmentSummary,
+} from "./features/presentation";
 import { ClassTable } from "./features/table/ClassTable";
 import { ClassCreation } from "./features/classes/ClassCreation";
 import { RatingGuide, RATING_GUIDE } from "./features/assessment/RatingGuide";
@@ -115,6 +120,10 @@ export function App({
   );
   const [error, setError] = useState(loadResult.error);
   const [notice, setNotice] = useState("");
+  const [lastSwap, setLastSwap] = useState<{
+    classId: string;
+    date: string;
+  } | null>(null);
   const [page, setPage] = useState<
     "klasse" | "anlegen" | "sicherung" | "hilfe"
   >("klasse");
@@ -165,6 +174,7 @@ export function App({
   const [studentName, setStudentName] = useState("");
   const startingRef = useRef(false);
   const completionRef = useRef<HTMLButtonElement>(null);
+  const swapButtonRef = useRef<HTMLButtonElement>(null);
 
   const currentClass = notebook?.classes.find(
     (item) => item.id === notebook.currentClassId,
@@ -177,6 +187,9 @@ export function App({
     main?.focus({ preventScroll: true });
     window.scrollTo({ top: 0 });
   }, [page, dashboardView, currentClass?.id, activeSessionId]);
+  useEffect(() => {
+    if (lastSwap?.classId === currentClass?.id) swapButtonRef.current?.focus();
+  }, [lastSwap, currentClass?.id]);
   const firstOpenStudent = currentClass?.students.find(
     (student) => activeSession && !activeSession.observations[student.id],
   );
@@ -506,10 +519,11 @@ export function App({
 
   function swapSessions(date: string) {
     if (!currentClass) return;
-    apply(
+    const updated = apply(
       () => localRepository.swapSessions(currentClass.id, date),
-      "Stundenreihenfolge getauscht. Der Verlauf wurde neu berechnet.",
+      `${date.split("-").reverse().join(".")}: Stunden getauscht und lokal gespeichert. Die bisherige zweite Stunde ist jetzt die erste; der Verlauf wurde neu berechnet.`,
     );
+    if (updated) setLastSwap({ classId: currentClass.id, date });
   }
 
   function deleteStoredSession(session: LessonSession) {
@@ -1172,19 +1186,29 @@ export function App({
               {dashboardView === "stunden" ? (
                 <section className="card">
                   <h2>Unterrichtsstunden</h2>
+                  {currentClass.sessions.length ? (
+                    <p className="muted">
+                      Neueste Daten zuerst; am selben Datum die erste vor der
+                      zweiten Stunde. Die Zusammenfassung zeigt die Eingaben: AW
+                      = abwesend, NB = nicht beobachtet.
+                    </p>
+                  ) : null}
                   {currentClass.sessions.length === 0 ? (
                     <p className="muted">Noch keine Stunde angelegt.</p>
                   ) : (
                     <ul className="session-list">
                       {[...currentClass.sessions]
-                        .sort(compareLessonSessions)
-                        .reverse()
+                        .sort(
+                          (a, b) =>
+                            b.date.localeCompare(a.date) ||
+                            compareLessonSessions(a, b),
+                        )
                         .map((session) => {
                           const complete =
                             Object.keys(session.observations).length ===
                             currentClass.students.length;
                           return (
-                            <li key={session.id}>
+                            <li key={session.id} data-session-id={session.id}>
                               <span>
                                 <strong>
                                   {sessionLabel(session, currentClass.sessions)}
@@ -1194,6 +1218,32 @@ export function App({
                                   {currentClass.students.length} erfasst ·{" "}
                                   {complete ? "vollständig" : "laufend"}
                                 </small>
+                                <small className="session-summary">
+                                  {sessionAssessmentSummary(session)}
+                                </small>
+                                <small className="session-excerpt">
+                                  Auszug:{" "}
+                                  {currentClass.students
+                                    .slice(0, 2)
+                                    .map(
+                                      (student) =>
+                                        `${student.displayName}: ${observationShortLabel(session.observations[student.id])}`,
+                                    )
+                                    .join(" · ")}
+                                </small>
+                                {session.lessonSequence === 1 &&
+                                hasVisibleLessonSequence(
+                                  currentClass.sessions,
+                                  session.date,
+                                ) &&
+                                lastSwap?.classId === currentClass.id &&
+                                lastSwap.date === session.date &&
+                                !error ? (
+                                  <small className="order-feedback">
+                                    Tausch gespeichert. Die bisherige zweite
+                                    Stunde steht jetzt zuerst.
+                                  </small>
+                                ) : null}
                               </span>
                               {!currentClass.archived ? (
                                 <div className="session-actions">
@@ -1214,6 +1264,12 @@ export function App({
                                     <button
                                       type="button"
                                       onClick={() => swapSessions(session.date)}
+                                      ref={
+                                        lastSwap?.classId === currentClass.id &&
+                                        lastSwap.date === session.date
+                                          ? swapButtonRef
+                                          : undefined
+                                      }
                                     >
                                       Reihenfolge tauschen
                                     </button>
@@ -1348,7 +1404,7 @@ export function App({
                           ? ` · Puffer ${gradeBeforeLesson.bufferPoints}/3`
                           : ""}
                       </p>
-                      <p>
+                      <p className="observation-status">
                         Gewählter Status:{" "}
                         <strong>
                           {observationLabel(
@@ -1379,7 +1435,7 @@ export function App({
                                 key={symbol}
                                 type="button"
                                 aria-label={symbol}
-                                aria-describedby={`rating-${symbol}`}
+                                aria-describedby={`rating-${symbol} rating-result-${symbol} rating-buffer-${symbol}`}
                                 className={`rating-option ${RATING_GUIDE[symbol].tone}`}
                                 aria-pressed={
                                   selectedObservation?.status === "bewertet" &&
@@ -1396,16 +1452,29 @@ export function App({
                                 }
                               >
                                 <strong>{symbol}</strong>
-                                <span id={`rating-${symbol}`}>
+                                <span
+                                  className="rating-meaning"
+                                  id={`rating-${symbol}`}
+                                >
                                   {RATING_GUIDE[symbol].meaning}
                                 </span>
-                                <small>
-                                  Ergebnis:{" "}
-                                  {formatGradeDecimal(
-                                    applyRating(gradeBeforeLesson, symbol)
-                                      .gradeQuarterSteps,
-                                  )}{" "}
-                                  · Puffer{" "}
+                                <span
+                                  className="rating-result"
+                                  id={`rating-result-${symbol}`}
+                                >
+                                  <small>Ergebnis</small>
+                                  <b>
+                                    {formatGradeDecimal(
+                                      applyRating(gradeBeforeLesson, symbol)
+                                        .gradeQuarterSteps,
+                                    )}
+                                  </b>
+                                </span>
+                                <small
+                                  className="rating-buffer"
+                                  id={`rating-buffer-${symbol}`}
+                                >
+                                  Puffer{" "}
                                   {
                                     applyRating(gradeBeforeLesson, symbol)
                                       .bufferPoints
@@ -1452,12 +1521,6 @@ export function App({
                           </button>
                         </div>
                       </fieldset>
-                      <p className="muted">
-                        Symbole: ++ deutlich besser, + etwas besser, 0 ungefähr
-                        gleich, - etwas schlechter, -- deutlich schlechter als
-                        der bisherige Stand. Bei Note 1,00 können bis zu drei
-                        Pufferpunkte entstehen.
-                      </p>
                       <button type="button" onClick={() => setPage("hilfe")}>
                         Bewertung und Puffer erklärt
                       </button>
