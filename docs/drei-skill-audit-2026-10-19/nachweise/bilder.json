@@ -1,0 +1,247 @@
+[
+  {
+    "file": "bilder/design-1440-tour.png",
+    "sha256": "a33720deadd37249a4b4f061782035bbec2721af6b836015f7baa17bcfcec6ce",
+    "bytes": 125412,
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "bilder/design-1440-leer.png",
+    "sha256": "c994624d130824b74cd89ef3c3ee301796023397191ed92694596f3946cad4c5",
+    "bytes": 57011,
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "bilder/design-390-leer.png",
+    "sha256": "57bd3864d448f4e0bc2c81e2ee4add9996b35c27428ac9ed9d0ee276e3715c09",
+    "bytes": 36143,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/design-1440-anlegen.png",
+    "sha256": "e46801728d985444ec0041609b098092c264baa91d008a0123bbc7a7b7f478dc",
+    "bytes": 116771,
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "bilder/design-390-anlegen.png",
+    "sha256": "a6c8ca35acd323b5d0ce623670011c15e91105d79095174dce2edff95fada36e",
+    "bytes": 67391,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/design-390-tabelle-ruhig.png",
+    "sha256": "02c819fe3fb11ba18137d7ea68c0e4af2094fe51cff4b8f8eec0179c4f16e7d4",
+    "bytes": 53723,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/design-390-tabelle-daten.png",
+    "sha256": "b2eb3a4033636516260c8a817473f83b2494b0a25fbe6788180808a82a5f852a",
+    "bytes": 55812,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/design-1440-bewertung.png",
+    "sha256": "cc43be8bb2fabaa2326ebd7576dc00e28fd7bceb9fbfffa596eb7c591ad31506",
+    "bytes": 166081,
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "bilder/design-390-bewertung.png",
+    "sha256": "9b1539ba4ce7032c1ff38d5ee93ef59927fff14462585bac36124b883755849c",
+    "bytes": 58955,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/design-1440-bearbeiten.png",
+    "sha256": "ce75364914b7764f903ae7ceec2d9f95149219ef03f9bc3ffee2e9336781df0e",
+    "bytes": 150561,
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "bilder/design-1440-idee.png",
+    "sha256": "e5f2a26d8d80279fb4c4b9b13f468a844fb42bebbacf3cc44c948722318ad693",
+    "bytes": 216834,
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "bilder/design-390-verlauf-diagramm.png",
+    "sha256": "fb6ef9dc1ebebd0aff9d78787aa5f69a0e8be9650358cb4de6db44139d74ad6d",
+    "bytes": 52194,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/guidelines-personen-editor-unsichtbar.png",
+    "sha256": "c61e6b224e531bf251382b1f3877bd31e0f3077e93c29712261f836c4e6bb381",
+    "bytes": 126162,
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "bilder/guidelines-importfehler-desktop.png",
+    "sha256": "e7a1fd3d984fb2ccd361a28e3cd4fcb1d424b3adc393d571309bc33da4d501bc",
+    "bytes": 153285,
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "bilder/playwright-eine-person.png",
+    "sha256": "caeb256da5454f95ae846a4a5e86be1629013eaef979d359352ffa854b4ebdcf",
+    "bytes": 98522,
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "bilder/playwright-stundenabschluss.png",
+    "sha256": "f8ef198735c98f24cb83746d948c6f78d10190bfdb1ee9b9fba29e2bf3512ec6",
+    "bytes": 87627,
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "bilder/playwright-personen-dialog-390.png",
+    "sha256": "77ad02e4fbddd4af4f8afc15ab2e6a9ea70f4fc8d4d47df1cc5148d636432d81",
+    "bytes": 51561,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/playwright-speicherfehler-mobil.png",
+    "sha256": "cd962bdf53d8707995ea54da5506b40109e10836a247dd207cb9c68d8a60a695",
+    "bytes": 60560,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/playwright-speicherfehler-nach-navigation.png",
+    "sha256": "68811062f120847ac4714cf93406598784d39ee3caa0d3b11d5dd2b76767e434",
+    "bytes": 61832,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/playwright-tour-320-03.png",
+    "sha256": "214fbff03276bc159895b23f74c554408669ce43c33b968da4cb332c20a853fa",
+    "bytes": 41471,
+    "width": 320,
+    "height": 568
+  },
+  {
+    "file": "bilder/playwright-tour-390-06.png",
+    "sha256": "f7e55a4655257df6d52d939f8eda0986b03a1f0959df2e978e60e1754cecb13d",
+    "bytes": 71591,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/playwright-tour-768-10.png",
+    "sha256": "c0feb128faf38f8022edc575c09af9e8a334abcef4527aae6cd692274653ea11",
+    "bytes": 110691,
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "file": "bilder/playwright-fit-320-tabelle.png",
+    "sha256": "19b99da58fb4c7afda257f99121db08bdc21a8cba98d59ca9c8b08ed08feaf33",
+    "bytes": 36412,
+    "width": 320,
+    "height": 568
+  },
+  {
+    "file": "bilder/playwright-fit-768-tabelle.png",
+    "sha256": "0a450cfa5db9789c15786a8abfffcf6289ba47009dac2732a1f82b21394a117d",
+    "bytes": 98655,
+    "width": 768,
+    "height": 1024
+  },
+  {
+    "file": "bilder/playwright-fit-1024-bearbeiten.png",
+    "sha256": "38f0eca2841f222e745bed72497ebd723cf295e254cb9b18d2a1e76ca00d4154",
+    "bytes": 76753,
+    "width": 1024,
+    "height": 768
+  },
+  {
+    "file": "bilder/playwright-tabelle-390-horizontal.png",
+    "sha256": "b27f955e7eba8468ffcff5a67343a4cbe1a24aa9ae423e2b6fb00a8ac51dee71",
+    "bytes": 53573,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/playwright-verlauf-390-horizontal.png",
+    "sha256": "55c7e74373cfaa3a336abb8e65e9eba2b3c67a3468cf52d816e2d8782ad2c116",
+    "bytes": 53030,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/playwright-200-prozent-bewertung.png",
+    "sha256": "93964674298d82de5da740d220ac15f92359a3512bce66ef2e8e3574488a2ce2",
+    "bytes": 55897,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/playwright-200-prozent-status.png",
+    "sha256": "e284f76e6aafa81faa31482e1632d219a328cc84f0fcd2ba95fef7be31e1f08e",
+    "bytes": 55306,
+    "width": 390,
+    "height": 844
+  },
+  {
+    "file": "bilder/excel-klasse.png",
+    "sha256": "aabc79ed9c6ad3a569a94b12722c01623744e914347fe21a35323fbd381a2cce",
+    "bytes": 57612,
+    "width": 1270,
+    "height": 593
+  },
+  {
+    "file": "bilder/excel-person.png",
+    "sha256": "67d504203f113703b03ff8866f1fa1f9175f74c96d3c95e377966bc875e67bc5",
+    "bytes": 54983,
+    "width": 1322,
+    "height": 591
+  },
+  {
+    "file": "bilder/excel-person-lang.png",
+    "sha256": "0a4ed6e7409152d794ab179bf8eccd3a5712feca9c3df9e67892b1a210094c4c",
+    "bytes": 57260,
+    "width": 1322,
+    "height": 591
+  },
+  {
+    "file": "bilder/excel-klasse-lang.png",
+    "sha256": "7f20883170cc18a269721f5d585917d86eb2446fdbf8b5f61c4bfb6ed6927fa1",
+    "bytes": 63827,
+    "width": 1270,
+    "height": 593
+  },
+  {
+    "file": "bilder/playwright-bewertungshilfe.png",
+    "sha256": "1642165d5170c84462482bbffe97f5e730a1cb9ce371338b30a2f0f9130ff2cc",
+    "bytes": 161286,
+    "width": 1440,
+    "height": 1000
+  },
+  {
+    "file": "bilder/playwright-defekter-bestand.png",
+    "sha256": "1d276e72d59a1d6d01a013092c02eca3b0cb51088b5dd69e5c31033be037201b",
+    "bytes": 55957,
+    "width": 390,
+    "height": 844
+  }
+]

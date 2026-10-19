@@ -1,0 +1,46 @@
+{
+  "sheets": [
+    "Klassenübersicht",
+    "Fiktiv Ada-Langname",
+    "Fiktiv Bea",
+    "Fiktiv Cem",
+    "Fiktiv Dana",
+    "Fiktiv Emil",
+    "Fiktiv Farah",
+    "Fiktiv Greta"
+  ],
+  "formulas": 0,
+  "hyperlinkCount": 14,
+  "hyperlinkTargets": [
+    "#'Fiktiv Ada-Langname'!A1",
+    "#'Fiktiv Bea'!A1",
+    "#'Fiktiv Cem'!A1",
+    "#'Fiktiv Dana'!A1",
+    "#'Fiktiv Emil'!A1",
+    "#'Fiktiv Farah'!A1",
+    "#'Fiktiv Greta'!A1",
+    "#'Klassenübersicht'!A1",
+    "#'Klassenübersicht'!A1",
+    "#'Klassenübersicht'!A1",
+    "#'Klassenübersicht'!A1",
+    "#'Klassenübersicht'!A1",
+    "#'Klassenübersicht'!A1",
+    "#'Klassenübersicht'!A1"
+  ],
+  "oldEndnoteDisclaimer": false,
+  "csvHeader": [
+    "Klasse",
+    "Bewertungszeitraum",
+    "Person",
+    "Eintrag",
+    "Datum",
+    "Stunde",
+    "Status",
+    "Symbol",
+    "Stand",
+    "Puffer"
+  ],
+  "csvRows": 29,
+  "nativeExcelOpened": false,
+  "datePreviewLimit": "Artifact Tool zeigt in PNGs Serienzahlen; OOXML weist dd.mm.yyyy korrekt zu. Kein App-Datumsfehler daraus abgeleitet."
+}

@@ -1,0 +1,43 @@
+{
+  "dates": [
+    {
+      "cell": {
+        "r": "A6",
+        "s": "8"
+      },
+      "value": "46314.5",
+      "style": {
+        "numFmtId": "164",
+        "fontId": "1",
+        "fillId": "0",
+        "borderId": "0",
+        "xfId": "0",
+        "applyNumberFormat": "1",
+        "applyFont": "1",
+        "applyAlignment": "1"
+      },
+      "format": "dd.mm.yyyy"
+    },
+    {
+      "cell": {
+        "r": "A7",
+        "s": "8"
+      },
+      "value": "46314.5",
+      "style": {
+        "numFmtId": "164",
+        "fontId": "1",
+        "fillId": "0",
+        "borderId": "0",
+        "xfId": "0",
+        "applyNumberFormat": "1",
+        "applyFont": "1",
+        "applyAlignment": "1"
+      },
+      "format": "dd.mm.yyyy"
+    }
+  ],
+  "formats": {
+    "164": "dd.mm.yyyy"
+  }
+}

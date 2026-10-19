@@ -1,0 +1,14 @@
+{
+  "version": "0.8.2",
+  "commit": "ead4b637f1e4e938be62fb05486e33485c1386bb",
+  "preset": "saas-dashboard",
+  "target": "http://127.0.0.1:4190/",
+  "live_target": "https://gradeflow-ba.netlify.app/",
+  "skills": {
+    "Kappaemme-git/codex-design-audit-skill": "e930352db79d377c0d47ecea4c4b520c5ae0d0ff",
+    "openai/skills": "49f948faa9258a0c61caceaf225e179651397431",
+    "vercel-labs/agent-skills": "063bee94c3f4df8453406c830b0a7df0f2860278"
+  },
+  "scope": "Audit; keine App-Änderungen",
+  "physical_devices": false
+}

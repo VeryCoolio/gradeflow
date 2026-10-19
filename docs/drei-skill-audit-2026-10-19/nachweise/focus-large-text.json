@@ -1,0 +1,128 @@
+[
+  {
+    "text": "Zum Inhalt springen",
+    "top": 32,
+    "bottom": 132,
+    "height": 100,
+    "contextBottom": 1289.0625,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "Meine Klassen",
+    "top": 178.15625,
+    "bottom": 319.3125,
+    "height": 141.15625,
+    "contextBottom": 1289.0625,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "Klasse anlegen",
+    "top": 178.15625,
+    "bottom": 319.3125,
+    "height": 141.15625,
+    "contextBottom": 1289.0625,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "Datensicherung",
+    "top": 178.15625,
+    "bottom": 319.3125,
+    "height": 141.15625,
+    "contextBottom": 1289.0625,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "Hilfe und Einstieg",
+    "top": 343.3125,
+    "bottom": 425.515625,
+    "height": 82.203125,
+    "contextBottom": 1289.0625,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "Fiktive Prüfklasse · Schuljahr 2026/27Fiktive Symbolklasse umbenannt · Fiktiver Zeitraum",
+    "top": 516.09375,
+    "bottom": 596.46875,
+    "height": 80.375,
+    "contextBottom": 1289.0625,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "← Zur Klasse",
+    "top": 645.46875,
+    "bottom": 718.265625,
+    "height": 72.796875,
+    "contextBottom": 1289.0625,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "--",
+    "top": 565.546875,
+    "bottom": 824.03125,
+    "height": 258.484375,
+    "contextBottom": 553.796875,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "-",
+    "top": 585.828125,
+    "bottom": 844.3125,
+    "height": 258.484375,
+    "contextBottom": 553.796875,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "0",
+    "top": 566.109375,
+    "bottom": 792.328125,
+    "height": 226.21875,
+    "contextBottom": 553.796875,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "+",
+    "top": 618.125,
+    "bottom": 844.34375,
+    "height": 226.21875,
+    "contextBottom": 553.796875,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "++",
+    "top": 566.140625,
+    "bottom": 792.359375,
+    "height": 226.21875,
+    "contextBottom": 553.796875,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "Abwesend",
+    "top": 565.46875,
+    "bottom": 713.828125,
+    "height": 148.359375,
+    "contextBottom": 553.796875,
+    "viewport": 844,
+    "outline": "solid"
+  },
+  {
+    "text": "Nicht beobachtet",
+    "top": 565.46875,
+    "bottom": 713.828125,
+    "height": 148.359375,
+    "contextBottom": 553.796875,
+    "viewport": 844,
+    "outline": "solid"
+  }
+]

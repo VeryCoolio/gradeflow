@@ -1,0 +1,19 @@
+{
+  "url": "https://gradeflow-ba.netlify.app/",
+  "httpStatus": 200,
+  "assets": [
+    {
+      "asset": "/assets/index-BYjWN0tv.js",
+      "bytes": 325357,
+      "sha256": "d0b534546a36c374477645a066ea6dff3f305126a7619e1c0ee941f8bb36ca15",
+      "matchesBuild": true
+    },
+    {
+      "asset": "/assets/index-BcfydvYC.css",
+      "bytes": 36001,
+      "sha256": "60aabc0ecd1b76beadabbfa46a06f3bdd25226d76459a0b3898d8f45f2dfad3c",
+      "matchesBuild": true
+    }
+  ],
+  "allMatch": true
+}

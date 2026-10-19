@@ -1,0 +1,32 @@
+{
+  "entries": [
+    {
+      "id": "F06-Loeschung-Abbruch",
+      "result": "FAIL",
+      "details": {
+        "confirmation": "abgebrochen"
+      },
+      "classification": "Prüfwerkzeug-Zwischenversuch",
+      "supersededBy": "F06-Loeschung-Abbruch-korrigierte-Pruefsteuerung"
+    },
+    {
+      "id": "F34-Tabelle-Tastatur-Scrollen",
+      "result": "FAIL",
+      "details": {
+        "left": 0,
+        "scrollWidth": 1069,
+        "clientWidth": 325
+      },
+      "classification": "Prüfwerkzeug-Zwischenversuch",
+      "supersededBy": "F34-Tabelle-Tastatur-Scrollen-nach-Browserframe"
+    }
+  ],
+  "otherHarnessAdjustments": [
+    "Zwei REPL-Zeitüberschreitungen bei unbeschränkter Aufnahme-Synchronisierung; Browser neu gestartet.",
+    "Umschlossene Select-Beschriftung mit nicht exaktem Locator angesprochen.",
+    "Status-Locator auf Tabellen-Paginierung begrenzt.",
+    "XML-Verzeichnis statt XML-Datei übersprungen.",
+    "Nach Wiederherstellung zunächst gestartete Erstbesuchstour geschlossen."
+  ],
+  "applicationFixesMade": false
+}

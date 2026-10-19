@@ -1,0 +1,13 @@
+{
+  "browserVersion": "156.0.8078.4",
+  "pageErrors": [],
+  "liveRuntimeErrors": [],
+  "liveFailedRequests": [],
+  "checks": 61,
+  "axeStates": 10,
+  "axeViolations": 0,
+  "tourStates": 60,
+  "automaticTourDownloads": 0,
+  "viewportModes": "CSS viewport emulation",
+  "captureTiming": "Finite CSS transitions disabled for settled audit screenshots. Initial raw design screenshots may show transition frames."
+}

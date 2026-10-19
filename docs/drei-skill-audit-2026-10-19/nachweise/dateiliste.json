@@ -1,0 +1,339 @@
+{
+  "scope": "Geprüfte Upload-Dateien vor Ergänzung dieses Manifests; ausschließlich Bericht, fiktive Nachweise und Entwicklungsprotokoll.",
+  "files": [
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/01-design-audit.md",
+      "bytes": 1508,
+      "sha256": "4f76330b30cfef1b9b3391def0c24a82ddc61dd254788e15edcacff6550b8f72"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/02-web-design-guidelines.md",
+      "bytes": 2443,
+      "sha256": "4bfee043b3f019f264d7740f49442ecc054823bcf9012dd7a3f820e4c1cb4955"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/03-playwright-interactive.md",
+      "bytes": 3934,
+      "sha256": "a37962278992cbbfcdcddfd753691cff5a8d9fd8f7d4e7b26ac3186b9e8c0a4d"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/befunde.json",
+      "bytes": 14105,
+      "sha256": "f5a1de0f5eeaeff9cf5212a1036ce150ca80a969743d1c85e51832b13eec4bfb"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bericht.md",
+      "bytes": 23885,
+      "sha256": "195d024e0897ff302a8ec21d08464469b2240f6cc317cb5497fa00f684a2b6da"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/design-1440-anlegen.png",
+      "bytes": 116771,
+      "sha256": "e46801728d985444ec0041609b098092c264baa91d008a0123bbc7a7b7f478dc"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/design-1440-bearbeiten.png",
+      "bytes": 150561,
+      "sha256": "ce75364914b7764f903ae7ceec2d9f95149219ef03f9bc3ffee2e9336781df0e"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/design-1440-bewertung.png",
+      "bytes": 166081,
+      "sha256": "cc43be8bb2fabaa2326ebd7576dc00e28fd7bceb9fbfffa596eb7c591ad31506"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/design-1440-idee.png",
+      "bytes": 216834,
+      "sha256": "e5f2a26d8d80279fb4c4b9b13f468a844fb42bebbacf3cc44c948722318ad693"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/design-1440-leer.png",
+      "bytes": 57011,
+      "sha256": "c994624d130824b74cd89ef3c3ee301796023397191ed92694596f3946cad4c5"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/design-1440-tour.png",
+      "bytes": 125412,
+      "sha256": "a33720deadd37249a4b4f061782035bbec2721af6b836015f7baa17bcfcec6ce"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/design-390-anlegen.png",
+      "bytes": 67391,
+      "sha256": "a6c8ca35acd323b5d0ce623670011c15e91105d79095174dce2edff95fada36e"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/design-390-bewertung.png",
+      "bytes": 58955,
+      "sha256": "9b1539ba4ce7032c1ff38d5ee93ef59927fff14462585bac36124b883755849c"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/design-390-leer.png",
+      "bytes": 36143,
+      "sha256": "57bd3864d448f4e0bc2c81e2ee4add9996b35c27428ac9ed9d0ee276e3715c09"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/design-390-tabelle-daten.png",
+      "bytes": 55812,
+      "sha256": "b2eb3a4033636516260c8a817473f83b2494b0a25fbe6788180808a82a5f852a"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/design-390-tabelle-ruhig.png",
+      "bytes": 53723,
+      "sha256": "02c819fe3fb11ba18137d7ea68c0e4af2094fe51cff4b8f8eec0179c4f16e7d4"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/design-390-verlauf-diagramm.png",
+      "bytes": 52194,
+      "sha256": "fb6ef9dc1ebebd0aff9d78787aa5f69a0e8be9650358cb4de6db44139d74ad6d"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/excel-klasse-lang.png",
+      "bytes": 63827,
+      "sha256": "7f20883170cc18a269721f5d585917d86eb2446fdbf8b5f61c4bfb6ed6927fa1"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/excel-klasse.png",
+      "bytes": 57612,
+      "sha256": "aabc79ed9c6ad3a569a94b12722c01623744e914347fe21a35323fbd381a2cce"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/excel-person-lang.png",
+      "bytes": 57260,
+      "sha256": "0a4ed6e7409152d794ab179bf8eccd3a5712feca9c3df9e67892b1a210094c4c"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/excel-person.png",
+      "bytes": 54983,
+      "sha256": "67d504203f113703b03ff8866f1fa1f9175f74c96d3c95e377966bc875e67bc5"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/guidelines-importfehler-desktop.png",
+      "bytes": 153285,
+      "sha256": "e7a1fd3d984fb2ccd361a28e3cd4fcb1d424b3adc393d571309bc33da4d501bc"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/guidelines-personen-editor-unsichtbar.png",
+      "bytes": 126162,
+      "sha256": "c61e6b224e531bf251382b1f3877bd31e0f3077e93c29712261f836c4e6bb381"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-200-prozent-bewertung.png",
+      "bytes": 55897,
+      "sha256": "93964674298d82de5da740d220ac15f92359a3512bce66ef2e8e3574488a2ce2"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-200-prozent-status.png",
+      "bytes": 55306,
+      "sha256": "e284f76e6aafa81faa31482e1632d219a328cc84f0fcd2ba95fef7be31e1f08e"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-bewertungshilfe.png",
+      "bytes": 161286,
+      "sha256": "1642165d5170c84462482bbffe97f5e730a1cb9ce371338b30a2f0f9130ff2cc"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-defekter-bestand.png",
+      "bytes": 55957,
+      "sha256": "1d276e72d59a1d6d01a013092c02eca3b0cb51088b5dd69e5c31033be037201b"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-eine-person.png",
+      "bytes": 98522,
+      "sha256": "caeb256da5454f95ae846a4a5e86be1629013eaef979d359352ffa854b4ebdcf"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-fit-1024-bearbeiten.png",
+      "bytes": 76753,
+      "sha256": "38f0eca2841f222e745bed72497ebd723cf295e254cb9b18d2a1e76ca00d4154"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-fit-320-tabelle.png",
+      "bytes": 36412,
+      "sha256": "19b99da58fb4c7afda257f99121db08bdc21a8cba98d59ca9c8b08ed08feaf33"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-fit-768-tabelle.png",
+      "bytes": 98655,
+      "sha256": "0a450cfa5db9789c15786a8abfffcf6289ba47009dac2732a1f82b21394a117d"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-personen-dialog-390.png",
+      "bytes": 51561,
+      "sha256": "77ad02e4fbddd4af4f8afc15ab2e6a9ea70f4fc8d4d47df1cc5148d636432d81"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-speicherfehler-mobil.png",
+      "bytes": 60560,
+      "sha256": "cd962bdf53d8707995ea54da5506b40109e10836a247dd207cb9c68d8a60a695"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-speicherfehler-nach-navigation.png",
+      "bytes": 61832,
+      "sha256": "68811062f120847ac4714cf93406598784d39ee3caa0d3b11d5dd2b76767e434"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-stundenabschluss.png",
+      "bytes": 87627,
+      "sha256": "f8ef198735c98f24cb83746d948c6f78d10190bfdb1ee9b9fba29e2bf3512ec6"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-tabelle-390-horizontal.png",
+      "bytes": 53573,
+      "sha256": "b27f955e7eba8468ffcff5a67343a4cbe1a24aa9ae423e2b6fb00a8ac51dee71"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-tour-320-03.png",
+      "bytes": 41471,
+      "sha256": "214fbff03276bc159895b23f74c554408669ce43c33b968da4cb332c20a853fa"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-tour-390-06.png",
+      "bytes": 71591,
+      "sha256": "f7e55a4655257df6d52d939f8eda0986b03a1f0959df2e978e60e1754cecb13d"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-tour-768-10.png",
+      "bytes": 110691,
+      "sha256": "c0feb128faf38f8022edc575c09af9e8a334abcef4527aae6cd692274653ea11"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/bilder/playwright-verlauf-390-horizontal.png",
+      "bytes": 53030,
+      "sha256": "55c7e74373cfaa3a336abb8e65e9eba2b3c67a3468cf52d816e2d8782ad2c116"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/axe-results.json",
+      "bytes": 1564,
+      "sha256": "025a7a77f8d13139b4c4a894ba68011b46c6074fb8ad5f4ffeafba30b5919278"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/baseline.json",
+      "bytes": 523,
+      "sha256": "53608cf0d885326af6618b175b1430bf1f51d158d50cc14ec0e23846904a26ba"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/bilder.json",
+      "bytes": 6974,
+      "sha256": "1d4b8522155d9eed39caa94991b4c6d1aee730713d6a69a26c08e73d87d5be90"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/ergebnisse.json",
+      "bytes": 20778,
+      "sha256": "338810cd7ee22b043961ff2094c8496a2798078bf818701d33ef1c6acb77df5c"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/excel-ooxml.json",
+      "bytes": 791,
+      "sha256": "b03dc7ed3a6c62eba89bc3c177b49cbc69388c1e94a5db6a428938e2b9bce3e1"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/export-check.json",
+      "bytes": 1051,
+      "sha256": "40dd25ecce55bcc49dec30345b1e86d22edb4db6b80ca5dd79b4ccdb8ce7a339"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/fiktiver-export-lang.xlsx",
+      "bytes": 18594,
+      "sha256": "383c332e9e33b56b498bcbba427e2f650ed6c5f42607a64fbcf87ec8ccd78623"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/fiktiver-export.csv",
+      "bytes": 3318,
+      "sha256": "190d8487f9492a7a8bf8d5e5419b50c62c73901913cbf37761e932eff7b708ac"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/fiktiver-export.xlsx",
+      "bytes": 18527,
+      "sha256": "feeab41512350ad40800b81e88c7198bf164882a48af345ad5c2103b4fe7643b"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/focus-large-text.json",
+      "bytes": 2630,
+      "sha256": "52405a49a652f2186f33368e47938b72fc005023382f2b1e7e44af1a2d95aba7"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/live-assets.json",
+      "bytes": 489,
+      "sha256": "1f42bc0ca70afc127321d4e14dfd2c9aacb0cc51d573ab5c6f235675745ce4fd"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/pruefungen.json",
+      "bytes": 302,
+      "sha256": "6f7f41a01cbd98092a9e9c6eda0ac3a4522951c01dd92630ec1e2c678bf36a08"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/pruefungen/build.txt",
+      "bytes": 1067,
+      "sha256": "d4deb0c515ad03cc9ede1729a79018af2340bce333deabaf185f3892985e42e4"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/pruefungen/format-check.txt",
+      "bytes": 138,
+      "sha256": "8437ba6f8482879f508d1ec2bc8bcb79fe69e7982d300f5056f7705e700bd0d5"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/pruefungen/lint.txt",
+      "bytes": 53,
+      "sha256": "2c9d3572d8dfe1ec60b63cfbd688c4a35ab03d967db793031989feedeba7f330"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/pruefungen/test.txt",
+      "bytes": 440,
+      "sha256": "3bc84e5ad5cc71003aef3201c68fba29cedb8d1489f2e4a9e4603703c7664f0b"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/pruefungen/typecheck.txt",
+      "bytes": 62,
+      "sha256": "72ceb90cdd7aa5c22de275cd548877e4e80c3d8be00ac9f0900b51db0707dd7c"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/reproduziert.json",
+      "bytes": 615,
+      "sha256": "20d6671f2b783a47cbca50fcb6b5d8332efb1cb93111d3fd1e0528425b343199"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/runtime-summary.json",
+      "bytes": 410,
+      "sha256": "4520efdebfccc754466f6ffb598f32407a0f5d58304b77073afd22b92732e56f"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/tour-geometry.json",
+      "bytes": 16444,
+      "sha256": "678807dcbfa08101880c05e9bf746b95749c8de330e0b6e86339fa54a109d8d3"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/visual-fit.json",
+      "bytes": 3873,
+      "sha256": "f9c55cfcc0e1a63a61654c5c2ae434befdd5abb42430c8c2255e6a8730cf4236"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/nachweise/zwischenversuche.json",
+      "bytes": 1054,
+      "sha256": "6a1fa9f2f981fa41822b723315ea2f2fcf58015a009f8bac2d5a78abe84b263e"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/pruefplan.md",
+      "bytes": 1943,
+      "sha256": "36a3d212aac0fbd62856106e99f574c20374071621b6fd38a3039647e79075d8"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/reproduce.py",
+      "bytes": 6093,
+      "sha256": "a8efe9d8c9e01681ff32e2584e8ed2baced0efaf495ab2adf792b901b58f5722"
+    },
+    {
+      "file": "docs/drei-skill-audit-2026-10-19/skills.json",
+      "bytes": 3115,
+      "sha256": "8e8ca71705b4a62ca189d4cfd08808d5030aebc7a11a3d30faef7791c10ef050"
+    },
+    {
+      "file": "docs/entwicklungsprotokoll.md",
+      "bytes": 50216,
+      "sha256": "49aaa53f5aa2889a587ddf68f966c265be51fb4c587eaff0289cbcaa102ccc75"
+    }
+  ],
+  "appChanged": false,
+  "protectedReferencesChanged": false,
+  "frozenTag": "0556967fbbfa0e51954507f5cd141b17b2d08740",
+  "whitespaceCheck": "PASS; CRLF im unveränderten CSV-Export als zulässiges Zeilenende behandelt"
+}

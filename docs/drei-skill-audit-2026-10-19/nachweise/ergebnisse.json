@@ -1,0 +1,766 @@
+{
+  "functionalPassed": 56,
+  "reproducedFindings": 3,
+  "entries": [
+    {
+      "id": "F01-Entwurf-Neuladen",
+      "result": "PASS",
+      "details": {
+        "class": "Fiktive Prüfklasse",
+        "draftStatus": "Lokalen Entwurf wieder aufgenommen. Die Klasse ist noch nicht angelegt.\n\nMit „Klasse lokal anlegen“ übernimmst du den Entwurf. Bereits angelegte Klassen sind im Klassenregister erreichbar."
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F02-Manuelle-Anlage",
+      "result": "PASS",
+      "details": {
+        "classes": 1,
+        "people": 1
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F03-CSV-Anlage",
+      "result": "PASS",
+      "details": {
+        "csv": "UTF-8, Vorname;Nachname, sieben fiktive Personen"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F04-Symbole-Status-Abschluss",
+      "result": "PASS",
+      "details": {
+        "previewChecks": [
+          true,
+          true,
+          true,
+          true,
+          true
+        ],
+        "summary": "STUNDE VOLLSTÄNDIG\n\nAlle Eingaben sind lokal gespeichert\n\nFiktive Symbolklasse · 19.10.2026 · 1. Stunde\n\nAlle 7 Personen sind erfasst. Die Erfassung dieser Stunde ist abgeschlossen.\n\nBewertet\n5\nAbwesend\n1\nNicht beobachtet\n1\n\n1 × -- · 1 × - · 1 × 0 · 1 × + · 1 × ++ · 1 × AW · 1 × NB\n\nZur Klassenübersicht\n\nDu möchtest eine Eingabe korrigieren?\n\nEingaben prüfen oder korrigieren"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F05-Persistenter-Abschluss",
+      "result": "PASS",
+      "details": {
+        "reload": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F06-Loeschung-Abbruch-korrigierte-Pruefsteuerung",
+      "result": "PASS",
+      "details": {
+        "confirmation": "abgebrochen; erster Lauf hatte Dialogsteuerung im Prüfwerkzeug falsch gesetzt"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F07-Korrektur",
+      "result": "PASS",
+      "details": {
+        "state": "Gewählter Status: Bewertet: +"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F08-Hoechstens-Zwei-Stunden",
+      "result": "PASS",
+      "details": {
+        "error": "Für 2026-10-19 sind höchstens zwei Unterrichtsstunden möglich."
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F09-Stunden-Tauschen",
+      "result": "PASS",
+      "details": {
+        "sequenceBefore": [
+          1,
+          2
+        ],
+        "sequenceAfter": [
+          2,
+          1
+        ],
+        "observationsUnchanged": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F10-Unfertige-Stunde-Fortsetzen",
+      "result": "PASS",
+      "details": {
+        "person": "Fiktiv Bea nach Navigation und Neuladen"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F11-Tabellenansichten",
+      "result": "PASS",
+      "details": {
+        "text": "Person\tStart\t19.10.26\n1. Stunde\n\t19.10.26\n2. Stunde\n\tAktuell\tPuffer\nFiktiv Ada\t2,00\tBewertet: 0\nStand: 2,00\n\tBewertet: +\nStand: 1,75\n\t1,75\t0/3\nFiktiv Bea\t2,00\tOffen\tBewertet: -\nStand: 2,25\n\t2,25\t0/3\nFiktiv Cem\t2,00\tOffen\tBewertet: 0\nStand: 2,00\n\t2,00\t0/3\nFiktiv Dana\t2,00\tOffen\tBewertet: +\nStand: 1,75\n\t1,75\t0/3\nFiktiv Emil\t2,00\tOffen\tBewertet: ++\nStand: 1,50\n\t1,50\t0/3\nFiktiv Farah\t2,00\tOffen\tAbwesend\t2,00\t0/3\nFiktiv Greta\t2,00\tOffen\tNicht beobachtet\t2,00\t0/3"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F12-Verlauf-Status-und-Offen",
+      "result": "PASS",
+      "details": {
+        "markers": [
+          "offen",
+          "abwesend"
+        ]
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F13-Verlauf-NB",
+      "result": "PASS",
+      "details": {
+        "selected": "12154267-6211-4572-9bf1-bd1c7e3c8920"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F14-Klassenname-und-Zeitraum",
+      "result": "PASS",
+      "details": {
+        "saved": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "B04-Ungespeicherter-Name-geht-verloren",
+      "result": "PASS",
+      "details": {
+        "observed": "Änderung ohne Rückfrage nach Hauptseitenwechsel verworfen; offener Befund B04"
+      },
+      "classification": "Mangel reproduziert"
+    },
+    {
+      "id": "F15-Archiv-schreibgeschuetzt",
+      "result": "PASS",
+      "details": {
+        "exportsStillAvailable": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F16-Personenname",
+      "result": "PASS",
+      "details": {
+        "saved": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F17-Berichtdownloads",
+      "result": "PASS",
+      "details": {
+        "csvName": "Fiktive_Symbolklasse_umbenannt-stunden-v2.csv",
+        "excelName": "Fiktive_Symbolklasse_umbenannt-klassenbericht.xlsx"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F18-JSON-Vollsicherung",
+      "result": "PASS",
+      "details": {
+        "classes": 2,
+        "people": 8
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F19-Ungueltige-Sicherung-abgewiesen",
+      "result": "PASS",
+      "details": {
+        "error": "Die Klassenliste fehlt."
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F20-Ersetzenden-Import-abbrechen",
+      "result": "PASS",
+      "details": {
+        "cancelled": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F21-Import-Rueckfall",
+      "result": "PASS",
+      "details": {
+        "restored": "exakter exportierter Bestand"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F22-Zweiter-Tab",
+      "result": "PASS",
+      "details": {
+        "message": "Dieser Tab ist zur Ansicht geöffnet.\n\nEin anderer Tab bearbeitet diese Daten. Neue Eingaben werden hier angezeigt. Schließe den anderen Tab, um hier weiterzuarbeiten.\n\nBearbeitung hier übernehmen"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F23-Tab-Uebernahme",
+      "result": "PASS",
+      "details": {
+        "previousWriterClosed": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F24-Klassenloeschung-abbrechen",
+      "result": "PASS",
+      "details": {
+        "cancelled": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F25-Klassenloeschung-Rueckfall",
+      "result": "PASS",
+      "details": {
+        "restoredExactly": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F26-Speicherfehler-kein-falscher-Erfolg",
+      "result": "PASS",
+      "details": {
+        "error": "Die Eingabe wurde nicht gespeichert.\n\nFehlerdetails\nEingabe erneut speichern"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "B01-Verlust-ausstehender-Eingabe",
+      "result": "PASS",
+      "details": {
+        "dialogs": [],
+        "status": "Gewählter Status: Offen",
+        "notice": "Jede Auswahl wird sofort lokal gespeichert.",
+        "observed": "Retry-Auftrag nach Hauptnavigation verworfen"
+      },
+      "classification": "Mangel reproduziert"
+    },
+    {
+      "id": "F27-Wiederholen-fuer-urspruengliche-Person",
+      "result": "PASS",
+      "details": {
+        "savedFor": "Fiktiv Ada-Langname",
+        "selectedDuringRetry": "Fiktiv Bea"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F28-Tastatureingabe",
+      "result": "PASS",
+      "details": {
+        "input": "Tab/Fokus auf 0, Enter",
+        "nextPerson": "Fiktiv Cem"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F29-Dialog-Escape",
+      "result": "PASS",
+      "details": {
+        "closed": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F30-Tutorial-Weiter-1440",
+      "result": "PASS",
+      "details": {
+        "steps": 15,
+        "downloadCount": 0,
+        "firstVisitOnly": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F30-Tutorial-Weiter-768",
+      "result": "PASS",
+      "details": {
+        "steps": 15,
+        "downloadCount": 0,
+        "firstVisitOnly": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F30-Tutorial-Weiter-390",
+      "result": "PASS",
+      "details": {
+        "steps": 15,
+        "downloadCount": 0,
+        "firstVisitOnly": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F30-Tutorial-Weiter-320",
+      "result": "PASS",
+      "details": {
+        "steps": 15,
+        "downloadCount": 0,
+        "firstVisitOnly": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F31-Tutorial-Tastaturfokus",
+      "result": "PASS",
+      "details": {
+        "step": 2
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F32-Tutorial-echte-Aktionen-und-Erhalt",
+      "result": "PASS",
+      "details": {
+        "realDataDraftAndHashUnchanged": true,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "allActions": 15
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F33-Fuenf-Breiten-kein-Seitenueberlauf",
+      "result": "PASS",
+      "details": {
+        "states": 15,
+        "widths": [
+          320,
+          390,
+          768,
+          1024,
+          1440
+        ]
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F34-Tabelle-Tastatur-Scrollen-nach-Browserframe",
+      "result": "PASS",
+      "details": {
+        "scrollLeft": 40,
+        "firstRead": "zu früh vor dem Scrollframe; kein App-Fehler"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F35-Grossschrift-Fokus",
+      "result": "PASS",
+      "details": {
+        "focusFit": [
+          {
+            "text": "Zum Inhalt springen",
+            "top": 32,
+            "bottom": 132,
+            "height": 100,
+            "contextBottom": 1289.0625,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "Meine Klassen",
+            "top": 178.15625,
+            "bottom": 319.3125,
+            "height": 141.15625,
+            "contextBottom": 1289.0625,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "Klasse anlegen",
+            "top": 178.15625,
+            "bottom": 319.3125,
+            "height": 141.15625,
+            "contextBottom": 1289.0625,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "Datensicherung",
+            "top": 178.15625,
+            "bottom": 319.3125,
+            "height": 141.15625,
+            "contextBottom": 1289.0625,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "Hilfe und Einstieg",
+            "top": 343.3125,
+            "bottom": 425.515625,
+            "height": 82.203125,
+            "contextBottom": 1289.0625,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "Fiktive Prüfklasse · Schuljahr 2026/27Fiktive Symbolklasse umbenannt · Fiktiver Zeitraum",
+            "top": 516.09375,
+            "bottom": 596.46875,
+            "height": 80.375,
+            "contextBottom": 1289.0625,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "← Zur Klasse",
+            "top": 645.46875,
+            "bottom": 718.265625,
+            "height": 72.796875,
+            "contextBottom": 1289.0625,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "--",
+            "top": 565.546875,
+            "bottom": 824.03125,
+            "height": 258.484375,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "-",
+            "top": 585.828125,
+            "bottom": 844.3125,
+            "height": 258.484375,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "0",
+            "top": 566.109375,
+            "bottom": 792.328125,
+            "height": 226.21875,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "+",
+            "top": 618.125,
+            "bottom": 844.34375,
+            "height": 226.21875,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "++",
+            "top": 566.140625,
+            "bottom": 792.359375,
+            "height": 226.21875,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "Abwesend",
+            "top": 565.46875,
+            "bottom": 713.828125,
+            "height": 148.359375,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "Nicht beobachtet",
+            "top": 565.46875,
+            "bottom": 713.828125,
+            "height": 148.359375,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          }
+        ],
+        "mode": "200 Prozent CSS-Grundschrift; kein nativer Browserzoom"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F36-Alle-Sieben-Aktionen-Grossschrift",
+      "result": "PASS",
+      "details": {
+        "actions": [
+          {
+            "text": "--",
+            "top": 565.546875,
+            "bottom": 824.03125,
+            "height": 258.484375,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "-",
+            "top": 585.828125,
+            "bottom": 844.3125,
+            "height": 258.484375,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "0",
+            "top": 566.109375,
+            "bottom": 792.328125,
+            "height": 226.21875,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "+",
+            "top": 618.125,
+            "bottom": 844.34375,
+            "height": 226.21875,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "++",
+            "top": 566.140625,
+            "bottom": 792.359375,
+            "height": 226.21875,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "Abwesend",
+            "top": 565.46875,
+            "bottom": 713.828125,
+            "height": 148.359375,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          },
+          {
+            "text": "Nicht beobachtet",
+            "top": 565.46875,
+            "bottom": 713.828125,
+            "height": 148.359375,
+            "contextBottom": 553.796875,
+            "viewport": 844,
+            "outline": "solid"
+          }
+        ]
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F37-Reduzierte-Bewegung",
+      "result": "PASS",
+      "details": {
+        "preference": "reduce"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F38-Hover-stabil",
+      "result": "PASS",
+      "details": {
+        "hoverMeasurements": [
+          {
+            "symbol": "--",
+            "deltaHeight": 0,
+            "deltaY": 0
+          },
+          {
+            "symbol": "-",
+            "deltaHeight": 0,
+            "deltaY": 0
+          },
+          {
+            "symbol": "0",
+            "deltaHeight": 0,
+            "deltaY": 0
+          },
+          {
+            "symbol": "+",
+            "deltaHeight": 0,
+            "deltaY": 0
+          },
+          {
+            "symbol": "++",
+            "deltaHeight": 0,
+            "deltaY": 0
+          }
+        ]
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F39-Langer-Name-Export",
+      "result": "PASS",
+      "details": {
+        "nameLength": 68,
+        "download": "bericht-lang.xlsx",
+        "visualReviewPending": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F40-Verlauf-Tastatur-Scrollen",
+      "result": "PASS",
+      "details": {
+        "scrollLeft": 3
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F41-Live-Netlify",
+      "result": "PASS",
+      "details": {
+        "url": "https://gradeflow-ba.netlify.app/#seite=klasse&ansicht=tabelle&klasse=de62efb2-434a-4e8e-b1be-120e5d04a27a",
+        "errors": [],
+        "failedRequests": [],
+        "flow": "Tutorial Weiter, Ende, Demo-Klasse, Tabelle"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F42-Zehn-Klassen-Suche",
+      "result": "PASS",
+      "details": {
+        "match": "Fiktive 14b\nSchuljahr 2026/27"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F43-Klassenwechsel",
+      "result": "PASS",
+      "details": {
+        "selected": "Fiktive 14b",
+        "classes": 10
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F44-Mobile-Klassenwahl",
+      "result": "PASS",
+      "details": {
+        "selected": "Fiktive 14b"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F45-46-Personen-abgewiesen",
+      "result": "PASS",
+      "details": {
+        "error": "Eine Klasse darf höchstens 45 Personen enthalten."
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F46-45-Personen-moeglich",
+      "result": "PASS",
+      "details": {
+        "people": 45
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "B07-Tabellenansicht-setzt-sich-zurueck",
+      "result": "PASS",
+      "details": {
+        "beforeTablePrefs": {
+          "url": "http://127.0.0.1:4190/#seite=klasse&ansicht=tabelle&klasse=audit-c9",
+          "size": "large",
+          "window": "0"
+        },
+        "afterTablePrefs": {
+          "url": "http://127.0.0.1:4190/#seite=klasse&ansicht=tabelle&klasse=audit-c9",
+          "size": "normal",
+          "window": "10",
+          "compact": "true"
+        }
+      },
+      "classification": "Mangel reproduziert"
+    },
+    {
+      "id": "F47-Vorlagen-und-leerer-XLSX-Import",
+      "result": "PASS",
+      "details": {
+        "templates": [
+          "musterklassenliste.xlsx",
+          "musterklassenliste.csv"
+        ],
+        "error": "Die Klassenliste enthält noch keine Personen. Trage unter der Kopfzeile Vorname und Nachname ein."
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F48-Stundenfilter",
+      "result": "PASS",
+      "details": {
+        "date": "2026-09-23"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F49-Stundenliste-Blaettern",
+      "result": "PASS",
+      "details": {
+        "page": "21–24 von 24"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F50-Tabellenfenster-und-Gesamtstand",
+      "result": "PASS",
+      "details": {
+        "currentUnchanged": true,
+        "window": "1–4 von 24"
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F51-Entwurfsfehler-und-Wiederholung",
+      "result": "PASS",
+      "details": {
+        "recovered": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F52-Defekten-Bestand-wiederherstellen",
+      "result": "PASS",
+      "details": {
+        "recoveredClasses": 2,
+        "initialTutorialClosedAfterRecovery": true,
+        "rawDataNotUploaded": true
+      },
+      "classification": "Funktionsprüfung"
+    },
+    {
+      "id": "F53-Aktionshoehen-Stichprobe",
+      "result": "PASS",
+      "details": {
+        "count": 13,
+        "min": 44,
+        "state": "Tabelle 390"
+      },
+      "classification": "Funktionsprüfung"
+    }
+  ]
+}

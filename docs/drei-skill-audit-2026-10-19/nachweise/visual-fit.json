@@ -1,0 +1,227 @@
+[
+  {
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "tab": "Tabelle",
+    "width": 320,
+    "height": 568,
+    "scrollX": false,
+    "scrollHeight": 1805,
+    "primaryBounds": {
+      "y": 1173.859375,
+      "width": 257.21875
+    }
+  },
+  {
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "tab": "Verlauf",
+    "width": 320,
+    "height": 568,
+    "scrollX": false,
+    "scrollHeight": 3020,
+    "primaryBounds": {
+      "y": 1319.203125,
+      "width": 257.21875
+    }
+  },
+  {
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "tab": "Klasse bearbeiten",
+    "width": 320,
+    "height": 568,
+    "scrollX": false,
+    "scrollHeight": 1926,
+    "primaryBounds": {
+      "y": 537.59375,
+      "width": 296
+    }
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "tab": "Tabelle",
+    "width": 390,
+    "height": 844,
+    "scrollX": false,
+    "scrollHeight": 1692,
+    "primaryBounds": {
+      "y": 1060.140625,
+      "width": 327.21875
+    }
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "tab": "Verlauf",
+    "width": 390,
+    "height": 844,
+    "scrollX": false,
+    "scrollHeight": 2865,
+    "primaryBounds": {
+      "y": 1164.515625,
+      "width": 327.21875
+    }
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "tab": "Klasse bearbeiten",
+    "width": 390,
+    "height": 844,
+    "scrollX": false,
+    "scrollHeight": 1814,
+    "primaryBounds": {
+      "y": 511.421875,
+      "width": 366
+    }
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "tab": "Tabelle",
+    "width": 768,
+    "height": 1024,
+    "scrollX": false,
+    "scrollHeight": 1426,
+    "primaryBounds": {
+      "y": 788.890625,
+      "width": 678
+    }
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "tab": "Verlauf",
+    "width": 768,
+    "height": 1024,
+    "scrollX": false,
+    "scrollHeight": 2580,
+    "primaryBounds": {
+      "y": 873.828125,
+      "width": 678
+    }
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "tab": "Klasse bearbeiten",
+    "width": 768,
+    "height": 1024,
+    "scrollX": false,
+    "scrollHeight": 1442,
+    "primaryBounds": {
+      "y": 430.8125,
+      "width": 728
+    }
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "tab": "Tabelle",
+    "width": 1024,
+    "height": 768,
+    "scrollX": false,
+    "scrollHeight": 1372,
+    "primaryBounds": {
+      "y": 718.875,
+      "width": 908
+    }
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "tab": "Verlauf",
+    "width": 1024,
+    "height": 768,
+    "scrollX": false,
+    "scrollHeight": 2526,
+    "primaryBounds": {
+      "y": 803.8125,
+      "width": 908
+    }
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "tab": "Klasse bearbeiten",
+    "width": 1024,
+    "height": 768,
+    "scrollX": false,
+    "scrollHeight": 1388,
+    "primaryBounds": {
+      "y": 360.796875,
+      "width": 958
+    }
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "tab": "Tabelle",
+    "width": 1440,
+    "height": 1000,
+    "scrollX": false,
+    "scrollHeight": 1310,
+    "primaryBounds": {
+      "y": 656.75,
+      "width": 1115
+    }
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "tab": "Verlauf",
+    "width": 1440,
+    "height": 1000,
+    "scrollX": false,
+    "scrollHeight": 2442,
+    "primaryBounds": {
+      "y": 719.78125,
+      "width": 1115
+    }
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "tab": "Klasse bearbeiten",
+    "width": 1440,
+    "height": 1000,
+    "scrollX": false,
+    "scrollHeight": 1326,
+    "primaryBounds": {
+      "y": 298.671875,
+      "width": 960
+    }
+  }
+]

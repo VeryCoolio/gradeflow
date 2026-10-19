@@ -1,0 +1,67 @@
+{
+  "reviewedOn": "2026-10-19",
+  "additionalServiceCostEUR": 0,
+  "paidAPIRequests": 0,
+  "skills": [
+    {
+      "source": "Kappaemme-git/codex-design-audit-skill",
+      "ref": "e930352db79d377c0d47ecea4c4b520c5ae0d0ff",
+      "reviewed_on": "2026-10-19",
+      "local_adaptation": false,
+      "main_sha256": "81a750d0e0113d37160f4f1363f181dee18c5d8cd02f193450c64efee43df424",
+      "cost": "No paid services or API calls required; existing Codex quota applies",
+      "name": "design-audit",
+      "installation": "neu installiert",
+      "review": "Quelle, Funktionsumfang, Dateien und Laufzeitvoraussetzungen geprüft; keine fremden Installationsskripte ausgeführt"
+    },
+    {
+      "source": "vercel-labs/agent-skills",
+      "ref": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "reviewed_on": "2026-10-19",
+      "local_adaptation": true,
+      "main_sha256": "3eeaa08325b387c5d5f1d854be9ba35e627a68ac012e6404b6118eff115b52ca",
+      "cost": "No paid services or API calls required; existing Codex quota applies",
+      "name": "web-design-guidelines",
+      "installation": "bereits vorhanden und geprüft",
+      "review": "Quelle, Funktionsumfang, Dateien und Laufzeitvoraussetzungen geprüft; keine fremden Installationsskripte ausgeführt"
+    },
+    {
+      "source": "openai/skills",
+      "ref": "49f948faa9258a0c61caceaf225e179651397431",
+      "reviewed_on": "2026-10-19",
+      "local_adaptation": true,
+      "main_sha256": "1ef868484b5acfc68f2f6cc7f8c8d93b25cf3dce6353fccc677e34e470e3e8e8",
+      "cost": "No paid services or API calls required; existing Codex quota applies",
+      "name": "playwright-interactive",
+      "installation": "neu installiert",
+      "review": "Quelle, Funktionsumfang, Dateien und Laufzeitvoraussetzungen geprüft; keine fremden Installationsskripte ausgeführt"
+    }
+  ],
+  "currentDiscoveryPath": "~/.agents/skills/<name> → ~/.codex/skills/<name>",
+  "discoveryReference": "https://learn.chatgpt.com/docs/build-skills",
+  "discoveryNote": "Drei geprüfte symbolische Verweise ergänzt. Automatische Anzeige im Skill-Auswahlmenü in diesem laufenden Chat nicht gesondert verifiziert. Anleitungen wurden direkt gelesen und tatsächlich ausgeführt.",
+  "rules": {
+    "url": "https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md",
+    "accessed": "2026-10-19",
+    "sha256": "d246b026f4f29b5823a9cc857f9edf3d2507002e055e32040cadeaf3b38e0234"
+  },
+  "runtime": {
+    "persistentTool": "mcp__node_repl__js",
+    "playwright": "1.64.0-beta-1791568591000",
+    "chromium": "156.0.8078.4",
+    "headless": true,
+    "deviceTesting": "simulierte CSS-Viewports; keine echten Geräte",
+    "adaptation": "Playwright Interactive: Node-REPL statt älterem js_repl, CommonJS createRequire für vorhandenes Paket; keine App-Abhängigkeiten oder Konfigurationsänderung. Upstream-Anleitung lokal erhalten."
+  },
+  "supportingSkills": [
+    "skill-finder",
+    "skill-installer",
+    "ponytail",
+    "i-have-adhd",
+    "frontend-design",
+    "systematic-debugging",
+    "webapp-testing",
+    "spreadsheets",
+    "openai-docs"
+  ]
+}

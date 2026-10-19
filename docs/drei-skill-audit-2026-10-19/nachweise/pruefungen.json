@@ -1,0 +1,22 @@
+{
+  "test": {
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  "typecheck": {
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  "lint": {
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  "format-check": {
+    "exitCode": 0,
+    "result": "PASS"
+  },
+  "build": {
+    "exitCode": 0,
+    "result": "PASS"
+  }
+}

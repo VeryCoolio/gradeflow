@@ -1,0 +1,315 @@
+{
+  "baseline": "ead4b637f1e4e938be62fb05486e33485c1386bb",
+  "version": "0.8.2",
+  "date": "2026-10-19",
+  "findings": [
+    {
+      "id": "B01",
+      "priority": "P1",
+      "status": "offen",
+      "confidence": "hoch",
+      "title": "Fehlgeschlagene Bewertung verliert beim Seitenwechsel ihren Wiederholungsauftrag",
+      "files": [
+        {
+          "path": "app/src/App.tsx",
+          "line": 579
+        },
+        {
+          "path": "app/src/App.tsx",
+          "line": 405
+        },
+        {
+          "path": "app/src/App.tsx",
+          "line": 241
+        }
+      ],
+      "reproduction": [
+        "Stunde beginnen und Schreibfehler im Notebook-Speicher simulieren.",
+        "Ein Symbol anklicken; Fehler und Eingabe erneut speichern erscheinen.",
+        "Datensicherung, dann Meine Klassen und Fortsetzen anklicken."
+      ],
+      "observed": "Keine Rückfrage. Auswahl bleibt Offen, Wiederholung und Fehler verschwinden. Bereits gespeicherte Beobachtungen bleiben erhalten.",
+      "cause": "onPage und leaveSession verwerfen failedObservation. Nur chooseClass besitzt dafür eine Rückfrage.",
+      "recommendation": "Den ausstehenden Auftrag bei Navigation erhalten oder vor dem Verwerfen gezielt bestätigen lassen. Personen- und Stunden-ID erhalten; keine Erfolgsmeldung auslösen.",
+      "acceptance": [
+        "Fehlschlag, Hauptnavigation, Rückweg und Wiederholung speichern genau die ursprünglich betroffene Person.",
+        "Abgebrochene Navigation erhält Fehler und Wiederholungsauftrag.",
+        "Direkter Rückweg, Hilfe und Klassenwechsel verwenden denselben Schutz; erfolgreiche Eingaben bleiben wie bisher sofort gespeichert."
+      ],
+      "evidence": [
+        "playwright-speicherfehler-mobil.png",
+        "playwright-speicherfehler-nach-navigation.png"
+      ],
+      "test": "B01-Verlust-ausstehender-Eingabe; reproduce.py B01"
+    },
+    {
+      "id": "B02",
+      "priority": "P2",
+      "status": "offen",
+      "confidence": "hoch",
+      "title": "Mobile Hauptdaten liegen hinter Navigation, Exporten und langen Bedienhinweisen",
+      "files": [
+        {
+          "path": "app/src/components/AppNavigation.tsx",
+          "line": 28
+        },
+        {
+          "path": "app/src/features/classes/ClassWorkspace.tsx",
+          "line": 342
+        },
+        {
+          "path": "app/src/features/table/ClassTable.tsx",
+          "line": 25
+        },
+        {
+          "path": "app/src/App.tsx",
+          "line": 147
+        },
+        {
+          "path": "app/src/styles.css",
+          "line": 2298
+        }
+      ],
+      "reproduction": [
+        "Fiktiven Bestand mit zehn Klassen, 20 Personen und 24 Stunden öffnen.",
+        "Bei 390 × 844 Tabelle oder Verlauf wählen."
+      ],
+      "observed": "Tabelle beginnt bei y=1060 CSS-Pixeln, Diagramm bei y=1165. Nach jedem Ansichtswechsel wird zum Seitenanfang gescrollt. Bei 320 Pixeln bricht Datensicherung mitten im Wort um.",
+      "cause": "Mehrere gleich gewichtete Kopfbereiche und Exportaktionen stehen vor den Nutzdaten; Einstellungen und ausführliche Legenden beanspruchen die erste Ansicht.",
+      "recommendation": "Mobil Klasse und Ansicht kompakt auswählen, Exporte in eine beschriftete Aktionen-Gruppe verschieben und Tabellenoptionen bei Bedarf aufklappen. Fehler und Speicherstatus weiter deutlich anzeigen.",
+      "acceptance": [
+        "Bei 390 × 844 erscheint mindestens die Tabellenkopfzeile und eine Datenzeile ohne vorbereitendes Scrollen.",
+        "Bewertung zeigt nach dem Einstieg Name, Fortschritt und die fünf Symbole in einem kompakten Arbeitsbereich; AW/NB bleiben leicht erreichbar.",
+        "320 Pixel und 200 Prozent Grundschrift behalten lesbare Beschriftungen, sichtbaren Fokus und internes Tabellenscrollen.",
+        "Desktop-Klassenregister und Fachberechnung bleiben erhalten."
+      ],
+      "evidence": [
+        "design-390-tabelle-ruhig.png",
+        "design-390-bewertung.png",
+        "playwright-fit-320-tabelle.png",
+        "playwright-fit-768-tabelle.png"
+      ],
+      "test": "F33; visual-fit.json; reproduce.py B02"
+    },
+    {
+      "id": "B03",
+      "priority": "P2",
+      "status": "offen",
+      "confidence": "hoch",
+      "title": "Namen bearbeiten öffnet das Eingabefeld unbemerkt unter der gesamten Personenliste",
+      "files": [
+        {
+          "path": "app/src/features/classes/ClassWorkspace.tsx",
+          "line": 269
+        },
+        {
+          "path": "app/src/features/classes/ClassWorkspace.tsx",
+          "line": 285
+        }
+      ],
+      "reproduction": [
+        "Klasse mit 20 Personen öffnen und Personen wählen.",
+        "Bei der ersten Person Namen bearbeiten anklicken."
+      ],
+      "observed": "Der Editor liegt bei y=1871 im 1000 Pixel hohen Desktopfenster. Fokus bleibt auf dem Auslöser, sichtbare Ansicht ändert sich kaum.",
+      "cause": "Ein gemeinsames Formular wird nach der Liste eingefügt; es gibt weder Fokusübergabe noch Scrollen zum Editor.",
+      "recommendation": "Editor direkt bei der gewählten Person öffnen oder einen benannten Dialog verwenden. Feld fokussieren; nach Speichern/Abbrechen zum passenden Auslöser zurückkehren.",
+      "acceptance": [
+        "Erste, mittlere und letzte Person bei 20 und 45 Personen mit Maus und Tastatur bearbeiten.",
+        "Editor und gewählter Name sind nach dem Öffnen sichtbar.",
+        "Speichern bestätigt genau die bearbeitete Person; bisherige Stunden bleiben erhalten."
+      ],
+      "evidence": [
+        "guidelines-personen-editor-unsichtbar.png"
+      ],
+      "test": "reproduce.py B03"
+    },
+    {
+      "id": "B04",
+      "priority": "P2",
+      "status": "offen",
+      "confidence": "hoch",
+      "title": "Ungespeicherte Namensänderungen werden beim Verlassen des Formulars still verworfen",
+      "files": [
+        {
+          "path": "app/src/features/classes/ClassWorkspace.tsx",
+          "line": 68
+        },
+        {
+          "path": "app/src/features/classes/ClassWorkspace.tsx",
+          "line": 172
+        },
+        {
+          "path": "app/src/App.tsx",
+          "line": 579
+        }
+      ],
+      "reproduction": [
+        "Klasse bearbeiten und Namen und Zeitraum bearbeiten öffnen.",
+        "Klassenname ändern, ohne Änderungen speichern zu drücken.",
+        "Datensicherung öffnen und zurück zum Bearbeitungsformular wechseln."
+      ],
+      "observed": "Der vorherige Name erscheint wieder, ohne Hinweis auf die verworfene Eingabe. Der lokale Entwurfsschutz der Klassenerstellung gilt für dieses Formular nicht.",
+      "cause": "Nur Komponentenstatus für offene Bearbeitung; Wechsel der Hauptseite entfernt die Komponente.",
+      "recommendation": "Ungespeicherte Änderungen sichtbar kennzeichnen und bis Speichern/Abbrechen erhalten oder beim Verlassen bestätigen lassen. Bestehende bewusst auszulösende Speicherung beibehalten.",
+      "acceptance": [
+        "Änderungen an Name und Zeitraum über Ansichts-/Klassenwechsel und Neuladen gezielt prüfen.",
+        "Abbrechen stellt bewusst den gespeicherten Stand her; eine unveränderte Maske erzeugt keine unnötige Rückfrage.",
+        "Personen-Editor in denselben Schutz einbeziehen."
+      ],
+      "evidence": [],
+      "test": "B04-Ungespeicherter-Name-geht-verloren"
+    },
+    {
+      "id": "B05",
+      "priority": "P2",
+      "status": "offen",
+      "confidence": "hoch",
+      "title": "Importfehler erscheinen außerhalb des sichtbaren Formularbereichs",
+      "files": [
+        {
+          "path": "app/src/App.tsx",
+          "line": 626
+        },
+        {
+          "path": "app/src/features/classes/ClassCreation.tsx",
+          "line": 104
+        },
+        {
+          "path": "app/src/features/classes/ClassCreation.tsx",
+          "line": 309
+        }
+      ],
+      "reproduction": [
+        "Klasse anlegen, Klasse importieren wählen und Namen eingeben.",
+        "Einspaltige CSV auswählen, unten Klasse lokal anlegen anklicken."
+      ],
+      "observed": "Die Datei wird korrekt abgewiesen. Die verständliche Fehlernachricht liegt aber bei y=-328 bis -277 oberhalb des sichtbaren Bereichs. Formular und Schaltfläche zeigen keine direkte Fehlerzuordnung.",
+      "cause": "Globaler Alert am Anfang des Hauptinhalts; weder Inlinefehler noch Fokus-/Scrollübergabe beim asynchronen Importfehler.",
+      "recommendation": "Dateifehler direkt bei Dateiauswahl und Übernahme anzeigen und zuordnen. Bei mehreren Fehlern eine fokussierte kurze Zusammenfassung verwenden. Eingaben erhalten.",
+      "acceptance": [
+        "Ungültige Spalten, zu viele Personen und nicht lesbare Datei: Grund und nächste Handlung sind bei 390 und 1440 Pixeln sofort sichtbar.",
+        "Fehler ist programmatisch mit dem passenden Feld verbunden.",
+        "Bestand und Entwurf bleiben erhalten; gültiger Folgeimport funktioniert."
+      ],
+      "evidence": [
+        "guidelines-importfehler-desktop.png"
+      ],
+      "test": "reproduce.py B05; F45"
+    },
+    {
+      "id": "B06",
+      "priority": "P2",
+      "status": "offen; Darstellung im Renderer bestätigt",
+      "confidence": "mittel",
+      "title": "Lange Personennamen passen nicht in den Excel-Blattkopf",
+      "files": [
+        {
+          "path": "app/src/infrastructure/importExport/excelWorkbook.ts",
+          "line": 102
+        },
+        {
+          "path": "app/src/infrastructure/importExport/excelWorkbook.ts",
+          "line": 146
+        },
+        {
+          "path": "app/src/infrastructure/importExport/excelWorkbook.ts",
+          "line": 180
+        }
+      ],
+      "reproduction": [
+        "Personenname auf Fiktiv Maximilian Alexander Konstantin Beispielname-Langnamenprüfung ändern.",
+        "Excel exportieren und erstes Personenblatt ansehen."
+      ],
+      "observed": "Im unveränderten Artifact-Tool-Render ist A1 stark abgeschnitten. Vollständiger Name ist in der XLSX gespeichert. A1 hat nur 17 Spalteneinheiten Breite, Zeile 1 feste 28 Punkte Höhe und Textumbruch.",
+      "cause": "Festes schmales Titelfeld mit fester Zeilenhöhe berücksichtigt lange Namen nicht.",
+      "recommendation": "Für den Blattkopf einen ausreichend breiten Titelbereich und passende Höhe verwenden; lange Klasse und Zeitraum mitprüfen. Gültige eindeutige Blattnamen und Hyperlinks erhalten.",
+      "acceptance": [
+        "Kurze, doppelte und lange fiktive Namen vollständig lesbar in Übersicht und Personenblatt.",
+        "Unveränderte Exportdatei zusätzlich in nativem Excel öffnen; Link, Rücklink und Datumsanzeige prüfen.",
+        "Zahlen bleiben Zahlen, Daten bleiben Daten, keine fachlichen Rechenänderungen."
+      ],
+      "evidence": [
+        "excel-person-lang.png",
+        "excel-klasse-lang.png"
+      ],
+      "test": "F39; export-check.json; excel-ooxml.json; native Excel-Bedienung noch offen"
+    },
+    {
+      "id": "B07",
+      "priority": "P3",
+      "status": "offen",
+      "confidence": "hoch",
+      "title": "Tabellenansicht vergisst Größe und Detailmodus beim Wechsel zum Verlauf",
+      "files": [
+        {
+          "path": "app/src/features/table/ClassTable.tsx",
+          "line": 11
+        },
+        {
+          "path": "app/src/features/classes/ClassWorkspace.tsx",
+          "line": 505
+        },
+        {
+          "path": "app/src/components/AppNavigation.tsx",
+          "line": 41
+        }
+      ],
+      "reproduction": [
+        "Tabelle auf Mit Notenverlauf, Groß und Alle Stunden stellen.",
+        "Zum Verlauf und zurück zur Tabelle wechseln."
+      ],
+      "observed": "Kompakt, Normal und 10 Stunden sind wieder eingestellt. Die URL speichert diese Einstellungen nicht. Navigationsziele werden als Buttons ausgegeben.",
+      "cause": "Ansichtszustand lebt nur im beim Wechsel entfernten ClassTable. Hauptnavigation enthält Aktionen statt verlinkter Seitenziele.",
+      "recommendation": "Tabellenpräferenzen im Arbeitsbereich oder einer validierten URL erhalten. Echte Seitenziele mit Links darstellen, damit Öffnen in neuem Tab und Kopieren des Ziels funktionieren.",
+      "acceptance": [
+        "Tabelle/Verlauf/Zurück erhält die gewählte Ansicht je dokumentierter Regel.",
+        "Ungültige URL-Werte fallen kontrolliert auf Standard zurück.",
+        "Neue Tabs respektieren weiterhin den einzelnen Schreib-Lock."
+      ],
+      "evidence": [],
+      "test": "B07-Tabellenansicht-setzt-sich-zurueck; reproduce.py B07"
+    },
+    {
+      "id": "B08",
+      "priority": "P3",
+      "status": "offen",
+      "confidence": "hoch",
+      "title": "Einzelformen und ein Erklärungssatz sind sprachlich ungenau",
+      "files": [
+        {
+          "path": "app/src/App.tsx",
+          "line": 213
+        },
+        {
+          "path": "app/src/features/classes/ClassWorkspace.tsx",
+          "line": 122
+        },
+        {
+          "path": "app/src/features/assessment/AssessmentWorkspace.tsx",
+          "line": 128
+        },
+        {
+          "path": "app/src/features/help/InfoPages.tsx",
+          "line": 13
+        }
+      ],
+      "reproduction": [
+        "Klasse mit genau einer Person anlegen oder die Tutorialklasse öffnen.",
+        "So funktioniert Gradeflow, ersten Begründungsabsatz lesen."
+      ],
+      "observed": "Mehrere Stellen sagen 1 Personen bzw. Klasse mit 1 Personen. Erklärung: Mündliche Beiträge bleiben nicht wie eine schriftliche Arbeit vorliegen.",
+      "cause": "Anzahl wird ohne Singularform eingesetzt; unbeholfene Satzkonstruktion.",
+      "recommendation": "Anzahlabhängige Einzelformen konsistent ausgeben. Den Satz etwa zu Mündliche Beiträge sind flüchtig. Eine zeitnahe Dokumentation hält deine Einschätzungen fest. vereinfachen.",
+      "acceptance": [
+        "Eine Person und mehrere Personen in Anlage, Klassenkopf, Abschluss und Tutorial korrekt.",
+        "Fachliche Grenzen, Modellentscheidungen und BA-Evaluationsgrenzen bleiben vollständig erhalten."
+      ],
+      "evidence": [
+        "playwright-eine-person.png",
+        "design-1440-idee.png"
+      ],
+      "test": "F02; visuelle Sichtung und Quelltext"
+    }
+  ]
+}

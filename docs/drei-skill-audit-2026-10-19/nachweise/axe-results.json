@@ -1,0 +1,95 @@
+[
+  {
+    "state": "Personen mit offenem Editor",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": 1
+      }
+    ],
+    "passes": 37
+  },
+  {
+    "state": "Datensicherung",
+    "violations": [],
+    "incomplete": [],
+    "passes": 38
+  },
+  {
+    "state": "Verlauf 390",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": 7
+      },
+      {
+        "id": "color-contrast",
+        "nodes": 87
+      }
+    ],
+    "passes": 47
+  },
+  {
+    "state": "Tabelle 390",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": 202
+      },
+      {
+        "id": "color-contrast",
+        "nodes": 14
+      }
+    ],
+    "passes": 43
+  },
+  {
+    "state": "Klasse bearbeiten 390",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": 1
+      }
+    ],
+    "passes": 35
+  },
+  {
+    "state": "Bewertung Desktop",
+    "violations": [],
+    "incomplete": [],
+    "passes": 38
+  },
+  {
+    "state": "Idee und Bachelorarbeit",
+    "violations": [],
+    "incomplete": [],
+    "passes": 36
+  },
+  {
+    "state": "Datenseite",
+    "violations": [],
+    "incomplete": [],
+    "passes": 36
+  },
+  {
+    "state": "Klassenanlage",
+    "violations": [],
+    "incomplete": [
+      {
+        "id": "aria-prohibited-attr",
+        "nodes": 1
+      }
+    ],
+    "passes": 39
+  },
+  {
+    "state": "Bewertungshilfe",
+    "violations": [],
+    "incomplete": [],
+    "passes": 34
+  }
+]

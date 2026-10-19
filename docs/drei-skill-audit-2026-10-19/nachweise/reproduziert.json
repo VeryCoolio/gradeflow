@@ -1,0 +1,40 @@
+[
+  {
+    "id": "B03",
+    "observed": true,
+    "bounds": {
+      "top": 1938.59375,
+      "bottom": 1984.59375,
+      "viewport": 1000
+    }
+  },
+  {
+    "id": "B07",
+    "observed": true
+  },
+  {
+    "id": "B02",
+    "observed": true,
+    "bounds": {
+      "top": 1186.328125,
+      "bottom": 1746.328125,
+      "viewport": 844
+    },
+    "data": "20 Personen, keine Stunden"
+  },
+  {
+    "id": "B05",
+    "observed": true,
+    "bounds": {
+      "top": -328,
+      "bottom": -276.828125,
+      "viewport": 1000
+    }
+  },
+  {
+    "id": "B01",
+    "observed": true,
+    "dialogs": [],
+    "retryLost": true
+  }
+]
