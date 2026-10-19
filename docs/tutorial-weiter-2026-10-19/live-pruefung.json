@@ -1,0 +1,27 @@
+{
+  "url": "https://gradeflow-ba.netlify.app/",
+  "http": 200,
+  "assets": [
+    {
+      "path": "/assets/index-BYjWN0tv.js",
+      "same_bytes_as_local_build": true,
+      "sha256": "d0b534546a36c374477645a066ea6dff3f305126a7619e1c0ee941f8bb36ca15"
+    },
+    {
+      "path": "/assets/index-BcfydvYC.css",
+      "same_bytes_as_local_build": true,
+      "sha256": "60aabc0ecd1b76beadabbfa46a06f3bdd25226d76459a0b3898d8f45f2dfad3c"
+    }
+  ],
+  "steps_with_next": 15,
+  "inputs": 0,
+  "downloads": [],
+  "runtime_errors": [],
+  "own_data_unchanged": true,
+  "url_unchanged": true,
+  "implementation_commit": "335e2c2db11a74c1d7f9043ad8d66b4770e96287",
+  "github_ci": {
+    "run": 39293773104,
+    "conclusion": "success"
+  }
+}

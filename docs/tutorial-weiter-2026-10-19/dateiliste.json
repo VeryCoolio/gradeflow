@@ -236,5 +236,23 @@
       "sha256": "528472319f3260d3e9d36c51969331501390b2f16de9bf1676491269c14a2c43"
     }
   ],
-  "note": "Dateien des Implementierungscommits außer dieser Liste; nachfolgender GitHub-Abschluss im Verlauf."
+  "note": "Dateien des Implementierungscommits außer dieser Liste; nachfolgender GitHub-Abschluss im Verlauf.",
+  "implementation_commit": "335e2c2db11a74c1d7f9043ad8d66b4770e96287",
+  "completion_files": [
+    {
+      "path": "docs/tutorial-weiter-2026-10-19.md",
+      "bytes": 3916,
+      "sha256": "991859e0c38cc9619ffa859a950a7c877c6dddc1aedd2bd0bd7d2c8a32864b15"
+    },
+    {
+      "path": "docs/entwicklungsprotokoll.md",
+      "bytes": 48138,
+      "sha256": "e8b1ed0edf2ae4ef473504b33ac1011f6966ef507836477d598a9b70e60f88c6"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/live-pruefung.json",
+      "bytes": 725,
+      "sha256": "3102ad7b74f50f1941cd7f9aa3d725bdd338ee4e8d373c476d89e79c700d3b7b"
+    }
+  ]
 }

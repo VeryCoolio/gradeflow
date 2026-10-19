@@ -3,7 +3,7 @@
 - [x] In jedem Schritt „Weiter“ ohne Eingabepflicht anbieten.
 - [x] Die passende nächste Ansicht mit fiktiven Übungsangaben vorbereiten; selbst ausprobieren erhalten und Downloads ausdrücklich lassen.
 - [x] Leeres und gemischtes Durchlaufen, Markierungen, eigene Daten und Ansichten prüfen.
-- [ ] Geprüfte Dateien committen, pushen und Remote-Stand bestätigen.
+- [x] Geprüfte Dateien committen, pushen und Remote-Stand bestätigen.
 
 ## Änderung
 
@@ -20,3 +20,7 @@ Im Produktionsbrowser Chromium wurden bei 390 × 480, 768 × 1000 und 1440 × 10
 Geändert: `Tutorial.tsx`, neue `prepareTutorialStep.ts`, Tutorial-Komponententests, gemeinsamer Browserablauf `guided_tutorial.py` und neuer Browserlauf `tutorial_next.py`, Paketversion und Lockdatei, README, Changelog, dieses Prüfprotokoll und Entwicklungsprotokoll sowie fiktive Prüfnachweise. Keine Änderung am Fachkern, eigenen Nutzerdaten, BA-PDF oder historischen Referenzen.
 
 Nicht geprüft: echte Mobilgeräte/Bildschirmtastaturen, weitere Browserengines und Screenreader. Die bekannte Größenwarnung des nachgeladenen Excel-Moduls bleibt bestehen. Die automatisierten Prüfungen ersetzen keinen Usability-Test mit Lehramtsstudierenden.
+
+## GitHub und Live-Abschluss
+
+Implementierungscommit 335e2c2db11a74c1d7f9043ad8d66b4770e96287 wurde auf main gepusht und per direktem Remote-Abruf bestätigt. GitHub-Qualitätssicherung erfolgreich: Lauf 39293773104. Die bestehende Netlify-Verbindung liefert JavaScript und CSS bytegleich zum lokal geprüften Build. Auf der öffentlichen Adresse wurden zusätzlich alle 15 Schritte ausschließlich mit „Weiter“ durchlaufen: keine Eingabe, kein Download, keine Laufzeitfehler; eigene Daten und URL bleiben erhalten. [Live-Nachweis](tutorial-weiter-2026-10-19/live-pruefung.json), [vollständige Dateiliste](tutorial-weiter-2026-10-19/dateiliste.json). Dieser Dokumentationsnachtrag bestätigt die tatsächlich erfolgten Prüfungen und den Push.
