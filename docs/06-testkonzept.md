@@ -52,7 +52,7 @@ Mindestens zu prüfen:
 - Neuladen der Anwendung während einer unvollständigen Stunde und Fortsetzen am gespeicherten Stand,
 - Überschreiben einer bereits gespeicherten Eingabe ohne doppelten Eintrag,
 - Bearbeiten einer alten Stunde,
-- Stundennummer nur bei zwei Einträgen desselben Datums sichtbar; deren Reihenfolge ist durch einen atomaren Tausch korrigierbar,
+- Stundennummer durchgehend ausgeschrieben, auch bei einer Stunde am Datum (Darstellungsentscheidung O16); zwei Stunden desselben Datums sind durch einen atomaren Tausch korrigierbar,
 - Tabellen- und Verlaufsanzeige,
 - CSV-Export mit dokumentierter Spaltenfolge, allen Statuswerten, chronologischen Fachkernwerten und Schutz gegen Formelausführung,
 - vollständiger JSON-Export und Reimport einer Sicherung mit Validierung, Ersetzungswarnung und lokalem Rückfallstand,

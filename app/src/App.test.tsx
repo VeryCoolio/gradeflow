@@ -309,6 +309,11 @@ it("bestätigt den Abschluss erst nach erfolgreicher letzter Speicherung und fü
       name: "Alle Eingaben sind lokal gespeichert",
     }),
   ).toBeTruthy();
+  expect(screen.queryByRole("button", { name: "+" })).toBeNull();
+  expect(screen.queryByText("Stand vor dieser Stunde:")).toBeNull();
+  expect(
+    screen.getByRole("button", { name: "Eingaben prüfen oder korrigieren" }),
+  ).toBeTruthy();
   await user.click(
     screen.getByRole("button", { name: "Zur Klassenübersicht" }),
   );
@@ -370,6 +375,43 @@ it("erklärt die Bedeutung der Symbole und zeigt bei alter Stunde den Stand davo
 });
 
 describe("Kernoberfläche", () => {
+  it("bleibt nach abgelehntem Klassenwechsel bei einer nicht gespeicherten Eingabe", async () => {
+    const user = userEvent.setup();
+    const storage = new MemoryStorage();
+    const repository = new LocalRepository(storage, () => now);
+    repository.save({
+      ...EMPTY_NOTEBOOK,
+      currentClassId: "c1",
+      classes: [
+        reportClass(),
+        { ...reportClass(), id: "c2", name: "Fiktive zweite Klasse" },
+      ],
+    });
+    let question = "";
+    render(
+      <App
+        repository={repository}
+        confirmDiscard={(message) => {
+          question = message;
+          return false;
+        }}
+      />,
+    );
+    const before = repository.readRawNotebook();
+    storage.fail = true;
+    await user.click(screen.getByRole("button", { name: "Abwesend" }));
+    expect(screen.getByRole("alert").textContent).toMatch(/nicht gespeichert/);
+    await user.selectOptions(screen.getByLabelText("Klasse auswählen"), "c2");
+    expect(question).toMatch(/nicht gespeichert/);
+    expect(
+      (screen.getByLabelText("Klasse auswählen") as HTMLSelectElement).value,
+    ).toBe("c1");
+    expect(repository.readRawNotebook()).toBe(before);
+    expect(
+      screen.getByRole("button", { name: "Eingabe erneut speichern" }),
+    ).toBeTruthy();
+  });
+
   it("importiert eine Klasse, speichert jede Auswahl sofort und setzt eine unvollständige Stunde nach Neuladen fort", async () => {
     const user = userEvent.setup();
     const { storage, repository, props, unmount } = makeApp();
@@ -391,7 +433,14 @@ describe("Kernoberfläche", () => {
     expect(
       repository.load().classes[0].sessions[0].observations["id-3"],
     ).toEqual({ status: "nicht_beobachtet" });
-    expect(screen.getByText("2 von 2 Personen erfasst")).toBeTruthy();
+    expect(
+      screen.getByRole("heading", {
+        name: "Alle Eingaben sind lokal gespeichert",
+      }),
+    ).toBeTruthy();
+    await user.click(
+      screen.getByRole("button", { name: "Eingaben prüfen oder korrigieren" }),
+    );
     expect(screen.queryByRole("button", { name: /^Speichern$/ })).toBeNull();
     await user.click(screen.getByRole("button", { name: /Fiktiv Ada/ }));
     await user.click(screen.getByRole("button", { name: "Abwesend" }));
@@ -400,7 +449,7 @@ describe("Kernoberfläche", () => {
     ).toEqual({ status: "abwesend" });
   });
 
-  it("verhindert doppeltes Anlegen, zeigt Nummern nur bei zwei Stunden und weist die dritte ab", async () => {
+  it("verhindert doppeltes Anlegen, zeigt Nummern durchgehend und weist die dritte Stunde ab", async () => {
     const user = userEvent.setup();
     const { repository } = makeApp();
     await importTwoStudents(user);
@@ -409,7 +458,7 @@ describe("Kernoberfläche", () => {
     fireEvent.click(start);
     expect(repository.load().classes[0].sessions).toHaveLength(1);
     await user.click(screen.getByRole("button", { name: /^← Zur Klasse$/ }));
-    expect(screen.queryByText(/1\. Stunde/)).toBeNull();
+    expect(screen.getByText(/1\. Stunde/)).toBeTruthy();
     await user.click(screen.getByRole("button", { name: "Stunde beginnen" }));
     expect(
       repository.load().classes[0].sessions.map((item) => item.lessonSequence),
@@ -549,7 +598,11 @@ describe("Kernoberfläche", () => {
     expect(document.activeElement).toBe(absent);
     await user.keyboard("{Enter}");
     await waitFor(() =>
-      expect(screen.getByText("2 von 2 Personen erfasst")).toBeTruthy(),
+      expect(
+        screen.getByRole("heading", {
+          name: "Alle Eingaben sind lokal gespeichert",
+        }),
+      ).toBeTruthy(),
     );
   });
 
@@ -710,7 +763,7 @@ describe("Kernoberfläche", () => {
     );
     expect(repository.load().classes[0].sessions).toHaveLength(1);
     expect(repository.load().classes[0].sessions[0].lessonSequence).toBe(1);
-    expect(screen.queryByText(/1\. Stunde/)).toBeNull();
+    expect(screen.getByText(/1\. Stunde/)).toBeTruthy();
   });
 
   it("exportiert JSON, warnt vor Ersetzen, weist defekte Dateien ab und bietet den Rückfall an", async () => {

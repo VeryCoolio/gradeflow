@@ -1,0 +1,514 @@
+[
+  {
+    "path": "CHANGELOG.md",
+    "status": "geändert"
+  },
+  {
+    "path": "README.md",
+    "status": "geändert"
+  },
+  {
+    "path": "app/e2e/usability_revision.py",
+    "status": "neu"
+  },
+  {
+    "path": "app/e2e/verify_usability_exports.py",
+    "status": "neu"
+  },
+  {
+    "path": "app/package-lock.json",
+    "status": "geändert"
+  },
+  {
+    "path": "app/package.json",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/App.test.tsx",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/App.tsx",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/application/observationPresentation.ts",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/components/AppNavigation.tsx",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/components/ClassSwitcher.tsx",
+    "status": "neu"
+  },
+  {
+    "path": "app/src/features/assessment/AssessmentWorkspace.tsx",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/features/classes/ClassCreation.test.tsx",
+    "status": "neu"
+  },
+  {
+    "path": "app/src/features/classes/ClassCreation.tsx",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/features/classes/ClassWorkspace.tsx",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/features/help/InfoPages.tsx",
+    "status": "neu"
+  },
+  {
+    "path": "app/src/features/help/Tutorial.test.tsx",
+    "status": "neu"
+  },
+  {
+    "path": "app/src/features/help/Tutorial.tsx",
+    "status": "neu"
+  },
+  {
+    "path": "app/src/features/history/StudentHistory.test.tsx",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/features/history/StudentHistory.tsx",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/features/table/ClassTable.tsx",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/infrastructure/importExport/excelWorkbook.test.ts",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/infrastructure/importExport/excelWorkbook.ts",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/infrastructure/local/classDraft.test.ts",
+    "status": "neu"
+  },
+  {
+    "path": "app/src/infrastructure/local/classDraft.ts",
+    "status": "neu"
+  },
+  {
+    "path": "app/src/infrastructure/local/workspacePosition.ts",
+    "status": "geändert"
+  },
+  {
+    "path": "app/src/styles.css",
+    "status": "geändert"
+  },
+  {
+    "path": "docs/06-testkonzept.md",
+    "status": "geändert"
+  },
+  {
+    "path": "docs/07-offene-entscheidungen.md",
+    "status": "geändert"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19.md",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/abschluss-pruefungen/build.txt",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/abschluss-pruefungen/checks.json",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/abschluss-pruefungen/format-check.txt",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/abschluss-pruefungen/lint.txt",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/abschluss-pruefungen/test.txt",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/abschluss-pruefungen/typecheck.txt",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/ausgangsbefunde.json",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/dateiliste.json",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/excel-vorschau.mjs",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/abschluss-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/abschluss-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/abschluss-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/bearbeiten-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/bearbeiten-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/bearbeiten-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/bericht-1440.xlsx",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/bericht-390.xlsx",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/bericht-768.xlsx",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/bewertung-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/bewertung-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/bewertung-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/daten-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/daten-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/daten-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/entwurf-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/entwurf-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/entwurf-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/ergebnisse.json",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/excel-dateipruefung.json",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/klassenwahl-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/klassenwahl-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/klassenwahl-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/tutorial-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/tutorial-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/tutorial-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/verlauf-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/verlauf-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-abschluss/verlauf-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/abschluss-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/abschluss-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/abschluss-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/bearbeiten-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/bearbeiten-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/bearbeiten-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/bewertung-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/bewertung-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/bewertung-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/daten-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/daten-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/daten-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/entwurf-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/entwurf-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/entwurf-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/ergebnisse.json",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/klassenwahl-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/klassenwahl-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/klassenwahl-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/tutorial-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/tutorial-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r2/tutorial-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/abschluss-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/abschluss-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/abschluss-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/bearbeiten-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/bearbeiten-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/bearbeiten-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/bericht-1440.xlsx",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/bericht-390.xlsx",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/bericht-768.xlsx",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/bewertung-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/bewertung-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/bewertung-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/daten-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/daten-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/daten-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/entwurf-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/entwurf-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/entwurf-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/ergebnisse.json",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/excel-blatt-1.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/excel-blatt-2.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/excel-blatt-3.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/excel-dateipruefung.json",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/excel-inspektion.txt",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/klassenwahl-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/klassenwahl-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/klassenwahl-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/tutorial-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/tutorial-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/tutorial-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/verlauf-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/verlauf-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise-r3/verlauf-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise/ergebnisse.json",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise/tutorial-1440.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise/tutorial-390.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/bedienrevision-2026-10-19/nachweise/tutorial-768.png",
+    "status": "neu"
+  },
+  {
+    "path": "docs/entwicklungsprotokoll.md",
+    "status": "geändert"
+  }
+]

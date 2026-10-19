@@ -1,0 +1,3 @@
+{"kind":"sheet","id":"ws/e6p2b9","name":"Klassenübersicht","index":0,"range":"A1:D7","address":"A1:D7"}
+{"kind":"sheet","id":"ws/qixu6w","name":"Fiktiv Ada","index":1,"range":"A1:G8","address":"A1:G8"}
+{"kind":"sheet","id":"ws/ygv4kz","name":"Fiktiv Bea","index":2,"range":"A1:G8","address":"A1:G8"}

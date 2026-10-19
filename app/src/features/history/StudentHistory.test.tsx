@@ -95,6 +95,13 @@ it("kennzeichnet unbewertete Stunden mit AW, NB und Offen ohne zusätzliche Leis
   expect(
     container.querySelector('svg text[aria-label="Offen"]')?.textContent,
   ).toMatch(/Offen$/);
-  expect(container.querySelectorAll("svg rect")).toHaveLength(0);
-  expect(container.querySelectorAll("svg circle")).toHaveLength(1);
+  expect(container.querySelectorAll("[data-status-marker]")).toHaveLength(3);
+  expect(
+    container.querySelector('[data-status-marker="abwesend"]'),
+  ).toBeTruthy();
+  expect(
+    container.querySelector('[data-status-marker="nicht_beobachtet"]'),
+  ).toBeTruthy();
+  expect(container.querySelector('[data-status-marker="offen"]')).toBeTruthy();
+  expect(container.querySelectorAll("svg .grade-point")).toHaveLength(1);
 });

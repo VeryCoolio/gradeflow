@@ -59,9 +59,7 @@ export function buildLessonIndex(
       return [
         session.id,
         {
-          label: showSequence
-            ? `${date} · ${session.lessonSequence}. Stunde`
-            : date,
+          label: `${date} · ${session.lessonSequence}. Stunde`,
           showSequence,
         },
       ];

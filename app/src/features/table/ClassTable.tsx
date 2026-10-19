@@ -115,9 +115,7 @@ export function ClassTable({ report }: { report: ClassReport }) {
                   <time dateTime={session.date}>
                     {session.date.slice(2).split("-").reverse().join(".")}
                   </time>
-                  {report.lessons.get(session.id)!.showSequence ? (
-                    <small>{session.lessonSequence}. Stunde</small>
-                  ) : null}
+                  <small>{session.lessonSequence}. Stunde</small>
                 </th>
               ))}
               <th scope="col" className="current-column">

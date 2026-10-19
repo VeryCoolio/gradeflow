@@ -144,39 +144,58 @@ export function ClassWorkspace({
         ))}
       </nav>
       {dashboardView === "einstellungen" ? (
-        <section className="card">
-          <fieldset disabled={!canWrite}>
-            <h2>Klasse und Bewertungszeitraum</h2>{" "}
-            {editingDetails ? (
-              <form className="details-form" onSubmit={saveDetails}>
-                <label htmlFor="detail-name">Klassenname</label>
-                <input
-                  id="detail-name"
-                  value={detailName}
-                  onChange={(event) => setDetailName(event.target.value)}
-                  required
-                />
-                <label htmlFor="detail-period">Bewertungszeitraum</label>
-                <input
-                  id="detail-period"
-                  value={detailPeriod}
-                  onChange={(event) => setDetailPeriod(event.target.value)}
-                  required
-                />
-                <div className="actions">
-                  <button className="primary" type="submit">
-                    Änderungen speichern
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setEditingDetails(false)}
-                  >
-                    Abbrechen
-                  </button>
-                </div>
-              </form>
-            ) : (
-              <div className="actions">
+        <div className="class-settings">
+          <section className="card">
+            <h2>Klasse und Bewertungszeitraum</h2>
+            <p className="muted">
+              Ändere die Bezeichnungen deiner Klasse. Personen, Stunden und
+              bisherige Eingaben bleiben erhalten.
+            </p>
+            <dl className="settings-details">
+              <div>
+                <dt>Klassenname</dt>
+                <dd>{currentClass.name}</dd>
+              </div>
+              <div>
+                <dt>Bewertungszeitraum</dt>
+                <dd>{currentClass.periodLabel}</dd>
+              </div>
+              <div>
+                <dt>Status</dt>
+                <dd>{currentClass.archived ? "Archiviert" : "Geöffnet"}</dd>
+              </div>
+            </dl>
+            <fieldset disabled={!canWrite}>
+              <legend>Bezeichnungen ändern</legend>
+              {editingDetails ? (
+                <form className="details-form" onSubmit={saveDetails}>
+                  <label htmlFor="detail-name">Klassenname</label>
+                  <input
+                    id="detail-name"
+                    value={detailName}
+                    onChange={(event) => setDetailName(event.target.value)}
+                    required
+                  />
+                  <label htmlFor="detail-period">Bewertungszeitraum</label>
+                  <input
+                    id="detail-period"
+                    value={detailPeriod}
+                    onChange={(event) => setDetailPeriod(event.target.value)}
+                    required
+                  />
+                  <div className="actions">
+                    <button className="primary" type="submit">
+                      Änderungen speichern
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setEditingDetails(false)}
+                    >
+                      Abbrechen
+                    </button>
+                  </div>
+                </form>
+              ) : (
                 <button
                   type="button"
                   onClick={() => {
@@ -187,26 +206,11 @@ export function ClassWorkspace({
                 >
                   Namen und Zeitraum bearbeiten
                 </button>
-                <button type="button" onClick={archiveClass}>
-                  {currentClass.archived
-                    ? "Zeitraum wieder öffnen"
-                    : "Zeitraum archivieren"}
-                </button>
-
-                <button type="button" onClick={deleteCurrentClass}>
-                  Klasse löschen
-                </button>
-              </div>
-            )}
-            <p className="muted">
-              Der Zeitraum endet nur, wenn du ihn archivierst. Noten werden
-              nicht automatisch zurückgesetzt.
-            </p>
-            <p className="muted">
-              Der errechnete Stand unterstützt die Dokumentation. Die
-              pädagogische Bewertung und eine Endnote entscheidet die Lehrkraft.
-            </p>
-            <div className="actions">
+              )}
+              <p>
+                Ein Schuljahr oder Halbjahr ist eine Bezeichnung und löst keinen
+                Noten-Reset aus.
+              </p>
               <button
                 type="button"
                 onClick={() => {
@@ -217,9 +221,40 @@ export function ClassWorkspace({
               >
                 Aktuelles Schuljahr als Bezeichnung
               </button>
-            </div>
-          </fieldset>
-        </section>
+            </fieldset>
+          </section>
+          <section className="card settings-archive">
+            <h3>
+              Bewertungszeitraum{" "}
+              {currentClass.archived ? "wieder öffnen" : "abschließen"}
+            </h3>
+            <p>
+              Archivierte Klassen bleiben lesbar und exportierbar. Du kannst den
+              Zeitraum später wieder öffnen. Es gibt kein automatisches
+              Enddatum.
+            </p>
+            <button type="button" disabled={!canWrite} onClick={archiveClass}>
+              {currentClass.archived
+                ? "Zeitraum wieder öffnen"
+                : "Zeitraum archivieren"}
+            </button>
+          </section>
+          <section className="card settings-danger">
+            <h3>Klasse löschen</h3>
+            <p>
+              Entfernt diese Klasse mit ihren Personen und Stunden nach einer
+              Bestätigung. Der vorherige Datenstand wird zunächst lokal als
+              Rückfall gespeichert.
+            </p>
+            <button
+              type="button"
+              disabled={!canWrite}
+              onClick={deleteCurrentClass}
+            >
+              Klasse löschen
+            </button>
+          </section>
+        </div>
       ) : null}
       {dashboardView === "personen" ? (
         <section className="card class-students">

@@ -12,10 +12,14 @@ import type {
   ClassRecord,
   StudentRecord,
 } from "../../infrastructure/local/schema";
-import { observationLabel } from "../../application/observationPresentation";
+import {
+  observationLabel,
+  sessionAssessmentSummary,
+} from "../../application/observationPresentation";
 import { RATING_GUIDE } from "./RatingGuide";
 
 interface Props {
+  initialReview?: boolean;
   group: ClassRecord;
   session: LessonSession;
   student: StudentRecord;
@@ -31,10 +35,10 @@ interface Props {
   onLeave: () => void;
   onRemove: () => void;
   onDiscard: () => void;
-  onHelp: () => void;
 }
 
 export function AssessmentWorkspace({
+  initialReview = false,
   group,
   session,
   student,
@@ -50,11 +54,11 @@ export function AssessmentWorkspace({
   onLeave,
   onRemove,
   onDiscard,
-  onHelp,
 }: Props) {
   const [wide, setWide] = useState(
     () => window.matchMedia?.("(min-width: 900px)").matches ?? true,
   );
+  const [reviewing, setReviewing] = useState(initialReview);
   const dialog = useRef<HTMLDialogElement>(null);
   const completion = useRef<HTMLButtonElement>(null);
   const context = useRef<HTMLDivElement>(null);
@@ -74,11 +78,11 @@ export function AssessmentWorkspace({
     return () => media.removeEventListener("change", update);
   }, []);
   useEffect(() => {
-    if (complete && !error) {
+    if (complete && !error && !reviewing) {
       completion.current?.focus();
       completion.current?.scrollIntoView?.({ block: "center" });
     }
-  }, [complete, error]);
+  }, [complete, error, reviewing]);
 
   const roster = (
     <section className="student-list" aria-label="Personen dieser Stunde">
@@ -109,6 +113,71 @@ export function AssessmentWorkspace({
     </section>
   );
 
+  if (complete && !error && !reviewing)
+    return (
+      <section
+        className="card completion-panel completion-summary"
+        aria-label="Stundenabschluss"
+      >
+        <p className="eyebrow">Stunde vollständig</p>
+        <h2>Alle Eingaben sind lokal gespeichert</h2>
+        <p className="completion-context">
+          <strong>{group.name}</strong> · {label}
+        </p>
+        <p>
+          Alle {captured} Personen sind erfasst. Die Erfassung dieser Stunde ist
+          abgeschlossen.
+        </p>
+        <dl className="completion-counts">
+          <div>
+            <dt>Bewertet</dt>
+            <dd>
+              {
+                Object.values(session.observations).filter(
+                  (o) => o.status === "bewertet",
+                ).length
+              }
+            </dd>
+          </div>
+          <div>
+            <dt>Abwesend</dt>
+            <dd>
+              {
+                Object.values(session.observations).filter(
+                  (o) => o.status === "abwesend",
+                ).length
+              }
+            </dd>
+          </div>
+          <div>
+            <dt>Nicht beobachtet</dt>
+            <dd>
+              {
+                Object.values(session.observations).filter(
+                  (o) => o.status === "nicht_beobachtet",
+                ).length
+              }
+            </dd>
+          </div>
+        </dl>
+        <p>{sessionAssessmentSummary(session)}</p>
+        <button
+          className="primary"
+          type="button"
+          ref={completion}
+          onClick={onLeave}
+        >
+          Zur Klassenübersicht
+        </button>
+        <div className="completion-review">
+          <p>Du möchtest eine Eingabe korrigieren?</p>
+          <button type="button" onClick={() => setReviewing(true)}>
+            Eingaben prüfen oder korrigieren
+          </button>
+        </div>
+      </section>
+    );
+
   return (
     <div className="assessment-workspace">
       <button
@@ -118,23 +187,13 @@ export function AssessmentWorkspace({
       >
         ← Zur Klasse
       </button>
-      {complete && !error ? (
-        <section className="card completion-panel">
-          <p className="eyebrow">Stunde vollständig</p>
-          <h2>Alle Eingaben sind lokal gespeichert</h2>
-          <p>
-            Alle {captured} Personen sind erfasst. Du kannst zur
-            Klassenübersicht zurückkehren oder unten einen Eintrag korrigieren.
-          </p>
-          <button
-            className="primary"
-            type="button"
-            ref={completion}
-            onClick={onLeave}
-          >
-            Zur Klassenübersicht
+      {complete ? (
+        <div className="review-notice">
+          <p>Du prüfst eine bereits vollständig erfasste Stunde.</p>
+          <button type="button" onClick={() => setReviewing(false)}>
+            Zur Abschlussübersicht
           </button>
-        </section>
+        </div>
       ) : null}
       <div className="assessment-layout">
         <section
@@ -292,9 +351,6 @@ export function AssessmentWorkspace({
                 Eintrag entfernen
               </button>
             ) : null}
-            <button type="button" onClick={onHelp}>
-              Bewertung und Puffer erklärt
-            </button>
           </div>
         </section>
         {wide ? (

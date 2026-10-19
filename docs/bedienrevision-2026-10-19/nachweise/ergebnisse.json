@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Browserlauf 390",
+    "status": "ERROR",
+    "message": "",
+    "trace": "Traceback (most recent call last):\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 189, in <module>\n    try: run(browser, width)\n         ^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 52, in run\n    assert page.evaluate(\"document.querySelector('dialog').contains(document.activeElement)\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  {
+    "name": "Browserlauf 768",
+    "status": "ERROR",
+    "message": "",
+    "trace": "Traceback (most recent call last):\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 189, in <module>\n    try: run(browser, width)\n         ^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 52, in run\n    assert page.evaluate(\"document.querySelector('dialog').contains(document.activeElement)\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  {
+    "name": "Browserlauf 1440",
+    "status": "ERROR",
+    "message": "",
+    "trace": "Traceback (most recent call last):\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 189, in <module>\n    try: run(browser, width)\n         ^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 52, in run\n    assert page.evaluate(\"document.querySelector('dialog').contains(document.activeElement)\")\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+]

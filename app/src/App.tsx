@@ -1,4 +1,7 @@
 import { AppNavigation } from "./components/AppNavigation";
+import { ClassSwitcher } from "./components/ClassSwitcher";
+import { AboutPage, DataPage } from "./features/help/InfoPages";
+import { Tutorial } from "./features/help/Tutorial";
 import { AssessmentWorkspace } from "./features/assessment/AssessmentWorkspace";
 import { ClassWorkspace } from "./features/classes/ClassWorkspace";
 import { BackupPanel } from "./features/backup/BackupPanel";
@@ -6,7 +9,14 @@ import {
   downloadText,
   fileName,
 } from "./infrastructure/importExport/browserDownloads";
-import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type FormEvent,
+} from "react";
 import {
   addClass,
   removeClass,
@@ -104,6 +114,15 @@ export function App({
   const setHistoryStudentId = (historyStudentId: string | null) =>
     changeWorkspace({ historyStudentId });
   const [notice, setNotice] = useState("");
+  const [tutorialRequest, setTutorialRequest] = useState(0);
+  const tutorialStorageError = useCallback(
+    () =>
+      setNotice(
+        "Der Tutorial-Status konnte nicht gespeichert werden. Die Einführung kann beim nächsten Besuch erneut erscheinen.",
+      ),
+    [],
+  );
+  const [reviewSessionId, setReviewSessionId] = useState<string | null>(null);
   const [lastSwap, setLastSwap] = useState<{
     classId: string;
     date: string;
@@ -215,12 +234,20 @@ export function App({
 
   function chooseClass(classId: string) {
     if (!notebook) return;
+    if (
+      failedObservation &&
+      !confirmDiscard(
+        "Die letzte Eingabe wurde nicht gespeichert. Trotzdem zu einer anderen Klasse wechseln?",
+      )
+    )
+      return;
     const updated = apply(
       () => selectClass(localRepository.load(), classId),
       "Klasse ausgewählt.",
     );
     if (updated) {
       changeWorkspace({ classId, sessionId: null });
+      setFailedObservation(null);
       setSelectedStudentId(null);
       setDashboardView("stunden");
       setHistoryStudentId(null);
@@ -313,6 +340,7 @@ export function App({
       "Stunde angelegt und lokal gespeichert.",
     );
     if (updated) {
+      setReviewSessionId(null);
       setActiveSessionId(id);
       setSelectedStudentId(null);
     } else {
@@ -535,7 +563,7 @@ export function App({
         page={page}
         classes={notebook.classes}
         classId={classId}
-        assessing={page === "klasse" && !!activeSession}
+        onTutorial={() => setTutorialRequest((value) => value + 1)}
         onClass={chooseClass}
         onPage={(next) => {
           changeWorkspace({
@@ -548,6 +576,11 @@ export function App({
         }}
       />
       <div className="layout">
+        <ClassSwitcher
+          classes={notebook.classes}
+          classId={classId}
+          onClass={chooseClass}
+        />
         <main className="content" id="main-content" tabIndex={-1}>
           {!canWrite ? (
             <aside
@@ -591,6 +624,9 @@ export function App({
             <ClassCreation
               today={today()}
               canWrite={canWrite}
+              storage={
+                workspaceStorage ?? (repository ? undefined : browserStorage)
+              }
               onCreate={createClass}
               onDemo={createDemoClass}
               onError={(message) => {
@@ -601,6 +637,10 @@ export function App({
           ) : null}
           {page === "sicherung" ? (
             <BackupPanel {...backupProps} notebook={notebook} />
+          ) : null}
+          {page === "ueber" ? <AboutPage /> : null}
+          {page === "daten" ? (
+            <DataPage onBackup={() => setPage("sicherung")} />
           ) : null}
           {page === "hilfe" ? (
             <>
@@ -649,6 +689,8 @@ export function App({
           activeSession &&
           selectedStudent ? (
             <AssessmentWorkspace
+              key={activeSession.id}
+              initialReview={reviewSessionId === activeSession.id}
               group={currentClass}
               session={activeSession}
               student={selectedStudent}
@@ -664,7 +706,6 @@ export function App({
               onLeave={() => leaveSession()}
               onRemove={removeCurrentObservation}
               onDiscard={discardSession}
-              onHelp={() => setPage("hilfe")}
             />
           ) : null}
           {page === "klasse" && currentClass && !activeSession && report ? (
@@ -690,6 +731,7 @@ export function App({
                 deleteCurrentClass,
                 startSession,
                 openSession: (id) => {
+                  setReviewSessionId(id);
                   setActiveSessionId(id);
                   setSelectedStudentId(null);
                   setError("");
@@ -705,6 +747,11 @@ export function App({
           ) : null}
         </main>
       </div>
+      <Tutorial
+        storage={workspaceStorage ?? (repository ? undefined : browserStorage)}
+        request={tutorialRequest}
+        onStorageError={tutorialStorageError}
+      />
     </div>
   );
 }

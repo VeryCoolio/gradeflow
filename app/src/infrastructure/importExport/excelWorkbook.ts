@@ -59,18 +59,27 @@ export async function exportClassXlsx(
   const workbook = new ExcelJS.Workbook();
   workbook.creator = "Gradeflow";
   const report = buildClassReport(classRecord);
+  const used = new Set(["klassenübersicht"]);
+  const people = report.students.map((result) => ({
+    result,
+    sheetName: uniqueSheetName(result.student.displayName, used),
+  }));
   const summary = workbook.addWorksheet("Klassenübersicht");
   summary.addRow([classRecord.name]);
   summary.addRow(["Bewertungszeitraum", classRecord.periodLabel]);
   summary.addRow([
-    "Berechneter Stand der mündlichen Mitarbeit. Die Endnote entscheidet die Lehrkraft.",
+    "Unten findest du die einzelnen Tabellenblätter je Person. Ein Klick auf einen Namen öffnet direkt das zugehörige Personenblatt.",
   ]);
   summary.mergeCells("A3:D3");
   summary.addRow([]);
   summary.addRow(["Person", "Startwert", "Aktueller Stand", "Puffer (max. 3)"]);
-  report.students.forEach((result) =>
+  people.forEach(({ result, sheetName }) =>
     summary.addRow([
-      result.student.displayName,
+      {
+        text: result.student.displayName,
+        hyperlink: `#'${sheetName.replace(/'/g, "''")}'!A1`,
+        tooltip: "Personenblatt öffnen",
+      },
       result.start.gradeQuarterSteps / 4,
       result.current.gradeQuarterSteps / 4,
       result.current.bufferPoints,
@@ -79,12 +88,17 @@ export async function exportClassXlsx(
   styleSheet(summary, 5, [34, 23, 23, 23]);
   summary.getColumn(2).numFmt = "0.00";
   summary.getColumn(3).numFmt = "0.00";
-  summary.getRow(3).height = 32;
-  const used = new Set(["klassenübersicht"]);
-  for (const result of report.students) {
-    const sheet = workbook.addWorksheet(
-      uniqueSheetName(result.student.displayName, used),
-    );
+  summary.getRow(3).height = 40;
+  people.forEach((_, index) => {
+    summary.getCell(index + 6, 1).font = {
+      name: "Arial",
+      size: 12,
+      color: { argb: "FF483264" },
+      underline: true,
+    };
+  });
+  for (const { result, sheetName } of people) {
+    const sheet = workbook.addWorksheet(sheetName);
     sheet.addRow([result.student.displayName]);
     sheet.addRow([
       "Klasse",
@@ -102,7 +116,9 @@ export async function exportClassXlsx(
     ]);
     sheet.getCell("B3").numFmt = "0.00";
     sheet.getCell("D3").numFmt = "0.00";
-    sheet.addRow([]);
+    sheet.addRow([
+      { text: "Zur Klassenübersicht", hyperlink: "#'Klassenübersicht'!A1" },
+    ]);
     sheet.addRow([
       "Datum",
       "Stunde",
@@ -117,9 +133,7 @@ export async function exportClassXlsx(
         cell.observation?.status === "bewertet" ? cell.observation.symbol : "";
       sheet.addRow([
         new Date(`${cell.session.date}T12:00:00Z`),
-        report.lessons.get(cell.session.id)!.showSequence
-          ? cell.session.lessonSequence
-          : null,
+        `${cell.session.lessonSequence}. Stunde`,
         cell.observation?.status === "bewertet"
           ? "Bewertet"
           : observationLabel(cell.observation),
@@ -129,7 +143,40 @@ export async function exportClassXlsx(
         cell.after?.bufferPoints ?? null,
       ]);
     }
-    styleSheet(sheet, 5, [17, 12, 24, 12, 25, 25, 12]);
+    styleSheet(sheet, 5, [17, 17, 24, 14, 25, 25, 12]);
+    sheet.getCell("A4").font = {
+      name: "Arial",
+      size: 11,
+      underline: true,
+      color: { argb: "FF483264" },
+    };
+    const colors: Record<string, [string, string]> = {
+      "negative-strong": ["FFF5E7E7", "FF7C3E46"],
+      negative: ["FFFCF2F1", "FF85464D"],
+      neutral: ["FFF1EFF5", "FF5B526D"],
+      positive: ["FFEFF6F0", "FF386550"],
+      "positive-strong": ["FFE4EFE6", "FF315F48"],
+    };
+    result.cells.forEach((cell, index) => {
+      const row = sheet.getRow(index + 6);
+      row.height = 42;
+      if (cell.observation?.status !== "bewertet") return;
+      const symbol = row.getCell(4);
+      const [background, foreground] =
+        colors[RATING_GUIDE[cell.observation.symbol].tone];
+      symbol.font = {
+        name: "Consolas",
+        size: 20,
+        bold: true,
+        color: { argb: foreground },
+      };
+      symbol.fill = {
+        type: "pattern",
+        pattern: "solid",
+        fgColor: { argb: background },
+      };
+      symbol.alignment = { horizontal: "center", vertical: "middle" };
+    });
     sheet.getRow(1).height = 28;
     sheet.getRow(2).height = 44;
     sheet.getRow(3).height = 32;

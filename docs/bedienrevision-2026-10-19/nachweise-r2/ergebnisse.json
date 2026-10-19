@@ -1,0 +1,109 @@
+[
+  {
+    "name": "Tutorial 390",
+    "status": "PASS",
+    "first_visit": true,
+    "focus_trapped": true,
+    "escape": true,
+    "repeat_on_request": true
+  },
+  {
+    "name": "Entwurf und Klassenanlage 390",
+    "status": "PASS",
+    "reloads": 2
+  },
+  {
+    "name": "Bewertung, Wiederaufnahme und Abschluss 390",
+    "status": "PASS",
+    "reloads": 2,
+    "no_active_ratings_after_completion": true
+  },
+  {
+    "name": "Hilfe und Datenseite 390",
+    "status": "PASS"
+  },
+  {
+    "name": "Zehn Klassen und Wechsel 390",
+    "status": "PASS",
+    "notebook_unchanged": true
+  },
+  {
+    "name": "Browserlauf 390",
+    "status": "ERROR",
+    "message": "",
+    "trace": "Traceback (most recent call last):\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 189, in <module>\n    try: run(browser, width)\n         ^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 171, in run\n    assert page.locator(\"svg text\").filter(has_text=\"1. Stunde\").count() == 2\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  {
+    "name": "Tutorial 768",
+    "status": "PASS",
+    "first_visit": true,
+    "focus_trapped": true,
+    "escape": true,
+    "repeat_on_request": true
+  },
+  {
+    "name": "Entwurf und Klassenanlage 768",
+    "status": "PASS",
+    "reloads": 2
+  },
+  {
+    "name": "Bewertung, Wiederaufnahme und Abschluss 768",
+    "status": "PASS",
+    "reloads": 2,
+    "no_active_ratings_after_completion": true
+  },
+  {
+    "name": "Hilfe und Datenseite 768",
+    "status": "PASS"
+  },
+  {
+    "name": "Zehn Klassen und Wechsel 768",
+    "status": "PASS",
+    "notebook_unchanged": true
+  },
+  {
+    "name": "Browserlauf 768",
+    "status": "ERROR",
+    "message": "",
+    "trace": "Traceback (most recent call last):\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 189, in <module>\n    try: run(browser, width)\n         ^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 171, in run\n    assert page.locator(\"svg text\").filter(has_text=\"1. Stunde\").count() == 2\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  },
+  {
+    "name": "Tutorial 1440",
+    "status": "PASS",
+    "first_visit": true,
+    "focus_trapped": true,
+    "escape": true,
+    "repeat_on_request": true
+  },
+  {
+    "name": "Entwurf und Klassenanlage 1440",
+    "status": "PASS",
+    "reloads": 2
+  },
+  {
+    "name": "Hover Desktop",
+    "status": "PASS",
+    "maximum_height_change": 0
+  },
+  {
+    "name": "Bewertung, Wiederaufnahme und Abschluss 1440",
+    "status": "PASS",
+    "reloads": 2,
+    "no_active_ratings_after_completion": true
+  },
+  {
+    "name": "Hilfe und Datenseite 1440",
+    "status": "PASS"
+  },
+  {
+    "name": "Zehn Klassen und Wechsel 1440",
+    "status": "PASS",
+    "notebook_unchanged": true
+  },
+  {
+    "name": "Browserlauf 1440",
+    "status": "ERROR",
+    "message": "",
+    "trace": "Traceback (most recent call last):\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 189, in <module>\n    try: run(browser, width)\n         ^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 171, in run\n    assert page.locator(\"svg text\").filter(has_text=\"1. Stunde\").count() == 2\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+]

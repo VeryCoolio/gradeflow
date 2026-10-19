@@ -1,25 +1,77 @@
 import { useState, type FormEvent } from "react";
 import { schoolYearLabel } from "../../application/schoolYear";
 import { importClassFile } from "../../infrastructure/importExport/classImport";
+import {
+  CLASS_DRAFT_KEY,
+  emptyClassDraft,
+  readClassDraft,
+  type ClassDraft,
+} from "../../infrastructure/local/classDraft";
+import type { StoragePort } from "../../infrastructure/local/localRepository";
 
 export function ClassCreation({
   today,
   canWrite = true,
+  storage,
   onCreate,
   onDemo,
   onError,
 }: {
   today: string;
   canWrite?: boolean;
+  storage?: StoragePort;
   onCreate: (name: string, period: string, names: string[]) => boolean;
   onDemo: () => void;
   onError: (message: string) => void;
 }) {
-  const [mode, setMode] = useState<"manuell" | "datei">("manuell");
-  const [name, setName] = useState("");
-  const [period, setPeriod] = useState(schoolYearLabel(today));
-  const [customPeriod, setCustomPeriod] = useState(false);
-  const [people, setPeople] = useState([{ firstName: "", lastName: "" }]);
+  const [initial] = useState(() => {
+    try {
+      return { draft: readClassDraft(storage), error: "" };
+    } catch {
+      return {
+        draft: null,
+        error:
+          "Der vorhandene Entwurf konnte nicht gelesen werden. Angelegte Klassen bleiben erhalten.",
+      };
+    }
+  });
+  const [draft, setDraft] = useState<ClassDraft>(
+    () => initial.draft ?? emptyClassDraft(today),
+  );
+  const [draftStatus, setDraftStatus] = useState(
+    initial.draft
+      ? "Lokalen Entwurf wieder aufgenommen. Die Klasse ist noch nicht angelegt."
+      : "Noch keine Klasse angelegt. Deine Eingaben werden als lokaler Entwurf gesichert.",
+  );
+  const [draftError, setDraftError] = useState(initial.error);
+  const { mode, name, period, customPeriod, people } = draft;
+  function update(patch: Partial<ClassDraft>) {
+    if (!canWrite) return;
+    const next = { ...draft, ...patch };
+    setDraft(next);
+    if (!storage) {
+      setDraftStatus(
+        "Eingaben sind noch nicht als Klasse angelegt. In dieser Ansicht ist keine Entwurfsspeicherung eingerichtet.",
+      );
+      return;
+    }
+    try {
+      storage.setItem(CLASS_DRAFT_KEY, JSON.stringify(next));
+      setDraftError("");
+      setDraftStatus(
+        "Entwurf in diesem Browser gespeichert. Die Klasse ist noch nicht angelegt.",
+      );
+    } catch {
+      setDraftError(
+        "Entwurf nicht gespeichert. Lass diese Ansicht geöffnet und versuche es erneut, bevor du neu lädst.",
+      );
+    }
+  }
+  const setMode = (mode: ClassDraft["mode"]) => update({ mode });
+  const setName = (name: string) => update({ name });
+  const setPeriod = (period: string) => update({ period });
+  const setCustomPeriod = (customPeriod: boolean) => update({ customPeriod });
+  const setPeople = (people: ClassDraft["people"]) => update({ people });
   const [file, setFile] = useState<File | null>(null);
   const [busy, setBusy] = useState(false);
   async function submit(event: FormEvent) {
@@ -40,7 +92,15 @@ export function ClassCreation({
           return `${person.firstName.trim()} ${person.lastName.trim()}`;
         });
       }
-      onCreate(name, period, names);
+      if (onCreate(name, period, names)) {
+        try {
+          storage?.removeItem(CLASS_DRAFT_KEY);
+        } catch {
+          onError(
+            "Die Klasse wurde angelegt. Der alte Entwurf konnte nicht entfernt werden; lege ihn nicht erneut an.",
+          );
+        }
+      }
     } catch (error) {
       onError(
         error instanceof Error
@@ -59,6 +119,21 @@ export function ClassCreation({
         Gib einen Klassennamen ein und füge die Personen hinzu. Jede Person
         startet bei 2,00.
       </p>
+      <div
+        className={`draft-status ${draftError ? "error" : ""}`}
+        role={draftError ? "alert" : "status"}
+      >
+        <strong>{draftError || draftStatus}</strong>
+        <p>
+          Mit „Klasse lokal anlegen“ übernimmst du den Entwurf. Bereits
+          angelegte Klassen sind im Klassenregister erreichbar.
+        </p>
+        {draftError && canWrite ? (
+          <button type="button" onClick={() => update({})}>
+            Entwurf erneut speichern
+          </button>
+        ) : null}
+      </div>
       <div className="view-tabs" aria-label="Art der Klassenerstellung">
         <button
           type="button"
@@ -81,6 +156,7 @@ export function ClassCreation({
           <label htmlFor="class-name">Klassenname</label>
           <input
             id="class-name"
+            maxLength={200}
             value={name}
             onChange={(event) => setName(event.target.value)}
             placeholder="z. B. 8b · Mathematik"
@@ -102,6 +178,7 @@ export function ClassCreation({
               <label htmlFor="period-label">Bewertungszeitraum</label>
               <input
                 id="period-label"
+                maxLength={200}
                 value={period}
                 onChange={(event) => setPeriod(event.target.value)}
                 required
@@ -136,6 +213,7 @@ export function ClassCreation({
                     </label>
                     <input
                       id={`first-${index}`}
+                      maxLength={100}
                       autoComplete="off"
                       value={person.firstName}
                       onChange={(event) =>
@@ -156,6 +234,7 @@ export function ClassCreation({
                     </label>
                     <input
                       id={`last-${index}`}
+                      maxLength={100}
                       autoComplete="off"
                       value={person.lastName}
                       onChange={(event) =>
@@ -233,8 +312,18 @@ export function ClassCreation({
                 type="file"
                 accept=".xlsx,.csv,.txt"
                 required
-                onChange={(event) => setFile(event.target.files?.[0] ?? null)}
+                onChange={(event) => {
+                  const selected = event.target.files?.[0] ?? null;
+                  setFile(selected);
+                  update({ fileName: selected?.name ?? null });
+                }}
               />
+              {draft.fileName && !file ? (
+                <p className="feedback">
+                  Zuletzt ausgewählt: {draft.fileName}. Bitte die Datei nach dem
+                  Neuladen erneut auswählen.
+                </p>
+              ) : null}
               <p className="muted">
                 CSV/TXT: zwei Spalten mit Semikolon, Komma oder Tabulator,
                 UTF-8. Einspaltige Listen werden nicht übernommen.

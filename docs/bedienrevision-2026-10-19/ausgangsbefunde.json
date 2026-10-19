@@ -1,0 +1,17 @@
+{
+  "source_commit": "3bd003c",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "hover": {
+    "normal_height": 188.921875,
+    "hover_height": 200.953125,
+    "difference": 12.03125
+  },
+  "failing_regression_tests_before_fix": [
+    "Bewertungstasten nach Abschluss noch aktiv",
+    "AW/NB/Offen-Marker fehlen",
+    "Excel-Symbole 11 pt und Personenlinks fehlen"
+  ]
+}

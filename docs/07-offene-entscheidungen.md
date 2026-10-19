@@ -121,3 +121,13 @@ Nach dem neuen Prüfbericht und der Ansichtsskizze hat Yannis den vollständigen
 Technische Festlegungen: eindeutiger schreibender Tab desselben Browser-Ursprungs; getrennte Arbeitsposition mit stabilen IDs; kompakter Bewertungsbereich mit sichtbarem Kontext und Fehlerwiederholung; 20 Einträge je Seite der Stundenliste mit Datumssuche; gemeinsame vorbereitete Stundenbeschriftungen. Das Tabellenfenster 10/20/alle und die vollständige Neuberechnung bleiben erhalten. Ein Dateilimit von 5 MiB betrifft den Import, nicht die Dauer des Bewertungszeitraums und nicht die Aufbewahrung vorhandener Stunden. XLSX erhält zusätzliche Umfangs- und Laufzeitgrenzen.
 
 Keine neue pädagogische Bewertungsregel, keine Cloud-Synchronisierung und keine Freigabe für echte Schülerdaten oder eine Veröffentlichung. Die technische Prüfung ersetzt keine neue Usability-Erhebung; v0.5.0 bleibt eingefroren.
+
+## Bedienrevision vom 19.10.2026
+
+### O16 – Klassenwahl, Abschluss, Erklärung und Bericht
+
+Yannis beauftragt die einzelnen Bedienkorrekturen der [Aufgabenliste](bedienrevision-2026-10-19.md). Die Personenseite bleibt erhalten. Der Abschluss ersetzt die letzte Person samt aktiven Bewertungstasten durch eine Zusammenfassung; Änderungen werden ausdrücklich geöffnet. Klassenerstellungsentwürfe werden getrennt vom angelegten Notebook lokal gespeichert und erst nach erfolgreicher Anlage entfernt. Eine gewählte Importdatei muss nach einem Reload erneut ausgewählt werden.
+
+AW, NB und Offen erhalten eigene Symbole unterhalb der Notenachse, ohne erfundene Notenwerte. Excel erhält größere Symbole, Blattnavigation und interne Personenlinks; der genannte Endnoten-Hinweis entfällt dort. Die Stundennummer wird in Oberfläche und Excel immer ausgeschrieben, auch bei nur einer Stunde am Datum. Diese neue Darstellung ersetzt die bisherige Ausblendung in O7; Zwei-Stunden-Grenze, atomarer Tausch, Normalisierung und Neuberechnung bleiben unverändert. Das CSV-v2-Dateiformat bleibt erhalten.
+
+App-Idee und Datenablage werden in eigenen Hilfeseiten erklärt; ein schließbares Tutorial erscheint beim ersten Besuch und bleibt manuell erreichbar. Bis zur angekündigten neuen Bachelorarbeitsdatei beruhen die Inhalte auf den bestätigten Produktvorgaben. Konkrete Zitate, Quellen oder eine Begründung aus dieser noch fehlenden Fassung werden nicht behauptet.

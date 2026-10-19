@@ -25,9 +25,16 @@ describe("Excel-Dateien", () => {
     expect(ada.getCell("A6").value).toBeInstanceOf(Date);
     expect(ada.getCell("A6").numFmt).toBe("dd.mm.yyyy");
     expect(ada.getCell("D6").value).toBe("++");
+    expect(ada.getCell("D6").font.size).toBeGreaterThanOrEqual(18);
+    expect(workbook.worksheets[0].getCell("A6").hyperlink).toBe(
+      "#'Fiktiv Ada'!A1",
+    );
+    expect(workbook.worksheets[0].getCell("A3").text).toMatch(
+      /Tabellenblätter/,
+    );
+    expect(ada.getCell("B8").value).toBe("1. Stunde");
     expect(ada.getCell("F6").value).toBe(1.5);
     expect(ada.getCell("F7").value).toBe(1.75);
-    expect(ada.getCell("B8").value).toBeNull();
     expect(workbook.worksheets[2].getCell("C6").value).toBe("Abwesend");
     expect(workbook.worksheets[2].getCell("C7").value).toBe("Nicht beobachtet");
     expect(workbook.worksheets[2].getCell("C8").value).toBe("Offen");

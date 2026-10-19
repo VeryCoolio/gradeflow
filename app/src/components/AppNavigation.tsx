@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import type { ClassRecord } from "../infrastructure/local/schema";
 import type { Page } from "../infrastructure/local/workspacePosition";
 
@@ -5,17 +6,22 @@ export function AppNavigation({
   page,
   classes,
   classId,
-  assessing,
   onPage,
   onClass,
+  onTutorial,
 }: {
   page: Page;
   classes: readonly ClassRecord[];
   classId: string | null;
-  assessing: boolean;
   onPage: (page: Page) => void;
   onClass: (id: string) => void;
+  onTutorial: () => void;
 }) {
+  const helpMenu = useRef<HTMLDetailsElement>(null);
+  function openHelp(next: Page) {
+    if (helpMenu.current) helpMenu.current.open = false;
+    onPage(next);
+  }
   return (
     <header className="app-navigation">
       <div className="app-brand">
@@ -28,7 +34,6 @@ export function AppNavigation({
             ["klasse", "Meine Klassen"],
             ["anlegen", "Klasse anlegen"],
             ["sicherung", "Datensicherung"],
-            ["hilfe", "Bewertung verstehen"],
           ] as const
         ).map(([key, label]) => (
           <button
@@ -41,7 +46,30 @@ export function AppNavigation({
           </button>
         ))}
       </nav>
-      {classes.length > 0 && !assessing ? (
+      <details className="help-menu" ref={helpMenu}>
+        <summary>Hilfe und Einstieg</summary>
+        <nav aria-label="Hilfe">
+          <button type="button" onClick={() => openHelp("ueber")}>
+            So funktioniert Gradeflow
+          </button>
+          <button type="button" onClick={() => openHelp("hilfe")}>
+            Bewertung und Puffer erklärt
+          </button>
+          <button type="button" onClick={() => openHelp("daten")}>
+            Wo sind meine Daten?
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              if (helpMenu.current) helpMenu.current.open = false;
+              onTutorial();
+            }}
+          >
+            Tutorial starten
+          </button>
+        </nav>
+      </details>
+      {classes.length > 0 ? (
         <div className="class-picker">
           <label htmlFor="current-class">Klasse auswählen</label>
           <select

@@ -2,7 +2,14 @@ import type { NotebookV1 } from "./schema";
 import type { StoragePort } from "./localRepository";
 
 export const WORKSPACE_STORAGE_KEY = "gradeflow-workspace-v1";
-export const PAGES = ["klasse", "anlegen", "sicherung", "hilfe"] as const;
+export const PAGES = [
+  "klasse",
+  "anlegen",
+  "sicherung",
+  "hilfe",
+  "ueber",
+  "daten",
+] as const;
 export const CLASS_VIEWS = [
   "stunden",
   "tabelle",

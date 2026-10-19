@@ -84,6 +84,33 @@ export function StudentHistory({
         Personen. Die Linie verbindet ausschließlich bewertete Stunden. AW =
         abwesend, NB = nicht beobachtet, Offen = noch nicht erfasst.
       </p>
+      <ul
+        className="history-legend"
+        aria-label="Legende der Statusmarkierungen"
+      >
+        <li>
+          <span className="status-key absent" aria-hidden="true">
+            ■
+          </span>{" "}
+          AW · Abwesend
+        </li>
+        <li>
+          <span className="status-key unobserved" aria-hidden="true">
+            ◆
+          </span>{" "}
+          NB · Nicht beobachtet
+        </li>
+        <li>
+          <span className="status-key open" aria-hidden="true">
+            ○
+          </span>{" "}
+          Offen · Noch nicht erfasst
+        </li>
+      </ul>
+      <p className="muted">
+        Die Statusmarkierungen stehen unterhalb der Notenskala und haben keinen
+        Notenwert. Tage ohne angelegte Unterrichtsstunde werden nicht ergänzt.
+      </p>
       {!row.cells.some((cell) => cell.after) ? (
         <p className="feedback">
           Noch keine bewertete Stunde: Der Startwert bleibt bestehen.
@@ -129,7 +156,14 @@ export function StudentHistory({
             strokeLinejoin="round"
           />
           {points.map((point, index) => (
-            <circle key={index} cx={point.x} cy={point.y} r="5" fill="#176d58">
+            <circle
+              className="grade-point"
+              key={index}
+              cx={point.x}
+              cy={point.y}
+              r="5"
+              fill="#176d58"
+            >
               <title>{point.label}</title>
             </circle>
           ))}
@@ -152,17 +186,45 @@ export function StudentHistory({
                 stroke="#536b75"
               />
               {!cell.after ? (
-                <text
-                  x={x(index + 1)}
-                  y="240"
-                  textAnchor="middle"
-                  fontSize="11"
-                  fill="#536b75"
-                  aria-label={observationLabel(cell.observation)}
-                >
-                  <title>{`${report.lessons.get(cell.session.id)!.label}: ${observationLabel(cell.observation)}`}</title>
-                  {observationShortLabel(cell.observation)}
-                </text>
+                <g data-status-marker={cell.observation?.status ?? "offen"}>
+                  <title>{`${report.lessons.get(cell.session.id)!.label}: ${observationLabel(cell.observation)} · kein Notenwert`}</title>
+                  {cell.observation?.status === "abwesend" ? (
+                    <rect
+                      x={x(index + 1) - 6}
+                      y="221"
+                      width="12"
+                      height="12"
+                      rx="2"
+                      fill="#245d89"
+                    />
+                  ) : cell.observation?.status === "nicht_beobachtet" ? (
+                    <path
+                      d={`M ${x(index + 1)} 219 l 8 8 l -8 8 l -8 -8 Z`}
+                      fill="#8a5b19"
+                    />
+                  ) : (
+                    <circle
+                      className="history-status-open"
+                      cx={x(index + 1)}
+                      cy="227"
+                      r="6"
+                      fill="white"
+                      stroke="#615d70"
+                      strokeWidth="2"
+                    />
+                  )}
+                  <text
+                    x={x(index + 1)}
+                    y="249"
+                    textAnchor="middle"
+                    fontSize="11"
+                    fill="#536b75"
+                    aria-label={observationLabel(cell.observation)}
+                  >
+                    <title>{`${report.lessons.get(cell.session.id)!.label}: ${observationLabel(cell.observation)}`}</title>
+                    {observationShortLabel(cell.observation)}
+                  </text>
+                </g>
               ) : null}
               <text
                 x={x(index + 1)}
@@ -174,17 +236,15 @@ export function StudentHistory({
               >
                 {cell.session.date.split("-").reverse().join(".")}
               </text>
-              {report.lessons.get(cell.session.id)!.showSequence ? (
-                <text
-                  x={x(index + 1)}
-                  y="281"
-                  textAnchor="middle"
-                  fontSize="12"
-                  fill="#3c5b67"
-                >
-                  {cell.session.lessonSequence}. Stunde
-                </text>
-              ) : null}
+              <text
+                x={x(index + 1)}
+                y="281"
+                textAnchor="middle"
+                fontSize="12"
+                fill="#3c5b67"
+              >
+                {cell.session.lessonSequence}. Stunde
+              </text>
             </g>
           ))}
         </svg>

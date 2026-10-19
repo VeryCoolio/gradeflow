@@ -2,6 +2,17 @@
 
 Der Git-Verlauf beginnt mit dem Projektstand nach Meilenstein 2. Frühere Arbeitsschritte sind im [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) festgehalten; dafür werden keine rückdatierten Commits erzeugt.
 
+## 0.8.0 – 19.10.2026
+
+- Suchbares Klassenregister am Desktop und Klassenwahl während der Erfassung auf kleinen Displays.
+- Stabile Bewertungsflächen beim Hover; eigener Stundenabschluss mit Zusammenfassung und bewusstem Korrektureinstieg.
+- Lokal wiederaufnehmbarer Klassenentwurf mit ausdrücklicher Speicherfehleranzeige und klarer Trennung zur angelegten Klasse.
+- Überarbeitete Klassenverwaltung; Hilfe außerhalb der Bewertung, App-Erklärung, eigene Datenseite und wieder startbares Erstbesuch-Tutorial.
+- Eigene AW-/NB-/Offen-Marker unterhalb der Notenskala, zusätzlich zu Text und Form unterschieden.
+- Excel mit größeren farbigen Symbolen, Namen als Links zum Personenblatt, Rücklinks und Erklärung der Tabellenblätter. Der nicht gewünschte Endnoten-Satz entfällt.
+- Stundennummer in Oberfläche und Excel durchgehend ausgeschrieben, auch bei einer einzelnen Stunde. Fachkern und Notebook-Schema bleiben unverändert.
+- Aufgaben, Prüfungen und der noch ausstehende Abgleich mit der angekündigten Bachelorarbeitsfassung: [Bedienrevision](docs/bedienrevision-2026-10-19.md).
+
 ## 0.7.0 – 18.10.2026
 
 - Bewertung mit haftendem Personen-/Stundenkontext, unmittelbarer Rückmeldung, gezieltem erneuten Speichern und mobiler Personenwahl; zwei Tab-Schritte bis zum ersten Symbol.

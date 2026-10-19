@@ -1,0 +1,22 @@
+[
+  {
+    "command": "typecheck",
+    "exit_code": 0
+  },
+  {
+    "command": "test",
+    "exit_code": 0
+  },
+  {
+    "command": "lint",
+    "exit_code": 0
+  },
+  {
+    "command": "format:check",
+    "exit_code": 0
+  },
+  {
+    "command": "build",
+    "exit_code": 0
+  }
+]

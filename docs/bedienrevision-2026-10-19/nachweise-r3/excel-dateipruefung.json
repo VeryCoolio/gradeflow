@@ -1,0 +1,44 @@
+[
+  {
+    "width": 390,
+    "sheets": 3,
+    "internal_person_links": 2,
+    "symbols_pt": 20,
+    "numeric_grades_checked": 3,
+    "ungraded_cells_empty": true,
+    "formulas": 0,
+    "hours": [
+      "1. Stunde",
+      "2. Stunde",
+      "1. Stunde"
+    ]
+  },
+  {
+    "width": 768,
+    "sheets": 3,
+    "internal_person_links": 2,
+    "symbols_pt": 20,
+    "numeric_grades_checked": 3,
+    "ungraded_cells_empty": true,
+    "formulas": 0,
+    "hours": [
+      "1. Stunde",
+      "2. Stunde",
+      "1. Stunde"
+    ]
+  },
+  {
+    "width": 1440,
+    "sheets": 3,
+    "internal_person_links": 2,
+    "symbols_pt": 20,
+    "numeric_grades_checked": 3,
+    "ungraded_cells_empty": true,
+    "formulas": 0,
+    "hours": [
+      "1. Stunde",
+      "2. Stunde",
+      "1. Stunde"
+    ]
+  }
+]
