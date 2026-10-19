@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Alle Schritte mit Weiter 390x480",
+    "status": "PASS",
+    "steps": 15,
+    "all_next_buttons_enabled": true,
+    "inputs_required": false,
+    "downloads": [],
+    "own_data_unchanged": true,
+    "url_unchanged": true,
+    "overlaps": 0
+  },
+  {
+    "name": "Browserprüfung",
+    "status": "FAIL",
+    "error": "Locator expected to be enabled\nActual value: None\nError: strict mode violation: get_by_role(\"button\", name=\"Weiter\") resolved to 2 elements:\n    1) <button type=\"button\">Weitere Person</button> aka get_by_role(\"button\", name=\"Weitere Person\")\n    2) <button type=\"button\" class=\"primary\">Weiter</button> aka get_by_role(\"button\", name=\"Weiter\", exact=True)\n \nCall log:\n  - Expect \"to_be_enabled\" get_by_role(\"button\", name=\"Weiter\") with timeout 5000ms\n  - waiting for get_by_role(\"button\", name=\"Weiter\")\n"
+  }
+]

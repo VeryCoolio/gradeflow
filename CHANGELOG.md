@@ -2,6 +2,12 @@
 
 Der Git-Verlauf beginnt mit dem Projektstand nach Meilenstein 2. Frühere Arbeitsschritte sind im [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) festgehalten; dafür werden keine rückdatierten Commits erzeugt.
 
+## 0.8.2 – 19.10.2026
+
+- Jeder Tutorialschritt lässt sich mit „Weiter“ ohne Eingabe oder Aktion ansehen; die passende nächste Ansicht und fehlende fiktive Übungsdaten werden vorbereitet.
+- Markierte Bedienelemente bleiben selbst ausprobierbar. Keine automatischen Downloads beim Weiterklicken; eigene Daten und URL bleiben erhalten.
+- [Änderung und Prüfung](docs/tutorial-weiter-2026-10-19.md).
+
 ## 0.8.1 – 19.10.2026
 
 - Textdialogfolge durch eine geführte Tour an den echten Formularen und Schaltflächen ersetzt. Markiertes Ziel, Fortschritt nach erfolgreichen Aktionen, Tastaturbedienung, Abbruch und bewusster Neustart.

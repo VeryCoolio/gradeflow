@@ -5,6 +5,7 @@ import {
 } from "../../infrastructure/local/localRepository";
 import { addClass } from "../../application/classService";
 import { EMPTY_NOTEBOOK } from "../../infrastructure/local/schema";
+import { prepareTutorialStep } from "./prepareTutorialStep";
 
 export const TUTORIAL_KEY = "gradeflow-tutorial-v2";
 export type TutorialAction =
@@ -34,13 +35,13 @@ const steps: readonly Step[] = [
   {
     target: '[data-tour="page-anlegen"]',
     title: "Lege eine Übungsklasse an",
-    text: "Klicke auf die markierte Schaltfläche „Klasse anlegen“. Du übst an den echten Bedienelementen. Alles in dieser Tour bleibt von deinen eigenen Klassen getrennt.",
+    text: "Klicke auf die markierte Schaltfläche „Klasse anlegen“. Du übst an den echten Bedienelementen. Alles in dieser Tour bleibt von deinen eigenen Klassen getrennt. Mit „Weiter“ kannst du jeden Schritt auch ohne eigene Eingabe ansehen.",
     action: "page-anlegen",
   },
   {
     target: "#class-name",
     title: "Benenne deine Übungsklasse",
-    text: "Klicke in das markierte Feld und gib zum Beispiel „Übung 8b“ ein. Wähle anschließend hier „Eingabe fertig“.",
+    text: "Klicke in das markierte Feld und gib zum Beispiel „Übung 8b“ ein. Mit „Weiter“ gelangst du zum nächsten Schritt; ein leerer Name wird für die Übung ergänzt.",
     fields: ["#class-name"],
   },
   {
@@ -117,8 +118,8 @@ const steps: readonly Step[] = [
   },
   {
     target: '[data-tour="about-title"]',
-    title: "Du hast den Ablauf ausprobiert",
-    text: "Du hast eine Klasse angelegt, eine Stunde erfasst, Auswertungen geöffnet und eine Sicherung heruntergeladen. Beende die Tour, um zu deinem eigenen Arbeitsstand zurückzukehren. Die Übungsklassen werden verworfen.",
+    title: "Du kennst jetzt den Ablauf",
+    text: "Die Tour hat dir Klassenanlage, Stundenerfassung, Auswertungen und Datensicherung gezeigt. Beende die Tour, um zu deinem eigenen Arbeitsstand zurückzukehren. Die Übungsklassen werden verworfen.",
   },
 ];
 
@@ -207,7 +208,7 @@ function PracticeTour({
 }) {
   const [practice] = useState(createPractice);
   const [index, setIndex] = useState(0);
-  const [ready, setReady] = useState(false);
+  const [revision, setRevision] = useState(0);
   const [geometry, setGeometry] = useState<{
     left: number;
     top: number;
@@ -222,9 +223,20 @@ function PracticeTour({
   const card = useRef<HTMLElement>(null);
   const step = steps[index];
 
+  function nextStep() {
+    prepareTutorialStep(practice, index + 1);
+    setGeometry(null);
+    setRevision((value) => value + 1);
+    setIndex(index + 1);
+  }
+
   useEffect(() => {
     const root = surface.current;
     if (!root) return;
+    if (index === 13) {
+      const menu = root.querySelector<HTMLDetailsElement>(".help-menu");
+      if (menu) menu.open = true;
+    }
     let frame = 0;
     let lastTarget: HTMLElement | undefined;
     let previousDescription: string | null = null;
@@ -299,14 +311,6 @@ function PracticeTour({
       cancelAnimationFrame(frame);
       frame = requestAnimationFrame(update);
     };
-    const validate = () =>
-      setReady(
-        Boolean(
-          step.fields?.every((selector) =>
-            root.querySelector<HTMLInputElement>(selector)?.value.trim(),
-          ),
-        ),
-      );
     const observer = new MutationObserver(schedule);
     observer.observe(root, {
       childList: true,
@@ -322,7 +326,6 @@ function PracticeTour({
     window.visualViewport?.addEventListener("resize", schedule);
     window.visualViewport?.addEventListener("scroll", schedule);
     schedule();
-    validate();
     return () => {
       cancelAnimationFrame(frame);
       observer.disconnect();
@@ -333,7 +336,7 @@ function PracticeTour({
       window.visualViewport?.removeEventListener("resize", schedule);
       window.visualViewport?.removeEventListener("scroll", schedule);
     };
-  }, [step]);
+  }, [step, index, revision]);
 
   useEffect(() => {
     function keyboard(event: KeyboardEvent) {
@@ -348,12 +351,7 @@ function PracticeTour({
         event.target instanceof HTMLInputElement
       ) {
         event.preventDefault();
-        const fields = step.fields.map((selector) =>
-          surface.current?.querySelector<HTMLInputElement>(selector),
-        );
-        const missing = fields.find((field) => !field?.value.trim());
-        if (missing) missing.focus();
-        else if (fields.every(Boolean)) setIndex((current) => current + 1);
+        nextStep();
         return;
       }
       if (event.key !== "Tab") return;
@@ -388,28 +386,14 @@ function PracticeTour({
     }
     document.addEventListener("keydown", keyboard);
     return () => document.removeEventListener("keydown", keyboard);
-  }, [onClose, step]);
+  }, [onClose, step, index, practice]);
 
   return (
     <div className="tutorial-practice">
       <p className="tutorial-banner">
         Geführte Übung · Deine eigenen Klassen bleiben erhalten
       </p>
-      <div
-        ref={surface}
-        className="tutorial-surface"
-        onInput={() => {
-          setReady(
-            Boolean(
-              step.fields?.every((selector) =>
-                surface.current
-                  ?.querySelector<HTMLInputElement>(selector)
-                  ?.value.trim(),
-              ),
-            ),
-          );
-        }}
-      >
+      <div key={revision} ref={surface} className="tutorial-surface">
         {renderPractice({
           ...practice,
           onAction: (action) => {
@@ -486,14 +470,9 @@ function PracticeTour({
           <p role="status">Das passende Bedienelement wird gesucht …</p>
         ) : null}
         <div className="tutorial-actions">
-          {step.fields ? (
-            <button
-              className="primary"
-              type="button"
-              disabled={!ready}
-              onClick={() => setIndex(index + 1)}
-            >
-              Eingabe fertig
+          {index < steps.length - 1 ? (
+            <button className="primary" type="button" onClick={nextStep}>
+              Weiter
             </button>
           ) : null}
           {index === steps.length - 1 ? (

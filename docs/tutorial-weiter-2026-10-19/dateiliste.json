@@ -1,0 +1,240 @@
+{
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 8151,
+      "sha256": "301445668bcb7d1f304577719bf57f00343da26cc623032e8606642c75abb084"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6874,
+      "sha256": "2823566a133721fba34f9b8c5fbcff024c2e22b3560672dcedaa15b8bdb4b492"
+    },
+    {
+      "path": "app/e2e/guided_tutorial.py",
+      "bytes": 4709,
+      "sha256": "a248bfe8f35be6b390e909bed36cdd07f5db57425079d9c942940d2fc8d32aae"
+    },
+    {
+      "path": "app/e2e/tutorial_next.py",
+      "bytes": 4562,
+      "sha256": "7a96056c3deb72195535be60ab2b1678f62dc59c2ad94a7491fc3f11a04f25cb"
+    },
+    {
+      "path": "app/package-lock.json",
+      "bytes": 238686,
+      "sha256": "3a46b33a69d1be7ae819f4e45ba50a5116c0041ffc7fecda55cc2fe20aea469e"
+    },
+    {
+      "path": "app/package.json",
+      "bytes": 995,
+      "sha256": "fb8227a253b7a45b827c6d69ac46353e46bd06c0aa3d96cbb43937f886ada484"
+    },
+    {
+      "path": "app/src/features/help/Tutorial.test.tsx",
+      "bytes": 8728,
+      "sha256": "af9294bce856124c347ebf8db67503702c6db7e745961c9a4edad106276cdb0a"
+    },
+    {
+      "path": "app/src/features/help/Tutorial.tsx",
+      "bytes": 16743,
+      "sha256": "9ac7a4c0f2be2c594a8d095851be516fdcbc596333833b5d3d68da1f481d65f0"
+    },
+    {
+      "path": "app/src/features/help/prepareTutorialStep.ts",
+      "bytes": 3266,
+      "sha256": "fa8295f04534ff7fe946bd83c24199e197a7858926ba389a117cdfafa7488b08"
+    },
+    {
+      "path": "docs/entwicklungsprotokoll.md",
+      "bytes": 47845,
+      "sha256": "c840c7a4049fdb74c71f45b7f49179f2071346f41550a838a005fc0061dcef1b"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19.md",
+      "bytes": 3166,
+      "sha256": "98b53b97786396bdb6a566f9fb0f2da5ef8a5908bc0bf257623f51921ad19239"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser-zwischenlauf.json",
+      "bytes": 885,
+      "sha256": "4825504e89e877ebe11323e3af4300c97d6c8e99fa967566ffa70b4c3e99cc51"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/1440/positionen.json",
+      "bytes": 3709,
+      "sha256": "d2059a5287882bf31b7206951099348dc9461a81167e4b4a5982927a0866e5de"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/1440/tour-1440-01.png",
+      "bytes": 125426,
+      "sha256": "af6118cca6743a49cc046eb8a964d7cea455cc965821f0a3eb9da79951d570df"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/1440/tour-1440-03.png",
+      "bytes": 110667,
+      "sha256": "3b50d4c4b739617981368d8328e578934c5e8ad78fd2a8487d21884fe9146d75"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/1440/tour-1440-06.png",
+      "bytes": 143470,
+      "sha256": "f9ff082198daab806792742089cf938b1fccb23352e86831b6291d5794028b45"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/1440/tour-1440-10.png",
+      "bytes": 126003,
+      "sha256": "5a12e9ff8056199d3423ef6a23d377906bfea385bb3b68e3077356153fdeb09b"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/1440/tour-1440-15.png",
+      "bytes": 209615,
+      "sha256": "6e660dbc5f32692abf0a6bcb7d3d02f7e85b05a9514d6d32f844a56707ec102e"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/1440/tour-geometrie-1440.json",
+      "bytes": 3719,
+      "sha256": "d181cdc42458bef7830f7fc3eb29a75c0dec54fdb2ebdfd038f16e80bf42d79b"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/1440/uebung-1440.json",
+      "bytes": 1385,
+      "sha256": "f2cb3dd72215d9f146ec894ec0c422893ae3cae230b1aca187dcf81d0b93b50a"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/1440/weiter-1440-12.png",
+      "bytes": 122318,
+      "sha256": "ac9071655252771dcfacb150e1e454a886149e1cb644f2b69fe16167ae220bc6"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/1440/weiter-1440-2.png",
+      "bytes": 122357,
+      "sha256": "6c8be8b2a9c871f8bac7c28c61fa356085de694b0c6ec7a162c12c3c13be4801"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/1440/weiter-1440-6.png",
+      "bytes": 144013,
+      "sha256": "8de94a4978b90b70087ab0e979831680fe8ce557b3a5588b7372876a2e8682c3"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/390/positionen.json",
+      "bytes": 3688,
+      "sha256": "8a518bc08eef02fb232fb23f17f4eb694ff26d7cbc324f6a05980d05d0db37b2"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/390/tour-390-01.png",
+      "bytes": 47059,
+      "sha256": "aa19e6e58ba0c306b97d7657f58768b0dee29437792c381e097a6fbdaf418260"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/390/tour-390-03.png",
+      "bytes": 34104,
+      "sha256": "90bb83a11b5423ba49c3bcaf5eb4a15968af1e7d58cfedf0ed9a055421647e6a"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/390/tour-390-06.png",
+      "bytes": 41744,
+      "sha256": "c63ef590f86ab88c272de3f954ff7c894c7aeb82d7992ecd7528bd2ad4d2f266"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/390/tour-390-10.png",
+      "bytes": 39470,
+      "sha256": "7e253dc6d3fa9080b516b4a12a1a70bb2ed3af873e90be72bb9a5f55261d7a9f"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/390/tour-390-15.png",
+      "bytes": 41513,
+      "sha256": "f7c7da8899c27426ef17e454c2eedd703291db61f1830b3e57b381aa8ee80b2f"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/390/tour-geometrie-390.json",
+      "bytes": 3684,
+      "sha256": "5990b88e3a603809d29a7a03c90f07bc1c26b7d38171ff8a58c98cb4c60cc817"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/390/uebung-390.json",
+      "bytes": 1385,
+      "sha256": "9c53ee526fe1cec3b521359e0e17cb36dc085b7bc45b3ea86bf08ee9423426b9"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/390/weiter-390-12.png",
+      "bytes": 49281,
+      "sha256": "85834d57bdef683313bbc235216e78bbedada1f185e3975f691526a28fdcf0e0"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/390/weiter-390-2.png",
+      "bytes": 40532,
+      "sha256": "c4242d82f7628a5b55695b8bdcdcc8a0c5e98a638184dd79cf5e332a6d220538"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/390/weiter-390-6.png",
+      "bytes": 43333,
+      "sha256": "2375ae69861211c5a507a80dd4795ff7a58c5c7d77bb87dae0000745d8a13719"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/768/positionen.json",
+      "bytes": 3701,
+      "sha256": "664a0c20170e5a70da95bfe71dbb7c55226ae216c7ca05a03c767ecc9741ab21"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/768/tour-768-01.png",
+      "bytes": 103272,
+      "sha256": "832d6a0329076a8e9cd267f37280a846c974610abe8e4ee2aa0bd925d9b0804e"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/768/tour-768-03.png",
+      "bytes": 90266,
+      "sha256": "bfd03908baaba4a9bb87b9900651f59208b4b5b3753747879fb57b386e8e9c9b"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/768/tour-768-06.png",
+      "bytes": 110269,
+      "sha256": "933488b13aa75e68d4896b238a1fc2f2e23a5a6c433e553f86c29dff3a40bde3"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/768/tour-768-10.png",
+      "bytes": 114351,
+      "sha256": "46253066ffb85af45a09dbc917f63fccee678c256a8940a6752c6ccc436f6851"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/768/tour-768-15.png",
+      "bytes": 158688,
+      "sha256": "7130c65435c52c964f079ee8f1e9bff33f122d42e6ab7c1e95d30cf9c19aa614"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/768/tour-geometrie-768.json",
+      "bytes": 3693,
+      "sha256": "8ef5e4e313fb3c48b3441c90ddebcdc457c417f4547c3491c9b694775dbfdc34"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/768/uebung-768.json",
+      "bytes": 1385,
+      "sha256": "05822d2350be748de45d19c51bf67950466bd0cd7680a90b0f818209525fede5"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/768/weiter-768-12.png",
+      "bytes": 97163,
+      "sha256": "6fd19c1087ade4d4e2d2a346cb93a71b5c1c0d21763fb29349c5a6ae2b4f6798"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/768/weiter-768-2.png",
+      "bytes": 95742,
+      "sha256": "f5f8788454ad892d21dd4f35dd99f03f0bc34b06b3d5002e0a153e8ed08768dc"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/768/weiter-768-6.png",
+      "bytes": 110523,
+      "sha256": "9ac23fb544bfa3dc47e2070e1534843e8611b08f59fe23631d523ac6a6d32c49"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/browser/ergebnisse.json",
+      "bytes": 1920,
+      "sha256": "46a95db3f9ff5d4818210af844d2d2145c01f46533a39ec9cba0474606c3d649"
+    },
+    {
+      "path": "docs/tutorial-weiter-2026-10-19/pruefungen.json",
+      "bytes": 223,
+      "sha256": "528472319f3260d3e9d36c51969331501390b2f16de9bf1676491269c14a2c43"
+    }
+  ],
+  "note": "Dateien des Implementierungscommits außer dieser Liste; nachfolgender GitHub-Abschluss im Verlauf."
+}

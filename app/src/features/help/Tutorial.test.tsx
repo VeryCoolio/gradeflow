@@ -86,29 +86,17 @@ it("führt durch echte Formulare und Aktionen, ohne den eigenen Datenbestand ode
   );
   expect(tour().textContent).toContain("Schritt 2 von 15");
   expect(
-    (
-      screen.getByRole("button", {
-        name: "Eingabe fertig",
-      }) as HTMLButtonElement
-    ).disabled,
-  ).toBe(true);
+    (screen.getByRole("button", { name: "Weiter" }) as HTMLButtonElement)
+      .disabled,
+  ).toBe(false);
   await user.type(screen.getByLabelText("Klassenname"), "Übung 8b");
   await user.keyboard("{Enter}");
   expect(tour().textContent).toContain("Schritt 3 von 15");
   await user.type(screen.getByLabelText("Vorname 1"), "Ada");
-  expect(
-    (
-      screen.getByRole("button", {
-        name: "Eingabe fertig",
-      }) as HTMLButtonElement
-    ).disabled,
-  ).toBe(true);
-  await user.keyboard("{Enter}");
-  expect(document.activeElement).toBe(screen.getByLabelText("Nachname 1"));
   await user.type(screen.getByLabelText("Nachname 1"), "Beispiel");
   await user.keyboard("{Tab}");
   expect(document.activeElement).toBe(
-    screen.getByRole("button", { name: "Eingabe fertig" }),
+    screen.getByRole("button", { name: "Weiter" }),
   );
   await user.keyboard("{Enter}");
   await user.click(
@@ -196,4 +184,60 @@ it("bleibt bei blockiertem Tutorial-Speicher bedienbar und meldet den Fehler", a
   expect(props.onStorageError).toHaveBeenCalledOnce();
   await user.click(screen.getByRole("button", { name: "Tutorial beenden" }));
   expect(screen.getByText("Eigener Arbeitsstand")).toBeTruthy();
+});
+
+it("lässt alle Schritte ohne Eingaben oder Download ansehen und erhält eigene Daten", async () => {
+  const user = userEvent.setup();
+  const { props, values, download } = setup();
+  const url = window.location.href;
+  render(<Tutorial {...props} />);
+  for (let step = 1; step < 15; step++) {
+    expect(
+      screen.getByRole("complementary", { name: "Geführtes Tutorial" })
+        .textContent,
+    ).toContain(`Schritt ${step} von 15`);
+    await user.click(screen.getByRole("button", { name: "Weiter" }));
+  }
+  expect(
+    screen.getByRole("heading", { name: "So funktioniert Gradeflow" }),
+  ).toBeTruthy();
+  expect(download).not.toHaveBeenCalled();
+  await user.click(
+    screen.getByRole("button", { name: "Zurück zu meinen Klassen" }),
+  );
+  expect(screen.getByText("Eigener Arbeitsstand")).toBeTruthy();
+  expect(values.get(NOTEBOOK_STORAGE_KEY)).toBe(
+    "Eigener unveränderter Datenbestand",
+  );
+  expect(window.location.href).toBe(url);
+});
+
+it("ergänzt fehlende Übungsangaben und erlaubt danach die echte markierte Aktion", async () => {
+  const user = userEvent.setup();
+  const { props, download } = setup();
+  render(<Tutorial {...props} />);
+  await user.click(screen.getByRole("button", { name: "Weiter" }));
+  await user.type(screen.getByLabelText("Klassenname"), "Meine fiktive Übung");
+  await user.click(screen.getByRole("button", { name: "Weiter" }));
+  await user.type(screen.getByLabelText("Vorname 1"), "Fiktiv");
+  await user.click(screen.getByRole("button", { name: "Weiter" }));
+  expect((screen.getByLabelText("Klassenname") as HTMLInputElement).value).toBe(
+    "Meine fiktive Übung",
+  );
+  expect((screen.getByLabelText("Vorname 1") as HTMLInputElement).value).toBe(
+    "Fiktiv",
+  );
+  expect((screen.getByLabelText("Nachname 1") as HTMLInputElement).value).toBe(
+    "Beispiel",
+  );
+  await user.click(
+    screen.getByRole("button", { name: "Klasse lokal anlegen" }),
+  );
+  expect(
+    screen.getByRole("heading", { name: "Meine fiktive Übung" }),
+  ).toBeTruthy();
+  await user.click(screen.getByRole("button", { name: "Weiter" }));
+  await user.click(screen.getByRole("button", { name: "+" }));
+  expect(screen.getByRole("region", { name: "Stundenabschluss" })).toBeTruthy();
+  expect(download).not.toHaveBeenCalled();
 });

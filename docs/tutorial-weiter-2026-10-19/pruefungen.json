@@ -1,0 +1,12 @@
+{
+  "version": "0.8.2",
+  "typecheck": 0,
+  "test": 0,
+  "tests": 121,
+  "test_files": 21,
+  "tutorial_tests": 5,
+  "lint": 0,
+  "format_check": 0,
+  "build": 0,
+  "known_warning": "Größe des nachgeladenen Excel-Moduls"
+}

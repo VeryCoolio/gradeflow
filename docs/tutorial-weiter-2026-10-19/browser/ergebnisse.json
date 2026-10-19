@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Alle Schritte mit Weiter 390x480",
+    "status": "PASS",
+    "steps": 15,
+    "all_next_buttons_enabled": true,
+    "inputs_required": false,
+    "downloads": [],
+    "own_data_unchanged": true,
+    "url_unchanged": true,
+    "overlaps": 0
+  },
+  {
+    "name": "Selbst ausprobieren und Weiter kombiniert 390",
+    "status": "PASS",
+    "steps": 15,
+    "clickable_targets": true,
+    "overlaps": 0,
+    "download": "uebung-gradeflow-notebook-v1.json",
+    "own_data_unchanged": true,
+    "url_unchanged": true,
+    "first_visit_once": true,
+    "manual_restart": true,
+    "keyboard_cycle": true,
+    "escape": true
+  },
+  {
+    "name": "Alle Schritte mit Weiter 768x1000",
+    "status": "PASS",
+    "steps": 15,
+    "all_next_buttons_enabled": true,
+    "inputs_required": false,
+    "downloads": [],
+    "own_data_unchanged": true,
+    "url_unchanged": true,
+    "overlaps": 0
+  },
+  {
+    "name": "Selbst ausprobieren und Weiter kombiniert 768",
+    "status": "PASS",
+    "steps": 15,
+    "clickable_targets": true,
+    "overlaps": 0,
+    "download": "uebung-gradeflow-notebook-v1.json",
+    "own_data_unchanged": true,
+    "url_unchanged": true,
+    "first_visit_once": true,
+    "manual_restart": true,
+    "keyboard_cycle": true,
+    "escape": true
+  },
+  {
+    "name": "Alle Schritte mit Weiter 1440x1000",
+    "status": "PASS",
+    "steps": 15,
+    "all_next_buttons_enabled": true,
+    "inputs_required": false,
+    "downloads": [],
+    "own_data_unchanged": true,
+    "url_unchanged": true,
+    "overlaps": 0
+  },
+  {
+    "name": "Selbst ausprobieren und Weiter kombiniert 1440",
+    "status": "PASS",
+    "steps": 15,
+    "clickable_targets": true,
+    "overlaps": 0,
+    "download": "uebung-gradeflow-notebook-v1.json",
+    "own_data_unchanged": true,
+    "url_unchanged": true,
+    "first_visit_once": true,
+    "manual_restart": true,
+    "keyboard_cycle": true,
+    "escape": true
+  }
+]

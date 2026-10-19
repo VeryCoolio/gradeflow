@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "currentClassId": "tutorial-existing",
+  "classes": [
+    {
+      "id": "tutorial-existing",
+      "name": "Übung 7a",
+      "periodLabel": "Nur für das Tutorial",
+      "archived": false,
+      "createdAt": "2026-10-19T17:22:49.166Z",
+      "updatedAt": "2026-10-19T17:22:49.166Z",
+      "students": [
+        {
+          "id": "tutorial-person-2",
+          "displayName": "Fiktiv Kim",
+          "startGradeQuarterSteps": 8
+        }
+      ],
+      "sessions": []
+    },
+    {
+      "id": "d685719e-e2c8-4219-ac02-d98f01fe07f7",
+      "name": "Übung 8b",
+      "periodLabel": "Schuljahr 2026/27",
+      "archived": false,
+      "createdAt": "2026-10-19T17:22:49.534Z",
+      "updatedAt": "2026-10-19T17:22:49.685Z",
+      "students": [
+        {
+          "id": "12c330f8-b86f-4db7-b096-a61d14149126",
+          "displayName": "Ada Beispiel",
+          "startGradeQuarterSteps": 8
+        }
+      ],
+      "sessions": [
+        {
+          "id": "22b03c25-a747-457d-94de-6b1842c8b104",
+          "date": "2026-10-19",
+          "createdAt": "2026-10-19T17:22:49.602Z",
+          "updatedAt": "2026-10-19T17:22:49.685Z",
+          "observations": {
+            "12c330f8-b86f-4db7-b096-a61d14149126": {
+              "status": "bewertet",
+              "symbol": "+"
+            }
+          },
+          "lessonSequence": 1
+        }
+      ]
+    }
+  ]
+}
