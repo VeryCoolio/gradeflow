@@ -1,0 +1,30 @@
+{
+  "url": "https://gradeflow-ba.netlify.app/",
+  "http": 200,
+  "assets": [
+    {
+      "asset": "/assets/index--Q3nx1Hs.js",
+      "sha256": "64dc821fabc1f1444552a095297681b95a53ffd1bb5eb86e48d7a662b11f0d9d",
+      "same_bytes_as_local_build": true
+    },
+    {
+      "asset": "/assets/index-BcfydvYC.css",
+      "sha256": "60aabc0ecd1b76beadabbfa46a06f3bdd25226d76459a0b3898d8f45f2dfad3c",
+      "same_bytes_as_local_build": true
+    }
+  ],
+  "tutorial": {
+    "steps": 15,
+    "clickable_targets": true,
+    "overlaps": 0,
+    "download": "uebung-gradeflow-notebook-v1.json",
+    "own_data_unchanged": true,
+    "url_unchanged": true,
+    "first_visit_once": true,
+    "manual_restart": true,
+    "keyboard_cycle": true,
+    "escape": true
+  },
+  "runtime_errors": [],
+  "implementation_commit": "e468714f252dff9454294bd78ce7c9385232479e"
+}

@@ -7,7 +7,7 @@
 - [x] Eigene Klassen, gespeicherten Entwurf und Arbeitsposition von den Übungsdaten trennen.
 - [x] Erstbesuch, späteren Neustart, Maus, Tastatur, niedrige Ansichten und zweiten Tab prüfen.
 - [x] Projektprüfungen, Quellenzuordnung und tatsächliche Grenzen dokumentieren.
-- [ ] Geprüfte Dateien auf GitHub sichern und Remote-Stand bestätigen.
+- [x] Geprüfte Dateien auf GitHub sichern und Remote-Stand bestätigen.
 
 ## Ausgangsproblem und Umsetzung
 
@@ -39,3 +39,9 @@ Die Zwischenläufe sind nicht als erfolgreiche Abschlussnachweise ausgegeben. [Z
 Mit vorhandenen Abhängigkeiten in `app` bauen und die Vorschau auf `127.0.0.1:4190` starten. `app/e2e/usability_revision.py` und `app/e2e/tutorial_additional.py` benötigen lokales Python mit Playwright/Chromium und jeweils einen neuen Ausgabeordner über `GRADEFLOW_AUDIT_OUTPUT`. Der gemeinsame Ablauf steht in `app/e2e/guided_tutorial.py`; `app/e2e/verify_usability_exports.py AUSGABEORDNER` prüft die Excel-Dateien.
 
 Geprüft wurde Chromium mit simulierten Bildschirmgrößen. Echte Mobilgeräte und deren Bildschirmtastaturen, Windows, weitere Browserengines, Screenreader und vollständige WCAG-Konformität sind nicht nachgewiesen. Native Excel-Bedienung wurde nicht geprüft. Die bekannte Größenwarnung des nachgeladenen Excel-Moduls bleibt bestehen. Technische Tests ersetzen weder den geplanten Usability-Test noch eine Untersuchung pädagogischer Wirkung.
+
+## GitHub-Abschluss
+
+Der Implementierungsstand wurde als `e468714f252dff9454294bd78ce7c9385232479e` auf `main` gepusht. Ein direkter Abruf von `refs/heads/main` bei GitHub bestätigte exakt diese ID; der Arbeitsbaum war anschließend sauber. Dieser folgende Dokumentationscommit hält den tatsächlich erfolgten Abschluss fest.
+
+Die GitHub-Qualitätssicherung des Implementierungscommits ist erfolgreich abgeschlossen (Lauf 39273450586). Die bereits verbundene Netlify-Bereitstellung liefert die neue JavaScript- und CSS-Datei bytegleich zum lokal geprüften Build. Die vollständige Tour mit 15 Schritten wurde zusätzlich auf der öffentlichen Adresse in einem frischen Chromium-Profil bei 390 × 844 Pixel geprüft: alle Schritte, Erstbesuch, Neustart, Escape, Fokusumlauf, Übungsdownload und unveränderte eigene Daten/URL bestanden; keine Laufzeitfehler. [GitHub-Nachweis](tutorial-ba-2026-10-19/github-pruefung.json), [Live-Prüfung](tutorial-ba-2026-10-19/live-pruefung.json). Es wurde kein weiterer Hosting-Dienst eingerichtet und keine Netlify-Kontoeinstellung geändert.
