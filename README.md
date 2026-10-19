@@ -37,6 +37,14 @@ npm run build
 
 GitHub Actions führt diese Prüfungen bei Pushes und Pull Requests aus. Änderungen an Fachregeln gehören mit Tests und einem Eintrag im Entwicklungsprotokoll in einen eigenen Commit. Freigegebene Projektstände erhalten einen Git-Tag.
 
+## Netlify
+
+Die `netlify.toml` im Repository-Hauptverzeichnis legt Node.js 24, `app` als Basisordner, `npm run build` als Build-Befehl und `dist` als Veröffentlichungsordner relativ zu `app` fest. Netlify veröffentlicht damit ausschließlich die fertigen Dateien aus `app/dist`. Das GitHub-Repository mit dem Produktionsbranch `main` verbinden; die Datei überschreibt entsprechende Build-Einstellungen in der Netlify-Oberfläche.
+
+Bei „Page not found“ im Netlify-Deploy prüfen, ob der aktuelle Commit gebaut wurde und im veröffentlichten Ordner direkt eine `index.html` sowie `assets/` liegen. Ein Upload des Quellordners ist nicht lauffähig. Bei manueller Bereitstellung zuerst lokal `npm run build` in `app` ausführen und anschließend den Inhalt von `app/dist` hochladen. Die Navigation verwendet den URL-Hash und benötigt keine Pfadweiterleitung.
+
+Die Daten bleiben auch bei einer über HTTPS bereitgestellten App im jeweiligen Browser gespeichert. Die Netlify-Adresse hat einen eigenen Datenbestand; lokale Daten bei Bedarf als JSON sichern und auf der neuen Adresse importieren.
+
 ## Klassenliste
 
 Genau zwei Spalten, in dieser Reihenfolge: `Vorname` und `Nachname`. Zeile 1 enthält diese Überschriften, ab Zeile 2 steht je Person ein vollständiges Namenspaar. Höchstens 45 Personen, maximal 5 MiB. Excel (.xlsx) enthält ein Blatt ohne Formeln; CSV/TXT verwendet UTF-8 mit Semikolon, Komma oder Tabulator. Einspaltige Listen werden abgewiesen. Die App bietet eine leere Musterklassenliste als Excel oder CSV an. Für Tests ausschließlich fiktive Namen verwenden.
