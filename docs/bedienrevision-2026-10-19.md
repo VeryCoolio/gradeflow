@@ -17,7 +17,7 @@ Ausgangsstand: `3bd003c`, Version 0.7.0. Auftrag: die im Chat genannten Bedienpr
 - [x] 11. Verlauf: AW, NB und Offen grafisch markieren, getrennt von der Notenachse und mit Textlegende.
 - [x] 12. Excel: genannten Endnoten-Satz entfernen, Blattnavigation erklären, Namen intern verlinken, Symbole größer und farblich/inhaltlich verständlich gestalten.
 - [x] 13. Einmalige und doppelte Stunden einheitlich mit Datum und ausgeschriebener Stundennummer anzeigen; Berechnung und Zwei-Stunden-Grenze erhalten.
-- [ ] 14. Regressionen, Dateiinhalt, Desktop-/Tablet-/Mobilansichten und Hover prüfen; Commit, Push und Remote-Stand bestätigen.
+- [x] 14. Regressionen, Dateiinhalt, Desktop-/Tablet-/Mobilansichten und Hover prüfen; Commit, Push und Remote-Stand bestätigen.
 
 ## Gestaltungsentscheidung
 
@@ -43,3 +43,7 @@ Mit vorhandenen Projektabhängigkeiten `npm run build` in `app` ausführen und d
 Die vollständige Upload-Dateiliste steht in [dateiliste.json](bedienrevision-2026-10-19/dateiliste.json). Sie umfasst App-Komponenten, getrennte Entwurfs-/Navigationsmetadaten, Tests, Version, Entscheidungs-/Testdokumentation sowie die neuen fiktiven Nachweise. Keine neue Abhängigkeit, Datenmigration oder Cloud-Synchronisierung. `legacy-source/`, `reference/` und Tag `v0.5.0` bleiben unverändert.
 
 Nicht geprüft: native Excel-Bedienung, Windows-/Mobilgeräte, weitere Browserengines, Screenreader und vollständige WCAG-Konformität. Die bekannte Größenwarnung des nachgeladenen Excel-Moduls bleibt bestehen. Die aktuelle Bachelorarbeitsfassung fehlt noch; ihr Abgleich ist Aufgabe 7 und kein bereits erledigter Nachweis.
+
+## GitHub-Abschluss
+
+Der Implementierungsstand wurde mit Commit `ea5bbce6fb538a10af46d6430cc3660fb8aa4245` auf `main` gepusht. Der anschließende direkte Remote-Abruf bestätigte exakt diese Commit-ID. Der historische Tag `v0.5.0` bleibt bei `0556967fbbfa0e51954507f5cd141b17b2d08740`. Dieser zusätzliche Dokumentationsstand setzt Aufgabe 14 erst nach dem tatsächlichen Push auf erledigt. Einziger verbleibender Aufgabenpunkt ist der noch fehlende Bachelorarbeitsabgleich.
