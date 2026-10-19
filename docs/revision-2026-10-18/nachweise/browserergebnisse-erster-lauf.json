@@ -1,0 +1,393 @@
+[
+  {
+    "name": "Browserumgebung",
+    "status": "PASS",
+    "browser_version": "156.0.8078.4",
+    "production_url": "http://127.0.0.1:4186/"
+  },
+  {
+    "name": "Orientierung 390",
+    "status": "DEFECT",
+    "before": {
+      ".grading-panel h3": {
+        "top": 1101.328125,
+        "bottom": 1146.125,
+        "visible": false
+      },
+      ".progress-row": {
+        "top": 753.4375,
+        "bottom": 772.15625,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 1287.609375,
+        "bottom": 1709.03125,
+        "visible": false
+      },
+      ".feedback": {
+        "top": 495.125,
+        "bottom": 546.296875,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 1771.40625,
+        "bottom": 1815.40625,
+        "visible": false
+      }
+    },
+    "after": {
+      ".grading-panel h3": {
+        "top": -61.671875,
+        "bottom": -16.875,
+        "visible": false
+      },
+      ".progress-row": {
+        "top": -409.5625,
+        "bottom": -390.84375,
+        "visible": false
+      },
+      ".rating-grid": {
+        "top": 124.609375,
+        "bottom": 546.03125,
+        "visible": true
+      },
+      ".feedback": {
+        "top": -667.875,
+        "bottom": -616.703125,
+        "visible": false
+      },
+      ".status-grid": {
+        "top": 608.40625,
+        "bottom": 652.40625,
+        "visible": true
+      }
+    }
+  },
+  {
+    "name": "Import und Neuladen nach jeder der 20 Eingaben 390",
+    "status": "PASS",
+    "observations": 20
+  },
+  {
+    "name": "Status Verlauf alte Stunde Grenze Tausch 390",
+    "status": "PASS",
+    "page_errors": []
+  },
+  {
+    "name": "Export csv 390",
+    "status": "PASS",
+    "milliseconds": [
+      37.39,
+      43.9,
+      32.17
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Export xlsx 390",
+    "status": "PASS",
+    "milliseconds": [
+      194.01,
+      68.43,
+      65.38
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Backup Rundlauf defekte Datei und Rückfall 390",
+    "status": "PASS",
+    "exact_roundtrip": true
+  },
+  {
+    "name": "Seitenbreite 390",
+    "status": "PASS",
+    "overflow": 0
+  },
+  {
+    "name": "Orientierung 768",
+    "status": "PASS",
+    "before": {
+      ".grading-panel h3": {
+        "top": 1034.078125,
+        "bottom": 1076.640625,
+        "visible": false
+      },
+      ".progress-row": {
+        "top": 658.5,
+        "bottom": 677.6875,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 1198.9375,
+        "bottom": 1418.328125,
+        "visible": false
+      },
+      ".feedback": {
+        "top": 410.796875,
+        "bottom": 461.96875,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 1480.703125,
+        "bottom": 1524.703125,
+        "visible": false
+      }
+    },
+    "after": {
+      ".grading-panel h3": {
+        "top": 285.078125,
+        "bottom": 327.640625,
+        "visible": true
+      },
+      ".progress-row": {
+        "top": -90.5,
+        "bottom": -71.3125,
+        "visible": false
+      },
+      ".rating-grid": {
+        "top": 449.9375,
+        "bottom": 669.328125,
+        "visible": true
+      },
+      ".feedback": {
+        "top": -338.203125,
+        "bottom": -287.03125,
+        "visible": false
+      },
+      ".status-grid": {
+        "top": 731.703125,
+        "bottom": 775.703125,
+        "visible": true
+      }
+    }
+  },
+  {
+    "name": "Import und Neuladen nach jeder der 20 Eingaben 768",
+    "status": "PASS",
+    "observations": 20
+  },
+  {
+    "name": "Status Verlauf alte Stunde Grenze Tausch 768",
+    "status": "PASS",
+    "page_errors": []
+  },
+  {
+    "name": "Export csv 768",
+    "status": "PASS",
+    "milliseconds": [
+      34.05,
+      34.43,
+      29.57
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Export xlsx 768",
+    "status": "PASS",
+    "milliseconds": [
+      189.22,
+      73.07,
+      65.37
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Backup Rundlauf defekte Datei und Rückfall 768",
+    "status": "PASS",
+    "exact_roundtrip": true
+  },
+  {
+    "name": "Seitenbreite 768",
+    "status": "PASS",
+    "overflow": 0
+  },
+  {
+    "name": "Orientierung 1440",
+    "status": "PASS",
+    "before": {
+      ".grading-panel h3": {
+        "top": 519.671875,
+        "bottom": 575.671875,
+        "visible": true
+      },
+      ".progress-row": {
+        "top": 393.703125,
+        "bottom": 412.890625,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 697.96875,
+        "bottom": 900.5625,
+        "visible": true
+      },
+      ".feedback": {
+        "top": 150,
+        "bottom": 201.171875,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 962.9375,
+        "bottom": 1006.9375,
+        "visible": false
+      }
+    },
+    "after": {
+      ".grading-panel h3": {
+        "top": 519.671875,
+        "bottom": 575.671875,
+        "visible": true
+      },
+      ".progress-row": {
+        "top": 393.703125,
+        "bottom": 412.890625,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 697.96875,
+        "bottom": 900.5625,
+        "visible": true
+      },
+      ".feedback": {
+        "top": 150,
+        "bottom": 201.171875,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 962.9375,
+        "bottom": 1006.9375,
+        "visible": false
+      }
+    }
+  },
+  {
+    "name": "Import und Neuladen nach jeder der 20 Eingaben 1440",
+    "status": "PASS",
+    "observations": 20
+  },
+  {
+    "name": "Status Verlauf alte Stunde Grenze Tausch 1440",
+    "status": "PASS",
+    "page_errors": []
+  },
+  {
+    "name": "Export csv 1440",
+    "status": "PASS",
+    "milliseconds": [
+      30.25,
+      33.52,
+      31.98
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Export xlsx 1440",
+    "status": "PASS",
+    "milliseconds": [
+      187.55,
+      73.4,
+      65.73
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Backup Rundlauf defekte Datei und Rückfall 1440",
+    "status": "PASS",
+    "exact_roundtrip": true
+  },
+  {
+    "name": "Seitenbreite 1440",
+    "status": "PASS",
+    "overflow": 0
+  },
+  {
+    "name": "Letzte Eingabe bei Speicherfehler",
+    "status": "PASS",
+    "no_false_success": true,
+    "unchanged": true,
+    "feedback_visible": false,
+    "geometry": {
+      ".grading-panel h3": {
+        "top": 25.9375,
+        "bottom": 70.734375,
+        "visible": true
+      },
+      ".progress-row": {
+        "top": -318.171875,
+        "bottom": -299.453125,
+        "visible": false
+      },
+      ".rating-grid": {
+        "top": 212.21875,
+        "bottom": 633.640625,
+        "visible": true
+      },
+      ".feedback": {
+        "top": -596.875,
+        "bottom": -525.3125,
+        "visible": false
+      },
+      ".status-grid": {
+        "top": 696.015625,
+        "bottom": 740.015625,
+        "visible": true
+      }
+    }
+  },
+  {
+    "name": "Fehler und Rückfall",
+    "status": "ERROR",
+    "message": "Page.evaluate: TypeError: Illegal invocation\n    at UtilityScript.evaluate (<anonymous>:377:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "trace": "Traceback (most recent call last):\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/docs/revision-2026-10-18/browserpruefung.py\", line 94, in run_case\n    operation()\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/docs/revision-2026-10-18/browserpruefung.py\", line 321, in <lambda>\n    run_case(name,lambda operation=op:operation(browser))\n                                      ^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/docs/revision-2026-10-18/browserpruefung.py\", line 225, in failure_cases\n    page.evaluate(\"Storage.prototype.setItem=window.originalSetItem\")\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 16843, in evaluate\n    self._sync(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 111, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 476, in evaluate\n    return await self._main_frame.evaluate(expression, arg)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 346, in evaluate\n    await self._channel.send(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 78, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 636, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.evaluate: TypeError: Illegal invocation\n    at UtilityScript.evaluate (<anonymous>:377:18)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n"
+  },
+  {
+    "name": "Verlust durch zweiten Tab",
+    "status": "DEFECT",
+    "sessions_before": 1,
+    "sessions_after": 0,
+    "reproduction": "A und B öffnen. B beginnt Stunde und speichert +. A klickt bestehende Klasse."
+  },
+  {
+    "name": "Wiederaufnahme mehrerer offener Stunden",
+    "status": "DEFECT",
+    "before": "01.09.2026 · 1. Stunde",
+    "after": "02.09.2026"
+  },
+  {
+    "name": "Neuladen der Tabellenansicht",
+    "status": "DEFECT",
+    "landing": "Laufende Stunde"
+  },
+  {
+    "name": "24 Stunden Tabelle Tastatur Verlauf 390",
+    "status": "PASS",
+    "scroll": {
+      "scrollLeft": 40,
+      "scrollWidth": 3520,
+      "clientWidth": 317
+    },
+    "points": 19,
+    "spacing": 112
+  },
+  {
+    "name": "24 Stunden Tabelle Tastatur Verlauf 768",
+    "status": "PASS",
+    "scroll": {
+      "scrollLeft": 40,
+      "scrollWidth": 4547,
+      "clientWidth": 668
+    },
+    "points": 19,
+    "spacing": 112
+  },
+  {
+    "name": "24 Stunden Tabelle Tastatur Verlauf 1440",
+    "status": "PASS",
+    "scroll": {
+      "scrollLeft": 40,
+      "scrollWidth": 4547,
+      "clientWidth": 1068
+    },
+    "points": 19,
+    "spacing": 112
+  }
+]

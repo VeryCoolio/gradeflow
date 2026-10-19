@@ -1,6 +1,5 @@
 import { RATING_SYMBOLS, type Observation } from "../domain/grading/types";
-import { RATING_GUIDE } from "../application/ratingGuide";
-import { hasVisibleLessonSequence } from "../domain/sessions/lessonSequence";
+import { RATING_GUIDE } from "./ratingGuide";
 import type { LessonSession } from "../domain/sessions/types";
 
 export function observationTone(
@@ -40,14 +39,32 @@ export function sessionAssessmentSummary(session: LessonSession): string {
   return counts.length ? counts.join(" · ") : "Noch keine Eingaben";
 }
 
-export function sessionLabel(
-  session: LessonSession,
+export interface LessonPresentation {
+  readonly label: string;
+  readonly showSequence: boolean;
+}
+const dateFormatter = new Intl.DateTimeFormat("de-DE", { dateStyle: "medium" });
+
+// Call after the report's single domain validation. Lookups never revalidate all hours.
+export function buildLessonIndex(
   sessions: readonly LessonSession[],
-): string {
-  const date = new Intl.DateTimeFormat("de-DE", { dateStyle: "medium" }).format(
-    new Date(`${session.date}T12:00:00`),
+): ReadonlyMap<string, LessonPresentation> {
+  const counts = new Map<string, number>();
+  for (const session of sessions)
+    counts.set(session.date, (counts.get(session.date) ?? 0) + 1);
+  return new Map(
+    sessions.map((session) => {
+      const showSequence = counts.get(session.date) === 2;
+      const date = dateFormatter.format(new Date(`${session.date}T12:00:00`));
+      return [
+        session.id,
+        {
+          label: showSequence
+            ? `${date} · ${session.lessonSequence}. Stunde`
+            : date,
+          showSequence,
+        },
+      ];
+    }),
   );
-  return hasVisibleLessonSequence(sessions, session.date)
-    ? `${date} · ${session.lessonSequence}. Stunde`
-    : date;
 }

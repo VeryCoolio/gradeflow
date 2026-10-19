@@ -1,0 +1,16 @@
+node:internal/fs/promises:697
+  return new FileHandle(await PromisePrototypeThen(
+                        ^
+
+Error: ENOENT: no such file or directory, open '/Users/yannis/Library/CloudStorage/OneDrive-Perso%CC%88nlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/docs/revision-2026-10-18/nachweise/bericht-390.xlsx'
+    at async open (node:internal/fs/promises:697:25)
+    at async Object.readFile (node:internal/fs/promises:1348:14)
+    at async t.load (file:///Users/yannis/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/@oai/artifact-tool/dist/artifact_tool.mjs:3273:57598)
+    at async file:///Users/yannis/Library/CloudStorage/OneDrive-Perso%CC%88nlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/docs/revision-2026-10-18/excel-vorschau.mjs:7:3 {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/Users/yannis/Library/CloudStorage/OneDrive-Perso%CC%88nlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/docs/revision-2026-10-18/nachweise/bericht-390.xlsx'
+}
+
+Node.js v24.19.0

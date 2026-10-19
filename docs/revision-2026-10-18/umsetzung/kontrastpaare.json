@@ -1,0 +1,77 @@
+{
+  "method": "Berechnung ausgewählter expliziter CSS-Farbpaare; keine vollständige DOM- oder WCAG-Prüfung",
+  "pairs": [
+    {
+      "pair": "Haupttext",
+      "foreground": "#242238",
+      "background": "#ffffff",
+      "ratio": 15.43
+    },
+    {
+      "pair": "Zusatztext",
+      "foreground": "#615d70",
+      "background": "#f6f5f8",
+      "ratio": 5.84
+    },
+    {
+      "pair": "Primäraktion",
+      "foreground": "#ffffff",
+      "background": "#5b477e",
+      "ratio": 7.93
+    },
+    {
+      "pair": "Aktive Navigation",
+      "foreground": "#483264",
+      "background": "#e7e0f0",
+      "ratio": 8.52
+    },
+    {
+      "pair": "Stark negativ",
+      "foreground": "#7c3e46",
+      "background": "#f5e7e7",
+      "ratio": 6.63
+    },
+    {
+      "pair": "Negativ",
+      "foreground": "#85464d",
+      "background": "#fcf2f1",
+      "ratio": 6.41
+    },
+    {
+      "pair": "Neutral",
+      "foreground": "#5b526d",
+      "background": "#f1eff5",
+      "ratio": 6.41
+    },
+    {
+      "pair": "Positiv",
+      "foreground": "#386550",
+      "background": "#eff6f0",
+      "ratio": 6.08
+    },
+    {
+      "pair": "Stark positiv",
+      "foreground": "#315f48",
+      "background": "#e4efe6",
+      "ratio": 6.22
+    },
+    {
+      "pair": "Speicherbestätigung",
+      "foreground": "#2c644c",
+      "background": "#ffffff",
+      "ratio": 6.92
+    },
+    {
+      "pair": "Fehlertext",
+      "foreground": "#82383c",
+      "background": "#fff3f2",
+      "ratio": 7.5
+    },
+    {
+      "pair": "Fokus auf Weiß",
+      "foreground": "#795723",
+      "background": "#ffffff",
+      "ratio": 6.56
+    }
+  ]
+}

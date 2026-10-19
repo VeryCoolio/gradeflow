@@ -34,6 +34,7 @@ Bei Widersprüchen gilt diese Reihenfolge:
 - Unterscheide in Berichten klar zwischen geprüftem Iststand, Entscheidung, Empfehlung und offenem Punkt.
 - Erfinde keine fachlichen Regeln. Wenn eine Regel nicht dokumentiert ist, markiere sie als offen.
 - Halte Änderungen klein und nachvollziehbar. Erstelle nach jedem Meilenstein einen lauffähigen Stand.
+- Halte GitHub nach abgeschlossenen und geprüften Änderungen aktuell: Änderungen prüfen, nachvollziehbar committen und zum eingerichteten Remote pushen. Yannis hat dies am 19.10.2026 dauerhaft autorisiert; keine erneute Freigabe für regulären Commit und Push erforderlich. Prüfe den tatsächlichen Remote-Stand vor dem Abschluss. Bei einem Blocker Ursache und verbleibende Arbeit klar benennen. Geheimnisse, persönliche Daten, Abhängigkeiten und temporäre Dateien ausschließen; fremde Änderungen und historische Stände erhalten. Kein Force-Push oder eigenmächtiges Deployment.
 - Führe keine Migration oder Löschung vorhandener Nutzerdaten ohne vorher getestete Rückfallmöglichkeit aus.
 - Nutze ausschließlich fiktive Schülerdaten in Tests, Screenshots und Beispieldateien.
 - Übernimm keine echten Zugangsdaten. Geheimnisse gehören in lokale Umgebungsvariablen und niemals in das Repository.

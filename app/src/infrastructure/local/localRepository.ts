@@ -66,27 +66,40 @@ export class LocalRepository {
   constructor(
     private readonly storage: StoragePort,
     private readonly now: () => string = () => new Date().toISOString(),
+    private readonly canWrite: () => boolean = () => true,
   ) {}
 
   private read(key: string): string | null {
     try {
       return this.storage.getItem(key);
     } catch (error) {
-      throw new Error(`Lokales Lesen fehlgeschlagen: ${key}`, { cause: error });
+      throw new Error(
+        "Lokales Lesen fehlgeschlagen. Der Browser erlaubt keinen Zugriff auf die Daten. Prüfe die Website-Einstellungen dieses Browsers.",
+        { cause: error },
+      );
     }
   }
 
   private write(key: string, value: string): void {
+    if (!this.canWrite())
+      throw new Error(
+        "Dieser Tab ist nur zur Ansicht geöffnet. Schließe den bearbeitenden Tab und übernimm hier die Bearbeitung.",
+      );
     try {
       this.storage.setItem(key, value);
     } catch (error) {
-      throw new Error(`Lokales Speichern fehlgeschlagen: ${key}`, {
-        cause: error,
-      });
+      throw new Error(
+        "Lokales Speichern fehlgeschlagen. Die Änderung wurde nicht übernommen. Der Browser hat das Speichern verhindert; prüfe verfügbaren Speicher und Website-Einstellungen.",
+        {
+          cause: error,
+        },
+      );
     }
   }
 
   private remove(key: string): void {
+    if (!this.canWrite())
+      throw new Error("Dieser Tab hat keine Schreibberechtigung.");
     try {
       this.storage.removeItem(key);
     } catch (error) {
@@ -139,6 +152,12 @@ export class LocalRepository {
   save(notebook: NotebookV1): void {
     assertNotebook(notebook);
     this.write(NOTEBOOK_STORAGE_KEY, JSON.stringify(notebook));
+  }
+
+  update(change: (current: NotebookV1) => NotebookV1): NotebookV1 {
+    const updated = change(this.load());
+    this.save(updated);
+    return updated;
   }
 
   saveAfterClassDeletion(deletedClassId: string, updated: NotebookV1): void {

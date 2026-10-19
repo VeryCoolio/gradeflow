@@ -1,0 +1,21 @@
+{"kind":"sheet","id":"ws/ewyyhf","name":"Klassenübersicht","index":0,"range":"A1:D25","address":"A1:D25"}
+{"kind":"sheet","id":"ws/co9288","name":"Fiktiv Ada","index":1,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/u5v3po","name":"Fiktiv Bea","index":2,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/4cjhkt","name":"Fiktiv Cem","index":3,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/9g103m","name":"Fiktiv Dana","index":4,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/v34i9f","name":"Fiktiv Emil","index":5,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/wbr00z","name":"Fiktiv Farah","index":6,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/rt6ran","name":"Fiktiv Greta","index":7,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/e5hswv","name":"Fiktiv Hannes","index":8,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/xynokg","name":"Fiktiv Ida","index":9,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/dawf3x","name":"Fiktiv Jonas","index":10,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/ii5yy0","name":"Fiktiv Kaya","index":11,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/fcar13","name":"Fiktiv Leon","index":12,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/2mwsok","name":"Fiktiv Mila","index":13,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/c42l5d","name":"Fiktiv Noah","index":14,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/13l7qv","name":"Fiktiv Oskar","index":15,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/q4vzkb","name":"Fiktiv Paula","index":16,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/aqbikp","name":"Fiktiv Quinn","index":17,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/p9vphg","name":"Fiktiv Ria","index":18,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/igbwtd","name":"Fiktiv Sami","index":19,"range":"A1:G7","address":"A1:G7"}
+{"kind":"sheet","id":"ws/kwmmnk","name":"Fiktiv Tara","index":20,"range":"A1:G7","address":"A1:G7"}

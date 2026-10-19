@@ -3,8 +3,7 @@ import { formatGradeDecimal } from "../../domain/grading/gradeFormat";
 import {
   observationLabel,
   observationShortLabel,
-  sessionLabel,
-} from "../presentation";
+} from "../../application/observationPresentation";
 
 const SESSION_SPACING = 112;
 
@@ -38,7 +37,7 @@ export function StudentHistory({
             {
               x: x(index + 1),
               y: y(cell.after.gradeQuarterSteps),
-              label: `${sessionLabel(cell.session, report.sessions)}: ${formatGradeDecimal(cell.after.gradeQuarterSteps)}`,
+              label: `${report.lessons.get(cell.session.id)!.label}: ${formatGradeDecimal(cell.after.gradeQuarterSteps)}`,
             },
           ]
         : [],
@@ -161,7 +160,7 @@ export function StudentHistory({
                   fill="#536b75"
                   aria-label={observationLabel(cell.observation)}
                 >
-                  <title>{`${sessionLabel(cell.session, report.sessions)}: ${observationLabel(cell.observation)}`}</title>
+                  <title>{`${report.lessons.get(cell.session.id)!.label}: ${observationLabel(cell.observation)}`}</title>
                   {observationShortLabel(cell.observation)}
                 </text>
               ) : null}
@@ -175,9 +174,7 @@ export function StudentHistory({
               >
                 {cell.session.date.split("-").reverse().join(".")}
               </text>
-              {report.sessions.filter(
-                (session) => session.date === cell.session.date,
-              ).length === 2 ? (
+              {report.lessons.get(cell.session.id)!.showSequence ? (
                 <text
                   x={x(index + 1)}
                   y="281"
@@ -193,7 +190,12 @@ export function StudentHistory({
         </svg>
       </div>
       <h3>Bewertungen nach Datum</h3>
-      <div className="table-scroll">
+      <div
+        className="table-scroll"
+        role="region"
+        aria-label={`Bewertungen nach Datum von ${row.student.displayName}`}
+        tabIndex={0}
+      >
         <table>
           <thead>
             <tr>
@@ -213,7 +215,7 @@ export function StudentHistory({
             {row.cells.map((cell) => (
               <tr key={cell.session.id}>
                 <th scope="row">
-                  {sessionLabel(cell.session, report.sessions)}
+                  {report.lessons.get(cell.session.id)!.label}
                 </th>
                 <td>{observationLabel(cell.observation)}</td>
                 <td>

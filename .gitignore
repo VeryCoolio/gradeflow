@@ -12,3 +12,6 @@ local-data/
 app/node_modules/
 app/dist/
 app/coverage/
+node_modules
+__pycache__/
+*.py[cod]

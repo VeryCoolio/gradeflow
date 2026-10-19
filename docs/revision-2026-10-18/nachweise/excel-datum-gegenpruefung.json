@@ -1,0 +1,7 @@
+{
+  "cell": "A6",
+  "sheet": "Fiktiv Ada",
+  "value": "2026-10-18T12:00:00",
+  "number_format": "dd.mm.yyyy",
+  "note": "Artifact-Tool-Vorschau zeigt stattdessen die Datumsseriennummer. OOXML und unabhängiges erneutes Lesen bestätigen typisiertes Datum mit dd.mm.yyyy. Keine native Excel-Prüfung."
+}

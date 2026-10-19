@@ -1,0 +1,14 @@
+
+> muendliche-notengebung-core@0.7.0 test
+> vitest run --reporter=dot
+
+
+ RUN  v5.0.1 /Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app
+
+···············································································································
+
+ Test Files  18 passed (18)
+      Tests  111 passed (111)
+   Start at  21:29:35
+   Duration  3.66s (tests 47%, environment 24%, import 18%, transform 9%, worker 1%)
+

@@ -1,0 +1,10 @@
+{
+  "source_files_verified": 139,
+  "byte_identical": 138,
+  "changed_existing": [
+    "docs/entwicklungsprotokoll.md"
+  ],
+  "development_log_original_prefix_preserved": true,
+  "archive_extracted_and_verified": true,
+  "all_nonignored_existing_app_legacy_reference_files_identical": true
+}

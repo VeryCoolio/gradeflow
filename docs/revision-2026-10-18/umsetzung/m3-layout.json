@@ -1,0 +1,122 @@
+[
+  {
+    "width": 390,
+    "geometryAfterPlus": {
+      ".grading-panel h3": {
+        "top": 311.40625,
+        "bottom": 343.59375,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 271,
+        "bottom": 287.625,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 253.609375,
+        "bottom": 287.203125,
+        "visible": true
+      },
+      ".save-status": {
+        "top": 405.640625,
+        "bottom": 421.75,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 487.671875,
+        "bottom": 883.140625,
+        "visible": false
+      },
+      ".status-grid": {
+        "top": 928.390625,
+        "bottom": 972.390625,
+        "visible": false
+      }
+    },
+    "tabs": [
+      "← Zur Klasse",
+      "--"
+    ],
+    "overflow": false
+  },
+  {
+    "width": 768,
+    "geometryAfterPlus": {
+      ".grading-panel h3": {
+        "top": 277.5,
+        "bottom": 309.6875,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 235,
+        "bottom": 253.71875,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 217.609375,
+        "bottom": 235.609375,
+        "visible": true
+      },
+      ".save-status": {
+        "top": 352.078125,
+        "bottom": 369.546875,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 428.125,
+        "bottom": 633.84375,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 689.015625,
+        "bottom": 733.015625,
+        "visible": true
+      }
+    },
+    "tabs": [
+      "← Zur Klasse",
+      "--"
+    ],
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "geometryAfterPlus": {
+      ".grading-panel h3": {
+        "top": 231.484375,
+        "bottom": 273.796875,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 188.984375,
+        "bottom": 207.703125,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 171.59375,
+        "bottom": 189.59375,
+        "visible": true
+      },
+      ".save-status": {
+        "top": 316.1875,
+        "bottom": 333.65625,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 392.234375,
+        "bottom": 593.1875,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 648.359375,
+        "bottom": 692.359375,
+        "visible": true
+      }
+    },
+    "tabs": [
+      "← Zur Klasse",
+      "--"
+    ],
+    "overflow": false
+  }
+]

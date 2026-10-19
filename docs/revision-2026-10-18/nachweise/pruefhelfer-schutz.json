@@ -1,0 +1,17 @@
+[
+  {
+    "script": "browserpruefung.py",
+    "preserves_existing_evidence": true,
+    "syntax_valid": true
+  },
+  {
+    "script": "ergaenzende-pruefung.py",
+    "preserves_existing_evidence": true,
+    "syntax_valid": true
+  },
+  {
+    "script": "fehlerfaelle.py",
+    "preserves_existing_evidence": true,
+    "syntax_valid": true
+  }
+]

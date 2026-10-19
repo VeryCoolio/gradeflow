@@ -1,0 +1,413 @@
+[
+  {
+    "name": "Browserumgebung",
+    "status": "PASS",
+    "browser_version": "156.0.8078.4",
+    "production_url": "http://127.0.0.1:4186/"
+  },
+  {
+    "name": "Orientierung 390",
+    "status": "PASS",
+    "before": {
+      ".grading-panel h3": {
+        "top": 311.40625,
+        "bottom": 343.59375,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 271,
+        "bottom": 287.625,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 253.609375,
+        "bottom": 287.203125,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 487.671875,
+        "bottom": 873.546875,
+        "visible": false
+      },
+      ".feedback": null,
+      ".save-status": {
+        "top": 405.640625,
+        "bottom": 421.75,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 918.796875,
+        "bottom": 962.796875,
+        "visible": false
+      },
+      ".assessment-context": {
+        "top": 240.015625,
+        "bottom": 434.75,
+        "visible": true
+      }
+    },
+    "after": {
+      ".grading-panel h3": {
+        "top": 311.40625,
+        "bottom": 343.59375,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 271,
+        "bottom": 287.625,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 253.609375,
+        "bottom": 287.203125,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 487.671875,
+        "bottom": 883.140625,
+        "visible": false
+      },
+      ".feedback": null,
+      ".save-status": {
+        "top": 405.640625,
+        "bottom": 421.75,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 928.390625,
+        "bottom": 972.390625,
+        "visible": false
+      },
+      ".assessment-context": {
+        "top": 240.015625,
+        "bottom": 434.75,
+        "visible": true
+      }
+    },
+    "criteria": "Aktuelle Person, Fortschritt und Speicherhinweis gemeinsam sichtbar"
+  },
+  {
+    "name": "Import und Neuladen nach jeder der 20 Eingaben 390",
+    "status": "PASS",
+    "observations": 20
+  },
+  {
+    "name": "Status Verlauf alte Stunde Grenze Tausch 390",
+    "status": "PASS",
+    "page_errors": []
+  },
+  {
+    "name": "Export csv 390",
+    "status": "PASS",
+    "milliseconds": [
+      36.39,
+      29.02,
+      32.83
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Export xlsx 390",
+    "status": "PASS",
+    "milliseconds": [
+      119.23,
+      53.45,
+      49.14
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Backup Rundlauf defekte Datei und Rückfall 390",
+    "status": "PASS",
+    "exact_roundtrip": true
+  },
+  {
+    "name": "Seitenbreite 390",
+    "status": "PASS",
+    "overflow": 0
+  },
+  {
+    "name": "Orientierung 768",
+    "status": "PASS",
+    "before": {
+      ".grading-panel h3": {
+        "top": 277.5,
+        "bottom": 309.6875,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 235,
+        "bottom": 253.71875,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 217.609375,
+        "bottom": 235.609375,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 428.125,
+        "bottom": 633.84375,
+        "visible": true
+      },
+      ".feedback": null,
+      ".save-status": {
+        "top": 352.078125,
+        "bottom": 369.546875,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 689.015625,
+        "bottom": 733.015625,
+        "visible": true
+      },
+      ".assessment-context": {
+        "top": 200.015625,
+        "bottom": 382.546875,
+        "visible": true
+      }
+    },
+    "after": {
+      ".grading-panel h3": {
+        "top": 277.5,
+        "bottom": 309.6875,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 235,
+        "bottom": 253.71875,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 217.609375,
+        "bottom": 235.609375,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 428.125,
+        "bottom": 633.84375,
+        "visible": true
+      },
+      ".feedback": null,
+      ".save-status": {
+        "top": 352.078125,
+        "bottom": 369.546875,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 689.015625,
+        "bottom": 733.015625,
+        "visible": true
+      },
+      ".assessment-context": {
+        "top": 200.015625,
+        "bottom": 382.546875,
+        "visible": true
+      }
+    },
+    "criteria": "Aktuelle Person, Fortschritt und Speicherhinweis gemeinsam sichtbar"
+  },
+  {
+    "name": "Import und Neuladen nach jeder der 20 Eingaben 768",
+    "status": "PASS",
+    "observations": 20
+  },
+  {
+    "name": "Status Verlauf alte Stunde Grenze Tausch 768",
+    "status": "PASS",
+    "page_errors": []
+  },
+  {
+    "name": "Export csv 768",
+    "status": "PASS",
+    "milliseconds": [
+      34.35,
+      32.09,
+      33.23
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Export xlsx 768",
+    "status": "PASS",
+    "milliseconds": [
+      112.67,
+      60.49,
+      50.23
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Backup Rundlauf defekte Datei und Rückfall 768",
+    "status": "PASS",
+    "exact_roundtrip": true
+  },
+  {
+    "name": "Seitenbreite 768",
+    "status": "PASS",
+    "overflow": 0
+  },
+  {
+    "name": "Orientierung 1440",
+    "status": "PASS",
+    "before": {
+      ".grading-panel h3": {
+        "top": 231.484375,
+        "bottom": 273.796875,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 188.984375,
+        "bottom": 207.703125,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 171.59375,
+        "bottom": 189.59375,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 392.234375,
+        "bottom": 581.15625,
+        "visible": true
+      },
+      ".feedback": null,
+      ".save-status": {
+        "top": 316.1875,
+        "bottom": 333.65625,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 636.328125,
+        "bottom": 680.328125,
+        "visible": true
+      },
+      ".assessment-context": {
+        "top": 154,
+        "bottom": 346.65625,
+        "visible": true
+      }
+    },
+    "after": {
+      ".grading-panel h3": {
+        "top": 231.484375,
+        "bottom": 273.796875,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 188.984375,
+        "bottom": 207.703125,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 171.59375,
+        "bottom": 189.59375,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 392.234375,
+        "bottom": 593.1875,
+        "visible": true
+      },
+      ".feedback": null,
+      ".save-status": {
+        "top": 316.1875,
+        "bottom": 333.65625,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 648.359375,
+        "bottom": 692.359375,
+        "visible": true
+      },
+      ".assessment-context": {
+        "top": 154,
+        "bottom": 346.65625,
+        "visible": true
+      }
+    },
+    "criteria": "Aktuelle Person, Fortschritt und Speicherhinweis gemeinsam sichtbar"
+  },
+  {
+    "name": "Import und Neuladen nach jeder der 20 Eingaben 1440",
+    "status": "PASS",
+    "observations": 20
+  },
+  {
+    "name": "Status Verlauf alte Stunde Grenze Tausch 1440",
+    "status": "PASS",
+    "page_errors": []
+  },
+  {
+    "name": "Export csv 1440",
+    "status": "PASS",
+    "milliseconds": [
+      33.52,
+      31.95,
+      32.46
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Export xlsx 1440",
+    "status": "PASS",
+    "milliseconds": [
+      116.81,
+      55.87,
+      48.71
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Backup Rundlauf defekte Datei und Rückfall 1440",
+    "status": "PASS",
+    "exact_roundtrip": true
+  },
+  {
+    "name": "Seitenbreite 1440",
+    "status": "PASS",
+    "overflow": 0
+  },
+  {
+    "name": "Fehler und Rückfall",
+    "status": "ERROR",
+    "message": "Page.evaluate: SyntaxError: Unexpected token ','\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:370:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "trace": "Traceback (most recent call last):\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 100, in run_case\n    operation()\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 427, in <lambda>\n    for name,operation in [('Fehler und Rückfall',failure_cases),('Zwei Tabs',multi_tab),('Wiederaufnahme',resume_and_navigation),('Große Tabelle',table_cases),('Fokus und Grenzen',accessibility_and_imports),('Rettung und Dateiimporte',recovery_and_xlsx),('Lastmessung',benchmarks)]:run_case(name,lambda op=operation:op(browser))\n                                                                                                                                                                                                                                                                                                                             ^^^^^^^^^^^\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 222, in failure_cases\n    seed(page, data)\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 73, in seed\n    page.evaluate(\"([key,data]) => {localStorage.clear();localStorage.setItem(key,JSON.stringify(data));history.replaceState(null,\"\",location.pathname)}\", [KEY, data])\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 16843, in evaluate\n    self._sync(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 111, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 476, in evaluate\n    return await self._main_frame.evaluate(expression, arg)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 346, in evaluate\n    await self._channel.send(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 78, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 636, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.evaluate: SyntaxError: Unexpected token ','\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:370:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n"
+  },
+  {
+    "name": "Zwei Tabs",
+    "status": "ERROR",
+    "message": "Page.evaluate: SyntaxError: Unexpected token ','\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:370:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "trace": "Traceback (most recent call last):\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 100, in run_case\n    operation()\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 427, in <lambda>\n    for name,operation in [('Fehler und Rückfall',failure_cases),('Zwei Tabs',multi_tab),('Wiederaufnahme',resume_and_navigation),('Große Tabelle',table_cases),('Fokus und Grenzen',accessibility_and_imports),('Rettung und Dateiimporte',recovery_and_xlsx),('Lastmessung',benchmarks)]:run_case(name,lambda op=operation:op(browser))\n                                                                                                                                                                                                                                                                                                                             ^^^^^^^^^^^\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 259, in multi_tab\n    a = context.new_page();seed(a, fixture())\n                           ^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 73, in seed\n    page.evaluate(\"([key,data]) => {localStorage.clear();localStorage.setItem(key,JSON.stringify(data));history.replaceState(null,\"\",location.pathname)}\", [KEY, data])\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 16843, in evaluate\n    self._sync(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 111, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 476, in evaluate\n    return await self._main_frame.evaluate(expression, arg)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 346, in evaluate\n    await self._channel.send(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 78, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 636, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.evaluate: SyntaxError: Unexpected token ','\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:370:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n"
+  },
+  {
+    "name": "Wiederaufnahme",
+    "status": "ERROR",
+    "message": "Page.evaluate: SyntaxError: Unexpected token ','\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:370:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "trace": "Traceback (most recent call last):\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 100, in run_case\n    operation()\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 427, in <lambda>\n    for name,operation in [('Fehler und Rückfall',failure_cases),('Zwei Tabs',multi_tab),('Wiederaufnahme',resume_and_navigation),('Große Tabelle',table_cases),('Fokus und Grenzen',accessibility_and_imports),('Rettung und Dateiimporte',recovery_and_xlsx),('Lastmessung',benchmarks)]:run_case(name,lambda op=operation:op(browser))\n                                                                                                                                                                                                                                                                                                                             ^^^^^^^^^^^\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 285, in resume_and_navigation\n    seed(page, data)\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 73, in seed\n    page.evaluate(\"([key,data]) => {localStorage.clear();localStorage.setItem(key,JSON.stringify(data));history.replaceState(null,\"\",location.pathname)}\", [KEY, data])\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 16843, in evaluate\n    self._sync(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 111, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 476, in evaluate\n    return await self._main_frame.evaluate(expression, arg)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 346, in evaluate\n    await self._channel.send(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 78, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 636, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.evaluate: SyntaxError: Unexpected token ','\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:370:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n"
+  },
+  {
+    "name": "Große Tabelle",
+    "status": "ERROR",
+    "message": "Page.evaluate: SyntaxError: Unexpected token ','\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:370:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "trace": "Traceback (most recent call last):\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 100, in run_case\n    operation()\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 427, in <lambda>\n    for name,operation in [('Fehler und Rückfall',failure_cases),('Zwei Tabs',multi_tab),('Wiederaufnahme',resume_and_navigation),('Große Tabelle',table_cases),('Fokus und Grenzen',accessibility_and_imports),('Rettung und Dateiimporte',recovery_and_xlsx),('Lastmessung',benchmarks)]:run_case(name,lambda op=operation:op(browser))\n                                                                                                                                                                                                                                                                                                                             ^^^^^^^^^^^\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 302, in table_cases\n    page=context.new_page();seed(page,fixture(24));button(page,\"Tabelle\").click()\n                            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 73, in seed\n    page.evaluate(\"([key,data]) => {localStorage.clear();localStorage.setItem(key,JSON.stringify(data));history.replaceState(null,\"\",location.pathname)}\", [KEY, data])\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 16843, in evaluate\n    self._sync(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 111, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 476, in evaluate\n    return await self._main_frame.evaluate(expression, arg)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 346, in evaluate\n    await self._channel.send(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 78, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 636, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.evaluate: SyntaxError: Unexpected token ','\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:370:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n"
+  },
+  {
+    "name": "Fokus und Grenzen",
+    "status": "ERROR",
+    "message": "Page.evaluate: SyntaxError: Unexpected token ','\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:370:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "trace": "Traceback (most recent call last):\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 100, in run_case\n    operation()\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 427, in <lambda>\n    for name,operation in [('Fehler und Rückfall',failure_cases),('Zwei Tabs',multi_tab),('Wiederaufnahme',resume_and_navigation),('Große Tabelle',table_cases),('Fokus und Grenzen',accessibility_and_imports),('Rettung und Dateiimporte',recovery_and_xlsx),('Lastmessung',benchmarks)]:run_case(name,lambda op=operation:op(browser))\n                                                                                                                                                                                                                                                                                                                             ^^^^^^^^^^^\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 331, in accessibility_and_imports\n    page=context.new_page();data=fixture(1);data['classes'][0]['sessions'][0]['observations']={};seed(page,data)\n                                                                                                 ^^^^^^^^^^^^^^^\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 73, in seed\n    page.evaluate(\"([key,data]) => {localStorage.clear();localStorage.setItem(key,JSON.stringify(data));history.replaceState(null,\"\",location.pathname)}\", [KEY, data])\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 16843, in evaluate\n    self._sync(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 111, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 476, in evaluate\n    return await self._main_frame.evaluate(expression, arg)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 346, in evaluate\n    await self._channel.send(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 78, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 636, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.evaluate: SyntaxError: Unexpected token ','\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:370:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n"
+  },
+  {
+    "name": "Rettung und Dateiimporte",
+    "status": "ERROR",
+    "message": "No module named 'openpyxl'",
+    "trace": "Traceback (most recent call last):\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 100, in run_case\n    operation()\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 427, in <lambda>\n    for name,operation in [('Fehler und Rückfall',failure_cases),('Zwei Tabs',multi_tab),('Wiederaufnahme',resume_and_navigation),('Große Tabelle',table_cases),('Fokus und Grenzen',accessibility_and_imports),('Rettung und Dateiimporte',recovery_and_xlsx),('Lastmessung',benchmarks)]:run_case(name,lambda op=operation:op(browser))\n                                                                                                                                                                                                                                                                                                                             ^^^^^^^^^^^\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 373, in recovery_and_xlsx\n    from openpyxl import Workbook\nModuleNotFoundError: No module named 'openpyxl'\n"
+  },
+  {
+    "name": "Lastmessung",
+    "status": "ERROR",
+    "message": "Page.evaluate: SyntaxError: Unexpected token ','\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:370:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+    "trace": "Traceback (most recent call last):\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 100, in run_case\n    operation()\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 427, in <lambda>\n    for name,operation in [('Fehler und Rückfall',failure_cases),('Zwei Tabs',multi_tab),('Wiederaufnahme',resume_and_navigation),('Große Tabelle',table_cases),('Fokus und Grenzen',accessibility_and_imports),('Rettung und Dateiimporte',recovery_and_xlsx),('Lastmessung',benchmarks)]:run_case(name,lambda op=operation:op(browser))\n                                                                                                                                                                                                                                                                                                                             ^^^^^^^^^^^\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 411, in benchmarks\n    seed(page,data);page.reload();page.wait_for_load_state('networkidle');navigation=page.evaluate(\"performance.getEntriesByType('navigation')[0].toJSON()\")\n    ^^^^^^^^^^^^^^^\n  File \"/Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app/e2e/revision.py\", line 73, in seed\n    page.evaluate(\"([key,data]) => {localStorage.clear();localStorage.setItem(key,JSON.stringify(data));history.replaceState(null,\"\",location.pathname)}\", [KEY, data])\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 16843, in evaluate\n    self._sync(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 111, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_page.py\", line 476, in evaluate\n    return await self._main_frame.evaluate(expression, arg)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_frame.py\", line 346, in evaluate\n    await self._channel.send(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 78, in send\n    return await self._connection.wrap_api_call(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_connection.py\", line 636, in wrap_api_call\n    raise rewrite_error(error, f\"{parsed_st['apiName']}: {error}\") from None\nplaywright._impl._errors.Error: Page.evaluate: SyntaxError: Unexpected token ','\n    at eval (<anonymous>)\n    at UtilityScript.evaluate (<anonymous>:370:30)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n"
+  }
+]

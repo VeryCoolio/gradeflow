@@ -1,0 +1,7 @@
+{
+  "same_older_session_after_reload": "01.09.2026 \u00b7 1. Stunde",
+  "same_selected_student": true,
+  "table_survives_reload": true,
+  "browser_back_returns_to_table": true,
+  "class_choice_does_not_write_notebook": true
+}

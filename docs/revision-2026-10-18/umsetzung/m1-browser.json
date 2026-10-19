@@ -1,0 +1,7 @@
+{
+  "two_tabs_one_writer": true,
+  "readonly_tab_updates": true,
+  "stale_class_click_preserves_session": true,
+  "takeover_after_closing_writer": true,
+  "denied_storage_shows_error": true
+}

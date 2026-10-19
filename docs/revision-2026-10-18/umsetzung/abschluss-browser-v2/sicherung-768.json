@@ -1,0 +1,294 @@
+{
+  "schemaVersion": 1,
+  "currentClassId": "d59be782-934c-4b0a-96c1-26b182130be6",
+  "classes": [
+    {
+      "id": "d59be782-934c-4b0a-96c1-26b182130be6",
+      "name": "Prüfung 8b",
+      "periodLabel": "Schuljahr 2026/27",
+      "archived": false,
+      "createdAt": "2026-10-18T19:33:55.305Z",
+      "updatedAt": "2026-10-18T19:34:07.864Z",
+      "students": [
+        {
+          "id": "4335f602-d795-4671-ae1b-daf7db8e6f08",
+          "displayName": "Fiktiv Ada",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "89fbddfd-07f6-497b-a3f5-68d228c4ad82",
+          "displayName": "Fiktiv Bea",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "d076c99c-cfa2-4a01-a826-0adaf537c283",
+          "displayName": "Fiktiv Cem",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "db337d65-952c-4050-95d2-24b8f156d2af",
+          "displayName": "Fiktiv Dana",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "a7f58516-3070-45d1-bc7a-0757ac76ab07",
+          "displayName": "Fiktiv Emil",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "f43a847d-1294-4cde-9b59-8cbdd450e5f2",
+          "displayName": "Fiktiv Farah",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "697a73c7-df2e-49d2-8ca5-9cbe72d87078",
+          "displayName": "Fiktiv Greta",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "992c5043-53da-44bf-9a4e-420a4eff2a7e",
+          "displayName": "Fiktiv Hannes",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "aa5f92c9-795c-459d-a3af-cb2014f348d1",
+          "displayName": "Fiktiv Ida",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "577280e0-cb25-4bb8-9893-1db7393e400c",
+          "displayName": "Fiktiv Jonas",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "cd9ddfc7-811c-4d21-8378-e28c21e2ac6a",
+          "displayName": "Fiktiv Kaya",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "f3746f68-f4f3-44c3-895a-b715f18ce1f5",
+          "displayName": "Fiktiv Leon",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "9deb54f5-2a00-4bc8-9e2e-45f526d1f809",
+          "displayName": "Fiktiv Mila",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "67a1565c-bc88-43c1-9fdf-088e6500716f",
+          "displayName": "Fiktiv Noah",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "6c4a13c6-b911-43b6-97d4-0d201cc3b3b1",
+          "displayName": "Fiktiv Oskar",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "71ce17f2-e9e9-49c8-a7a7-2da2abf6f6fa",
+          "displayName": "Fiktiv Paula",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "153bf1c3-4cb8-49ed-a64c-f1155d7b6e0a",
+          "displayName": "Fiktiv Quinn",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "609383a0-9bae-4f49-9aa7-b7b0d9ce5dee",
+          "displayName": "Fiktiv Ria",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "42479d46-c3e8-4a04-a05b-1807de2f44ac",
+          "displayName": "Fiktiv Sami",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "8e398657-2a0b-4ac0-9d89-58536efa0163",
+          "displayName": "Fiktiv Tara",
+          "startGradeQuarterSteps": 8
+        }
+      ],
+      "sessions": [
+        {
+          "id": "89a0e178-35aa-4606-8f75-9f3f61c98d05",
+          "date": "2026-10-18",
+          "createdAt": "2026-10-18T19:33:55.373Z",
+          "updatedAt": "2026-10-18T19:34:07.731Z",
+          "observations": {
+            "4335f602-d795-4671-ae1b-daf7db8e6f08": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "89fbddfd-07f6-497b-a3f5-68d228c4ad82": {
+              "status": "abwesend"
+            },
+            "d076c99c-cfa2-4a01-a826-0adaf537c283": {
+              "status": "nicht_beobachtet"
+            },
+            "db337d65-952c-4050-95d2-24b8f156d2af": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "a7f58516-3070-45d1-bc7a-0757ac76ab07": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "f43a847d-1294-4cde-9b59-8cbdd450e5f2": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "697a73c7-df2e-49d2-8ca5-9cbe72d87078": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "992c5043-53da-44bf-9a4e-420a4eff2a7e": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "aa5f92c9-795c-459d-a3af-cb2014f348d1": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "577280e0-cb25-4bb8-9893-1db7393e400c": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "cd9ddfc7-811c-4d21-8378-e28c21e2ac6a": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "f3746f68-f4f3-44c3-895a-b715f18ce1f5": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "9deb54f5-2a00-4bc8-9e2e-45f526d1f809": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "67a1565c-bc88-43c1-9fdf-088e6500716f": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "6c4a13c6-b911-43b6-97d4-0d201cc3b3b1": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "71ce17f2-e9e9-49c8-a7a7-2da2abf6f6fa": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "153bf1c3-4cb8-49ed-a64c-f1155d7b6e0a": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "609383a0-9bae-4f49-9aa7-b7b0d9ce5dee": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "42479d46-c3e8-4a04-a05b-1807de2f44ac": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "8e398657-2a0b-4ac0-9d89-58536efa0163": {
+              "status": "bewertet",
+              "symbol": "0"
+            }
+          },
+          "lessonSequence": 2
+        },
+        {
+          "id": "1d330a49-55f7-4ff5-8a1f-87f3131c158a",
+          "date": "2026-10-18",
+          "createdAt": "2026-10-18T19:34:06.930Z",
+          "updatedAt": "2026-10-18T19:34:07.597Z",
+          "observations": {
+            "4335f602-d795-4671-ae1b-daf7db8e6f08": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "89fbddfd-07f6-497b-a3f5-68d228c4ad82": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "d076c99c-cfa2-4a01-a826-0adaf537c283": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "db337d65-952c-4050-95d2-24b8f156d2af": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "a7f58516-3070-45d1-bc7a-0757ac76ab07": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "f43a847d-1294-4cde-9b59-8cbdd450e5f2": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "697a73c7-df2e-49d2-8ca5-9cbe72d87078": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "992c5043-53da-44bf-9a4e-420a4eff2a7e": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "aa5f92c9-795c-459d-a3af-cb2014f348d1": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "577280e0-cb25-4bb8-9893-1db7393e400c": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "cd9ddfc7-811c-4d21-8378-e28c21e2ac6a": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "f3746f68-f4f3-44c3-895a-b715f18ce1f5": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "9deb54f5-2a00-4bc8-9e2e-45f526d1f809": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "67a1565c-bc88-43c1-9fdf-088e6500716f": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "6c4a13c6-b911-43b6-97d4-0d201cc3b3b1": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "71ce17f2-e9e9-49c8-a7a7-2da2abf6f6fa": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "153bf1c3-4cb8-49ed-a64c-f1155d7b6e0a": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "609383a0-9bae-4f49-9aa7-b7b0d9ce5dee": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "42479d46-c3e8-4a04-a05b-1807de2f44ac": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "8e398657-2a0b-4ac0-9d89-58536efa0163": {
+              "status": "bewertet",
+              "symbol": "0"
+            }
+          },
+          "lessonSequence": 1
+        }
+      ]
+    }
+  ]
+}

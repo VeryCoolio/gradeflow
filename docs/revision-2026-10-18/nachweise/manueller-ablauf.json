@@ -1,0 +1,6 @@
+{
+  "manual_creation": true,
+  "students": 2,
+  "rename_preserves_id_and_sessions": true,
+  "period_rename_without_reset": true
+}

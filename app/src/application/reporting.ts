@@ -1,3 +1,7 @@
+import {
+  buildLessonIndex,
+  type LessonPresentation,
+} from "./observationPresentation";
 import type { GradeState, Observation } from "../domain/grading/types";
 import { recalculateClassState } from "../domain/sessions/recalculate";
 import type { LessonSession } from "../domain/sessions/types";
@@ -9,6 +13,7 @@ import type {
 export interface ReportCell {
   readonly session: LessonSession;
   readonly observation: Observation | null;
+  readonly before: GradeState;
   readonly after: GradeState | null;
 }
 
@@ -20,6 +25,7 @@ export interface StudentReport {
 }
 
 export interface ClassReport {
+  readonly lessons: ReadonlyMap<string, LessonPresentation>;
   readonly sessions: readonly LessonSession[];
   readonly students: readonly StudentReport[];
 }
@@ -30,6 +36,7 @@ export function buildClassReport(classRecord: ClassRecord): ClassReport {
     classRecord.sessions,
   );
   return {
+    lessons: buildLessonIndex(calculation.sortedSessions),
     sessions: calculation.sortedSessions,
     students: calculation.students.map((result) => {
       const student = classRecord.students.find(
@@ -38,14 +45,18 @@ export function buildClassReport(classRecord: ClassRecord): ClassReport {
       const eventBySession = new Map(
         result.events.map((event) => [event.sessionId, event]),
       );
+      let previous = result.start;
       return {
         student,
         start: result.start,
         current: result.current,
         cells: calculation.sortedSessions.map((session) => {
           const event = eventBySession.get(session.id);
+          const before = previous;
+          if (event) previous = event.after;
           return {
             session,
+            before,
             observation: event?.observation ?? null,
             after:
               event?.observation.status === "bewertet" ? event.after : null,

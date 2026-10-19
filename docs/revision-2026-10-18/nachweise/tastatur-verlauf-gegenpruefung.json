@@ -1,0 +1,10 @@
+{
+  "active_after_chart_tab": {
+    "tag": "DIV",
+    "cls": "table-scroll",
+    "tabindex": -1
+  },
+  "scroll_before": 0,
+  "scroll_after": 40,
+  "chromium_keyboard_works": true
+}

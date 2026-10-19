@@ -1,0 +1,577 @@
+[
+  {
+    "name": "Browserumgebung",
+    "status": "PASS",
+    "browser_version": "156.0.8078.4",
+    "production_url": "http://127.0.0.1:4186/"
+  },
+  {
+    "name": "Orientierung 390",
+    "status": "PASS",
+    "before": {
+      ".grading-panel h3": {
+        "top": 311.40625,
+        "bottom": 343.59375,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 271,
+        "bottom": 287.625,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 253.609375,
+        "bottom": 287.203125,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 487.671875,
+        "bottom": 873.546875,
+        "visible": false
+      },
+      ".feedback": null,
+      ".save-status": {
+        "top": 405.640625,
+        "bottom": 421.75,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 918.796875,
+        "bottom": 962.796875,
+        "visible": false
+      },
+      ".assessment-context": {
+        "top": 240.015625,
+        "bottom": 434.75,
+        "visible": true
+      }
+    },
+    "after": {
+      ".grading-panel h3": {
+        "top": 311.40625,
+        "bottom": 343.59375,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 271,
+        "bottom": 287.625,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 253.609375,
+        "bottom": 287.203125,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 487.671875,
+        "bottom": 883.140625,
+        "visible": false
+      },
+      ".feedback": null,
+      ".save-status": {
+        "top": 405.640625,
+        "bottom": 421.75,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 928.390625,
+        "bottom": 972.390625,
+        "visible": false
+      },
+      ".assessment-context": {
+        "top": 240.015625,
+        "bottom": 434.75,
+        "visible": true
+      }
+    },
+    "criteria": "Aktuelle Person, Fortschritt und Speicherhinweis gemeinsam sichtbar"
+  },
+  {
+    "name": "Import und Neuladen nach jeder der 20 Eingaben 390",
+    "status": "PASS",
+    "observations": 20
+  },
+  {
+    "name": "Status Verlauf alte Stunde Grenze Tausch 390",
+    "status": "PASS",
+    "page_errors": []
+  },
+  {
+    "name": "Export csv 390",
+    "status": "PASS",
+    "milliseconds": [
+      35.65,
+      27.84,
+      33.27
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Export xlsx 390",
+    "status": "PASS",
+    "milliseconds": [
+      116.15,
+      57.27,
+      48.16
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Backup Rundlauf defekte Datei und Rückfall 390",
+    "status": "PASS",
+    "exact_roundtrip": true
+  },
+  {
+    "name": "Seitenbreite 390",
+    "status": "PASS",
+    "overflow": 0
+  },
+  {
+    "name": "Orientierung 768",
+    "status": "PASS",
+    "before": {
+      ".grading-panel h3": {
+        "top": 277.5,
+        "bottom": 309.6875,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 235,
+        "bottom": 253.71875,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 217.609375,
+        "bottom": 235.609375,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 428.125,
+        "bottom": 633.84375,
+        "visible": true
+      },
+      ".feedback": null,
+      ".save-status": {
+        "top": 352.078125,
+        "bottom": 369.546875,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 689.015625,
+        "bottom": 733.015625,
+        "visible": true
+      },
+      ".assessment-context": {
+        "top": 200.015625,
+        "bottom": 382.546875,
+        "visible": true
+      }
+    },
+    "after": {
+      ".grading-panel h3": {
+        "top": 277.5,
+        "bottom": 309.6875,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 235,
+        "bottom": 253.71875,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 217.609375,
+        "bottom": 235.609375,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 428.125,
+        "bottom": 633.84375,
+        "visible": true
+      },
+      ".feedback": null,
+      ".save-status": {
+        "top": 352.078125,
+        "bottom": 369.546875,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 689.015625,
+        "bottom": 733.015625,
+        "visible": true
+      },
+      ".assessment-context": {
+        "top": 200.015625,
+        "bottom": 382.546875,
+        "visible": true
+      }
+    },
+    "criteria": "Aktuelle Person, Fortschritt und Speicherhinweis gemeinsam sichtbar"
+  },
+  {
+    "name": "Import und Neuladen nach jeder der 20 Eingaben 768",
+    "status": "PASS",
+    "observations": 20
+  },
+  {
+    "name": "Status Verlauf alte Stunde Grenze Tausch 768",
+    "status": "PASS",
+    "page_errors": []
+  },
+  {
+    "name": "Export csv 768",
+    "status": "PASS",
+    "milliseconds": [
+      31.27,
+      34.55,
+      34.23
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Export xlsx 768",
+    "status": "PASS",
+    "milliseconds": [
+      113.17,
+      61.17,
+      46.51
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Backup Rundlauf defekte Datei und Rückfall 768",
+    "status": "PASS",
+    "exact_roundtrip": true
+  },
+  {
+    "name": "Seitenbreite 768",
+    "status": "PASS",
+    "overflow": 0
+  },
+  {
+    "name": "Orientierung 1440",
+    "status": "PASS",
+    "before": {
+      ".grading-panel h3": {
+        "top": 231.484375,
+        "bottom": 273.796875,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 188.984375,
+        "bottom": 207.703125,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 171.59375,
+        "bottom": 189.59375,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 392.234375,
+        "bottom": 581.15625,
+        "visible": true
+      },
+      ".feedback": null,
+      ".save-status": {
+        "top": 316.1875,
+        "bottom": 333.65625,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 636.328125,
+        "bottom": 680.328125,
+        "visible": true
+      },
+      ".assessment-context": {
+        "top": 154,
+        "bottom": 346.65625,
+        "visible": true
+      }
+    },
+    "after": {
+      ".grading-panel h3": {
+        "top": 231.484375,
+        "bottom": 273.796875,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 188.984375,
+        "bottom": 207.703125,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 171.59375,
+        "bottom": 189.59375,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 392.234375,
+        "bottom": 593.1875,
+        "visible": true
+      },
+      ".feedback": null,
+      ".save-status": {
+        "top": 316.1875,
+        "bottom": 333.65625,
+        "visible": true
+      },
+      ".status-grid": {
+        "top": 648.359375,
+        "bottom": 692.359375,
+        "visible": true
+      },
+      ".assessment-context": {
+        "top": 154,
+        "bottom": 346.65625,
+        "visible": true
+      }
+    },
+    "criteria": "Aktuelle Person, Fortschritt und Speicherhinweis gemeinsam sichtbar"
+  },
+  {
+    "name": "Import und Neuladen nach jeder der 20 Eingaben 1440",
+    "status": "PASS",
+    "observations": 20
+  },
+  {
+    "name": "Status Verlauf alte Stunde Grenze Tausch 1440",
+    "status": "PASS",
+    "page_errors": []
+  },
+  {
+    "name": "Export csv 1440",
+    "status": "PASS",
+    "milliseconds": [
+      33.41,
+      33.21,
+      35.19
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Export xlsx 1440",
+    "status": "PASS",
+    "milliseconds": [
+      112.53,
+      57.94,
+      50.09
+    ],
+    "measurement": "Playwright Klick bis Download inklusive Automationswartezeit; erster Lauf kalt"
+  },
+  {
+    "name": "Backup Rundlauf defekte Datei und Rückfall 1440",
+    "status": "PASS",
+    "exact_roundtrip": true
+  },
+  {
+    "name": "Seitenbreite 1440",
+    "status": "PASS",
+    "overflow": 0
+  },
+  {
+    "name": "Letzte Eingabe bei Speicherfehler",
+    "status": "PASS",
+    "no_false_success": true,
+    "unchanged": true,
+    "feedback_visible": true,
+    "geometry": {
+      ".grading-panel h3": {
+        "top": 311.40625,
+        "bottom": 343.59375,
+        "visible": true
+      },
+      ".assessment-header h2": {
+        "top": 271,
+        "bottom": 287.625,
+        "visible": true
+      },
+      ".assessment-progress": {
+        "top": 253.609375,
+        "bottom": 287.203125,
+        "visible": true
+      },
+      ".rating-grid": {
+        "top": 598.3125,
+        "bottom": 993.78125,
+        "visible": false
+      },
+      ".feedback": {
+        "top": 405.640625,
+        "bottom": 532.390625,
+        "visible": true
+      },
+      ".save-status": null,
+      ".status-grid": {
+        "top": 1039.03125,
+        "bottom": 1083.03125,
+        "visible": false
+      },
+      ".assessment-context": {
+        "top": 240.015625,
+        "bottom": 545.390625,
+        "visible": true
+      }
+    }
+  },
+  {
+    "name": "Archivieren Öffnen Löschen und Rückfall im Browser",
+    "status": "PASS"
+  },
+  {
+    "name": "Zwei Tabs: Schreibschutz Aktualisierung Klassenauswahl und Übernahme",
+    "status": "PASS",
+    "no_data_loss": true,
+    "readonly_controls": true
+  },
+  {
+    "name": "Wiederaufnahme mehrerer offener Stunden",
+    "status": "PASS",
+    "before": "01.09.2026 · 1. Stunde",
+    "after": "01.09.2026 · 1. Stunde"
+  },
+  {
+    "name": "Neuladen der Tabellenansicht",
+    "status": "PASS",
+    "landing": "Klasse"
+  },
+  {
+    "name": "24 Stunden Tabelle Tastatur Verlauf 390",
+    "status": "PASS",
+    "scroll": {
+      "scrollLeft": 40,
+      "scrollWidth": 3520,
+      "clientWidth": 325
+    },
+    "points": 19,
+    "spacing": 112
+  },
+  {
+    "name": "24 Stunden Tabelle Tastatur Verlauf 768",
+    "status": "PASS",
+    "scroll": {
+      "scrollLeft": 40,
+      "scrollWidth": 4547,
+      "clientWidth": 676
+    },
+    "points": 19,
+    "spacing": 112
+  },
+  {
+    "name": "24 Stunden Tabelle Tastatur Verlauf 1440",
+    "status": "PASS",
+    "scroll": {
+      "scrollLeft": 40,
+      "scrollWidth": 4547,
+      "clientWidth": 1244
+    },
+    "points": 19,
+    "spacing": 112
+  },
+  {
+    "name": "Tastatur Personenwahl Abschluss Großschrift 390",
+    "status": "PASS",
+    "tabs_to_first_rating": 2,
+    "focus_uncovered": true,
+    "no_text_truncation": true,
+    "limitation": "CSS-Grundschrift 200 Prozent; kein echter OS-Zoom"
+  },
+  {
+    "name": "Tastatur Personenwahl Abschluss Großschrift 768",
+    "status": "PASS",
+    "tabs_to_first_rating": 2,
+    "focus_uncovered": true,
+    "no_text_truncation": true,
+    "limitation": "CSS-Grundschrift 200 Prozent; kein echter OS-Zoom"
+  },
+  {
+    "name": "Tastatur Personenwahl Abschluss Großschrift 1440",
+    "status": "PASS",
+    "tabs_to_first_rating": 2,
+    "focus_uncovered": true,
+    "no_text_truncation": true,
+    "limitation": "CSS-Grundschrift 200 Prozent; kein echter OS-Zoom"
+  },
+  {
+    "name": "Speicherfehler beim atomaren Stundentausch",
+    "status": "PASS",
+    "unchanged": true
+  },
+  {
+    "name": "Verweigerter Storage-Zugriff",
+    "status": "PASS",
+    "blank_screen": false,
+    "page_errors": []
+  },
+  {
+    "name": "Beschädigten Startstand wiederherstellen",
+    "status": "PASS",
+    "raw_backup_preserved": true
+  },
+  {
+    "name": "Legacy Migration und Rückfall",
+    "status": "PASS",
+    "unchanged_legacy": true
+  },
+  {
+    "name": "XLSX Import im echten Browser Worker",
+    "status": "PASS",
+    "students": 2
+  },
+  {
+    "name": "Komprimierte große XLSX vor Parser abweisen",
+    "status": "PASS",
+    "file_bytes": 2196,
+    "inflated_bytes": 2097153,
+    "unchanged": true
+  },
+  {
+    "name": "JSON Dateigrenze im Browser",
+    "status": "PASS",
+    "unchanged": true
+  },
+  {
+    "name": "Lastmessung 20 Personen 24 Stunden",
+    "status": "PASS",
+    "bytes": 26111,
+    "dom_content_loaded_ms": 12.799999999813735,
+    "load_event_ms": 12.799999999813735,
+    "input_automation_ms": [
+      55.08,
+      31.9,
+      32.94
+    ],
+    "visible_sessions": 20,
+    "reload_to_visible_list_automation_ms": 24.75,
+    "metric_limit": "Ein Mac, Chromium, warmes Profil; kein LCP oder schwaches Gerät; Automationszeit enthält Wartezeit"
+  },
+  {
+    "name": "Lastmessung 20 Personen 400 Stunden",
+    "status": "PASS",
+    "bytes": 408427,
+    "dom_content_loaded_ms": 12.399999999906868,
+    "load_event_ms": 12.399999999906868,
+    "input_automation_ms": [
+      38.31,
+      28.61,
+      35.51
+    ],
+    "visible_sessions": 20,
+    "reload_to_visible_list_automation_ms": 38.6,
+    "metric_limit": "Ein Mac, Chromium, warmes Profil; kein LCP oder schwaches Gerät; Automationszeit enthält Wartezeit"
+  },
+  {
+    "name": "Lastmessung 20 Personen 1000 Stunden",
+    "status": "PASS",
+    "bytes": 1018627,
+    "dom_content_loaded_ms": 12.799999999813735,
+    "load_event_ms": 12.899999999906868,
+    "input_automation_ms": [
+      42.51,
+      45.87,
+      31.43
+    ],
+    "visible_sessions": 20,
+    "reload_to_visible_list_automation_ms": 49.51,
+    "metric_limit": "Ein Mac, Chromium, warmes Profil; kein LCP oder schwaches Gerät; Automationszeit enthält Wartezeit"
+  }
+]

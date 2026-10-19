@@ -1,0 +1,17 @@
+
+> muendliche-notengebung-core@0.7.0 test
+> vitest run --reporter=dot
+
+
+ RUN  v5.0.1 /Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app
+
+················································································································
+
+ Test Files  18 passed (18)
+      Tests  112 passed (112)
+   Start at  15:14:50
+   Duration  11.50s (environment 34%, import 26%, tests 25%, transform 14%, worker 1%)
+
+    Isolate  18 workers spawned · ~1.20s startup each (spawn + environment, per file)
+             at least ~1.20s faster with isolate: false — reuses workers across files instead of one per file
+

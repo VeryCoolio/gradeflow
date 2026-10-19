@@ -1,0 +1,2117 @@
+{
+  "schemaVersion": 1,
+  "currentClassId": "c1",
+  "classes": [
+    {
+      "id": "c1",
+      "name": "Prüfung 8b",
+      "periodLabel": "Schuljahr 2026/27",
+      "archived": false,
+      "createdAt": "2026-10-18T10:00:00.000Z",
+      "updatedAt": "2026-10-18T10:00:00.000Z",
+      "students": [
+        {
+          "id": "p1",
+          "displayName": "Fiktiv Ada",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p2",
+          "displayName": "Fiktiv Bea",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p3",
+          "displayName": "Fiktiv Cem",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p4",
+          "displayName": "Fiktiv Dana",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p5",
+          "displayName": "Fiktiv Emil",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p6",
+          "displayName": "Fiktiv Farah",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p7",
+          "displayName": "Fiktiv Greta",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p8",
+          "displayName": "Fiktiv Hannes",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p9",
+          "displayName": "Fiktiv Ida",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p10",
+          "displayName": "Fiktiv Jonas",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p11",
+          "displayName": "Fiktiv Kaya",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p12",
+          "displayName": "Fiktiv Leon",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p13",
+          "displayName": "Fiktiv Mila",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p14",
+          "displayName": "Fiktiv Noah",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p15",
+          "displayName": "Fiktiv Oskar",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p16",
+          "displayName": "Fiktiv Paula",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p17",
+          "displayName": "Fiktiv Quinn",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p18",
+          "displayName": "Fiktiv Ria",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p19",
+          "displayName": "Fiktiv Sami",
+          "startGradeQuarterSteps": 8
+        },
+        {
+          "id": "p20",
+          "displayName": "Fiktiv Tara",
+          "startGradeQuarterSteps": 8
+        }
+      ],
+      "sessions": [
+        {
+          "id": "s1",
+          "date": "2026-09-01",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-01T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p6": {
+              "status": "abwesend"
+            },
+            "p7": {
+              "status": "nicht_beobachtet"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p13": {
+              "status": "abwesend"
+            },
+            "p14": {
+              "status": "nicht_beobachtet"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p20": {
+              "status": "abwesend"
+            }
+          }
+        },
+        {
+          "id": "s2",
+          "date": "2026-09-01",
+          "lessonSequence": 2,
+          "createdAt": "2026-09-02T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p5": {
+              "status": "abwesend"
+            },
+            "p6": {
+              "status": "nicht_beobachtet"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p12": {
+              "status": "abwesend"
+            },
+            "p13": {
+              "status": "nicht_beobachtet"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p19": {
+              "status": "abwesend"
+            },
+            "p20": {
+              "status": "nicht_beobachtet"
+            }
+          }
+        },
+        {
+          "id": "s3",
+          "date": "2026-09-02",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-03T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p4": {
+              "status": "abwesend"
+            },
+            "p5": {
+              "status": "nicht_beobachtet"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p11": {
+              "status": "abwesend"
+            },
+            "p12": {
+              "status": "nicht_beobachtet"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p18": {
+              "status": "abwesend"
+            },
+            "p19": {
+              "status": "nicht_beobachtet"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "--"
+            }
+          }
+        },
+        {
+          "id": "s4",
+          "date": "2026-09-03",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-04T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p3": {
+              "status": "abwesend"
+            },
+            "p4": {
+              "status": "nicht_beobachtet"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p10": {
+              "status": "abwesend"
+            },
+            "p11": {
+              "status": "nicht_beobachtet"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p17": {
+              "status": "abwesend"
+            },
+            "p18": {
+              "status": "nicht_beobachtet"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "-"
+            }
+          }
+        },
+        {
+          "id": "s5",
+          "date": "2026-09-04",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-05T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p2": {
+              "status": "abwesend"
+            },
+            "p3": {
+              "status": "nicht_beobachtet"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p9": {
+              "status": "abwesend"
+            },
+            "p10": {
+              "status": "nicht_beobachtet"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p16": {
+              "status": "abwesend"
+            },
+            "p17": {
+              "status": "nicht_beobachtet"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "0"
+            }
+          }
+        },
+        {
+          "id": "s6",
+          "date": "2026-09-05",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-06T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "abwesend"
+            },
+            "p2": {
+              "status": "nicht_beobachtet"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p8": {
+              "status": "abwesend"
+            },
+            "p9": {
+              "status": "nicht_beobachtet"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p15": {
+              "status": "abwesend"
+            },
+            "p16": {
+              "status": "nicht_beobachtet"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "+"
+            }
+          }
+        },
+        {
+          "id": "s7",
+          "date": "2026-09-06",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-07T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "nicht_beobachtet"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p7": {
+              "status": "abwesend"
+            },
+            "p8": {
+              "status": "nicht_beobachtet"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p14": {
+              "status": "abwesend"
+            },
+            "p15": {
+              "status": "nicht_beobachtet"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "++"
+            }
+          }
+        },
+        {
+          "id": "s8",
+          "date": "2026-09-07",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-08T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p6": {
+              "status": "abwesend"
+            },
+            "p7": {
+              "status": "nicht_beobachtet"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p13": {
+              "status": "abwesend"
+            },
+            "p14": {
+              "status": "nicht_beobachtet"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p20": {
+              "status": "abwesend"
+            }
+          }
+        },
+        {
+          "id": "s9",
+          "date": "2026-09-08",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-09T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p5": {
+              "status": "abwesend"
+            },
+            "p6": {
+              "status": "nicht_beobachtet"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p12": {
+              "status": "abwesend"
+            },
+            "p13": {
+              "status": "nicht_beobachtet"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p19": {
+              "status": "abwesend"
+            },
+            "p20": {
+              "status": "nicht_beobachtet"
+            }
+          }
+        },
+        {
+          "id": "s10",
+          "date": "2026-09-09",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-10T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p4": {
+              "status": "abwesend"
+            },
+            "p5": {
+              "status": "nicht_beobachtet"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p11": {
+              "status": "abwesend"
+            },
+            "p12": {
+              "status": "nicht_beobachtet"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p18": {
+              "status": "abwesend"
+            },
+            "p19": {
+              "status": "nicht_beobachtet"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "--"
+            }
+          }
+        },
+        {
+          "id": "s11",
+          "date": "2026-09-10",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-11T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p3": {
+              "status": "abwesend"
+            },
+            "p4": {
+              "status": "nicht_beobachtet"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p10": {
+              "status": "abwesend"
+            },
+            "p11": {
+              "status": "nicht_beobachtet"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p17": {
+              "status": "abwesend"
+            },
+            "p18": {
+              "status": "nicht_beobachtet"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "-"
+            }
+          }
+        },
+        {
+          "id": "s12",
+          "date": "2026-09-11",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-12T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p2": {
+              "status": "abwesend"
+            },
+            "p3": {
+              "status": "nicht_beobachtet"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p9": {
+              "status": "abwesend"
+            },
+            "p10": {
+              "status": "nicht_beobachtet"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p16": {
+              "status": "abwesend"
+            },
+            "p17": {
+              "status": "nicht_beobachtet"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "0"
+            }
+          }
+        },
+        {
+          "id": "s13",
+          "date": "2026-09-12",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-13T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "abwesend"
+            },
+            "p2": {
+              "status": "nicht_beobachtet"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p8": {
+              "status": "abwesend"
+            },
+            "p9": {
+              "status": "nicht_beobachtet"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p15": {
+              "status": "abwesend"
+            },
+            "p16": {
+              "status": "nicht_beobachtet"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "+"
+            }
+          }
+        },
+        {
+          "id": "s14",
+          "date": "2026-09-13",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-14T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "nicht_beobachtet"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p7": {
+              "status": "abwesend"
+            },
+            "p8": {
+              "status": "nicht_beobachtet"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p14": {
+              "status": "abwesend"
+            },
+            "p15": {
+              "status": "nicht_beobachtet"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "++"
+            }
+          }
+        },
+        {
+          "id": "s15",
+          "date": "2026-09-14",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-15T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p6": {
+              "status": "abwesend"
+            },
+            "p7": {
+              "status": "nicht_beobachtet"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p13": {
+              "status": "abwesend"
+            },
+            "p14": {
+              "status": "nicht_beobachtet"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p20": {
+              "status": "abwesend"
+            }
+          }
+        },
+        {
+          "id": "s16",
+          "date": "2026-09-15",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-16T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p5": {
+              "status": "abwesend"
+            },
+            "p6": {
+              "status": "nicht_beobachtet"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p12": {
+              "status": "abwesend"
+            },
+            "p13": {
+              "status": "nicht_beobachtet"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p19": {
+              "status": "abwesend"
+            },
+            "p20": {
+              "status": "nicht_beobachtet"
+            }
+          }
+        },
+        {
+          "id": "s17",
+          "date": "2026-09-16",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-17T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p4": {
+              "status": "abwesend"
+            },
+            "p5": {
+              "status": "nicht_beobachtet"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p11": {
+              "status": "abwesend"
+            },
+            "p12": {
+              "status": "nicht_beobachtet"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p18": {
+              "status": "abwesend"
+            },
+            "p19": {
+              "status": "nicht_beobachtet"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "--"
+            }
+          }
+        },
+        {
+          "id": "s18",
+          "date": "2026-09-17",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-18T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p3": {
+              "status": "abwesend"
+            },
+            "p4": {
+              "status": "nicht_beobachtet"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p10": {
+              "status": "abwesend"
+            },
+            "p11": {
+              "status": "nicht_beobachtet"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p17": {
+              "status": "abwesend"
+            },
+            "p18": {
+              "status": "nicht_beobachtet"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "-"
+            }
+          }
+        },
+        {
+          "id": "s19",
+          "date": "2026-09-18",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-19T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p2": {
+              "status": "abwesend"
+            },
+            "p3": {
+              "status": "nicht_beobachtet"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p9": {
+              "status": "abwesend"
+            },
+            "p10": {
+              "status": "nicht_beobachtet"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p16": {
+              "status": "abwesend"
+            },
+            "p17": {
+              "status": "nicht_beobachtet"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "0"
+            }
+          }
+        },
+        {
+          "id": "s20",
+          "date": "2026-09-19",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-20T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "abwesend"
+            },
+            "p2": {
+              "status": "nicht_beobachtet"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p8": {
+              "status": "abwesend"
+            },
+            "p9": {
+              "status": "nicht_beobachtet"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p15": {
+              "status": "abwesend"
+            },
+            "p16": {
+              "status": "nicht_beobachtet"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "+"
+            }
+          }
+        },
+        {
+          "id": "s21",
+          "date": "2026-09-20",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-21T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "nicht_beobachtet"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p7": {
+              "status": "abwesend"
+            },
+            "p8": {
+              "status": "nicht_beobachtet"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p14": {
+              "status": "abwesend"
+            },
+            "p15": {
+              "status": "nicht_beobachtet"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "++"
+            }
+          }
+        },
+        {
+          "id": "s22",
+          "date": "2026-09-21",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-22T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p5": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p6": {
+              "status": "abwesend"
+            },
+            "p7": {
+              "status": "nicht_beobachtet"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p12": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p13": {
+              "status": "abwesend"
+            },
+            "p14": {
+              "status": "nicht_beobachtet"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p19": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p20": {
+              "status": "abwesend"
+            }
+          }
+        },
+        {
+          "id": "s23",
+          "date": "2026-09-22",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-23T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p4": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p5": {
+              "status": "abwesend"
+            },
+            "p6": {
+              "status": "nicht_beobachtet"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p11": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p12": {
+              "status": "abwesend"
+            },
+            "p13": {
+              "status": "nicht_beobachtet"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p18": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p19": {
+              "status": "abwesend"
+            },
+            "p20": {
+              "status": "nicht_beobachtet"
+            }
+          }
+        },
+        {
+          "id": "s24",
+          "date": "2026-09-23",
+          "lessonSequence": 1,
+          "createdAt": "2026-09-24T10:00:00.000Z",
+          "updatedAt": "2026-10-18T10:00:00.000Z",
+          "observations": {
+            "p1": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p2": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p3": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p4": {
+              "status": "abwesend"
+            },
+            "p5": {
+              "status": "nicht_beobachtet"
+            },
+            "p6": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p7": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p8": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p9": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p10": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p11": {
+              "status": "abwesend"
+            },
+            "p12": {
+              "status": "nicht_beobachtet"
+            },
+            "p13": {
+              "status": "bewertet",
+              "symbol": "--"
+            },
+            "p14": {
+              "status": "bewertet",
+              "symbol": "-"
+            },
+            "p15": {
+              "status": "bewertet",
+              "symbol": "0"
+            },
+            "p16": {
+              "status": "bewertet",
+              "symbol": "+"
+            },
+            "p17": {
+              "status": "bewertet",
+              "symbol": "++"
+            },
+            "p18": {
+              "status": "abwesend"
+            },
+            "p19": {
+              "status": "nicht_beobachtet"
+            },
+            "p20": {
+              "status": "bewertet",
+              "symbol": "--"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

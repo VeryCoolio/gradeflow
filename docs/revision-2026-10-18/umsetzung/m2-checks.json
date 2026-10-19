@@ -1,0 +1,27 @@
+[
+  {
+    "check": "test",
+    "exit": 0,
+    "note": "108 Tests im bereits ausgef\u00fchrten M2-Lauf; danach nur Formatierung und Entfernung eines unbenutzten Typimports."
+  },
+  {
+    "check": "typecheck",
+    "exit": 0,
+    "seconds": 2.963
+  },
+  {
+    "check": "lint",
+    "exit": 0,
+    "seconds": 2.447
+  },
+  {
+    "check": "format",
+    "exit": 0,
+    "seconds": 1.431
+  },
+  {
+    "check": "build",
+    "exit": 0,
+    "seconds": 8.258
+  }
+]

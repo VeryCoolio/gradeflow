@@ -1,0 +1,262 @@
+{
+  "protectedFiles": [
+    {
+      "path": "app/scripts/verify-redesign.mjs",
+      "unchanged": true
+    },
+    {
+      "path": "app/src/main.ts",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/animation-25.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/animation-75.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/animation-statisch.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/anlegen-schrift-200.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/entwuerfe/base.css",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/entwuerfe/direction-a.css",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/entwuerfe/direction-a.html",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/entwuerfe/variant-b.css",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/entwuerfe/variant-b.html",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/entwurf-a.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/entwurf-b.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/fehler-dritte-stunde.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/hilfe-schrift-200.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/inhaltvergleich.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/leer.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/nachher-bewertung-320.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/nachher-bewertung-breit.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/nachher-bewertung-desktop.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/nachher-bewertung-mobil.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/nachher-bewertung-tablet.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/nachher-hilfe.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/nachher-import.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/nachher-sicherung.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/nachher-tabelle-mobil.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/nachher-tabelle.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/nachher-uebersicht.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/nachher-verlauf.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/pruefergebnisse.txt",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/schrift-200.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/stunde-abgeschlossen.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/stunde-offen.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/tabelle-schrift-200.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/tastaturfokus.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/vorher-bewertung-desktop.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visual-redesign/vorher-bewertung-mobil.jpg",
+      "unchanged": true
+    },
+    {
+      "path": "docs/visuelles-redesign.md",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/index.html",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/package.json",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/public/account-deletion.html",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/public/apple-touch-icon.svg",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/public/impressum.html",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/public/legal-index.html",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/public/manifest.webmanifest",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/public/masked-icon.svg",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/public/privacy-policy.html",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/public/pwa-192x192.png",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/public/pwa-512x512.png",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/public/pwa-maskable-512x512.png",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/src/App.jsx",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/src/GradeChartPanel.jsx",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/src/cloudSync.js",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/src/main.jsx",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/src/supabaseClient.js",
+      "unchanged": true
+    },
+    {
+      "path": "legacy-source/vite.config.js",
+      "unchanged": true
+    },
+    {
+      "path": "reference/screenshots/01-gesamtansicht.png",
+      "unchanged": true
+    },
+    {
+      "path": "reference/screenshots/02-bewertungskarte.png",
+      "unchanged": true
+    },
+    {
+      "path": "reference/screenshots/03-import-cloud.png",
+      "unchanged": true
+    },
+    {
+      "path": "reference/screenshots/04-notentabelle.png",
+      "unchanged": true
+    },
+    {
+      "path": "reference/screenshots/05-verlauf.png",
+      "unchanged": true
+    },
+    {
+      "path": "reference/screenshots/06-verlauf-note-eins.png",
+      "unchanged": true
+    },
+    {
+      "path": "reference/screenshots/07-zwischenstand.png",
+      "unchanged": true
+    },
+    {
+      "path": "reference/technische-projektausarbeitung-alt.md",
+      "unchanged": true
+    }
+  ],
+  "frozenTag": "0556967fbbfa0e51954507f5cd141b17b2d08740",
+  "legacyReferenceGitDiff": ""
+}

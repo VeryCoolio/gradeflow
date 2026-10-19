@@ -54,3 +54,22 @@ describe("gemeinsamer Klassenbericht", () => {
     ).toEqual([10, 11, 10]);
   });
 });
+
+it("liefert den Bezugsstand auch für offene, abwesende und nicht beobachtete Stunden", () => {
+  const report = buildClassReport(reportClass());
+  expect(
+    report.students[0].cells.map((cell) => cell.before.gradeQuarterSteps),
+  ).toEqual([8, 6, 7]);
+  expect(
+    report.students[1].cells.map((cell) => cell.before.gradeQuarterSteps),
+  ).toEqual([8, 8, 8]);
+  expect(report.lessons.get("s1")).toEqual({
+    label: "23.09.2026 · 1. Stunde",
+    showSequence: true,
+  });
+  expect(report.lessons.get("s2")).toEqual({
+    label: "23.09.2026 · 2. Stunde",
+    showSequence: true,
+  });
+  expect(report.lessons.get("s3")?.showSequence).toBe(false);
+});

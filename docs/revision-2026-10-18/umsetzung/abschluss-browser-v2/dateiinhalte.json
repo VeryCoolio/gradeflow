@@ -1,0 +1,29 @@
+[
+  {
+    "name": "CSV XLSX Inhalte 390",
+    "csv_rows": 81,
+    "sheets": 21,
+    "formula_cells": 0,
+    "numbers_dates_typed": true,
+    "current_grades_independently_checked": 20,
+    "technical_ids_absent": true
+  },
+  {
+    "name": "CSV XLSX Inhalte 768",
+    "csv_rows": 81,
+    "sheets": 21,
+    "formula_cells": 0,
+    "numbers_dates_typed": true,
+    "current_grades_independently_checked": 20,
+    "technical_ids_absent": true
+  },
+  {
+    "name": "CSV XLSX Inhalte 1440",
+    "csv_rows": 81,
+    "sheets": 21,
+    "formula_cells": 0,
+    "numbers_dates_typed": true,
+    "current_grades_independently_checked": 20,
+    "technical_ids_absent": true
+  }
+]

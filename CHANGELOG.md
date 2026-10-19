@@ -2,6 +2,16 @@
 
 Der Git-Verlauf beginnt mit dem Projektstand nach Meilenstein 2. Frühere Arbeitsschritte sind im [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) festgehalten; dafür werden keine rückdatierten Commits erzeugt.
 
+## 0.7.0 – 18.10.2026
+
+- Bewertung mit haftendem Personen-/Stundenkontext, unmittelbarer Rückmeldung, gezieltem erneuten Speichern und mobiler Personenwahl; zwei Tab-Schritte bis zum ersten Symbol.
+- Kompakte Hauptnavigation, native Klassenwahl und getrennt gespeicherte Arbeitsposition mit Browser-Zurück und Erhalt älterer Stunden nach Neuladen.
+- Ein schreibender Tab, live aktualisierte Zweitansichten und sichtbare Eingabesperren verhindern das belegte Überschreiben durch veraltete Ansichten.
+- Verständlicher Start bei verweigertem Speicherzugriff; sichere Verwendung fremder IDs; JSON-Grenze vor dem Lesen; XLSX-Ressourcenprüfung und terminierbarer Import-Worker.
+- Eigene Komponenten für Bewertung, Klassenverwaltung und Sicherung; gemeinsame Berichtsbeschriftungen unabhängig von React; Stundenindex statt wiederholter Gesamtprüfung.
+- Stundenliste mit 20 Einträgen pro Seite und Datumssuche; benannter Tastaturzugang zur Verlaufstabelle. Berechnung und Exporte bleiben vollständig.
+- Keine neuen Produktionsabhängigkeiten, Fachregeln oder Cloud-Dienste. Historischer Teststand v0.5.0 unverändert. Prüfung und Grenzen im Revisionsabschluss.
+
 ## 0.6.1 – 10.10.2026
 
 - Ruhigere Bewertungsfarben, größere getrennte Ergebnishinweise, sekundäre Pufferangabe und kompakter Status; doppelte Symbolerklärung entfernt.

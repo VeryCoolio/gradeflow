@@ -1,3 +1,11 @@
+import { AppNavigation } from "./components/AppNavigation";
+import { AssessmentWorkspace } from "./features/assessment/AssessmentWorkspace";
+import { ClassWorkspace } from "./features/classes/ClassWorkspace";
+import { BackupPanel } from "./features/backup/BackupPanel";
+import {
+  downloadText,
+  fileName,
+} from "./infrastructure/importExport/browserDownloads";
 import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
 import {
   addClass,
@@ -8,33 +16,23 @@ import {
   updateClassDetails,
 } from "./application/classService";
 import { addDemoClass } from "./application/demoClass";
-import { formatGradeDecimal } from "./domain/grading/gradeFormat";
-import { RATING_SYMBOLS, type Observation } from "./domain/grading/types";
-import {
-  compareLessonSessions,
-  hasVisibleLessonSequence,
-} from "./domain/sessions/lessonSequence";
+import { type Observation } from "./domain/grading/types";
 import { buildClassReport } from "./application/reporting";
 import type { LessonSession } from "./domain/sessions/types";
-import { StudentHistory } from "./features/history/StudentHistory";
-import {
-  observationLabel,
-  observationShortLabel,
-  sessionLabel,
-  sessionAssessmentSummary,
-} from "./features/presentation";
-import { ClassTable } from "./features/table/ClassTable";
+import { observationShortLabel } from "./application/observationPresentation";
 import { ClassCreation } from "./features/classes/ClassCreation";
-import { RatingGuide, RATING_GUIDE } from "./features/assessment/RatingGuide";
-import { applyRating } from "./domain/grading/gradingEngine";
-import { schoolYearLabel } from "./application/schoolYear";
+import { RatingGuide } from "./features/assessment/RatingGuide";
 import { exportClassCsv } from "./infrastructure/importExport/csvExport";
-import {
-  exportNotebookJson,
-  importNotebookJson,
-} from "./infrastructure/importExport/jsonBackup";
-import { LocalRepository } from "./infrastructure/local/localRepository";
-import type { ClassRecord, NotebookV1 } from "./infrastructure/local/schema";
+import type {
+  LocalRepository,
+  StoragePort,
+} from "./infrastructure/local/localRepository";
+import { useNotebook } from "./features/useNotebook";
+import { useWorkspace } from "./features/useWorkspace";
+import { browserStorage } from "./infrastructure/local/browserStorage";
+import type { Page, ClassView } from "./infrastructure/local/workspacePosition";
+import { observationFor } from "./domain/sessions/observations";
+import type { NotebookV1 } from "./infrastructure/local/schema";
 
 function localToday(): string {
   const date = new Date();
@@ -47,44 +45,9 @@ function messageFrom(error: unknown): string {
     : "Ein unbekannter Fehler ist aufgetreten.";
 }
 
-function downloadText(
-  filename: string,
-  contents: string | Uint8Array<ArrayBuffer>,
-  mime: string,
-): void {
-  const url = URL.createObjectURL(new Blob([contents], { type: mime }));
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = filename;
-  link.click();
-  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-}
-
-function fileName(value: string): string {
-  return (
-    value
-      .trim()
-      .replace(/[^\p{L}\p{N}-]+/gu, "_")
-      .replace(/^_+|_+$/g, "") || "klasse"
-  );
-}
-
-function firstIncompleteSession(
-  classRecord: ClassRecord,
-): LessonSession | undefined {
-  return [...classRecord.sessions]
-    .filter(
-      (session) =>
-        Object.keys(session.observations).length < classRecord.students.length,
-    )
-    .sort(
-      (a, b) =>
-        b.createdAt.localeCompare(a.createdAt) || b.id.localeCompare(a.id),
-    )[0];
-}
-
 interface AppProps {
   repository?: LocalRepository;
+  workspaceStorage?: StoragePort;
   createId?: () => string;
   today?: () => string;
   now?: () => string;
@@ -98,87 +61,62 @@ interface AppProps {
 
 export function App({
   repository,
+  workspaceStorage,
   createId = () => crypto.randomUUID(),
   today = localToday,
   now = () => new Date().toISOString(),
   confirmDiscard = (message) => window.confirm(message),
   download = downloadText,
 }: AppProps) {
-  const localRepository = useMemo(
-    () => repository ?? new LocalRepository(window.localStorage),
-    [repository],
+  const {
+    repository: localRepository,
+    notebook,
+    setNotebook,
+    error,
+    setError,
+    access,
+    canWrite,
+    requestAccess,
+  } = useNotebook(repository);
+  const {
+    position,
+    warning: workspaceWarning,
+    change: changeWorkspace,
+  } = useWorkspace(
+    notebook,
+    workspaceStorage ?? (repository ? undefined : browserStorage),
+    canWrite,
   );
-  const [loadResult] = useState(() => {
-    try {
-      return { notebook: localRepository.load(), error: "" };
-    } catch (error) {
-      return { notebook: null, error: messageFrom(error) };
-    }
-  });
-  const [notebook, setNotebook] = useState<NotebookV1 | null>(
-    loadResult.notebook,
-  );
-  const [error, setError] = useState(loadResult.error);
+  const {
+    page,
+    classId,
+    view: dashboardView,
+    sessionId: activeSessionId,
+    studentId: selectedStudentId,
+    historyStudentId,
+  } = position;
+  const setPage = (page: Page) => changeWorkspace({ page });
+  const setDashboardView = (view: ClassView) => changeWorkspace({ view });
+  const setActiveSessionId = (sessionId: string | null) =>
+    changeWorkspace({ sessionId });
+  const setSelectedStudentId = (studentId: string | null) =>
+    changeWorkspace({ studentId });
+  const setHistoryStudentId = (historyStudentId: string | null) =>
+    changeWorkspace({ historyStudentId });
   const [notice, setNotice] = useState("");
   const [lastSwap, setLastSwap] = useState<{
     classId: string;
     date: string;
   } | null>(null);
-  const [page, setPage] = useState<
-    "klasse" | "anlegen" | "sicherung" | "hilfe"
-  >("klasse");
   const [exporting, setExporting] = useState(false);
-  const [backupFile, setBackupFile] = useState<File | null>(null);
-  const [recoveryFile, setRecoveryFile] = useState<File | null>(null);
-  const [hasPreImportBackup, setHasPreImportBackup] = useState(() => {
-    try {
-      return localRepository.readPreImportBackup() !== null;
-    } catch {
-      return false;
-    }
-  });
-  const [hasClassDeletionBackup, setHasClassDeletionBackup] = useState(() => {
-    try {
-      return localRepository.readClassDeletionBackup() !== null;
-    } catch {
-      return false;
-    }
-  });
-  const [hasMigrationBackup] = useState(() => {
-    try {
-      return localRepository.readMigrationBackup() !== null;
-    } catch {
-      return false;
-    }
-  });
-  const [dashboardView, setDashboardView] = useState<
-    "stunden" | "tabelle" | "verlauf" | "personen" | "einstellungen"
-  >("stunden");
-  const [historyStudentId, setHistoryStudentId] = useState<string | null>(null);
   const [lessonDate, setLessonDate] = useState(today);
-  const [activeSessionId, setActiveSessionId] = useState<string | null>(() => {
-    const selected = loadResult.notebook?.classes.find(
-      (item) => item.id === loadResult.notebook?.currentClassId,
-    );
-    return selected && !selected.archived
-      ? (firstIncompleteSession(selected)?.id ?? null)
-      : null;
-  });
-  const [selectedStudentId, setSelectedStudentId] = useState<string | null>(
-    null,
-  );
-  const [editingDetails, setEditingDetails] = useState(false);
-  const [detailName, setDetailName] = useState("");
-  const [detailPeriod, setDetailPeriod] = useState("");
-  const [editingStudentId, setEditingStudentId] = useState<string | null>(null);
-  const [studentName, setStudentName] = useState("");
   const startingRef = useRef(false);
-  const completionRef = useRef<HTMLButtonElement>(null);
-  const swapButtonRef = useRef<HTMLButtonElement>(null);
+  const [failedObservation, setFailedObservation] = useState<{
+    studentId: string;
+    observation: Observation;
+  } | null>(null);
 
-  const currentClass = notebook?.classes.find(
-    (item) => item.id === notebook.currentClassId,
-  );
+  const currentClass = notebook?.classes.find((item) => item.id === classId);
   const activeSession = currentClass?.sessions.find(
     (item) => item.id === activeSessionId,
   );
@@ -187,11 +125,8 @@ export function App({
     main?.focus({ preventScroll: true });
     window.scrollTo({ top: 0 });
   }, [page, dashboardView, currentClass?.id, activeSessionId]);
-  useEffect(() => {
-    if (lastSwap?.classId === currentClass?.id) swapButtonRef.current?.focus();
-  }, [lastSwap, currentClass?.id]);
   const firstOpenStudent = currentClass?.students.find(
-    (student) => activeSession && !activeSession.observations[student.id],
+    (student) => activeSession && !observationFor(activeSession, student.id),
   );
   const selectedStudent =
     currentClass?.students.find(
@@ -199,45 +134,38 @@ export function App({
     ) ??
     firstOpenStudent ??
     currentClass?.students[0];
-  const capturedCount = activeSession
-    ? Object.keys(activeSession.observations).length
-    : 0;
-  useEffect(() => {
-    if (
-      activeSessionId &&
-      capturedCount === currentClass?.students.length &&
-      !error
-    ) {
-      completionRef.current?.focus();
-      completionRef.current?.scrollIntoView?.({ block: "center" });
-    }
-  }, [activeSessionId, capturedCount, currentClass?.students.length, error]);
-  const report = currentClass ? buildClassReport(currentClass) : null;
-  const currentGrade = report?.students.find(
-    (student) => student.student.id === selectedStudent?.id,
-  )?.current;
+  const report = useMemo(
+    () => (currentClass ? buildClassReport(currentClass) : null),
+    [currentClass],
+  );
+  const gradeBeforeLesson = report?.students
+    .find((row) => row.student.id === selectedStudent?.id)
+    ?.cells.find((cell) => cell.session.id === activeSessionId)?.before ?? {
+    gradeQuarterSteps: 8,
+    bufferPoints: 0,
+  };
 
-  const gradeBeforeLesson =
-    currentClass && activeSession
-      ? (buildClassReport({
-          ...currentClass,
-          sessions: currentClass.sessions.filter(
-            (session) => compareLessonSessions(session, activeSession) < 0,
-          ),
-        }).students.find(
-          (student) => student.student.id === selectedStudent?.id,
-        )?.current ?? { gradeQuarterSteps: 8, bufferPoints: 0 })
-      : { gradeQuarterSteps: 8, bufferPoints: 0 };
-
+  const lastError = useRef("");
   function apply(action: () => NotebookV1, success: string): NotebookV1 | null {
     try {
       const updated = action();
       setNotebook(updated);
+      if (
+        updated.classes.length > (notebook?.classes.length ?? 0) ||
+        !updated.classes.some((c) => c.id === classId)
+      ) {
+        changeWorkspace({
+          classId: updated.currentClassId,
+          sessionId: null,
+          studentId: null,
+        });
+      }
       setError("");
       setNotice(success);
       return updated;
     } catch (caught) {
-      setError(messageFrom(caught));
+      lastError.current = messageFrom(caught);
+      setError(lastError.current);
       setNotice("");
       return null;
     }
@@ -250,14 +178,14 @@ export function App({
   ): boolean {
     if (!notebook) return false;
     const saved = apply(() => {
-      const updated = addClass(
-        notebook,
-        { name, periodLabel, students: names },
-        createId,
-        now(),
+      return localRepository.update((current) =>
+        addClass(
+          current,
+          { name, periodLabel, students: names },
+          createId,
+          now(),
+        ),
       );
-      localRepository.save(updated);
-      return updated;
     }, `Klasse mit ${names.length} Personen angelegt und lokal gespeichert.`);
     if (!saved) return false;
     setPage("klasse");
@@ -272,9 +200,9 @@ export function App({
     if (!notebook) return;
     if (
       apply(() => {
-        const updated = addDemoClass(notebook, createId, now());
-        localRepository.save(updated);
-        return updated;
+        return localRepository.update((current) =>
+          addDemoClass(current, createId, now()),
+        );
       }, "Demo-Klasse mit ausschließlich fiktiven Namen lokal angelegt.")
     ) {
       setActiveSessionId(null);
@@ -287,22 +215,13 @@ export function App({
 
   function chooseClass(classId: string) {
     if (!notebook) return;
-    const updated = selectClass(notebook, classId);
-    if (
-      apply(() => {
-        localRepository.save(updated);
-        return updated;
-      }, "Klasse ausgewählt.")
-    ) {
-      const selected = updated.classes.find((item) => item.id === classId)!;
-      setActiveSessionId(
-        selected.archived
-          ? null
-          : (firstIncompleteSession(selected)?.id ?? null),
-      );
+    const updated = apply(
+      () => selectClass(localRepository.load(), classId),
+      "Klasse ausgewählt.",
+    );
+    if (updated) {
+      changeWorkspace({ classId, sessionId: null });
       setSelectedStudentId(null);
-      setEditingDetails(false);
-      setEditingStudentId(null);
       setDashboardView("stunden");
       setHistoryStudentId(null);
       setPage("klasse");
@@ -310,47 +229,26 @@ export function App({
     }
   }
 
-  function saveDetails(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!notebook || !currentClass) return;
-    if (
-      apply(() => {
-        const updated = updateClassDetails(
-          notebook,
-          currentClass.id,
-          detailName,
-          detailPeriod,
-          now(),
-        );
-        localRepository.save(updated);
-        return updated;
-      }, "Klasse und Bewertungszeitraum gespeichert.")
-    ) {
-      setEditingDetails(false);
-    }
+  function saveDetails(name: string, period: string): boolean {
+    if (!currentClass) return false;
+    return !!apply(
+      () =>
+        localRepository.update((current) =>
+          updateClassDetails(current, currentClass.id, name, period, now()),
+        ),
+      "Klasse und Bewertungszeitraum gespeichert.",
+    );
   }
-
-  function saveStudentName(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!notebook || !currentClass || !editingStudentId) return;
-    if (
-      apply(() => {
-        const updated = renameStudent(
-          notebook,
-          currentClass.id,
-          editingStudentId,
-          studentName,
-          now(),
-        );
-        localRepository.save(updated);
-        return updated;
-      }, "Personenname lokal gespeichert.")
-    ) {
-      setEditingStudentId(null);
-      setStudentName("");
-    }
+  function saveStudentName(studentId: string, name: string): boolean {
+    if (!currentClass) return false;
+    return !!apply(
+      () =>
+        localRepository.update((current) =>
+          renameStudent(current, currentClass.id, studentId, name, now()),
+        ),
+      "Personenname lokal gespeichert.",
+    );
   }
-
   function deleteCurrentClass() {
     if (!notebook || !currentClass) return;
     if (
@@ -362,35 +260,13 @@ export function App({
     const classId = currentClass.id;
     if (
       apply(() => {
-        const updated = removeClass(notebook, classId);
+        const updated = removeClass(localRepository.load(), classId);
         localRepository.saveAfterClassDeletion(classId, updated);
         return updated;
       }, "Klasse gelöscht. Der vorherige Stand kann lokal wiederhergestellt werden.")
     ) {
-      setHasClassDeletionBackup(true);
       setActiveSessionId(null);
       setSelectedStudentId(null);
-      setEditingStudentId(null);
-      setDashboardView("stunden");
-    }
-  }
-
-  function restoreDeletedClass() {
-    if (
-      !confirmDiscard(
-        "Den Stand vor der letzten Klassenlöschung wiederherstellen? Alle seitdem vorgenommenen Änderungen werden ersetzt.",
-      )
-    )
-      return;
-    if (
-      apply(
-        () => localRepository.restoreClassDeletionBackup(true),
-        "Stand vor der Klassenlöschung wiederhergestellt.",
-      )
-    ) {
-      setActiveSessionId(null);
-      setSelectedStudentId(null);
-      setEditingStudentId(null);
       setDashboardView("stunden");
     }
   }
@@ -408,14 +284,9 @@ export function App({
     if (
       apply(
         () => {
-          const updated = setClassArchived(
-            notebook,
-            currentClass.id,
-            archived,
-            now(),
+          return localRepository.update((current) =>
+            setClassArchived(current, currentClass.id, archived, now()),
           );
-          localRepository.save(updated);
-          return updated;
         },
         archived
           ? "Bewertungszeitraum archiviert."
@@ -449,34 +320,53 @@ export function App({
     }
   }
 
-  function recordObservation(observation: Observation, clickCount: number) {
+  function recordObservation(
+    observation: Observation,
+    clickCount: number,
+    student = selectedStudent,
+  ) {
     if (clickCount > 1) return;
-    if (!currentClass || !activeSession || !selectedStudent) return;
+    if (!currentClass || !activeSession || !student) return;
     const updated = apply(
       () =>
         localRepository.saveObservation(
           currentClass.id,
           activeSession.id,
-          selectedStudent.id,
+          student.id,
           observation,
         ),
-      `${selectedStudent.displayName}: lokal gespeichert.`,
+      `${student.displayName}: ${observationShortLabel(observation)} lokal gespeichert.`,
     );
-    if (!updated) return;
+    if (!updated) {
+      setFailedObservation({ studentId: student.id, observation });
+      setError(
+        `Die Eingabe für ${student.displayName} wurde nicht gespeichert. ${lastError.current}`,
+      );
+      return;
+    }
+    setFailedObservation(null);
     const updatedSession = updated.classes
       .find((item) => item.id === currentClass.id)!
       .sessions.find((item) => item.id === activeSession.id)!;
     const next = currentClass.students.find(
-      (student) => !updatedSession.observations[student.id],
+      (student) => !observationFor(updatedSession, student.id),
     );
-    setSelectedStudentId(next?.id ?? selectedStudent.id);
+    setSelectedStudentId(next?.id ?? student.id);
     if (!next)
       setNotice(
         "Alle Personen sind erfasst. Die gesamte Stunde ist lokal gespeichert.",
       );
   }
 
+  function retryObservation() {
+    const student = currentClass?.students.find(
+      (person) => person.id === failedObservation?.studentId,
+    );
+    if (failedObservation && student)
+      recordObservation(failedObservation.observation, 1, student);
+  }
   function leaveSession(announceSaved = true) {
+    setFailedObservation(null);
     setActiveSessionId(null);
     setSelectedStudentId(null);
     startingRef.current = false;
@@ -499,7 +389,7 @@ export function App({
 
   function removeCurrentObservation() {
     if (!currentClass || !activeSession || !selectedStudent) return;
-    if (!activeSession.observations[selectedStudent.id]) return;
+    if (!observationFor(activeSession, selectedStudent.id)) return;
     if (
       !confirmDiscard(
         `Eintrag für ${selectedStudent.displayName} in dieser Stunde wirklich entfernen?`,
@@ -530,7 +420,7 @@ export function App({
     if (!currentClass) return;
     if (
       !confirmDiscard(
-        `${sessionLabel(session, currentClass.sessions)} samt aller Einträge wirklich löschen?`,
+        `${report!.lessons.get(session.id)!.label} samt aller Einträge wirklich löschen?`,
       )
     )
       return;
@@ -581,277 +471,118 @@ export function App({
     }
   }
 
-  function exportJson() {
-    if (!notebook) return;
-    try {
-      download(
-        "gradeflow-notebook-v1.json",
-        exportNotebookJson(notebook),
-        "application/json;charset=utf-8",
-      );
+  if (access === "waiting" && notebook) {
+    return (
+      <main className="load-error">
+        <h1>Mündliche Mitarbeit</h1>
+        <p role="status">Lokale Daten werden vorbereitet …</p>
+      </main>
+    );
+  }
+
+  const backupProps = {
+    repository: localRepository,
+    canWrite,
+    download,
+    confirm: confirmDiscard,
+    onRestored: (updated: NotebookV1, message: string) => {
+      setNotebook(updated);
+      changeWorkspace({
+        classId: updated.currentClassId,
+        sessionId: null,
+        studentId: null,
+        historyStudentId: null,
+        view: "stunden",
+        ...(!notebook ? { page: "klasse" as const } : {}),
+      });
       setError("");
-      setNotice("Vollständige JSON-Sicherung erstellt.");
-    } catch (caught) {
-      setError(messageFrom(caught));
-      setNotice("");
-    }
-  }
-
-  function exportMigrationBackup() {
-    try {
-      const backup = localRepository.readMigrationBackup();
-      if (!backup) throw new RangeError("Keine Migrationssicherung vorhanden.");
-      download(
-        "gradeflow-legacy-migrationssicherung.json",
-        `${JSON.stringify(backup, null, 2)}\n`,
-        "application/json;charset=utf-8",
-      );
+      setNotice(message);
+      setFailedObservation(null);
+    },
+    onNotice: (message: string) => {
       setError("");
-      setNotice("Originaldaten vor der Migration heruntergeladen.");
-    } catch (caught) {
-      setError(messageFrom(caught));
+      setNotice(message);
+    },
+    onError: (message: string) => {
+      setError(message);
       setNotice("");
-    }
-  }
-
-  function restoreLegacyKeys() {
-    if (
-      !confirmDiscard(
-        "Originale Legacy-Schlüssel in diesem Browser wiederherstellen? Das neue Notebook bleibt unverändert; der alte App-Ursprung muss derselbe sein.",
-      )
-    )
-      return;
-    try {
-      localRepository.restoreLegacyBackup();
-      setError("");
-      setNotice(
-        "Legacy-Schlüssel im selben Browser wiederhergestellt. Das neue Notebook bleibt erhalten.",
-      );
-    } catch (caught) {
-      setError(messageFrom(caught));
-      setNotice("");
-    }
-  }
-
-  async function importBackup(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = event.currentTarget;
-    if (!backupFile) {
-      setError("Bitte eine JSON-Sicherung auswählen.");
-      return;
-    }
-    try {
-      const raw = await backupFile.text();
-      const validated = importNotebookJson(raw);
-      if (
-        notebook?.classes.length &&
-        !confirmDiscard(
-          `Die Sicherung enthält ${validated.classes.length} Klassen. Sie ersetzt den aktuellen Datenstand mit ${notebook.classes.length} Klassen. Der bisherige Stand wird zuvor lokal als Rückfall gesichert. Wirklich fortfahren?`,
-        )
-      )
-        return;
-      const imported = apply(
-        () => localRepository.importNotebookBackup(raw, true),
-        "Sicherung importiert.",
-      );
-      if (imported) {
-        const hasFallback = localRepository.readPreImportBackup() !== null;
-        setHasPreImportBackup(hasFallback);
-        if (hasFallback)
-          setNotice(
-            "Sicherung importiert. Der vorherige Stand bleibt lokal als Rückfall erhalten.",
-          );
-        setBackupFile(null);
-        setActiveSessionId(null);
-        setSelectedStudentId(null);
-        setDashboardView("stunden");
-        setHistoryStudentId(null);
-        form.reset();
-      }
-    } catch (caught) {
-      setError(messageFrom(caught));
-      setNotice("");
-    }
-  }
-
-  function restorePreImportBackup() {
-    if (
-      !confirmDiscard(
-        "Den Datenstand vor dem letzten JSON-Import wiederherstellen? Der aktuell importierte Stand wird ersetzt.",
-      )
-    )
-      return;
-    if (
-      apply(
-        () => localRepository.restorePreImportBackup(true),
-        "Vorheriger Datenstand wiederhergestellt.",
-      )
-    ) {
-      setActiveSessionId(null);
-      setSelectedStudentId(null);
-      setDashboardView("stunden");
-      setHistoryStudentId(null);
-    }
-  }
-
-  function downloadUnreadableRaw() {
-    try {
-      const raw = localRepository.readRawNotebook();
-      if (raw === null)
-        throw new RangeError("Keine Notebook-Rohdaten vorhanden.");
-      download(
-        "gradeflow-unlesbare-rohdaten.json",
-        raw,
-        "application/json;charset=utf-8",
-      );
-      setNotice("Rohdaten heruntergeladen. Bewahre sie geschützt auf.");
-    } catch (caught) {
-      setError(messageFrom(caught));
-    }
-  }
-
-  async function recoverUnreadableNotebook(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!recoveryFile) {
-      setError("Bitte eine JSON-Sicherung auswählen.");
-      return;
-    }
-    try {
-      const raw = await recoveryFile.text();
-      importNotebookJson(raw);
-      if (
-        !confirmDiscard(
-          "Die lokale Datenbank ist nicht lesbar. Die ausgewählte JSON-Sicherung ersetzt sie. Vorhandene Rohdaten werden zuvor lokal gesichert. Wirklich fortfahren?",
-        )
-      )
-        return;
-      const imported = localRepository.recoverFromUnreadableNotebook(raw, true);
-      setNotebook(imported);
-      setError("");
-      setNotice("Daten aus der JSON-Sicherung wiederhergestellt.");
-      setRecoveryFile(null);
-      setActiveSessionId(null);
-      setSelectedStudentId(null);
-    } catch (caught) {
-      setError(messageFrom(caught));
-    }
-  }
-
+    },
+  };
   if (!notebook) {
     return (
       <main className="load-error">
         <h1>Mündliche Mitarbeit</h1>
         <p role="alert">{error}</p>
-        <p>
-          Die vorhandenen Daten wurden nicht verändert. Sichere bei Bedarf die
-          Rohdaten und wähle dann eine zuvor heruntergeladene JSON-Sicherung.
-        </p>
-        <button type="button" onClick={downloadUnreadableRaw}>
-          Vorhandene Notebook-Rohdaten herunterladen
-        </button>
-        {hasMigrationBackup ? (
-          <button type="button" onClick={exportMigrationBackup}>
-            Legacy-Migrationssicherung herunterladen
-          </button>
-        ) : null}
         {notice ? <p role="status">{notice}</p> : null}
-        <form onSubmit={recoverUnreadableNotebook}>
-          <label htmlFor="recovery-file">
-            JSON-Sicherung zur Wiederherstellung
-          </label>
-          <input
-            id="recovery-file"
-            type="file"
-            accept=".json,application/json"
-            onChange={(event) =>
-              setRecoveryFile(event.target.files?.[0] ?? null)
-            }
-            required
-          />
-          <button type="submit">Aus Sicherung wiederherstellen</button>
-        </form>
+        <BackupPanel {...backupProps} notebook={null} />
       </main>
     );
   }
 
   return (
     <div className="app-shell">
-      <a className="skip-link" href="#main-content">
+      <a
+        className="skip-link"
+        href="#main-content"
+        onClick={(event) => {
+          event.preventDefault();
+          document.getElementById("main-content")?.focus();
+        }}
+      >
         Zum Inhalt springen
       </a>
-      <header className="topbar">
-        <div>
-          <p className="eyebrow">Gradeflow · lokal</p>
-          <h1>Mündliche Mitarbeit</h1>
-        </div>
-        <p className="scope">
-          Dokumentation der gesamten Unterrichtsstunde. Keine mündlichen
-          Prüfungen, Referate oder Präsentationen.
-        </p>
-      </header>
+      <AppNavigation
+        page={page}
+        classes={notebook.classes}
+        classId={classId}
+        assessing={page === "klasse" && !!activeSession}
+        onClass={chooseClass}
+        onPage={(next) => {
+          changeWorkspace({
+            page: next,
+            ...(next === "klasse" ? { sessionId: null, studentId: null } : {}),
+          });
+          setError("");
+          setNotice("");
+          setFailedObservation(null);
+        }}
+      />
       <div className="layout">
-        <aside className="sidebar" aria-label="Hauptnavigation">
-          <p className="eyebrow">Arbeitsbereich</p>
-          <nav className="primary-nav" aria-label="Hauptseiten">
-            {(
-              [
-                ["klasse", "Meine Klassen"],
-                ["anlegen", "Klasse anlegen"],
-                ["sicherung", "Datensicherung"],
-                ["hilfe", "Bewertung verstehen"],
-              ] as const
-            ).map(([key, label]) => (
-              <button
-                key={key}
-                type="button"
-                aria-current={page === key ? "page" : undefined}
-                onClick={() => {
-                  setPage(key);
-                  setError("");
-                  setNotice("");
-                }}
-              >
-                {label}
-              </button>
-            ))}
-          </nav>
-          <section className="sidebar-classes">
-            <h2>Klassen</h2>
-            {!notebook.classes.length ? (
-              <p className="muted">Noch keine Klasse vorhanden.</p>
-            ) : null}
-            <div className="class-list">
-              {notebook.classes.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  aria-current={
-                    page === "klasse" && item.id === notebook.currentClassId
-                      ? "page"
-                      : undefined
-                  }
-                  onClick={() => chooseClass(item.id)}
-                >
-                  <strong>{item.name}</strong>
-                  <small>
-                    {item.periodLabel}
-                    {item.archived ? " · archiviert" : ""}
-                  </small>
-                </button>
-              ))}
-            </div>
-          </section>
-          <p className="local-hint">
-            Auf diesem Gerät gespeichert · ohne Cloud
-          </p>
-        </aside>
         <main className="content" id="main-content" tabIndex={-1}>
-          {error ? (
+          {!canWrite ? (
+            <aside
+              className="feedback readonly-notice"
+              aria-label="Nur zur Ansicht"
+            >
+              <strong>
+                {access === "readonly"
+                  ? "Dieser Tab ist zur Ansicht geöffnet."
+                  : "Bearbeitung ist in diesem Browser derzeit nicht verfügbar."}
+              </strong>
+              <p>
+                {access === "readonly"
+                  ? "Ein anderer Tab bearbeitet diese Daten. Neue Eingaben werden hier angezeigt. Schließe den anderen Tab, um hier weiterzuarbeiten."
+                  : "Der Browser konnte den Schutz vor gleichzeitigem Überschreiben nicht bereitstellen. Verwende einen aktuellen Browser im lokalen Betrieb. Deine Daten bleiben erhalten und können heruntergeladen werden."}
+              </p>
+              {access === "readonly" || access === "error" ? (
+                <button type="button" onClick={requestAccess}>
+                  Bearbeitung hier übernehmen
+                </button>
+              ) : null}
+            </aside>
+          ) : null}
+
+          {workspaceWarning ? (
+            <p className="feedback" role="status">
+              {workspaceWarning}
+            </p>
+          ) : null}
+          {error && !(page === "klasse" && activeSession) ? (
             <p className="feedback error" role="alert">
               {error}
             </p>
           ) : null}
-          {notice ? (
+          {notice && !(page === "klasse" && activeSession) ? (
             <p className="feedback success" role="status">
               {notice}
             </p>
@@ -859,6 +590,7 @@ export function App({
           {page === "anlegen" ? (
             <ClassCreation
               today={today()}
+              canWrite={canWrite}
               onCreate={createClass}
               onDemo={createDemoClass}
               onError={(message) => {
@@ -868,60 +600,7 @@ export function App({
             />
           ) : null}
           {page === "sicherung" ? (
-            <section className="card backup-panel">
-              <p className="eyebrow">
-                Alle Klassen sichern und wiederherstellen
-              </p>
-              <h2>Datensicherung</h2>
-              <p className="muted">
-                Die vollständige Sicherung enthält alle Klassen, Personen und
-                Stunden als JSON-Datei und kann hier wieder eingelesen werden.
-                Der Excel-Bericht einer Klasse ist über die Klassenübersicht
-                erreichbar und dient zum Lesen und Weiterverarbeiten. Bewahre
-                beide Dateien geschützt auf.
-              </p>
-              <button type="button" onClick={exportJson}>
-                Vollständige JSON-Sicherung herunterladen
-              </button>
-              <form onSubmit={importBackup}>
-                <label htmlFor="backup-file">JSON-Sicherung auswählen</label>
-                <input
-                  id="backup-file"
-                  type="file"
-                  accept=".json,application/json"
-                  onChange={(event) =>
-                    setBackupFile(event.target.files?.[0] ?? null)
-                  }
-                  required
-                />
-                <button type="submit">JSON-Sicherung importieren</button>
-              </form>
-              {hasPreImportBackup ? (
-                <button type="button" onClick={restorePreImportBackup}>
-                  Stand vor letztem Import wiederherstellen
-                </button>
-              ) : null}
-              {hasClassDeletionBackup ? (
-                <button type="button" onClick={restoreDeletedClass}>
-                  Stand vor letzter Klassenlöschung wiederherstellen
-                </button>
-              ) : null}
-              {hasMigrationBackup ? (
-                <div className="legacy-recovery">
-                  <p className="muted">
-                    Die unveränderten Daten vor der Legacy-Migration können
-                    gesichert oder im selben Browser wiederhergestellt werden.
-                    Das neue Notebook bleibt dabei erhalten.
-                  </p>
-                  <button type="button" onClick={exportMigrationBackup}>
-                    Legacy-Migrationssicherung herunterladen
-                  </button>
-                  <button type="button" onClick={restoreLegacyKeys}>
-                    Legacy-Schlüssel wiederherstellen
-                  </button>
-                </div>
-              ) : null}
-            </section>
+            <BackupPanel {...backupProps} notebook={notebook} />
           ) : null}
           {page === "hilfe" ? (
             <>
@@ -954,592 +633,75 @@ export function App({
                   Klasse anlegen
                 </button>
                 {notebook.classes.length === 0 ? (
-                  <button type="button" onClick={createDemoClass}>
+                  <button
+                    type="button"
+                    disabled={!canWrite}
+                    onClick={createDemoClass}
+                  >
                     Demo-Klasse mit fiktiven Namen anlegen
                   </button>
                 ) : null}
               </div>
             </section>
           ) : null}
-          {page === "klasse" && currentClass && !activeSession ? (
-            <>
-              <section className="card class-overview">
-                <div className="section-heading">
-                  <div>
-                    <p className="eyebrow">
-                      {currentClass.archived
-                        ? "Archiviert"
-                        : "Aktiver Bewertungszeitraum"}
-                    </p>
-                    <h2>{currentClass.name}</h2>
-                    <p>{currentClass.periodLabel}</p>
-                  </div>
-                  <span className="count-pill">
-                    {currentClass.students.length} Personen
-                  </span>
-                </div>
-                <div className="actions">
-                  <button
-                    className="primary"
-                    type="button"
-                    disabled={exporting}
-                    onClick={exportExcel}
-                  >
-                    {exporting
-                      ? "Excel wird erstellt …"
-                      : "Klasse als Excel exportieren"}
-                  </button>
-                  <button type="button" onClick={exportCsv}>
-                    Klasse als CSV exportieren
-                  </button>
-                </div>
-                <p className="muted">
-                  Der Zeitraum endet nur durch deine Archivierung. Kein
-                  automatischer Noten-Reset.
-                </p>
-              </section>
-              <nav className="view-tabs" aria-label="Klassenansichten">
-                {(
-                  [
-                    ["stunden", "Stunden"],
-                    ["tabelle", "Tabelle"],
-                    ["verlauf", "Verlauf"],
-                    ["personen", "Personen"],
-                    ["einstellungen", "Klasse bearbeiten"],
-                  ] as const
-                ).map(([key, label]) => (
-                  <button
-                    key={key}
-                    type="button"
-                    aria-current={dashboardView === key ? "page" : undefined}
-                    onClick={() => setDashboardView(key)}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </nav>
-              {dashboardView === "einstellungen" ? (
-                <section className="card">
-                  <h2>Klasse und Bewertungszeitraum</h2>{" "}
-                  {editingDetails ? (
-                    <form className="details-form" onSubmit={saveDetails}>
-                      <label htmlFor="detail-name">Klassenname</label>
-                      <input
-                        id="detail-name"
-                        value={detailName}
-                        onChange={(event) => setDetailName(event.target.value)}
-                        required
-                      />
-                      <label htmlFor="detail-period">Bewertungszeitraum</label>
-                      <input
-                        id="detail-period"
-                        value={detailPeriod}
-                        onChange={(event) =>
-                          setDetailPeriod(event.target.value)
-                        }
-                        required
-                      />
-                      <div className="actions">
-                        <button className="primary" type="submit">
-                          Änderungen speichern
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => setEditingDetails(false)}
-                        >
-                          Abbrechen
-                        </button>
-                      </div>
-                    </form>
-                  ) : (
-                    <div className="actions">
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setDetailName(currentClass.name);
-                          setDetailPeriod(currentClass.periodLabel);
-                          setEditingDetails(true);
-                        }}
-                      >
-                        Namen und Zeitraum bearbeiten
-                      </button>
-                      <button type="button" onClick={archiveClass}>
-                        {currentClass.archived
-                          ? "Zeitraum wieder öffnen"
-                          : "Zeitraum archivieren"}
-                      </button>
-
-                      <button type="button" onClick={deleteCurrentClass}>
-                        Klasse löschen
-                      </button>
-                    </div>
-                  )}
-                  <p className="muted">
-                    Der Zeitraum endet nur, wenn du ihn archivierst. Noten
-                    werden nicht automatisch zurückgesetzt.
-                  </p>
-                  <p className="muted">
-                    Der errechnete Stand unterstützt die Dokumentation. Die
-                    pädagogische Bewertung und eine Endnote entscheidet die
-                    Lehrkraft.
-                  </p>
-                  <div className="actions">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setDetailPeriod(schoolYearLabel(today()));
-                        setDetailName(currentClass.name);
-                        setEditingDetails(true);
-                      }}
-                    >
-                      Aktuelles Schuljahr als Bezeichnung
-                    </button>
-                  </div>
-                </section>
-              ) : null}
-              {dashboardView === "personen" ? (
-                <section className="card class-students">
-                  <h2>Personennamen bearbeiten</h2>
-                  <p className="muted">
-                    Namen lassen sich korrigieren; bisherige Stunden und
-                    Bewertungen bleiben erhalten.
-                  </p>
-                  <ul>
-                    {currentClass.students.map((student) => (
-                      <li key={student.id}>
-                        <span>{student.displayName}</span>
-                        <button
-                          type="button"
-                          aria-label={`Namen von ${student.displayName} bearbeiten`}
-                          onClick={() => {
-                            setEditingStudentId(student.id);
-                            setStudentName(student.displayName);
-                          }}
-                        >
-                          Namen bearbeiten
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                  {editingStudentId ? (
-                    <form
-                      onSubmit={saveStudentName}
-                      className="student-name-form"
-                    >
-                      <label htmlFor="student-name">Neuer Personenname</label>
-                      <input
-                        id="student-name"
-                        value={studentName}
-                        onChange={(event) => setStudentName(event.target.value)}
-                        required
-                      />
-                      <div className="actions">
-                        <button className="primary" type="submit">
-                          Namen speichern
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => setEditingStudentId(null)}
-                        >
-                          Abbrechen
-                        </button>
-                      </div>
-                    </form>
-                  ) : null}
-                </section>
-              ) : null}
-              {dashboardView === "stunden" ? (
-                <section className="scope-card">
-                  <h3>Mündliche Mitarbeit während der ganzen Stunde</h3>
-                  <p>
-                    Eine zusammenfassende Einschätzung pro Person, im Vergleich
-                    zum bisherigen Stand. Keine Einzelwortmeldungen, Prüfungen
-                    oder Referate.
-                  </p>
-                  <button type="button" onClick={() => setPage("hilfe")}>
-                    Symbole und Berechnung verstehen
-                  </button>
-                </section>
-              ) : null}
-              {dashboardView === "stunden" && !currentClass.archived ? (
-                <section className="card">
-                  <h2>Neue Unterrichtsstunde</h2>
-                  <form className="new-session" onSubmit={startSession}>
-                    <label htmlFor="lesson-date">Datum</label>
-                    <input
-                      id="lesson-date"
-                      type="date"
-                      value={lessonDate}
-                      onChange={(event) => setLessonDate(event.target.value)}
-                      required
-                    />
-                    <button className="primary" type="submit">
-                      Stunde beginnen
-                    </button>
-                  </form>
-                  <p className="muted">
-                    Pro Klasse und Datum sind höchstens zwei Stunden möglich.
-                  </p>
-                </section>
-              ) : null}
-
-              {dashboardView === "stunden" ? (
-                <section className="card">
-                  <h2>Unterrichtsstunden</h2>
-                  {currentClass.sessions.length ? (
-                    <p className="muted">
-                      Neueste Daten zuerst; am selben Datum die erste vor der
-                      zweiten Stunde. Die Zusammenfassung zeigt die Eingaben: AW
-                      = abwesend, NB = nicht beobachtet.
-                    </p>
-                  ) : null}
-                  {currentClass.sessions.length === 0 ? (
-                    <p className="muted">Noch keine Stunde angelegt.</p>
-                  ) : (
-                    <ul className="session-list">
-                      {[...currentClass.sessions]
-                        .sort(
-                          (a, b) =>
-                            b.date.localeCompare(a.date) ||
-                            compareLessonSessions(a, b),
-                        )
-                        .map((session) => {
-                          const complete =
-                            Object.keys(session.observations).length ===
-                            currentClass.students.length;
-                          return (
-                            <li key={session.id} data-session-id={session.id}>
-                              <span>
-                                <strong>
-                                  {sessionLabel(session, currentClass.sessions)}
-                                </strong>
-                                <small>
-                                  {Object.keys(session.observations).length} von{" "}
-                                  {currentClass.students.length} erfasst ·{" "}
-                                  {complete ? "vollständig" : "laufend"}
-                                </small>
-                                <small className="session-summary">
-                                  {sessionAssessmentSummary(session)}
-                                </small>
-                                <small className="session-excerpt">
-                                  Auszug:{" "}
-                                  {currentClass.students
-                                    .slice(0, 2)
-                                    .map(
-                                      (student) =>
-                                        `${student.displayName}: ${observationShortLabel(session.observations[student.id])}`,
-                                    )
-                                    .join(" · ")}
-                                </small>
-                                {session.lessonSequence === 1 &&
-                                hasVisibleLessonSequence(
-                                  currentClass.sessions,
-                                  session.date,
-                                ) &&
-                                lastSwap?.classId === currentClass.id &&
-                                lastSwap.date === session.date &&
-                                !error ? (
-                                  <small className="order-feedback">
-                                    Tausch gespeichert. Die bisherige zweite
-                                    Stunde steht jetzt zuerst.
-                                  </small>
-                                ) : null}
-                              </span>
-                              {!currentClass.archived ? (
-                                <div className="session-actions">
-                                  <button
-                                    type="button"
-                                    onClick={() => {
-                                      setActiveSessionId(session.id);
-                                      setSelectedStudentId(null);
-                                    }}
-                                  >
-                                    {complete ? "Bearbeiten" : "Fortsetzen"}
-                                  </button>
-                                  {session.lessonSequence === 1 &&
-                                  hasVisibleLessonSequence(
-                                    currentClass.sessions,
-                                    session.date,
-                                  ) ? (
-                                    <button
-                                      type="button"
-                                      onClick={() => swapSessions(session.date)}
-                                      ref={
-                                        lastSwap?.classId === currentClass.id &&
-                                        lastSwap.date === session.date
-                                          ? swapButtonRef
-                                          : undefined
-                                      }
-                                    >
-                                      Reihenfolge tauschen
-                                    </button>
-                                  ) : null}
-                                  <button
-                                    type="button"
-                                    onClick={() => deleteStoredSession(session)}
-                                  >
-                                    Stunde löschen
-                                  </button>
-                                </div>
-                              ) : null}
-                            </li>
-                          );
-                        })}
-                    </ul>
-                  )}
-                </section>
-              ) : null}
-              {dashboardView === "tabelle" && report ? (
-                <ClassTable report={report} />
-              ) : null}
-              {dashboardView === "verlauf" && report ? (
-                <StudentHistory
-                  report={report}
-                  studentId={
-                    historyStudentId ?? report.students[0]?.student.id ?? ""
-                  }
-                  onStudentChange={setHistoryStudentId}
-                />
-              ) : null}
-            </>
+          {page === "klasse" &&
+          currentClass &&
+          activeSession &&
+          selectedStudent ? (
+            <AssessmentWorkspace
+              group={currentClass}
+              session={activeSession}
+              student={selectedStudent}
+              before={gradeBeforeLesson}
+              label={report!.lessons.get(activeSession.id)!.label}
+              canWrite={canWrite}
+              error={error}
+              notice={notice}
+              canRetry={failedObservation !== null}
+              onRetry={retryObservation}
+              onSelect={setSelectedStudentId}
+              onRecord={recordObservation}
+              onLeave={() => leaveSession()}
+              onRemove={removeCurrentObservation}
+              onDiscard={discardSession}
+              onHelp={() => setPage("hilfe")}
+            />
           ) : null}
-          {page === "klasse" && currentClass && activeSession ? (
-            <>
-              <section className="card assessment-header">
-                <button
-                  className="text-button"
-                  type="button"
-                  onClick={() => leaveSession()}
-                >
-                  ← Zur Klasse
-                </button>
-                <p className="eyebrow">
-                  {currentClass.name} · Unterrichtsstunde
-                </p>
-                <h2>{sessionLabel(activeSession, currentClass.sessions)}</h2>
-                <p>
-                  Jede Auswahl wird sofort lokal gespeichert. Du kannst die
-                  Erfassung jederzeit unterbrechen.
-                </p>
-                <div className="progress-row">
-                  <strong aria-live="polite" aria-atomic="true">
-                    {capturedCount} von {currentClass.students.length} Personen
-                    erfasst
-                  </strong>
-                  <span>
-                    {capturedCount === currentClass.students.length
-                      ? "Vollständig"
-                      : "Laufende Erfassung"}
-                  </span>
-                </div>
-                <progress
-                  max={currentClass.students.length}
-                  value={capturedCount}
-                >
-                  {capturedCount} von {currentClass.students.length}
-                </progress>
-              </section>
-              {capturedCount === currentClass.students.length && !error ? (
-                <section className="card completion-panel">
-                  <p className="eyebrow">Stunde vollständig</p>
-                  <h2>Alle Eingaben sind lokal gespeichert</h2>
-                  <p>
-                    Alle {capturedCount} Personen sind erfasst. Du kannst zur
-                    Klassenübersicht zurückkehren oder unten einen Eintrag
-                    korrigieren.
-                  </p>
-                  <button
-                    className="primary"
-                    type="button"
-                    ref={completionRef}
-                    onClick={() => leaveSession()}
-                  >
-                    Zur Klassenübersicht
-                  </button>
-                </section>
-              ) : null}
-              <div className="assessment-layout">
-                <section className="card student-list">
-                  <h3>Personen</h3>
-                  {currentClass.students.map((student, index) => (
-                    <button
-                      key={student.id}
-                      type="button"
-                      className={
-                        student.id === selectedStudent?.id ? "selected" : ""
-                      }
-                      aria-current={
-                        student.id === selectedStudent?.id ? "step" : undefined
-                      }
-                      onClick={() => setSelectedStudentId(student.id)}
-                    >
-                      <span>
-                        {index + 1}. {student.displayName}
-                      </span>
-                      <small>
-                        {observationLabel(
-                          activeSession.observations[student.id],
-                        )}
-                      </small>
-                    </button>
-                  ))}
-                </section>
-                <section className="card grading-panel">
-                  {selectedStudent ? (
-                    <>
-                      <p className="eyebrow">Aktuelle Person</p>
-                      <h3 aria-live="polite" aria-atomic="true">
-                        {selectedStudent.displayName}
-                      </h3>
-                      <p className="current-grade">
-                        Stand vor dieser Stunde:{" "}
-                        <strong>
-                          {currentGrade
-                            ? formatGradeDecimal(
-                                gradeBeforeLesson.gradeQuarterSteps,
-                              )
-                            : "–"}
-                        </strong>
-                        {currentGrade && gradeBeforeLesson.bufferPoints > 0
-                          ? ` · Puffer ${gradeBeforeLesson.bufferPoints}/3`
-                          : ""}
-                      </p>
-                      <p className="observation-status">
-                        Gewählter Status:{" "}
-                        <strong>
-                          {observationLabel(
-                            activeSession.observations[selectedStudent.id],
-                          )}
-                        </strong>
-                      </p>
-                      {activeSession.observations[selectedStudent.id] ? (
-                        <button
-                          type="button"
-                          className="remove-observation"
-                          onClick={removeCurrentObservation}
-                        >
-                          Eintrag entfernen
-                        </button>
-                      ) : null}
-                      <fieldset>
-                        <legend>
-                          Mitarbeit der ganzen Stunde – relativ zum bisherigen
-                          Stand
-                        </legend>
-                        <div className="rating-grid">
-                          {RATING_SYMBOLS.map((symbol) => {
-                            const selectedObservation =
-                              activeSession.observations[selectedStudent.id];
-                            return (
-                              <button
-                                key={symbol}
-                                type="button"
-                                aria-label={symbol}
-                                aria-describedby={`rating-${symbol} rating-result-${symbol} rating-buffer-${symbol}`}
-                                className={`rating-option ${RATING_GUIDE[symbol].tone}`}
-                                aria-pressed={
-                                  selectedObservation?.status === "bewertet" &&
-                                  selectedObservation.symbol === symbol
-                                }
-                                onClick={(event) =>
-                                  recordObservation(
-                                    {
-                                      status: "bewertet",
-                                      symbol,
-                                    },
-                                    event.detail,
-                                  )
-                                }
-                              >
-                                <strong>{symbol}</strong>
-                                <span
-                                  className="rating-meaning"
-                                  id={`rating-${symbol}`}
-                                >
-                                  {RATING_GUIDE[symbol].meaning}
-                                </span>
-                                <span
-                                  className="rating-result"
-                                  id={`rating-result-${symbol}`}
-                                >
-                                  <small>Ergebnis</small>
-                                  <b>
-                                    {formatGradeDecimal(
-                                      applyRating(gradeBeforeLesson, symbol)
-                                        .gradeQuarterSteps,
-                                    )}
-                                  </b>
-                                </span>
-                                <small
-                                  className="rating-buffer"
-                                  id={`rating-buffer-${symbol}`}
-                                >
-                                  Puffer{" "}
-                                  {
-                                    applyRating(gradeBeforeLesson, symbol)
-                                      .bufferPoints
-                                  }
-                                  /3
-                                </small>
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </fieldset>
-                      <fieldset>
-                        <legend>Ohne Bewertung dokumentieren</legend>
-                        <div className="status-grid">
-                          <button
-                            type="button"
-                            aria-pressed={
-                              activeSession.observations[selectedStudent.id]
-                                ?.status === "abwesend"
-                            }
-                            onClick={(event) =>
-                              recordObservation(
-                                { status: "abwesend" },
-                                event.detail,
-                              )
-                            }
-                          >
-                            Abwesend
-                          </button>
-                          <button
-                            type="button"
-                            aria-pressed={
-                              activeSession.observations[selectedStudent.id]
-                                ?.status === "nicht_beobachtet"
-                            }
-                            onClick={(event) =>
-                              recordObservation(
-                                { status: "nicht_beobachtet" },
-                                event.detail,
-                              )
-                            }
-                          >
-                            Nicht beobachtet
-                          </button>
-                        </div>
-                      </fieldset>
-                      <button type="button" onClick={() => setPage("hilfe")}>
-                        Bewertung und Puffer erklärt
-                      </button>
-                    </>
-                  ) : null}
-                </section>
-              </div>
-              {capturedCount < currentClass.students.length ? (
-                <section className="discard-area">
-                  <button type="button" onClick={discardSession}>
-                    Laufende Stunde verwerfen
-                  </button>
-                  <p>
-                    Nur nach Bestätigung. Bereits erfasste Eingaben dieser
-                    Stunde gehen dabei verloren.
-                  </p>
-                </section>
-              ) : null}
-            </>
+          {page === "klasse" && currentClass && !activeSession && report ? (
+            <ClassWorkspace
+              key={currentClass.id}
+              currentClass={currentClass}
+              report={report}
+              dashboardView={dashboardView}
+              setDashboardView={setDashboardView}
+              canWrite={canWrite}
+              lessonDate={lessonDate}
+              setLessonDate={setLessonDate}
+              today={today}
+              historyStudentId={historyStudentId}
+              setHistoryStudentId={setHistoryStudentId}
+              lastSwap={lastSwap}
+              error={error}
+              exporting={exporting}
+              actions={{
+                saveDetails,
+                saveStudentName,
+                archiveClass,
+                deleteCurrentClass,
+                startSession,
+                openSession: (id) => {
+                  setActiveSessionId(id);
+                  setSelectedStudentId(null);
+                  setError("");
+                  setNotice("");
+                  setFailedObservation(null);
+                },
+                swapSessions,
+                deleteStoredSession,
+                exportExcel,
+                exportCsv,
+              }}
+            />
           ) : null}
         </main>
       </div>

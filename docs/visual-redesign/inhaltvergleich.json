@@ -1,0 +1,4367 @@
+{
+  "reference": "ada6c55929857ca08c69ce68495c80f5a68b83c3",
+  "states": [
+    {
+      "state": "assessment",
+      "match": true,
+      "controls": 38,
+      "links": 1,
+      "mismatchedFields": [],
+      "before": {
+        "controls": [
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "← Zur Klasse",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Zur Klassenübersicht",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "step",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "1. Fiktiv AdaBewertet: +",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "2. Fiktiv BeaBewertet: ++",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "3. Fiktiv CemBewertet: --",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "4. Fiktiv DanaBewertet: -",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "5. Fiktiv EmilAbwesend",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "6. Fiktiv FarahNicht beobachtet",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "7. Fiktiv GretaBewertet: ++",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "8. Fiktiv HannesBewertet: --",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "9. Fiktiv IdaBewertet: -",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "10. Fiktiv JonasBewertet: 0",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "11. Fiktiv KayaBewertet: +",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "12. Fiktiv LeonBewertet: ++",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "13. Fiktiv MilaBewertet: --",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "14. Fiktiv NoahAbwesend",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "15. Fiktiv OskarNicht beobachtet",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "16. Fiktiv PaulaBewertet: +",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "17. Fiktiv QuinnBewertet: ++",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "18. Fiktiv RiaBewertet: --",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "19. Fiktiv SamiBewertet: -",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "20. Fiktiv TaraBewertet: 0",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Eintrag entfernen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "LEGEND",
+            "text": "Mitarbeit der ganzen Stunde – relativ zum bisherigen Stand",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "--",
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "--Deutlich schlechterErgebnis3,25Puffer 0/3",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "-",
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "-Etwas schlechterErgebnis3,00Puffer 0/3",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "0",
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "0Etwa gleichErgebnis2,75Puffer 0/3",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "+",
+            "pressed": "true",
+            "tag": "BUTTON",
+            "text": "+Etwas besserErgebnis2,50Puffer 0/3",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "++",
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "++Deutlich besserErgebnis2,25Puffer 0/3",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "LEGEND",
+            "text": "Ohne Bewertung dokumentieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "Abwesend",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "Nicht beobachtet",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung und Puffer erklärt",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne Cloud← Zur KlasseDemo mit 24 Stunden · Unterrichtsstunde10.10.2026 · 1. StundeJede Auswahl wird sofort lokal gespeichert. Du kannst die Erfassung jederzeit unterbrechen.20 von 20 Personen erfasstVollständig20 von 20Stunde vollständigAlle Eingaben sind lokal gespeichertAlle 20 Personen sind erfasst. Du kannst zur Klassenübersicht zurückkehren oder unten einen Eintrag korrigieren.Zur KlassenübersichtPersonen1. Fiktiv AdaBewertet: +2. Fiktiv BeaBewertet: ++3. Fiktiv CemBewertet: --4. Fiktiv DanaBewertet: -5. Fiktiv EmilAbwesend6. Fiktiv FarahNicht beobachtet7. Fiktiv GretaBewertet: ++8. Fiktiv HannesBewertet: --9. Fiktiv IdaBewertet: -10. Fiktiv JonasBewertet: 011. Fiktiv KayaBewertet: +12. Fiktiv LeonBewertet: ++13. Fiktiv MilaBewertet: --14. Fiktiv NoahAbwesend15. Fiktiv OskarNicht beobachtet16. Fiktiv PaulaBewertet: +17. Fiktiv QuinnBewertet: ++18. Fiktiv RiaBewertet: --19. Fiktiv SamiBewertet: -20. Fiktiv TaraBewertet: 0Aktuelle PersonFiktiv AdaStand vor dieser Stunde: 2,75Gewählter Status: Bewertet: +Eintrag entfernenMitarbeit der ganzen Stunde – relativ zum bisherigen Stand--Deutlich schlechterErgebnis3,25Puffer 0/3-Etwas schlechterErgebnis3,00Puffer 0/30Etwa gleichErgebnis2,75Puffer 0/3+Etwas besserErgebnis2,50Puffer 0/3++Deutlich besserErgebnis2,25Puffer 0/3Ohne Bewertung dokumentierenAbwesendNicht beobachtetBewertung und Puffer erklärt\n  \n\n"
+      },
+      "after": {
+        "controls": [
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "← Zur Klasse",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Zur Klassenübersicht",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "step",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "1. Fiktiv AdaBewertet: +",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "2. Fiktiv BeaBewertet: ++",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "3. Fiktiv CemBewertet: --",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "4. Fiktiv DanaBewertet: -",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "5. Fiktiv EmilAbwesend",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "6. Fiktiv FarahNicht beobachtet",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "7. Fiktiv GretaBewertet: ++",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "8. Fiktiv HannesBewertet: --",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "9. Fiktiv IdaBewertet: -",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "10. Fiktiv JonasBewertet: 0",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "11. Fiktiv KayaBewertet: +",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "12. Fiktiv LeonBewertet: ++",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "13. Fiktiv MilaBewertet: --",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "14. Fiktiv NoahAbwesend",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "15. Fiktiv OskarNicht beobachtet",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "16. Fiktiv PaulaBewertet: +",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "17. Fiktiv QuinnBewertet: ++",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "18. Fiktiv RiaBewertet: --",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "19. Fiktiv SamiBewertet: -",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "20. Fiktiv TaraBewertet: 0",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Eintrag entfernen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "LEGEND",
+            "text": "Mitarbeit der ganzen Stunde – relativ zum bisherigen Stand",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "--",
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "--Deutlich schlechterErgebnis3,25Puffer 0/3",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "-",
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "-Etwas schlechterErgebnis3,00Puffer 0/3",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "0",
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "0Etwa gleichErgebnis2,75Puffer 0/3",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "+",
+            "pressed": "true",
+            "tag": "BUTTON",
+            "text": "+Etwas besserErgebnis2,50Puffer 0/3",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "++",
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "++Deutlich besserErgebnis2,25Puffer 0/3",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "LEGEND",
+            "text": "Ohne Bewertung dokumentieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "Abwesend",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "Nicht beobachtet",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung und Puffer erklärt",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne Cloud← Zur KlasseDemo mit 24 Stunden · Unterrichtsstunde10.10.2026 · 1. StundeJede Auswahl wird sofort lokal gespeichert. Du kannst die Erfassung jederzeit unterbrechen.20 von 20 Personen erfasstVollständig20 von 20Stunde vollständigAlle Eingaben sind lokal gespeichertAlle 20 Personen sind erfasst. Du kannst zur Klassenübersicht zurückkehren oder unten einen Eintrag korrigieren.Zur KlassenübersichtPersonen1. Fiktiv AdaBewertet: +2. Fiktiv BeaBewertet: ++3. Fiktiv CemBewertet: --4. Fiktiv DanaBewertet: -5. Fiktiv EmilAbwesend6. Fiktiv FarahNicht beobachtet7. Fiktiv GretaBewertet: ++8. Fiktiv HannesBewertet: --9. Fiktiv IdaBewertet: -10. Fiktiv JonasBewertet: 011. Fiktiv KayaBewertet: +12. Fiktiv LeonBewertet: ++13. Fiktiv MilaBewertet: --14. Fiktiv NoahAbwesend15. Fiktiv OskarNicht beobachtet16. Fiktiv PaulaBewertet: +17. Fiktiv QuinnBewertet: ++18. Fiktiv RiaBewertet: --19. Fiktiv SamiBewertet: -20. Fiktiv TaraBewertet: 0Aktuelle PersonFiktiv AdaStand vor dieser Stunde: 2,75Gewählter Status: Bewertet: +Eintrag entfernenMitarbeit der ganzen Stunde – relativ zum bisherigen Stand--Deutlich schlechterErgebnis3,25Puffer 0/3-Etwas schlechterErgebnis3,00Puffer 0/30Etwa gleichErgebnis2,75Puffer 0/3+Etwas besserErgebnis2,50Puffer 0/3++Deutlich besserErgebnis2,25Puffer 0/3Ohne Bewertung dokumentierenAbwesendNicht beobachtetBewertung und Puffer erklärt\n  \n\n"
+      }
+    },
+    {
+      "state": "backup",
+      "match": true,
+      "controls": 8,
+      "links": 1,
+      "mismatchedFields": [],
+      "before": {
+        "controls": [
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Vollständige JSON-Sicherung herunterladen",
+            "value": ""
+          },
+          {
+            "accept": ".json,application/json",
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "JSON-Sicherung importieren",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudAlle Klassen sichern und wiederherstellenDatensicherungDie vollständige Sicherung enthält alle Klassen, Personen und Stunden als JSON-Datei und kann hier wieder eingelesen werden. Der Excel-Bericht einer Klasse ist über die Klassenübersicht erreichbar und dient zum Lesen und Weiterverarbeiten. Bewahre beide Dateien geschützt auf.Vollständige JSON-Sicherung herunterladenJSON-Sicherung auswählenJSON-Sicherung importieren\n  \n\n"
+      },
+      "after": {
+        "controls": [
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Vollständige JSON-Sicherung herunterladen",
+            "value": ""
+          },
+          {
+            "accept": ".json,application/json",
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "JSON-Sicherung importieren",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudAlle Klassen sichern und wiederherstellenDatensicherungDie vollständige Sicherung enthält alle Klassen, Personen und Stunden als JSON-Datei und kann hier wieder eingelesen werden. Der Excel-Bericht einer Klasse ist über die Klassenübersicht erreichbar und dient zum Lesen und Weiterverarbeiten. Bewahre beide Dateien geschützt auf.Vollständige JSON-Sicherung herunterladenJSON-Sicherung auswählenJSON-Sicherung importieren\n  \n\n"
+      }
+    },
+    {
+      "state": "creation",
+      "match": true,
+      "controls": 15,
+      "links": 1,
+      "mismatchedFields": [],
+      "before": {
+        "controls": [
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "true",
+            "tag": "BUTTON",
+            "text": "Namen selbst eingeben",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "Klasse importieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bezeichnung ändern",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Person 1 entfernen",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Entfernen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Weitere Person",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse lokal anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo-Klasse mit fiktiven Namen anlegen",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudNeue KlasseKlasse anlegenGib einen Klassennamen ein und füge die Personen hinzu. Jede Person startet bei 2,00.Namen selbst eingebenKlasse importierenKlassennameBewertungszeitraum: Schuljahr 2026/27Bezeichnung ändernDie Bezeichnung setzt keine Frist. Der Zeitraum läuft weiter, bis du ihn selbst archivierst.Personen (1/45)Vorname 1Nachname 1EntfernenWeitere PersonKlasse lokal anlegenErst ausprobierenEine Demo-Klasse mit 20 ausschließlich fiktiven Personen. Vorhandene Klassen bleiben erhalten.Demo-Klasse mit fiktiven Namen anlegen\n  \n\n"
+      },
+      "after": {
+        "controls": [
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "true",
+            "tag": "BUTTON",
+            "text": "Namen selbst eingeben",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "Klasse importieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bezeichnung ändern",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Person 1 entfernen",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Entfernen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Weitere Person",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse lokal anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo-Klasse mit fiktiven Namen anlegen",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudNeue KlasseKlasse anlegenGib einen Klassennamen ein und füge die Personen hinzu. Jede Person startet bei 2,00.Namen selbst eingebenKlasse importierenKlassennameBewertungszeitraum: Schuljahr 2026/27Bezeichnung ändernDie Bezeichnung setzt keine Frist. Der Zeitraum läuft weiter, bis du ihn selbst archivierst.Personen (1/45)Vorname 1Nachname 1EntfernenWeitere PersonKlasse lokal anlegenErst ausprobierenEine Demo-Klasse mit 20 ausschließlich fiktiven Personen. Vorhandene Klassen bleiben erhalten.Demo-Klasse mit fiktiven Namen anlegen\n  \n\n"
+      }
+    },
+    {
+      "state": "guide",
+      "match": true,
+      "controls": 6,
+      "links": 1,
+      "mismatchedFields": [],
+      "before": {
+        "controls": [
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "← Zur Klassenübersicht",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne Cloud← Zur KlassenübersichtSo wird bewertetDie Mitarbeit über die gesamte StundeDu schätzt die gesamte mündliche Mitarbeit einer Person in dieser Unterrichtsstunde ein. Vergleiche sie mit ihrem bisherigen Stand vor der Stunde – einzelne Wortmeldungen sind keine eigenen Notenereignisse.--Deutlich schlechterZahlenwert +0,50-Etwas schlechterZahlenwert +0,250Etwa gleichZahlenwert ±0,00+Etwas besserZahlenwert −0,25++Deutlich besserZahlenwert −0,50Alle Personen starten bei 2,00. Ein kleinerer Zahlenwert ist besser. Die Symbole beschreiben eine Veränderung, keine feste Note für die Stunde.Puffer bei 1,00: weitere Verbesserungen sammeln bis zu drei Punkte. Ein „−“ verbraucht zuerst einen, ein „−−“ bis zu zwei Pufferpunkte. Beispiel: 1,25 mit ++ ergibt 1,00 und einen Pufferpunkt. Der Stand bleibt zwischen 1,00 und 6,00.Abwesend: nicht anwesend. Nicht beobachtet: keine ausreichende Grundlage für eine Einschätzung der ganzen Stunde. Beide verändern weder Stand noch Puffer. „0“ ist dagegen eine bewertete Stunde auf dem bisherigen Niveau.Mündliche Prüfungen, Referate und Präsentationen gehören nicht in diese Erfassung. Du entscheidest über die pädagogische Bewertung und eine Endnote; die App dokumentiert deine Eingaben und berechnet den Verlauf.\n  \n\n"
+      },
+      "after": {
+        "controls": [
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "← Zur Klassenübersicht",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne Cloud← Zur KlassenübersichtSo wird bewertetDie Mitarbeit über die gesamte StundeDu schätzt die gesamte mündliche Mitarbeit einer Person in dieser Unterrichtsstunde ein. Vergleiche sie mit ihrem bisherigen Stand vor der Stunde – einzelne Wortmeldungen sind keine eigenen Notenereignisse.--Deutlich schlechterZahlenwert +0,50-Etwas schlechterZahlenwert +0,250Etwa gleichZahlenwert ±0,00+Etwas besserZahlenwert −0,25++Deutlich besserZahlenwert −0,50Alle Personen starten bei 2,00. Ein kleinerer Zahlenwert ist besser. Die Symbole beschreiben eine Veränderung, keine feste Note für die Stunde.Puffer bei 1,00: weitere Verbesserungen sammeln bis zu drei Punkte. Ein „−“ verbraucht zuerst einen, ein „−−“ bis zu zwei Pufferpunkte. Beispiel: 1,25 mit ++ ergibt 1,00 und einen Pufferpunkt. Der Stand bleibt zwischen 1,00 und 6,00.Abwesend: nicht anwesend. Nicht beobachtet: keine ausreichende Grundlage für eine Einschätzung der ganzen Stunde. Beide verändern weder Stand noch Puffer. „0“ ist dagegen eine bewertete Stunde auf dem bisherigen Niveau.Mündliche Prüfungen, Referate und Präsentationen gehören nicht in diese Erfassung. Du entscheidest über die pädagogische Bewertung und eine Endnote; die App dokumentiert deine Eingaben und berechnet den Verlauf.\n  \n\n"
+      }
+    },
+    {
+      "state": "history",
+      "match": true,
+      "controls": 15,
+      "links": 1,
+      "mismatchedFields": [],
+      "before": {
+        "controls": [
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als Excel exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als CSV exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunden",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Tabelle",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Verlauf",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Personen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Vorherige Person",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "SELECT",
+            "text": "Fiktiv AdaFiktiv BeaFiktiv CemFiktiv DanaFiktiv EmilFiktiv FarahFiktiv GretaFiktiv HannesFiktiv IdaFiktiv JonasFiktiv KayaFiktiv LeonFiktiv MilaFiktiv NoahFiktiv OskarFiktiv PaulaFiktiv QuinnFiktiv RiaFiktiv SamiFiktiv Tara",
+            "value": "qa-person-0"
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Nächste Person",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudDer aktuelle Stand ist lokal gespeichert.Aktiver BewertungszeitraumDemo mit 24 StundenSchuljahr 2026/2720 PersonenKlasse als Excel exportierenKlasse als CSV exportierenDer Zeitraum endet nur durch deine Archivierung. Kein automatischer Noten-Reset.StundenTabelleVerlaufPersonenKlasse bearbeitenVerlaufPersonVorherige PersonFiktiv AdaFiktiv BeaFiktiv CemFiktiv DanaFiktiv EmilFiktiv FarahFiktiv GretaFiktiv HannesFiktiv IdaFiktiv JonasFiktiv KayaFiktiv LeonFiktiv MilaFiktiv NoahFiktiv OskarFiktiv PaulaFiktiv QuinnFiktiv RiaFiktiv SamiFiktiv TaraNächste PersonFiktiv Ada · Aktueller Stand: 2,50 · Puffer: 0/3Jede Unterrichtsstunde hat denselben horizontalen Abstand, bei allen Personen. Die Linie verbindet ausschließlich bewertete Stunden. AW = abwesend, NB = nicht beobachtet, Offen = noch nicht erfasst.123456Start: 2,0003.09.2026: 2,0004.09.2026: 1,7505.09.2026: 1,2506.09.2026: 1,7507.09.2026: 2,0008.09.2026: 2,0009.09.2026: 1,7512.09.2026: 2,0013.09.2026: 2,0014.09.2026: 1,7515.09.2026: 1,2516.09.2026: 1,7517.09.2026: 2,0018.09.2026: 2,0021.09.2026: 2,5022.09.2026: 2,7510.10.2026 · 1. Stunde: 2,5010.10.2026 · 2. Stunde: 2,50Start01.09.2026: AbwesendAW01.09.202602.09.2026: Nicht beobachtetNB02.09.202603.09.202604.09.202605.09.202606.09.202607.09.202608.09.202609.09.202610.09.2026: AbwesendAW10.09.202611.09.2026: Nicht beobachtetNB11.09.202612.09.202613.09.202614.09.202615.09.202616.09.202617.09.202618.09.202619.09.2026: AbwesendAW19.09.202620.09.2026: Nicht beobachtetNB20.09.202621.09.202622.09.202610.10.20261. Stunde10.10.20262. StundeBewertungen nach DatumDatum / StundeEinschätzungStand nach BewertungPufferStartAusgangswert2,000/301.09.2026AbwesendKeine Bewertung–02.09.2026Nicht beobachtetKeine Bewertung–03.09.2026Bewertet: 02,000/304.09.2026Bewertet: +1,750/305.09.2026Bewertet: ++1,250/306.09.2026Bewertet: --1,750/307.09.2026Bewertet: -2,000/308.09.2026Bewertet: 02,000/309.09.2026Bewertet: +1,750/310.09.2026AbwesendKeine Bewertung–11.09.2026Nicht beobachtetKeine Bewertung–12.09.2026Bewertet: -2,000/313.09.2026Bewertet: 02,000/314.09.2026Bewertet: +1,750/315.09.2026Bewertet: ++1,250/316.09.2026Bewertet: --1,750/317.09.2026Bewertet: -2,000/318.09.2026Bewertet: 02,000/319.09.2026AbwesendKeine Bewertung–20.09.2026Nicht beobachtetKeine Bewertung–21.09.2026Bewertet: --2,500/322.09.2026Bewertet: -2,750/310.10.2026 · 1. StundeBewertet: +2,500/310.10.2026 · 2. StundeBewertet: 02,500/3\n  \n\n"
+      },
+      "after": {
+        "controls": [
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als Excel exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als CSV exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunden",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Tabelle",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Verlauf",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Personen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Vorherige Person",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "SELECT",
+            "text": "Fiktiv AdaFiktiv BeaFiktiv CemFiktiv DanaFiktiv EmilFiktiv FarahFiktiv GretaFiktiv HannesFiktiv IdaFiktiv JonasFiktiv KayaFiktiv LeonFiktiv MilaFiktiv NoahFiktiv OskarFiktiv PaulaFiktiv QuinnFiktiv RiaFiktiv SamiFiktiv Tara",
+            "value": "qa-person-0"
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Nächste Person",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudDer aktuelle Stand ist lokal gespeichert.Aktiver BewertungszeitraumDemo mit 24 StundenSchuljahr 2026/2720 PersonenKlasse als Excel exportierenKlasse als CSV exportierenDer Zeitraum endet nur durch deine Archivierung. Kein automatischer Noten-Reset.StundenTabelleVerlaufPersonenKlasse bearbeitenVerlaufPersonVorherige PersonFiktiv AdaFiktiv BeaFiktiv CemFiktiv DanaFiktiv EmilFiktiv FarahFiktiv GretaFiktiv HannesFiktiv IdaFiktiv JonasFiktiv KayaFiktiv LeonFiktiv MilaFiktiv NoahFiktiv OskarFiktiv PaulaFiktiv QuinnFiktiv RiaFiktiv SamiFiktiv TaraNächste PersonFiktiv Ada · Aktueller Stand: 2,50 · Puffer: 0/3Jede Unterrichtsstunde hat denselben horizontalen Abstand, bei allen Personen. Die Linie verbindet ausschließlich bewertete Stunden. AW = abwesend, NB = nicht beobachtet, Offen = noch nicht erfasst.123456Start: 2,0003.09.2026: 2,0004.09.2026: 1,7505.09.2026: 1,2506.09.2026: 1,7507.09.2026: 2,0008.09.2026: 2,0009.09.2026: 1,7512.09.2026: 2,0013.09.2026: 2,0014.09.2026: 1,7515.09.2026: 1,2516.09.2026: 1,7517.09.2026: 2,0018.09.2026: 2,0021.09.2026: 2,5022.09.2026: 2,7510.10.2026 · 1. Stunde: 2,5010.10.2026 · 2. Stunde: 2,50Start01.09.2026: AbwesendAW01.09.202602.09.2026: Nicht beobachtetNB02.09.202603.09.202604.09.202605.09.202606.09.202607.09.202608.09.202609.09.202610.09.2026: AbwesendAW10.09.202611.09.2026: Nicht beobachtetNB11.09.202612.09.202613.09.202614.09.202615.09.202616.09.202617.09.202618.09.202619.09.2026: AbwesendAW19.09.202620.09.2026: Nicht beobachtetNB20.09.202621.09.202622.09.202610.10.20261. Stunde10.10.20262. StundeBewertungen nach DatumDatum / StundeEinschätzungStand nach BewertungPufferStartAusgangswert2,000/301.09.2026AbwesendKeine Bewertung–02.09.2026Nicht beobachtetKeine Bewertung–03.09.2026Bewertet: 02,000/304.09.2026Bewertet: +1,750/305.09.2026Bewertet: ++1,250/306.09.2026Bewertet: --1,750/307.09.2026Bewertet: -2,000/308.09.2026Bewertet: 02,000/309.09.2026Bewertet: +1,750/310.09.2026AbwesendKeine Bewertung–11.09.2026Nicht beobachtetKeine Bewertung–12.09.2026Bewertet: -2,000/313.09.2026Bewertet: 02,000/314.09.2026Bewertet: +1,750/315.09.2026Bewertet: ++1,250/316.09.2026Bewertet: --1,750/317.09.2026Bewertet: -2,000/318.09.2026Bewertet: 02,000/319.09.2026AbwesendKeine Bewertung–20.09.2026Nicht beobachtetKeine Bewertung–21.09.2026Bewertet: --2,500/322.09.2026Bewertet: -2,750/310.10.2026 · 1. StundeBewertet: +2,500/310.10.2026 · 2. StundeBewertet: 02,500/3\n  \n\n"
+      }
+    },
+    {
+      "state": "import",
+      "match": true,
+      "controls": 12,
+      "links": 3,
+      "mismatchedFields": [],
+      "before": {
+        "controls": [
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "Namen selbst eingeben",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "true",
+            "tag": "BUTTON",
+            "text": "Klasse importieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bezeichnung ändern",
+            "value": ""
+          },
+          {
+            "accept": ".xlsx,.csv,.txt",
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse lokal anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo-Klasse mit fiktiven Namen anlegen",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          },
+          {
+            "download": "",
+            "href": "./musterklassenliste.xlsx",
+            "text": "Musterklassenliste (Excel)"
+          },
+          {
+            "download": "",
+            "href": "./musterklassenliste.csv",
+            "text": "Musterklassenliste (CSV)"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudNeue KlasseKlasse anlegenGib einen Klassennamen ein und füge die Personen hinzu. Jede Person startet bei 2,00.Namen selbst eingebenKlasse importierenKlassennameBewertungszeitraum: Schuljahr 2026/27Bezeichnung ändernDie Bezeichnung setzt keine Frist. Der Zeitraum läuft weiter, bis du ihn selbst archivierst.Klassenliste vorbereitenMusterklassenliste herunterladen.Spalte A: Vorname. Spalte B: Nachname. Die Überschriften in Zeile 1 beibehalten.Ab Zeile 2 je Person eine Zeile ausfüllen. Beide Felder sind erforderlich. Höchstens 45 Personen.Als Excel (.xlsx) oder CSV speichern und hier auswählen. Nur ein Tabellenblatt; keine zusätzlichen Spalten oder Formeln.Musterklassenliste (Excel)Musterklassenliste (CSV)KlassenlisteCSV/TXT: zwei Spalten mit Semikolon, Komma oder Tabulator, UTF-8. Einspaltige Listen werden nicht übernommen.Klasse lokal anlegenErst ausprobierenEine Demo-Klasse mit 20 ausschließlich fiktiven Personen. Vorhandene Klassen bleiben erhalten.Demo-Klasse mit fiktiven Namen anlegen\n  \n\n"
+      },
+      "after": {
+        "controls": [
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "Namen selbst eingeben",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "true",
+            "tag": "BUTTON",
+            "text": "Klasse importieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bezeichnung ändern",
+            "value": ""
+          },
+          {
+            "accept": ".xlsx,.csv,.txt",
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse lokal anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo-Klasse mit fiktiven Namen anlegen",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          },
+          {
+            "download": "",
+            "href": "./musterklassenliste.xlsx",
+            "text": "Musterklassenliste (Excel)"
+          },
+          {
+            "download": "",
+            "href": "./musterklassenliste.csv",
+            "text": "Musterklassenliste (CSV)"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudNeue KlasseKlasse anlegenGib einen Klassennamen ein und füge die Personen hinzu. Jede Person startet bei 2,00.Namen selbst eingebenKlasse importierenKlassennameBewertungszeitraum: Schuljahr 2026/27Bezeichnung ändernDie Bezeichnung setzt keine Frist. Der Zeitraum läuft weiter, bis du ihn selbst archivierst.Klassenliste vorbereitenMusterklassenliste herunterladen.Spalte A: Vorname. Spalte B: Nachname. Die Überschriften in Zeile 1 beibehalten.Ab Zeile 2 je Person eine Zeile ausfüllen. Beide Felder sind erforderlich. Höchstens 45 Personen.Als Excel (.xlsx) oder CSV speichern und hier auswählen. Nur ein Tabellenblatt; keine zusätzlichen Spalten oder Formeln.Musterklassenliste (Excel)Musterklassenliste (CSV)KlassenlisteCSV/TXT: zwei Spalten mit Semikolon, Komma oder Tabulator, UTF-8. Einspaltige Listen werden nicht übernommen.Klasse lokal anlegenErst ausprobierenEine Demo-Klasse mit 20 ausschließlich fiktiven Personen. Vorhandene Klassen bleiben erhalten.Demo-Klasse mit fiktiven Namen anlegen\n  \n\n"
+      }
+    },
+    {
+      "state": "overview",
+      "match": true,
+      "controls": 64,
+      "links": 1,
+      "mismatchedFields": [],
+      "before": {
+        "controls": [
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als Excel exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als CSV exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunden",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Tabelle",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Verlauf",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Personen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Symbole und Berechnung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": "2026-10-10"
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde beginnen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Reihenfolge tauschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudDer aktuelle Stand ist lokal gespeichert.Aktiver BewertungszeitraumDemo mit 24 StundenSchuljahr 2026/2720 PersonenKlasse als Excel exportierenKlasse als CSV exportierenDer Zeitraum endet nur durch deine Archivierung. Kein automatischer Noten-Reset.StundenTabelleVerlaufPersonenKlasse bearbeitenMündliche Mitarbeit während der ganzen StundeEine zusammenfassende Einschätzung pro Person, im Vergleich zum bisherigen Stand. Keine Einzelwortmeldungen, Prüfungen oder Referate.Symbole und Berechnung verstehenNeue UnterrichtsstundeDatumStunde beginnenPro Klasse und Datum sind höchstens zwei Stunden möglich.UnterrichtsstundenNeueste Daten zuerst; am selben Datum die erste vor der zweiten Stunde. Die Zusammenfassung zeigt die Eingaben: AW = abwesend, NB = nicht beobachtet.10.10.2026 · 1. Stunde20 von 20 erfasst · vollständig4 × -- · 3 × - · 2 × 0 · 3 × + · 4 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: + · Fiktiv Bea: ++BearbeitenReihenfolge tauschenStunde löschen10.10.2026 · 2. Stunde20 von 20 erfasst · vollständig4 × -- · 3 × - · 2 × 0 · 3 × + · 4 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: 0 · Fiktiv Bea: +BearbeitenStunde löschen22.09.202620 von 20 erfasst · vollständig4 × -- · 3 × - · 2 × 0 · 3 × + · 4 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: - · Fiktiv Bea: 0BearbeitenStunde löschen21.09.202620 von 20 erfasst · vollständig4 × -- · 3 × - · 2 × 0 · 3 × + · 4 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: -- · Fiktiv Bea: -BearbeitenStunde löschen20.09.202620 von 20 erfasst · vollständig4 × -- · 3 × - · 2 × 0 · 3 × + · 3 × ++ · 2 × AW · 3 × NBAuszug: Fiktiv Ada: NB · Fiktiv Bea: --BearbeitenStunde löschen19.09.202620 von 20 erfasst · vollständig4 × -- · 3 × - · 2 × 0 · 2 × + · 3 × ++ · 3 × AW · 3 × NBAuszug: Fiktiv Ada: AW · Fiktiv Bea: NBBearbeitenStunde löschen18.09.202620 von 20 erfasst · vollständig4 × -- · 3 × - · 3 × 0 · 2 × + · 3 × ++ · 3 × AW · 2 × NBAuszug: Fiktiv Ada: 0 · Fiktiv Bea: AWBearbeitenStunde löschen17.09.202620 von 20 erfasst · vollständig4 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: - · Fiktiv Bea: 0BearbeitenStunde löschen16.09.202620 von 20 erfasst · vollständig4 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: -- · Fiktiv Bea: -BearbeitenStunde löschen15.09.202620 von 20 erfasst · vollständig4 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: ++ · Fiktiv Bea: --BearbeitenStunde löschen14.09.202620 von 20 erfasst · vollständig4 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: + · Fiktiv Bea: ++BearbeitenStunde löschen13.09.202620 von 20 erfasst · vollständig4 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: 0 · Fiktiv Bea: +BearbeitenStunde löschen12.09.202620 von 20 erfasst · vollständig4 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: - · Fiktiv Bea: 0BearbeitenStunde löschen11.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 3 × NBAuszug: Fiktiv Ada: NB · Fiktiv Bea: -BearbeitenStunde löschen10.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 3 × 0 · 2 × + · 2 × ++ · 3 × AW · 3 × NBAuszug: Fiktiv Ada: AW · Fiktiv Bea: NBBearbeitenStunde löschen09.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 3 × 0 · 3 × + · 2 × ++ · 3 × AW · 2 × NBAuszug: Fiktiv Ada: + · Fiktiv Bea: AWBearbeitenStunde löschen08.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: 0 · Fiktiv Bea: +BearbeitenStunde löschen07.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: - · Fiktiv Bea: 0BearbeitenStunde löschen06.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: -- · Fiktiv Bea: -BearbeitenStunde löschen05.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: ++ · Fiktiv Bea: --BearbeitenStunde löschen04.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: + · Fiktiv Bea: ++BearbeitenStunde löschen03.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: 0 · Fiktiv Bea: +BearbeitenStunde löschen02.09.202620 von 20 erfasst · vollständig3 × -- · 3 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 3 × NBAuszug: Fiktiv Ada: NB · Fiktiv Bea: 0BearbeitenStunde löschen01.09.202620 von 20 erfasst · vollständig2 × -- · 3 × - · 4 × 0 · 3 × + · 2 × ++ · 3 × AW · 3 × NBAuszug: Fiktiv Ada: AW · Fiktiv Bea: NBBearbeitenStunde löschen\n  \n\n"
+      },
+      "after": {
+        "controls": [
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als Excel exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als CSV exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunden",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Tabelle",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Verlauf",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Personen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Symbole und Berechnung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "INPUT",
+            "text": "",
+            "value": "2026-10-10"
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde beginnen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Reihenfolge tauschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunde löschen",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudDer aktuelle Stand ist lokal gespeichert.Aktiver BewertungszeitraumDemo mit 24 StundenSchuljahr 2026/2720 PersonenKlasse als Excel exportierenKlasse als CSV exportierenDer Zeitraum endet nur durch deine Archivierung. Kein automatischer Noten-Reset.StundenTabelleVerlaufPersonenKlasse bearbeitenMündliche Mitarbeit während der ganzen StundeEine zusammenfassende Einschätzung pro Person, im Vergleich zum bisherigen Stand. Keine Einzelwortmeldungen, Prüfungen oder Referate.Symbole und Berechnung verstehenNeue UnterrichtsstundeDatumStunde beginnenPro Klasse und Datum sind höchstens zwei Stunden möglich.UnterrichtsstundenNeueste Daten zuerst; am selben Datum die erste vor der zweiten Stunde. Die Zusammenfassung zeigt die Eingaben: AW = abwesend, NB = nicht beobachtet.10.10.2026 · 1. Stunde20 von 20 erfasst · vollständig4 × -- · 3 × - · 2 × 0 · 3 × + · 4 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: + · Fiktiv Bea: ++BearbeitenReihenfolge tauschenStunde löschen10.10.2026 · 2. Stunde20 von 20 erfasst · vollständig4 × -- · 3 × - · 2 × 0 · 3 × + · 4 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: 0 · Fiktiv Bea: +BearbeitenStunde löschen22.09.202620 von 20 erfasst · vollständig4 × -- · 3 × - · 2 × 0 · 3 × + · 4 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: - · Fiktiv Bea: 0BearbeitenStunde löschen21.09.202620 von 20 erfasst · vollständig4 × -- · 3 × - · 2 × 0 · 3 × + · 4 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: -- · Fiktiv Bea: -BearbeitenStunde löschen20.09.202620 von 20 erfasst · vollständig4 × -- · 3 × - · 2 × 0 · 3 × + · 3 × ++ · 2 × AW · 3 × NBAuszug: Fiktiv Ada: NB · Fiktiv Bea: --BearbeitenStunde löschen19.09.202620 von 20 erfasst · vollständig4 × -- · 3 × - · 2 × 0 · 2 × + · 3 × ++ · 3 × AW · 3 × NBAuszug: Fiktiv Ada: AW · Fiktiv Bea: NBBearbeitenStunde löschen18.09.202620 von 20 erfasst · vollständig4 × -- · 3 × - · 3 × 0 · 2 × + · 3 × ++ · 3 × AW · 2 × NBAuszug: Fiktiv Ada: 0 · Fiktiv Bea: AWBearbeitenStunde löschen17.09.202620 von 20 erfasst · vollständig4 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: - · Fiktiv Bea: 0BearbeitenStunde löschen16.09.202620 von 20 erfasst · vollständig4 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: -- · Fiktiv Bea: -BearbeitenStunde löschen15.09.202620 von 20 erfasst · vollständig4 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: ++ · Fiktiv Bea: --BearbeitenStunde löschen14.09.202620 von 20 erfasst · vollständig4 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: + · Fiktiv Bea: ++BearbeitenStunde löschen13.09.202620 von 20 erfasst · vollständig4 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: 0 · Fiktiv Bea: +BearbeitenStunde löschen12.09.202620 von 20 erfasst · vollständig4 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: - · Fiktiv Bea: 0BearbeitenStunde löschen11.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 3 × 0 · 2 × + · 3 × ++ · 2 × AW · 3 × NBAuszug: Fiktiv Ada: NB · Fiktiv Bea: -BearbeitenStunde löschen10.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 3 × 0 · 2 × + · 2 × ++ · 3 × AW · 3 × NBAuszug: Fiktiv Ada: AW · Fiktiv Bea: NBBearbeitenStunde löschen09.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 3 × 0 · 3 × + · 2 × ++ · 3 × AW · 2 × NBAuszug: Fiktiv Ada: + · Fiktiv Bea: AWBearbeitenStunde löschen08.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: 0 · Fiktiv Bea: +BearbeitenStunde löschen07.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: - · Fiktiv Bea: 0BearbeitenStunde löschen06.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: -- · Fiktiv Bea: -BearbeitenStunde löschen05.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: ++ · Fiktiv Bea: --BearbeitenStunde löschen04.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: + · Fiktiv Bea: ++BearbeitenStunde löschen03.09.202620 von 20 erfasst · vollständig3 × -- · 4 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 2 × NBAuszug: Fiktiv Ada: 0 · Fiktiv Bea: +BearbeitenStunde löschen02.09.202620 von 20 erfasst · vollständig3 × -- · 3 × - · 4 × 0 · 3 × + · 2 × ++ · 2 × AW · 3 × NBAuszug: Fiktiv Ada: NB · Fiktiv Bea: 0BearbeitenStunde löschen01.09.202620 von 20 erfasst · vollständig2 × -- · 3 × - · 4 × 0 · 3 × + · 2 × ++ · 3 × AW · 3 × NBAuszug: Fiktiv Ada: AW · Fiktiv Bea: NBBearbeitenStunde löschen\n  \n\n"
+      }
+    },
+    {
+      "state": "people",
+      "match": true,
+      "controls": 32,
+      "links": 1,
+      "mismatchedFields": [],
+      "before": {
+        "controls": [
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als Excel exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als CSV exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunden",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Tabelle",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Verlauf",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Personen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Ada bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Bea bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Cem bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Dana bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Emil bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Farah bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Greta bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Hannes bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Ida bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Jonas bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Kaya bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Leon bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Mila bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Noah bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Oskar bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Paula bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Quinn bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Ria bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Sami bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Tara bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudDer aktuelle Stand ist lokal gespeichert.Aktiver BewertungszeitraumDemo mit 24 StundenSchuljahr 2026/2720 PersonenKlasse als Excel exportierenKlasse als CSV exportierenDer Zeitraum endet nur durch deine Archivierung. Kein automatischer Noten-Reset.StundenTabelleVerlaufPersonenKlasse bearbeitenPersonennamen bearbeitenNamen lassen sich korrigieren; bisherige Stunden und Bewertungen bleiben erhalten.Fiktiv AdaNamen bearbeitenFiktiv BeaNamen bearbeitenFiktiv CemNamen bearbeitenFiktiv DanaNamen bearbeitenFiktiv EmilNamen bearbeitenFiktiv FarahNamen bearbeitenFiktiv GretaNamen bearbeitenFiktiv HannesNamen bearbeitenFiktiv IdaNamen bearbeitenFiktiv JonasNamen bearbeitenFiktiv KayaNamen bearbeitenFiktiv LeonNamen bearbeitenFiktiv MilaNamen bearbeitenFiktiv NoahNamen bearbeitenFiktiv OskarNamen bearbeitenFiktiv PaulaNamen bearbeitenFiktiv QuinnNamen bearbeitenFiktiv RiaNamen bearbeitenFiktiv SamiNamen bearbeitenFiktiv TaraNamen bearbeiten\n  \n\n"
+      },
+      "after": {
+        "controls": [
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als Excel exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als CSV exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunden",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Tabelle",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Verlauf",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Personen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Ada bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Bea bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Cem bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Dana bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Emil bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Farah bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Greta bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Hannes bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Ida bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Jonas bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Kaya bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Leon bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Mila bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Noah bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Oskar bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Paula bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Quinn bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Ria bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Sami bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": "Namen von Fiktiv Tara bearbeiten",
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen bearbeiten",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudDer aktuelle Stand ist lokal gespeichert.Aktiver BewertungszeitraumDemo mit 24 StundenSchuljahr 2026/2720 PersonenKlasse als Excel exportierenKlasse als CSV exportierenDer Zeitraum endet nur durch deine Archivierung. Kein automatischer Noten-Reset.StundenTabelleVerlaufPersonenKlasse bearbeitenPersonennamen bearbeitenNamen lassen sich korrigieren; bisherige Stunden und Bewertungen bleiben erhalten.Fiktiv AdaNamen bearbeitenFiktiv BeaNamen bearbeitenFiktiv CemNamen bearbeitenFiktiv DanaNamen bearbeitenFiktiv EmilNamen bearbeitenFiktiv FarahNamen bearbeitenFiktiv GretaNamen bearbeitenFiktiv HannesNamen bearbeitenFiktiv IdaNamen bearbeitenFiktiv JonasNamen bearbeitenFiktiv KayaNamen bearbeitenFiktiv LeonNamen bearbeitenFiktiv MilaNamen bearbeitenFiktiv NoahNamen bearbeitenFiktiv OskarNamen bearbeitenFiktiv PaulaNamen bearbeitenFiktiv QuinnNamen bearbeitenFiktiv RiaNamen bearbeitenFiktiv SamiNamen bearbeitenFiktiv TaraNamen bearbeiten\n  \n\n"
+      }
+    },
+    {
+      "state": "settings",
+      "match": true,
+      "controls": 16,
+      "links": 1,
+      "mismatchedFields": [],
+      "before": {
+        "controls": [
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als Excel exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als CSV exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunden",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Tabelle",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Verlauf",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Personen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen und Zeitraum bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Zeitraum archivieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Aktuelles Schuljahr als Bezeichnung",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudDer aktuelle Stand ist lokal gespeichert.Aktiver BewertungszeitraumDemo mit 24 StundenSchuljahr 2026/2720 PersonenKlasse als Excel exportierenKlasse als CSV exportierenDer Zeitraum endet nur durch deine Archivierung. Kein automatischer Noten-Reset.StundenTabelleVerlaufPersonenKlasse bearbeitenKlasse und Bewertungszeitraum Namen und Zeitraum bearbeitenZeitraum archivierenKlasse löschenDer Zeitraum endet nur, wenn du ihn archivierst. Noten werden nicht automatisch zurückgesetzt.Der errechnete Stand unterstützt die Dokumentation. Die pädagogische Bewertung und eine Endnote entscheidet die Lehrkraft.Aktuelles Schuljahr als Bezeichnung\n  \n\n"
+      },
+      "after": {
+        "controls": [
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als Excel exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als CSV exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunden",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Tabelle",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Verlauf",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Personen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Namen und Zeitraum bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Zeitraum archivieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse löschen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Aktuelles Schuljahr als Bezeichnung",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudDer aktuelle Stand ist lokal gespeichert.Aktiver BewertungszeitraumDemo mit 24 StundenSchuljahr 2026/2720 PersonenKlasse als Excel exportierenKlasse als CSV exportierenDer Zeitraum endet nur durch deine Archivierung. Kein automatischer Noten-Reset.StundenTabelleVerlaufPersonenKlasse bearbeitenKlasse und Bewertungszeitraum Namen und Zeitraum bearbeitenZeitraum archivierenKlasse löschenDer Zeitraum endet nur, wenn du ihn archivierst. Noten werden nicht automatisch zurückgesetzt.Der errechnete Stand unterstützt die Dokumentation. Die pädagogische Bewertung und eine Endnote entscheidet die Lehrkraft.Aktuelles Schuljahr als Bezeichnung\n  \n\n"
+      }
+    },
+    {
+      "state": "table",
+      "match": true,
+      "controls": 18,
+      "links": 1,
+      "mismatchedFields": [],
+      "before": {
+        "controls": [
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als Excel exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als CSV exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunden",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Tabelle",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Verlauf",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Personen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "true",
+            "tag": "BUTTON",
+            "text": "Kompakt",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "Mit Notenverlauf",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "SELECT",
+            "text": "10 Stunden20 StundenAlle Stunden",
+            "value": "10"
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "SELECT",
+            "text": "KleinNormalGroß",
+            "value": "normal"
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Ältere Stunden",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Neuere Stunden",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudDer aktuelle Stand ist lokal gespeichert.Aktiver BewertungszeitraumDemo mit 24 StundenSchuljahr 2026/2720 PersonenKlasse als Excel exportierenKlasse als CSV exportierenDer Zeitraum endet nur durch deine Archivierung. Kein automatischer Noten-Reset.StundenTabelleVerlaufPersonenKlasse bearbeitenStundentabelleKompaktMit NotenverlaufStunden pro Ansicht10 Stunden20 StundenAlle StundenTabellengrößeKleinNormalGroßAW Abwesend · NB Nicht beobachtet · Offen Noch nicht erfasst. 0 ist eine bewertete Stunde ohne Änderung. Der aktuelle Stand berücksichtigt immer alle Stunden.Ältere StundenStunden 15–24 von 24Neuere StundenPersonStart15.09.2616.09.2617.09.2618.09.2619.09.2620.09.2621.09.2622.09.2610.10.261. Stunde10.10.262. StundeAktuellPufferFiktiv Ada2,00++---0AWNB---+02,500/3Fiktiv Bea2,00---0AWNB---0+++2,000/3Fiktiv Cem2,00-0AWNB---0+--++2,500/3Fiktiv Dana2,000AWNB---0+++---2,750/3Fiktiv Emil2,00AWNB---0+++--AW-3,000/3Fiktiv Farah2,00NB---0+++---NBAW3,500/3Fiktiv Greta2,00---0+++---AW++NB2,500/3Fiktiv Hannes2,00-0+++---AWNB--++2,750/3Fiktiv Ida2,000+++---AWNB++---3,000/3Fiktiv Jonas2,00+++---AWNB++--0-3,250/3Fiktiv Kaya2,00++---AWNB++---+03,000/3Fiktiv Leon2,00---AWNB++---0+++2,500/3Fiktiv Mila2,00-AWNB++---0+--++2,750/3Fiktiv Noah2,00AWNB++---0+++AW--2,750/3Fiktiv Oskar2,00NB++---0+++--NBAW3,000/3Fiktiv Paula2,00++---0+++--AW+NB3,250/3Fiktiv Quinn2,00---0+++--AWNB+++2,250/3Fiktiv Ria2,00-0+++--AWNB+--++2,500/3Fiktiv Sami2,000+++--AWNB+++---2,750/3Fiktiv Tara2,00+++--AWNB+++--0-2,750/3\n  \n\n"
+      },
+      "after": {
+        "controls": [
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Meine Klassen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse anlegen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Datensicherung",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Bewertung verstehen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Demo mit 24 StundenSchuljahr 2026/27",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als Excel exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse als CSV exportieren",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Stunden",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": "page",
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Tabelle",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Verlauf",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Personen",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Klasse bearbeiten",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "true",
+            "tag": "BUTTON",
+            "text": "Kompakt",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": "false",
+            "tag": "BUTTON",
+            "text": "Mit Notenverlauf",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "SELECT",
+            "text": "10 Stunden20 StundenAlle Stunden",
+            "value": "10"
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "SELECT",
+            "text": "KleinNormalGroß",
+            "value": "normal"
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Ältere Stunden",
+            "value": ""
+          },
+          {
+            "accept": null,
+            "current": null,
+            "label": null,
+            "pressed": null,
+            "tag": "BUTTON",
+            "text": "Neuere Stunden",
+            "value": ""
+          }
+        ],
+        "links": [
+          {
+            "download": null,
+            "href": "#main-content",
+            "text": "Zum Inhalt springen"
+          }
+        ],
+        "text": "\n    Zum Inhalt springenGradeflow · lokalMündliche MitarbeitDokumentation der gesamten Unterrichtsstunde. Keine mündlichen Prüfungen, Referate oder Präsentationen.ArbeitsbereichMeine KlassenKlasse anlegenDatensicherungBewertung verstehenKlassenDemo mit 24 StundenSchuljahr 2026/27Auf diesem Gerät gespeichert · ohne CloudDer aktuelle Stand ist lokal gespeichert.Aktiver BewertungszeitraumDemo mit 24 StundenSchuljahr 2026/2720 PersonenKlasse als Excel exportierenKlasse als CSV exportierenDer Zeitraum endet nur durch deine Archivierung. Kein automatischer Noten-Reset.StundenTabelleVerlaufPersonenKlasse bearbeitenStundentabelleKompaktMit NotenverlaufStunden pro Ansicht10 Stunden20 StundenAlle StundenTabellengrößeKleinNormalGroßAW Abwesend · NB Nicht beobachtet · Offen Noch nicht erfasst. 0 ist eine bewertete Stunde ohne Änderung. Der aktuelle Stand berücksichtigt immer alle Stunden.Ältere StundenStunden 15–24 von 24Neuere StundenPersonStart15.09.2616.09.2617.09.2618.09.2619.09.2620.09.2621.09.2622.09.2610.10.261. Stunde10.10.262. StundeAktuellPufferFiktiv Ada2,00++---0AWNB---+02,500/3Fiktiv Bea2,00---0AWNB---0+++2,000/3Fiktiv Cem2,00-0AWNB---0+--++2,500/3Fiktiv Dana2,000AWNB---0+++---2,750/3Fiktiv Emil2,00AWNB---0+++--AW-3,000/3Fiktiv Farah2,00NB---0+++---NBAW3,500/3Fiktiv Greta2,00---0+++---AW++NB2,500/3Fiktiv Hannes2,00-0+++---AWNB--++2,750/3Fiktiv Ida2,000+++---AWNB++---3,000/3Fiktiv Jonas2,00+++---AWNB++--0-3,250/3Fiktiv Kaya2,00++---AWNB++---+03,000/3Fiktiv Leon2,00---AWNB++---0+++2,500/3Fiktiv Mila2,00-AWNB++---0+--++2,750/3Fiktiv Noah2,00AWNB++---0+++AW--2,750/3Fiktiv Oskar2,00NB++---0+++--NBAW3,000/3Fiktiv Paula2,00++---0+++--AW+NB3,250/3Fiktiv Quinn2,00---0+++--AWNB+++2,250/3Fiktiv Ria2,00-0+++--AWNB+--++2,500/3Fiktiv Sami2,000+++--AWNB+++---2,750/3Fiktiv Tara2,00+++--AWNB+++--0-2,750/3\n  \n\n"
+      }
+    }
+  ]
+}

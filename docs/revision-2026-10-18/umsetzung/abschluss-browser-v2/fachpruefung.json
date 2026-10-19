@@ -1,0 +1,8 @@
+{
+  "transitions": 120,
+  "oracle": "Begrenztes Guthaben von -20 bis 3 Viertelschritten",
+  "persons45Accepted": true,
+  "persons46Rejected": true,
+  "oversizedFilesRead": 0,
+  "reservedIdMissingObservation": "Offen"
+}

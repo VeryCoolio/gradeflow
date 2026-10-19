@@ -1,0 +1,27 @@
+[
+  {
+    "check": "typecheck",
+    "exit_code": 0,
+    "seconds": 2.619
+  },
+  {
+    "check": "test",
+    "exit_code": 0,
+    "seconds": 6.776
+  },
+  {
+    "check": "lint",
+    "exit_code": 0,
+    "seconds": 1.821
+  },
+  {
+    "check": "format",
+    "exit_code": 0,
+    "seconds": 1.225
+  },
+  {
+    "check": "build",
+    "exit_code": 0,
+    "seconds": 5.254
+  }
+]

@@ -1,13 +1,11 @@
 import { useState } from "react";
 import type { ClassReport } from "../../application/reporting";
 import { formatGradeDecimal } from "../../domain/grading/gradeFormat";
-import { hasVisibleLessonSequence } from "../../domain/sessions/lessonSequence";
 import {
   observationLabel,
   observationShortLabel,
   observationTone,
-  sessionLabel,
-} from "../presentation";
+} from "../../application/observationPresentation";
 
 export function ClassTable({ report }: { report: ClassReport }) {
   const [compact, setCompact] = useState(true);
@@ -112,12 +110,12 @@ export function ClassTable({ report }: { report: ClassReport }) {
                 <th
                   key={session.id}
                   scope="col"
-                  aria-label={sessionLabel(session, report.sessions)}
+                  aria-label={report.lessons.get(session.id)!.label}
                 >
                   <time dateTime={session.date}>
                     {session.date.slice(2).split("-").reverse().join(".")}
                   </time>
-                  {hasVisibleLessonSequence(report.sessions, session.date) ? (
+                  {report.lessons.get(session.id)!.showSequence ? (
                     <small>{session.lessonSequence}. Stunde</small>
                   ) : null}
                 </th>

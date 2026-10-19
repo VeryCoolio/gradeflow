@@ -1,0 +1,55 @@
+src/App.test.tsx 170ms
+src/App.tsx 303ms
+src/application/classService.test.ts 15ms (unchanged)
+src/application/classService.ts 15ms (unchanged)
+src/application/demoClass.test.ts 4ms (unchanged)
+src/application/demoClass.ts 4ms (unchanged)
+src/application/ratingGuide.ts 2ms (unchanged)
+src/application/reporting.test.ts 5ms (unchanged)
+src/application/reporting.ts 6ms (unchanged)
+src/application/schoolYear.test.ts 2ms (unchanged)
+src/application/schoolYear.ts 3ms (unchanged)
+src/domain/classes/types.ts 1ms (unchanged)
+src/domain/grading/gradeFormat.ts 2ms (unchanged)
+src/domain/grading/gradingEngine.test.ts 9ms (unchanged)
+src/domain/grading/gradingEngine.ts 5ms (unchanged)
+src/domain/grading/types.ts 3ms (unchanged)
+src/domain/sessions/lessonSequence.test.ts 9ms (unchanged)
+src/domain/sessions/lessonSequence.ts 11ms (unchanged)
+src/domain/sessions/observations.ts 1ms (unchanged)
+src/domain/sessions/recalculate.test.ts 11ms (unchanged)
+src/domain/sessions/recalculate.ts 5ms (unchanged)
+src/domain/sessions/types.ts 3ms (unchanged)
+src/features/assessment/RatingGuide.tsx 5ms (unchanged)
+src/features/classes/ClassCreation.tsx 16ms (unchanged)
+src/features/history/StudentHistory.test.tsx 8ms (unchanged)
+src/features/history/StudentHistory.tsx 16ms (unchanged)
+src/features/presentation.ts 5ms (unchanged)
+src/features/table/ClassTable.test.tsx 11ms (unchanged)
+src/features/table/ClassTable.tsx 13ms (unchanged)
+src/features/useNotebook.ts 5ms
+src/infrastructure/importExport/classImport.test.ts 5ms (unchanged)
+src/infrastructure/importExport/classImport.ts 4ms (unchanged)
+src/infrastructure/importExport/classImport.worker.ts 2ms
+src/infrastructure/importExport/classListRows.ts 3ms
+src/infrastructure/importExport/csvExport.ts 4ms (unchanged)
+src/infrastructure/importExport/excelWorkbook.test.ts 12ms (unchanged)
+src/infrastructure/importExport/excelWorkbook.ts 11ms (unchanged)
+src/infrastructure/importExport/exports.test.ts 4ms (unchanged)
+src/infrastructure/importExport/jsonBackup.ts 2ms
+src/infrastructure/importExport/xlsxImport.ts 3ms
+src/infrastructure/importExport/xlsxResources.test.ts 3ms
+src/infrastructure/importExport/xlsxResources.ts 4ms
+src/infrastructure/local/browserStorage.ts 2ms (unchanged)
+src/infrastructure/local/localRepository.test.ts 29ms
+src/infrastructure/local/localRepository.ts 28ms
+src/infrastructure/local/migrations/legacyV4.test.ts 9ms (unchanged)
+src/infrastructure/local/migrations/legacyV4.ts 14ms (unchanged)
+src/infrastructure/local/notebook-v1.schema.json 15ms (unchanged)
+src/infrastructure/local/notebookCoordinator.test.ts 4ms
+src/infrastructure/local/notebookCoordinator.ts 4ms
+src/infrastructure/local/schema.ts 9ms (unchanged)
+src/main.ts 1ms (unchanged)
+src/main.tsx 2ms (unchanged)
+src/styles.css 164ms (unchanged)
+src/test/reportClass.ts 5ms (unchanged)

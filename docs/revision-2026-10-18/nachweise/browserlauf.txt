@@ -1,0 +1,31 @@
+Browserumgebung PASS
+Orientierung 390 DEFECT
+Import und Neuladen nach jeder der 20 Eingaben 390 PASS
+Status Verlauf alte Stunde Grenze Tausch 390 PASS
+Export csv 390 PASS
+Export xlsx 390 PASS
+Backup Rundlauf defekte Datei und Rückfall 390 PASS
+Seitenbreite 390 PASS
+Orientierung 768 PASS
+Import und Neuladen nach jeder der 20 Eingaben 768 PASS
+Status Verlauf alte Stunde Grenze Tausch 768 PASS
+Export csv 768 PASS
+Export xlsx 768 PASS
+Backup Rundlauf defekte Datei und Rückfall 768 PASS
+Seitenbreite 768 PASS
+Orientierung 1440 PASS
+Import und Neuladen nach jeder der 20 Eingaben 1440 PASS
+Status Verlauf alte Stunde Grenze Tausch 1440 PASS
+Export csv 1440 PASS
+Export xlsx 1440 PASS
+Backup Rundlauf defekte Datei und Rückfall 1440 PASS
+Seitenbreite 1440 PASS
+Letzte Eingabe bei Speicherfehler PASS
+Fehler und Rückfall ERROR
+Verlust durch zweiten Tab DEFECT
+Wiederaufnahme mehrerer offener Stunden DEFECT
+Neuladen der Tabellenansicht DEFECT
+24 Stunden Tabelle Tastatur Verlauf 390 PASS
+24 Stunden Tabelle Tastatur Verlauf 768 PASS
+24 Stunden Tabelle Tastatur Verlauf 1440 PASS
+{"PASS": 25, "DEFECT": 4, "ERROR": 1}

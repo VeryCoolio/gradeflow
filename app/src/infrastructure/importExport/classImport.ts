@@ -1,4 +1,5 @@
-const MAX_STUDENTS = 45;
+import { namesFromRows } from "./classListRows";
+export { namesFromRows } from "./classListRows";
 
 function splitCsvLine(line: string, delimiter: string): string[] {
   const cells: string[] = [];
@@ -46,41 +47,12 @@ export function parseClassImport(text: string, filename: string): string[] {
   );
 }
 
-export function namesFromRows(rows: readonly (readonly string[])[]): string[] {
-  const header = rows[0]?.map((cell) => cell.trim().toLocaleLowerCase("de"));
-  if (
-    header?.length !== 2 ||
-    header[0] !== "vorname" ||
-    header[1] !== "nachname"
-  ) {
-    throw new RangeError(
-      "Die erste Zeile muss genau die Spalten „Vorname“ und „Nachname“ in dieser Reihenfolge enthalten.",
-    );
-  }
-  const names = rows.slice(1).map((cells, index) => {
-    if (cells.length !== 2 || cells.some((cell) => !cell.trim())) {
-      throw new RangeError(
-        `Zeile ${index + 2}: Bitte Vorname und Nachname in zwei ausgefüllten Spalten angeben.`,
-      );
-    }
-    return cells.join(" ").replace(/\s+/g, " ").trim();
-  });
-  if (!names.length)
-    throw new RangeError(
-      "Die Klassenliste enthält noch keine Personen. Trage unter der Kopfzeile Vorname und Nachname ein.",
-    );
-  if (names.length > MAX_STUDENTS) {
-    throw new RangeError("Eine Klasse darf höchstens 45 Personen enthalten.");
-  }
-  return names;
-}
-
 export async function importClassFile(file: File): Promise<string[]> {
   if (file.size > 5 * 1024 * 1024)
-    throw new RangeError("Die Klassenliste darf höchstens 5 MB groß sein.");
+    throw new RangeError("Die Klassenliste darf höchstens 5 MiB groß sein.");
   if (/\.xlsx$/i.test(file.name)) {
-    const { readClassXlsx } = await import("./excelWorkbook");
-    return readClassXlsx(await file.arrayBuffer());
+    const { importXlsx } = await import("./xlsxImport");
+    return importXlsx(await file.arrayBuffer());
   }
   return parseClassImport(await file.text(), file.name);
 }

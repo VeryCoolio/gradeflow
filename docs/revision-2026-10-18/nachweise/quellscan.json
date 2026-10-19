@@ -1,0 +1,73 @@
+{
+  "dangerous_dom": [],
+  "network": [],
+  "secrets": [],
+  "storage_events": [],
+  "limits": [
+    {
+      "file": "app/src/infrastructure/importExport/classImport.ts",
+      "line": 1,
+      "code": "const MAX_STUDENTS = 45;"
+    },
+    {
+      "file": "app/src/infrastructure/importExport/classImport.ts",
+      "line": 72,
+      "code": "if (names.length > MAX_STUDENTS) {"
+    },
+    {
+      "file": "app/src/infrastructure/importExport/classImport.ts",
+      "line": 79,
+      "code": "if (file.size > 5 * 1024 * 1024)"
+    },
+    {
+      "file": "app/src/domain/grading/gradeFormat.ts",
+      "line": 1,
+      "code": "import { MIN_GRADE_QUARTER_STEPS, MAX_GRADE_QUARTER_STEPS } from \"./types\";"
+    },
+    {
+      "file": "app/src/domain/grading/gradeFormat.ts",
+      "line": 7,
+      "code": "quarterSteps > MAX_GRADE_QUARTER_STEPS"
+    },
+    {
+      "file": "app/src/domain/grading/types.ts",
+      "line": 2,
+      "code": "export const MAX_GRADE_QUARTER_STEPS = 24;"
+    },
+    {
+      "file": "app/src/domain/grading/types.ts",
+      "line": 4,
+      "code": "export const MAX_BUFFER_POINTS = 3;"
+    },
+    {
+      "file": "app/src/domain/grading/gradingEngine.ts",
+      "line": 3,
+      "code": "MAX_BUFFER_POINTS,"
+    },
+    {
+      "file": "app/src/domain/grading/gradingEngine.ts",
+      "line": 4,
+      "code": "MAX_GRADE_QUARTER_STEPS,"
+    },
+    {
+      "file": "app/src/domain/grading/gradingEngine.ts",
+      "line": 24,
+      "code": "state.gradeQuarterSteps > MAX_GRADE_QUARTER_STEPS ||"
+    },
+    {
+      "file": "app/src/domain/grading/gradingEngine.ts",
+      "line": 27,
+      "code": "state.bufferPoints > MAX_BUFFER_POINTS ||"
+    },
+    {
+      "file": "app/src/domain/grading/gradingEngine.ts",
+      "line": 52,
+      "code": "MAX_BUFFER_POINTS,"
+    },
+    {
+      "file": "app/src/domain/grading/gradingEngine.ts",
+      "line": 64,
+      "code": "MAX_GRADE_QUARTER_STEPS,"
+    }
+  ]
+}

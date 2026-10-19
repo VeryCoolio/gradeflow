@@ -1,0 +1,46 @@
+{
+  "version": "0.7.0",
+  "checks": [
+    {
+      "check": "typecheck",
+      "exitCode": 0,
+      "seconds": 1.01
+    },
+    {
+      "check": "test",
+      "exitCode": 0,
+      "seconds": 4.13
+    },
+    {
+      "check": "lint",
+      "exitCode": 0,
+      "seconds": 1.06
+    },
+    {
+      "check": "format",
+      "exitCode": 0,
+      "seconds": 0.59
+    },
+    {
+      "check": "build",
+      "exitCode": 0,
+      "seconds": 3.54
+    }
+  ],
+  "unitTests": 112,
+  "unitFiles": 18,
+  "browser": {
+    "PASS": 43,
+    "DEFECT": 0,
+    "ERROR": 0
+  },
+  "reloadsAfterSingleObservations": 60,
+  "independentDomainTransitions": 120,
+  "layoutWidths": [
+    390,
+    768,
+    1440
+  ],
+  "frozenTag": "0556967fbbfa0e51954507f5cd141b17b2d08740",
+  "testServersStopped": true
+}

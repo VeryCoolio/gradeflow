@@ -1,0 +1,348 @@
+{
+  "results": [
+    {
+      "sim_score": 0.7710605263710022,
+      "name": "accessibility-audit-runner",
+      "description": "Accessibility Audit Runner - Auto-activating skill for Frontend Development.\nTriggers on: accessibility audit runner, accessibility audit runner\nPart of the Frontend Development skill category.\n",
+      "repo_url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills",
+      "skill_md_url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills/blob/main/planned-skills/generated/05-frontend-dev/accessibility-audit-runner/SKILL.md",
+      "source": [
+        "marketplace"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {
+        "claude_code": "/plugin install accessibility-audit-runner"
+      },
+      "quality": {
+        "stars": 1632,
+        "skillhub_rank": null,
+        "skillhub_score": null,
+        "last_updated": "2026-03-16T03:32:44Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.7643620371818542,
+      "name": "accessibility-audit-runner",
+      "description": "Run accessibility audit runner operations. Auto-activating skill for Frontend Development.\nTriggers on: accessibility audit runner, accessibility audit runner\nPart of the Frontend Development skill category. Use when analyzing or auditing accessibility audit runner. Trigger with phrases like \"accessibility audit runner\", \"accessibility runner\", \"accessibility\".\n",
+      "repo_url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills",
+      "skill_md_url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills/blob/main/skills/05-frontend-dev/accessibility-audit-runner/SKILL.md",
+      "source": [
+        "marketplace"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {
+        "claude_code": "/plugin install accessibility-audit-runner"
+      },
+      "quality": {
+        "stars": 1632,
+        "skillhub_rank": null,
+        "skillhub_score": null,
+        "last_updated": "2026-03-16T03:32:44Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.7541322112083435,
+      "name": "frontend-review",
+      "description": "Review frontend code for accessibility, risky UI security issues, missing states, and common UX regressions. Use when asked to review React, UI, frontend components, forms, a11y, or pre-merge frontend",
+      "repo_url": "https://github.com/yaojingang/yao-meta-skill",
+      "skill_md_url": "https://github.com/yaojingang/yao-meta-skill/blob/main/.previews/yao-meta-skill-v2-report-demo/geo-content-brief-skill/SKILL.md",
+      "source": [
+        "skillhub"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {},
+      "quality": {
+        "stars": 1523,
+        "skillhub_rank": "B",
+        "skillhub_score": 0.0,
+        "last_updated": "2026-06-21T08:40:42Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.7504017949104309,
+      "name": "a11y-audit",
+      "description": "Accessibility audit skill for scanning, fixing, and verifying WCAG 2.2 Level A and AA compliance across React, Next.js, Vue, Angular, Svelte, and plain HTML codebases. Use when auditing accessibility,",
+      "repo_url": "https://github.com/alirezarezvani/claude-skills",
+      "skill_md_url": "https://github.com/alirezarezvani/claude-skills/blob/main/.gemini/skills/a11y-audit/SKILL.md",
+      "source": [
+        "skillhub"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {},
+      "quality": {
+        "stars": 18740,
+        "skillhub_rank": "B",
+        "skillhub_score": 0.0,
+        "last_updated": "2026-06-20T05:17:58Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.742107629776001,
+      "name": "audit",
+      "description": "Perform comprehensive audit of interface quality across accessibility, performance, theming, and responsive design. Generates detailed report of issues with severity ratings and recommendations.",
+      "repo_url": "https://github.com/mxyhi/ok-skills",
+      "skill_md_url": "https://github.com/mxyhi/ok-skills/blob/main/impeccable/audit/SKILL.md",
+      "source": [
+        "marketplace"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {
+        "claude_code": "/plugin install audit"
+      },
+      "quality": {
+        "stars": 115,
+        "skillhub_rank": null,
+        "skillhub_score": null,
+        "last_updated": "2026-03-15T15:04:51Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.742107629776001,
+      "name": "audit",
+      "description": "Perform comprehensive audit of interface quality across accessibility, performance, theming, and responsive design. Generates detailed report of issues with severity ratings and recommendations.",
+      "repo_url": "https://github.com/pbakaus/impeccable",
+      "skill_md_url": "https://github.com/pbakaus/impeccable/blob/main/.claude/skills/audit/SKILL.md",
+      "source": [
+        "skillhub"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {},
+      "quality": {
+        "stars": 9409,
+        "skillhub_rank": "B",
+        "skillhub_score": 0.0,
+        "last_updated": "2026-03-16T23:22:11Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.7414707541465759,
+      "name": "audit",
+      "description": "Perform comprehensive audit of interface quality across accessibility, performance, theming, and responsive design. Generates detailed report of issues with severity ratings and recommendations.",
+      "repo_url": "https://github.com/aiskillstore/marketplace",
+      "skill_md_url": "https://github.com/aiskillstore/marketplace/blob/main/skills/pbakaus/audit/SKILL.md",
+      "source": [
+        "marketplace",
+        "topic"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {
+        "claude_code": "/plugin install audit"
+      },
+      "quality": {
+        "stars": 216,
+        "skillhub_rank": null,
+        "skillhub_score": null,
+        "last_updated": "2026-03-16T09:55:30Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.7362067699432373,
+      "name": "accessibility-test-runner",
+      "description": "Run accessibility audits with axe-core and screen reader testing for desktop applications",
+      "repo_url": "https://github.com/a5c-ai/babysitter",
+      "skill_md_url": "https://github.com/a5c-ai/babysitter/blob/main/plugins/babysitter-codex/upstream/babysitter/skills/babysit/process/specializations/desktop-development/skills/accessibility-test-runner/SKILL.md",
+      "source": [
+        "marketplace",
+        "topic"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {
+        "claude_code": "/plugin install accessibility-test-runner"
+      },
+      "quality": {
+        "stars": 452,
+        "skillhub_rank": null,
+        "skillhub_score": null,
+        "last_updated": "2026-03-15T12:28:50Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.7362067699432373,
+      "name": "accessibility-test-runner",
+      "description": "Run accessibility audits with axe-core and screen reader testing for desktop applications",
+      "repo_url": "https://github.com/a5c-ai/babysitter",
+      "skill_md_url": "https://github.com/a5c-ai/babysitter/blob/main/plugins/babysitter/skills/babysit/process/specializations/desktop-development/skills/accessibility-test-runner/SKILL.md",
+      "source": [
+        "marketplace",
+        "topic"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {
+        "claude_code": "/plugin install accessibility-test-runner"
+      },
+      "quality": {
+        "stars": 452,
+        "skillhub_rank": null,
+        "skillhub_score": null,
+        "last_updated": "2026-03-15T12:28:50Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.7326910495758057,
+      "name": "accessibility-audit",
+      "description": "Fast, high-signal accessibility triage for pages, components, or PRs targeting WCAG 2.2 AA compliance.",
+      "repo_url": "https://github.com/nickcrew/claude-cortex",
+      "skill_md_url": "https://github.com/NickCrew/claude-cortex/blob/main/skills/accessibility-audit/SKILL.md",
+      "source": [
+        "topic"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {
+        "claude_code": "/plugin install accessibility-audit"
+      },
+      "quality": {
+        "stars": 12,
+        "skillhub_rank": null,
+        "skillhub_score": null,
+        "last_updated": "2026-03-14T08:00:19Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.7271100282669067,
+      "name": "frontend-accessibility",
+      "description": "Implement accessible user interfaces with semantic HTML, keyboard navigation, sufficient color contrast, screen reader support, ARIA attributes, and proper focus management. Use this skill when creating or editing React components (.tsx, .jsx files), when implementing forms with labels and inputs, when building interactive elements (buttons, modals, menus, dialogs), when implementing keyboard navigation, when choosing colors and ensuring contrast ratios, when adding ARIA attributes, when testing with screen readers, when implementing focus states and focus management, or when creating heading structures and page landmarks.",
+      "repo_url": "https://github.com/aiskillstore/marketplace",
+      "skill_md_url": "https://github.com/aiskillstore/marketplace/blob/main/skills/devanb/frontend-accessibility/SKILL.md",
+      "source": [
+        "marketplace",
+        "topic"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {
+        "claude_code": "/plugin install frontend-accessibility"
+      },
+      "quality": {
+        "stars": 216,
+        "skillhub_rank": null,
+        "skillhub_score": null,
+        "last_updated": "2026-03-16T09:55:30Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.7270280122756958,
+      "name": "frontend-design-review",
+      "description": "Review and create distinctive, production-grade frontend interfaces with high design quality and design system compliance. Evaluates using three pillars: frictionless insight-to-action, quality craft, and trustworthy building. USE FOR: PR reviews, design reviews, accessibility audits, design system compliance checks, creative frontend design, UI code review, component reviews, responsive design checks, theme testing, and creating memorable UI. DO NOT USE FOR: Backend API reviews, database schema reviews, infrastructure or DevOps work, pure business logic without UI, or non-frontend code.\n",
+      "repo_url": "https://github.com/microsoft/skills",
+      "skill_md_url": "https://github.com/microsoft/skills/blob/main/.github/skills/frontend-design-review/SKILL.md",
+      "source": [
+        "skillhub",
+        "marketplace"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {
+        "claude_code": "/plugin install frontend-design-review"
+      },
+      "quality": {
+        "stars": 1749,
+        "skillhub_rank": "B",
+        "skillhub_score": 0.0,
+        "last_updated": "2026-03-15T01:14:52Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.726925790309906,
+      "name": "scanning-for-accessibility-issues",
+      "description": "This skill enables Claude to perform comprehensive accessibility audits. It uses the accessibility-test-scanner plugin to identify WCAG 2.1/2.2 compliance issues, validate ARIA attributes, check keyboard navigation, and assess screen reader compatibility. Use this skill when the user requests an accessibility scan, audit, or compliance check, or when terms like \"WCAG\", \"ARIA\", \"screen reader\", \"accessibility testing\", or \"a11y\" are mentioned. It provides actionable insights for improving web application accessibility.\n",
+      "repo_url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills",
+      "skill_md_url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills/blob/main/backups/skills-batch-20251204-000554/plugins/testing/accessibility-test-scanner/skills/accessibility-test-scanner/SKILL.md",
+      "source": [
+        "marketplace"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {
+        "claude_code": "/plugin install scanning-for-accessibility-issues"
+      },
+      "quality": {
+        "stars": 1632,
+        "skillhub_rank": null,
+        "skillhub_score": null,
+        "last_updated": "2026-03-16T03:32:44Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.726925790309906,
+      "name": "scanning-for-accessibility-issues",
+      "description": "This skill enables Claude to perform comprehensive accessibility audits. It uses the accessibility-test-scanner plugin to identify WCAG 2.1/2.2 compliance issues, validate ARIA attributes, check keyboard navigation, and assess screen reader compatibility. Use this skill when the user requests an accessibility scan, audit, or compliance check, or when terms like \"WCAG\", \"ARIA\", \"screen reader\", \"accessibility testing\", or \"a11y\" are mentioned. It provides actionable insights for improving web application accessibility.\n",
+      "repo_url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills",
+      "skill_md_url": "https://github.com/jeremylongshore/claude-code-plugins-plus-skills/blob/main/backups/skill-structure-cleanup-20251108-073936/plugins/testing/accessibility-test-scanner/skills/accessibility-test-scanner/SKILL.md",
+      "source": [
+        "marketplace"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {
+        "claude_code": "/plugin install scanning-for-accessibility-issues"
+      },
+      "quality": {
+        "stars": 1632,
+        "skillhub_rank": null,
+        "skillhub_score": null,
+        "last_updated": "2026-03-16T03:32:44Z"
+      },
+      "safety_scan_date": null
+    },
+    {
+      "sim_score": 0.7264218926429749,
+      "name": "accessibility-compliance-accessibility-audit",
+      "description": "You are an accessibility expert specializing in WCAG compliance, inclusive design, and assistive technology compatibility. Conduct audits, identify barriers, and provide remediation guidance.",
+      "repo_url": "https://github.com/lingxling/awesome-skills-cn",
+      "skill_md_url": "https://github.com/lingxling/awesome-skills-cn/blob/main/antigravity-awesome-skills/skills/accessibility-compliance-accessibility-audit/SKILL.md",
+      "source": [
+        "topic"
+      ],
+      "platforms": [
+        "claude_code"
+      ],
+      "install_cmd": {
+        "claude_code": "/plugin install accessibility-compliance-accessibility-audit"
+      },
+      "quality": {
+        "stars": 14,
+        "skillhub_rank": null,
+        "skillhub_score": null,
+        "last_updated": "2026-03-16T12:24:16Z"
+      },
+      "safety_scan_date": null
+    }
+  ]
+}

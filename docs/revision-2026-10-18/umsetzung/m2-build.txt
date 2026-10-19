@@ -1,0 +1,22 @@
+
+> muendliche-notengebung-core@0.6.1 build
+> tsc --noEmit && vite build
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 65 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                               0.42 kB │ gzip:   0.29 kB
+dist/assets/classImport.worker-DK1P2DPn.js  939.71 kB
+dist/assets/index-Cbz_y91P.css               29.66 kB │ gzip:   6.73 kB
+dist/assets/xlsxResources-TiEBE5Hp.js         1.12 kB │ gzip:   0.58 kB
+dist/assets/xlsxImport-CLox0DND.js            1.17 kB │ gzip:   0.65 kB
+dist/assets/index-CvOEbNCO.js               291.48 kB │ gzip:  89.80 kB
+dist/assets/excelWorkbook-BabgefC5.js       940.28 kB │ gzip: 272.21 kB
+✓ built in 5.13s
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

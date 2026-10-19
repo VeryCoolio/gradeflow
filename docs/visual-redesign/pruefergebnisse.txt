@@ -1,0 +1,91 @@
+typecheck
+
+> muendliche-notengebung-core@0.6.1 typecheck
+> tsc --noEmit
+
+
+
+tests-isolated
+
+> muendliche-notengebung-core@0.6.1 test
+> vitest run
+
+
+ RUN  v5.0.1 /Users/yannis/Library/CloudStorage/OneDrive-Persönlich/Documents/_Yannis/_Studium/_PHKA/_Bachelorarbeit/Programmieren/codex-startpaket-gradeflow/app
+
+
+ Test Files  15 passed (15)
+      Tests  95 passed (95)
+   Start at  15:59:19
+   Duration  15.54s (environment 39%, tests 26%, import 25%, transform 9%, worker 1%)
+
+    Isolate  15 workers spawned · ~1.81s startup each (spawn + environment, per file)
+             at least ~1.21s faster with isolate: false — reuses workers across files instead of one per file
+
+
+
+lint
+
+> muendliche-notengebung-core@0.6.1 lint
+> eslint .
+
+
+
+format
+
+> muendliche-notengebung-core@0.6.1 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+
+build
+
+> muendliche-notengebung-core@0.6.1 build
+> tsc --noEmit && vite build
+
+vite v7.3.6 building client environment for production...
+transforming...
+✓ 56 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                          0.42 kB │ gzip:   0.29 kB
+dist/assets/index-Cbz_y91P.css          29.66 kB │ gzip:   6.73 kB
+dist/assets/index-BXEUEdz3.js          284.72 kB │ gzip:  87.31 kB
+dist/assets/excelWorkbook-Bc55uHQ-.js  940.22 kB │ gzip: 272.17 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+✓ built in 2.94s
+
+
+preservation
+{
+  "reference": "ada6c55929857ca08c69ce68495c80f5a68b83c3",
+  "result": "PASS",
+  "exactFiles": 74,
+  "presentationFiles": 7,
+  "selfChecks": 11,
+  "failures": [],
+  "limits": [
+    "CSS, visual contrast, visibility, focus and runtime rendering require separate browser checks.",
+    "Only static aria-hidden SVG decoration and class tokens are exempted from the TSX AST comparison.",
+    "Whitespace-only JSX text and comments are ignored; meaningful copy and all existing non-class attributes remain checked.",
+    "Pre-existing untracked app/src/main.ts is outside this Git comparison and deliberately untouched."
+  ]
+}
+
+
+Vorheriger paralleler Testlauf, zusammen mit Typecheck/Lint/Build:
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+ FAIL  src/App.test.tsx > importiert eine ausgefüllte Excel-Klassenliste über den Dateiablauf
+TestingLibraryElementError: Unable to find role="heading" and name "Fiktive Excel-Klasse"
+ Test Files  1 failed | 14 passed (15)
+      Tests  1 failed | 94 passed (95)
+   Start at  15:58:26
+   Duration  36.84s (environment 36%, tests 32%, import 18%, transform 12%, worker 1%)
+
+Nach Beobachtung der temporären Server beim Beenden: Python-Prüfserver 5176/5177 meldeten für die automatisch angefragte, nicht vorhandene favicon.ico jeweils HTTP 404. Styles, HTML und JavaScript hatten HTTP 200/304. Das App-HTML verlinkt unverändert kein Favicon; keine neue App-Ressource fehlt. Die regulären Produktions- und Hauptvorschau-Tabs meldeten keine Konsolenwarnungen/-fehler.

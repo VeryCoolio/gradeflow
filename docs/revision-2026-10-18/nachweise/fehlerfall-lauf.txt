@@ -1,0 +1,4 @@
+Speicherfehler beim Tausch
+Tastaturzugang der Verlaufstabelle
+Browser verweigert Zugriff auf localStorage
+200 Prozent Grundschrift und reduzierte Bewegung

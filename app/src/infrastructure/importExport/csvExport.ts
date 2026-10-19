@@ -1,7 +1,6 @@
 import { buildClassReport } from "../../application/reporting";
 import { formatGradeDecimal } from "../../domain/grading/gradeFormat";
-import { hasVisibleLessonSequence } from "../../domain/sessions/lessonSequence";
-import { observationLabel } from "../../features/presentation";
+import { observationLabel } from "../../application/observationPresentation";
 import type { ClassRecord } from "../local/schema";
 
 function safeCell(value: string | number): string {
@@ -53,7 +52,7 @@ export function exportClassCsv(classRecord: ClassRecord): string {
           ...common,
           "Unterrichtsstunde",
           cell.session.date,
-          hasVisibleLessonSequence(report.sessions, cell.session.date)
+          report.lessons.get(cell.session.id)!.showSequence
             ? cell.session.lessonSequence
             : "",
           cell.observation?.status === "bewertet"

@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gradeflow – Ansichtsskizze zur Freigabe</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font:
+          16px/1.45 system-ui,
+          sans-serif;
+        color: #242238;
+        background: #f6f5f8;
+        --accent: #5b477e;
+        --line: #d9d3e3;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+      }
+      button,
+      a {
+        font: inherit;
+      }
+      button {
+        cursor: default;
+      }
+      .document-note {
+        padding: 8px 20px;
+        background: #242238;
+        color: white;
+        font-size: 12px;
+      }
+      .document-note a {
+        color: white;
+      }
+      .app-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 14px 32px;
+        border-bottom: 1px solid var(--line);
+        background: white;
+      }
+      .brand {
+        font-size: 19px;
+        font-weight: 750;
+        color: var(--accent);
+      }
+      .brand span {
+        display: block;
+        font-size: 12px;
+        color: #615d70;
+        font-weight: 450;
+      }
+      nav {
+        display: flex;
+        gap: 8px;
+      }
+      nav button {
+        min-height: 44px;
+        border: 0;
+        padding: 8px 14px;
+        border-radius: 5px;
+        color: #615d70;
+        background: transparent;
+        font-size: 14px;
+      }
+      nav button:first-child {
+        background: #eee9f5;
+        color: var(--accent);
+        font-weight: 650;
+        box-shadow: inset 0 -3px var(--accent);
+      }
+      main {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 24px 28px 36px;
+      }
+      .lesson-line {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        padding-bottom: 16px;
+      }
+      .class-name {
+        margin: 0;
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .period {
+        margin: 2px 0 0;
+        color: #615d70;
+        font-size: 12px;
+      }
+      .date {
+        margin-left: auto;
+        text-align: right;
+      }
+      .date strong {
+        font-size: 16px;
+        display: block;
+      }
+      .date small {
+        font-size: 12px;
+        color: #615d70;
+      }
+      .workspace {
+        display: grid;
+        grid-template-columns: 210px minmax(0, 1fr);
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: clip;
+      }
+      .people {
+        padding: 18px 12px;
+        border-right: 1px solid var(--line);
+        background: #faf9fc;
+        max-height: min(68vh, 560px);
+        overflow: auto;
+        align-self: start;
+      }
+      .people h2 {
+        margin: 0 8px 12px;
+        font-size: 14px;
+      }
+      .people button {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 46px;
+        border: 0;
+        border-bottom: 1px solid #e8e4ed;
+        background: transparent;
+        padding: 10px 8px;
+        text-align: left;
+        font-size: 13px;
+        gap: 8px;
+      }
+      .people button small {
+        color: #615d70;
+        font-size: 11px;
+      }
+      .people .selected {
+        color: var(--accent);
+        box-shadow: inset 3px 0 var(--accent);
+        background: #eee9f5;
+        font-weight: 650;
+      }
+      .assessment {
+        padding: 24px;
+        min-width: 0;
+      }
+      .person-context {
+        padding-bottom: 18px;
+      }
+      .compact-context {
+        display: none;
+      }
+      .person-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        color: #615d70;
+        font-size: 12px;
+      }
+      h1 {
+        font:
+          650 34px/1.2 Georgia,
+          serif;
+        margin: 8px 0;
+        overflow-wrap: anywhere;
+      }
+      .baseline {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .baseline p {
+        margin: 0;
+        font-size: 13px;
+        color: #615d70;
+      }
+      .baseline strong {
+        color: #242238;
+        font-size: 21px;
+        font-variant-numeric: tabular-nums;
+      }
+      .status {
+        font-size: 12px;
+        color: #615d70;
+      }
+      .rating-label {
+        font-size: 13px;
+        font-weight: 600;
+        margin: 0 0 10px;
+      }
+      .rating-options {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .rating {
+        display: grid;
+        align-content: start;
+        justify-items: center;
+        gap: 10px;
+        padding: 14px 6px;
+        min-height: 170px;
+        border: 1px solid #c4bacf;
+        border-radius: 5px;
+        color: #51445f;
+        background: #f3f0f7;
+      }
+      .rating strong {
+        font-size: 26px;
+        line-height: 1;
+      }
+      .rating .meaning {
+        font-size: 12px;
+        min-height: 32px;
+      }
+      .rating .result {
+        font-size: 23px;
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+      }
+      .rating .result small {
+        display: block;
+        font:
+          10px/1.5 system-ui,
+          sans-serif;
+        font-weight: 450;
+      }
+      .rating .buffer {
+        font-size: 11px;
+      }
+      .rating.negative {
+        background: #fbf2f3;
+        color: #8b3440;
+        border-color: #dcb7be;
+      }
+      .rating.negative.strong {
+        background: #f6e8eb;
+      }
+      .rating.positive {
+        background: #f0f7f2;
+        color: #2c644c;
+        border-color: #afcdbb;
+      }
+      .rating.positive.strong {
+        background: #e5f0e9;
+      }
+      .unrated {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .unrated button {
+        min-height: 44px;
+        background: white;
+        border: 1px solid #93869f;
+        border-radius: 5px;
+        color: #242238;
+        font-size: 13px;
+      }
+      .save-state {
+        padding: 12px 0;
+        margin-top: 12px;
+        border-block: 1px solid #d6e6dc;
+        color: #2c644c;
+        font-size: 13px;
+      }
+      .save-state strong {
+        display: block;
+      }
+      .save-state span {
+        color: #615d70;
+        font-size: 12px;
+      }
+      .save-error {
+        display: none;
+        color: #8b3440;
+        border-color: #dcb7be;
+      }
+      .save-error button {
+        margin: 8px 0 0;
+        min-height: 44px;
+        border: 1px solid #8b3440;
+        background: #fff;
+        color: #8b3440;
+        border-radius: 5px;
+        padding: 6px 12px;
+      }
+      .work-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 8px 16px;
+        margin-top: 12px;
+      }
+      .work-actions button {
+        border: 0;
+        background: transparent;
+        color: var(--accent);
+        min-height: 44px;
+        padding: 6px 0;
+        font-size: 13px;
+      }
+      .mobile-people {
+        display: none;
+      }
+      .safety-note {
+        color: #615d70;
+        font-size: 11px;
+        margin: 12px 0 0;
+      }
+      button:focus-visible,
+      a:focus-visible {
+        outline: 3px solid #795723;
+        outline-offset: 3px;
+      }
+      body.error .save-success {
+        display: none;
+      }
+      body.error .save-error {
+        display: block;
+      }
+      @media (max-width: 800px) {
+        .app-header {
+          padding: 10px 16px;
+          gap: 12px;
+        }
+        .brand {
+          font-size: 17px;
+        }
+        nav button {
+          font-size: 12px;
+          padding-inline: 8px;
+        }
+        main {
+          padding: 16px;
+        }
+        .workspace {
+          grid-template-columns: 155px minmax(0, 1fr);
+        }
+        .assessment {
+          padding: 18px;
+        }
+        .rating-options {
+          gap: 5px;
+        }
+        .rating {
+          padding-inline: 4px;
+        }
+        .rating .meaning {
+          font-size: 12px;
+        }
+        .people {
+          padding-inline: 6px;
+        }
+      }
+      @media (max-width: 600px) {
+        .document-note {
+          padding: 5px 12px;
+          font-size: 11px;
+        }
+        .app-header {
+          display: block;
+          padding: 8px 12px;
+        }
+        .brand {
+          display: flex;
+          align-items: baseline;
+          gap: 10px;
+        }
+        .brand span {
+          font-size: 11px;
+        }
+        nav {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2px 8px;
+          margin-top: 6px;
+        }
+        nav button {
+          min-height: 44px;
+          text-align: left;
+          font-size: 12px;
+          padding: 6px 8px;
+        }
+        main {
+          padding: 12px;
+        }
+        .lesson-line {
+          gap: 8px;
+          padding-bottom: 10px;
+        }
+        .class-name {
+          font-size: 17px;
+        }
+        .period {
+          font-size: 11px;
+        }
+        .date strong {
+          font-size: 13px;
+        }
+        .date small {
+          font-size: 11px;
+        }
+        .workspace {
+          display: block;
+          overflow: visible;
+        }
+        .people {
+          display: none;
+        }
+        .assessment {
+          padding: 14px;
+        }
+        .person-context {
+          position: sticky;
+          top: 0;
+          z-index: 1;
+          background: #fff;
+          padding: 6px 0 12px;
+          box-shadow: 0 2px 0 white;
+        }
+        .compact-context {
+          display: block;
+          margin: 0 0 5px;
+          font-size: 11px;
+          color: #615d70;
+        }
+        h1 {
+          font-size: 28px;
+          margin: 5px 0;
+        }
+        .person-meta {
+          font-size: 11px;
+        }
+        .baseline p {
+          font-size: 12px;
+        }
+        .baseline strong {
+          font-size: 18px;
+        }
+        .status {
+          font-size: 11px;
+        }
+        .rating-label {
+          font-size: 11px;
+          margin: 2px 0 8px;
+        }
+        .rating-options {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 6px;
+        }
+        .rating {
+          min-height: 54px;
+          padding: 6px 10px;
+          grid-template-columns: 30px minmax(0, 1fr) 64px;
+          gap: 0 8px;
+          text-align: left;
+          align-items: center;
+          justify-items: start;
+        }
+        .rating strong {
+          font-size: 23px;
+          grid-row: 1 / 3;
+        }
+        .rating .meaning {
+          font-size: 12px;
+          min-height: 0;
+        }
+        .rating .result {
+          font-size: 20px;
+          grid-column: 3;
+          grid-row: 1 / 3;
+          justify-self: end;
+        }
+        .rating .result small {
+          font-size: 11px;
+        }
+        .rating .buffer {
+          font-size: 11px;
+          grid-column: 2;
+        }
+        .unrated {
+          margin-top: 10px;
+        }
+        .save-state {
+          margin-top: 10px;
+          padding: 9px 0;
+          font-size: 12px;
+        }
+        .save-state span {
+          font-size: 11px;
+        }
+        .work-actions {
+          margin-top: 6px;
+          gap: 4px 10px;
+        }
+        .work-actions button {
+          font-size: 11px;
+        }
+        .mobile-people {
+          display: inline-block;
+        }
+        .safety-note {
+          font-size: 11px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="document-note">
+      Ansichtsskizze zur Freigabe · keine laufende App ·
+      <a href="?zustand=eingabe">Eingabe</a> /
+      <a href="?zustand=fehler">Speicherfehler</a>
+    </div>
+    <header class="app-header">
+      <div class="brand">Gradeflow <span>Mündliche Mitarbeit</span></div>
+      <nav aria-label="Hauptbereiche">
+        <button>Meine Klassen</button><button>Klasse anlegen</button
+        ><button>Datensicherung</button><button>Bewertung verstehen</button>
+      </nav>
+    </header>
+    <main>
+      <div class="lesson-line">
+        <div>
+          <p class="class-name">Prüfung 8b</p>
+          <p class="period">Schuljahr 2026/27</p>
+        </div>
+        <div class="date">
+          <strong>18.10.2026</strong><small>1 von 20 Personen erfasst</small>
+        </div>
+      </div>
+      <div class="workspace">
+        <aside class="people">
+          <h2>Personen</h2>
+          <div id="people"></div>
+        </aside>
+        <section class="assessment" aria-label="Beobachtung erfassen">
+          <div class="person-context">
+            <p class="compact-context">
+              Prüfung 8b · 18.10.2026 · 1 von 20 erfasst
+            </p>
+            <div class="person-meta">
+              <span>Aktuelle Person · 2 von 20</span
+              ><span>1 gespeichert · 19 offen</span>
+            </div>
+            <h1>Fiktiv Bea</h1>
+            <div class="baseline">
+              <p>Stand vor dieser Stunde: <strong>2,00</strong></p>
+              <span class="status">Status: Offen</span>
+            </div>
+            <div class="save-state save-error">
+              <strong
+                >Die Eingabe für Fiktiv Bea wurde nicht gespeichert.</strong
+              ><span
+                >Der Browser hat das Speichern verhindert. Bea bleibt
+                ausgewählt.</span
+              ><br /><button>Erneut speichern</button>
+            </div>
+          </div>
+          <p class="rating-label">
+            Mitarbeit der ganzen Stunde · relativ zum bisherigen Stand
+          </p>
+          <div class="rating-options">
+            <button class="rating negative strong">
+              <strong>--</strong><span class="meaning">Deutlich schlechter</span
+              ><span class="result"><small>Ergebnis</small>2,50</span
+              ><span class="buffer">Puffer 0/3</span>
+            </button>
+            <button class="rating negative">
+              <strong>-</strong><span class="meaning">Etwas schlechter</span
+              ><span class="result"><small>Ergebnis</small>2,25</span
+              ><span class="buffer">Puffer 0/3</span>
+            </button>
+            <button class="rating">
+              <strong>0</strong><span class="meaning">Etwa gleich</span
+              ><span class="result"><small>Ergebnis</small>2,00</span
+              ><span class="buffer">Puffer 0/3</span>
+            </button>
+            <button class="rating positive">
+              <strong>+</strong><span class="meaning">Etwas besser</span
+              ><span class="result"><small>Ergebnis</small>1,75</span
+              ><span class="buffer">Puffer 0/3</span>
+            </button>
+            <button class="rating positive strong">
+              <strong>++</strong><span class="meaning">Deutlich besser</span
+              ><span class="result"><small>Ergebnis</small>1,50</span
+              ><span class="buffer">Puffer 0/3</span>
+            </button>
+          </div>
+          <div class="unrated">
+            <button>Abwesend</button><button>Nicht beobachtet</button>
+          </div>
+          <div class="save-state save-success">
+            <strong>Fiktiv Ada: + gespeichert.</strong
+            ><span>Weiter mit Fiktiv Bea. Jede Auswahl speichert sofort.</span>
+          </div>
+          <div class="work-actions">
+            <button class="mobile-people">Person wählen</button
+            ><button>Zur Klasse</button
+            ><button>Bewertung und Puffer erklärt</button>
+          </div>
+        </section>
+      </div>
+      <p class="safety-note">
+        Dokumentation der gesamten Unterrichtsstunde. Keine mündlichen
+        Prüfungen, Referate oder Präsentationen.
+      </p>
+    </main>
+    <script>
+      // Dokumentationsskizze: feste fiktive Anzeige, keine Speicherung oder Bewertung.
+      const names = [
+        "Ada",
+        "Bea",
+        "Cem",
+        "Dana",
+        "Emil",
+        "Farah",
+        "Greta",
+        "Hannes",
+        "Ida",
+        "Jonas",
+        "Kaya",
+        "Leon",
+        "Mila",
+        "Noah",
+        "Oskar",
+        "Paula",
+        "Quinn",
+        "Ria",
+        "Sami",
+        "Tara",
+      ];
+      const list = document.getElementById("people");
+      for (const [index, name] of names.entries()) {
+        const button = document.createElement("button");
+        if (index === 1) button.className = "selected";
+        const text = document.createElement("span");
+        text.textContent = `${index + 1}. Fiktiv ${name}`;
+        const status = document.createElement("small");
+        status.textContent = index === 0 ? "+" : "Offen";
+        button.append(text, status);
+        list.append(button);
+      }
+      if (new URLSearchParams(location.search).get("zustand") === "fehler")
+        document.body.classList.add("error");
+    </script>
+  </body>
+</html>

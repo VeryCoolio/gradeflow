@@ -69,6 +69,24 @@ function legacyRaw(): string {
 }
 
 describe("lokales Repository", () => {
+  it("verhindert Schreibzugriffe einschließlich Rückfallständen ohne Schreibberechtigung", () => {
+    const storage = new MemoryStorage();
+    storage.items.set(NOTEBOOK_STORAGE_KEY, JSON.stringify(notebook()));
+    const repository = new LocalRepository(
+      storage,
+      () => now,
+      () => false,
+    );
+    expect(repository.load().classes).toHaveLength(1);
+    expect(() =>
+      repository.createSession("c1", { id: "s", date: "2026-09-23" }),
+    ).toThrow(/nur zur Ansicht/);
+    expect(() =>
+      repository.importNotebookBackup(JSON.stringify(EMPTY_NOTEBOOK), true),
+    ).toThrow(/nur zur Ansicht/);
+    expect(storage.writes).toEqual([]);
+    expect(repository.load()).toEqual(notebook());
+  });
   it("liefert ohne vorhandene Daten einen leeren versionierten Stand", () => {
     const storage = new MemoryStorage();
     expect(new LocalRepository(storage, () => now).load()).toEqual(

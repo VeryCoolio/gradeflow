@@ -111,3 +111,13 @@ Eine kompakte, vergrößerbare oder verkleinerbare Tabelle und klare Kürzel fü
 ### O14 – Wahrnehmbarer Reihenfolgetausch – technische Korrektur
 
 Die bestätigte atomare Tauschregel O7 bleibt bestehen. Die Listenreihenfolge innerhalb eines Datums, eine Eingabezusammenfassung, ein Personenauszug und ein ausdrücklicher Speicherhinweis machen den Tausch sichtbar. Dies ist eine Bedienkorrektur und keine neue Bewertungsregel.
+
+## Freigegebene Revision vom 18.10.2026
+
+### O15 – Technische Ausgestaltung der Produktrevision
+
+Nach dem neuen Prüfbericht und der Ansichtsskizze hat Yannis den vollständigen Umbau ausdrücklich freigegeben („ich geben den vollständigen Umbau frei“). Die Umsetzung erfolgt als Revision 0.7.0 in vier prüfbaren Schritten. Die fachlichen Regeln O1–O14 bleiben verbindlich.
+
+Technische Festlegungen: eindeutiger schreibender Tab desselben Browser-Ursprungs; getrennte Arbeitsposition mit stabilen IDs; kompakter Bewertungsbereich mit sichtbarem Kontext und Fehlerwiederholung; 20 Einträge je Seite der Stundenliste mit Datumssuche; gemeinsame vorbereitete Stundenbeschriftungen. Das Tabellenfenster 10/20/alle und die vollständige Neuberechnung bleiben erhalten. Ein Dateilimit von 5 MiB betrifft den Import, nicht die Dauer des Bewertungszeitraums und nicht die Aufbewahrung vorhandener Stunden. XLSX erhält zusätzliche Umfangs- und Laufzeitgrenzen.
+
+Keine neue pädagogische Bewertungsregel, keine Cloud-Synchronisierung und keine Freigabe für echte Schülerdaten oder eine Veröffentlichung. Die technische Prüfung ersetzt keine neue Usability-Erhebung; v0.5.0 bleibt eingefroren.

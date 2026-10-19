@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Speicherfehler beim Tausch",
+    "unchanged": true,
+    "no_false_success": true
+  },
+  {
+    "name": "Tastaturzugang der Verlaufstabelle",
+    "tabindex": null,
+    "role": null,
+    "interactive_descendants": 0
+  },
+  {
+    "name": "Browser verweigert Zugriff auf localStorage",
+    "body_text": "",
+    "visible_alerts": 0,
+    "page_errors": [
+      "Prüfung: Speicherzugriff verweigert"
+    ]
+  },
+  {
+    "name": "200 Prozent Grundschrift und reduzierte Bewegung",
+    "overflow": 0,
+    "animation": "none",
+    "limitation": "Echte laufende App mit vergrößerter CSS Grundschrift; kein Browserzoom oder OS Textskalierung"
+  }
+]

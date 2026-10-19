@@ -1,0 +1,32 @@
+[
+  {
+    "width": 390,
+    "errorContext": {
+      "top": 0,
+      "bottom": 305.375,
+      "visible": true
+    },
+    "retrySavedOriginalPerson": true,
+    "largeTextNoPageOverflow": true
+  },
+  {
+    "width": 768,
+    "errorContext": {
+      "top": 200.015625,
+      "bottom": 491.828125,
+      "visible": true
+    },
+    "retrySavedOriginalPerson": true,
+    "largeTextNoPageOverflow": true
+  },
+  {
+    "width": 1440,
+    "errorContext": {
+      "top": 154,
+      "bottom": 455.9375,
+      "visible": true
+    },
+    "retrySavedOriginalPerson": true,
+    "largeTextNoPageOverflow": true
+  }
+]

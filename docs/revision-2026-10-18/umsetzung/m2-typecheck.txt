@@ -1,0 +1,4 @@
+
+> muendliche-notengebung-core@0.6.1 typecheck
+> tsc --noEmit
+

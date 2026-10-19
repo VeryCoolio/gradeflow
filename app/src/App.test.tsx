@@ -92,6 +92,138 @@ async function importTwoStudents(user: ReturnType<typeof userEvent.setup>) {
 afterEach(cleanup);
 beforeEach(() => {
   window.scrollTo = () => {};
+  window.history.replaceState(null, "", window.location.pathname);
+});
+
+it("öffnet nach Neuladen dieselbe ältere offene Stunde und die gewählte Person", async () => {
+  const user = userEvent.setup();
+  const storage = new MemoryStorage();
+  const repository = new LocalRepository(storage, () => now);
+  const group = reportClass();
+  repository.save({
+    ...EMPTY_NOTEBOOK,
+    currentClassId: "c1",
+    classes: [
+      {
+        ...group,
+        sessions: group.sessions.map((s) =>
+          s.id === "s1"
+            ? {
+                ...s,
+                observations: { p1: { status: "bewertet", symbol: "++" } },
+              }
+            : s.id === "s3"
+              ? { ...s, observations: {} }
+              : s,
+        ),
+      },
+    ],
+  });
+  const props = { repository, workspaceStorage: storage };
+  const app = render(<App {...props} />);
+  await user.click(screen.getByRole("button", { name: "← Zur Klasse" }));
+  await user.click(
+    within(
+      document.querySelector('[data-session-id="s1"]') as HTMLElement,
+    ).getByRole("button", { name: "Fortsetzen" }),
+  );
+  await user.click(
+    document.querySelector(".student-list button") as HTMLButtonElement,
+  );
+  app.unmount();
+  render(<App {...props} />);
+  expect(
+    document.querySelector(".assessment-header h2")?.textContent,
+  ).toContain("23.09.2026 · 1. Stunde");
+  expect(document.querySelector(".grading-panel h3")?.textContent).toBe(
+    "Fiktiv Ada",
+  );
+});
+
+it("überschreibt eine neuere Stunde nicht bei der Klassenauswahl aus einem alten UI-Stand", async () => {
+  const user = userEvent.setup();
+  const storage = new MemoryStorage();
+  const repository = new LocalRepository(storage, () => now);
+  repository.save({
+    ...EMPTY_NOTEBOOK,
+    currentClassId: "c1",
+    classes: [{ ...reportClass(), sessions: [] }],
+  });
+  render(<App repository={repository} />);
+  const newer = new LocalRepository(storage, () => now);
+  newer.createSession("c1", { id: "neue-stunde", date: "2026-09-25" });
+  newer.saveObservation("c1", "neue-stunde", "p1", {
+    status: "bewertet",
+    symbol: "+",
+  });
+  await user.selectOptions(screen.getByLabelText("Klasse auswählen"), "c1");
+  expect(newer.load().classes[0].sessions[0]?.observations.p1).toEqual({
+    status: "bewertet",
+    symbol: "+",
+  });
+});
+
+it("behandelt geerbte Objektschlüssel nicht als gespeicherte Beobachtung", () => {
+  const storage = new MemoryStorage();
+  const repository = new LocalRepository(storage, () => now);
+  const group = reportClass();
+  repository.save({
+    ...EMPTY_NOTEBOOK,
+    currentClassId: "c1",
+    classes: [
+      {
+        ...group,
+        students: [{ ...group.students[0], id: "toString" }],
+        sessions: [
+          { ...group.sessions[0], lessonSequence: 1, observations: {} },
+        ],
+      },
+    ],
+  });
+  render(<App repository={repository} />);
+  expect(
+    document.querySelector(".student-list button small")?.textContent,
+  ).toBe("Offen");
+});
+
+it("zeigt bei verweigertem Zugriff auf das Storage-Objekt eine Fehleransicht", () => {
+  const descriptor = Object.getOwnPropertyDescriptor(window, "localStorage")!;
+  Object.defineProperty(window, "localStorage", {
+    configurable: true,
+    get() {
+      throw new DOMException("verweigert", "SecurityError");
+    },
+  });
+  try {
+    expect(() => render(<App />)).not.toThrow();
+    expect(screen.getByRole("alert").textContent).toContain(
+      "Lesen fehlgeschlagen",
+    );
+  } finally {
+    Object.defineProperty(window, "localStorage", descriptor);
+  }
+});
+
+it("weist eine zu große JSON-Sicherung vor dem Lesen ab", async () => {
+  const user = userEvent.setup();
+  const { repository } = makeApp();
+  await user.click(screen.getByRole("button", { name: "Datensicherung" }));
+  let read = false;
+  const file = new File(["{}"], "gross.json", { type: "application/json" });
+  Object.defineProperty(file, "size", { value: 5 * 1024 * 1024 + 1 });
+  Object.defineProperty(file, "text", {
+    value: async () => {
+      read = true;
+      return JSON.stringify(EMPTY_NOTEBOOK);
+    },
+  });
+  await user.upload(screen.getByLabelText("JSON-Sicherung auswählen"), file);
+  fireEvent.submit(
+    screen.getByLabelText("JSON-Sicherung auswählen").closest("form")!,
+  );
+  expect(read).toBe(false);
+  expect(screen.getByRole("alert").textContent).toContain("5 MiB");
+  expect(repository.load()).toEqual(EMPTY_NOTEBOOK);
 });
 
 it("importiert eine ausgefüllte Excel-Klassenliste über den Dateiablauf", async () => {
@@ -231,7 +363,9 @@ it("erklärt die Bedeutung der Symbole und zeigt bei alter Stunde den Stand davo
       (element) => element.textContent,
     ),
   ).toEqual(["--", "-", "0", "+", "++"]);
-  await user.click(screen.getByRole("button", { name: "Meine Klassen" }));
+  await user.click(
+    screen.getByRole("button", { name: "← Zur laufenden Stunde" }),
+  );
   expect(screen.getByRole("button", { name: "++" })).toBeTruthy();
 });
 
@@ -329,6 +463,19 @@ describe("Kernoberfläche", () => {
     );
     expect(screen.getByText("0 von 2 Personen erfasst")).toBeTruthy();
     expect(repository.load().classes[0].sessions[0].observations).toEqual({});
+    expect(screen.getByRole("alert").textContent).toContain("Fiktiv Ada");
+    await user.click(document.querySelectorAll(".student-list button")[1]);
+    storage.fail = false;
+    await user.click(
+      screen.getByRole("button", { name: "Eingabe erneut speichern" }),
+    );
+    expect(repository.load().classes[0].sessions[0].observations).toEqual({
+      "id-2": { status: "bewertet", symbol: "+" },
+    });
+    expect(document.querySelector(".grading-panel h3")?.textContent).toBe(
+      "Fiktiv Bea",
+    );
+    expect(screen.queryByRole("alert")).toBeNull();
   });
 
   it("bearbeitet und archiviert einen Zeitraum ohne automatischen Endtermin", async () => {
@@ -779,4 +926,79 @@ it("täuscht bei einem fehlgeschlagenen Stundentausch keine geänderte Reihenfol
   expect(
     screen.getByText("23.09.2026 · 1. Stunde").closest("li")?.textContent,
   ).toContain("1 × - · 1 × NB");
+});
+
+it("erreicht vom Stundeninhalt aus das erste Symbol vor der ergänzenden Personenliste", async () => {
+  const user = userEvent.setup();
+  makeApp();
+  await importTwoStudents(user);
+  await user.click(screen.getByRole("button", { name: "Stunde beginnen" }));
+  document.getElementById("main-content")!.focus();
+  await user.tab();
+  expect(document.activeElement?.textContent).toBe("← Zur Klasse");
+  await user.tab();
+  expect(document.activeElement?.getAttribute("aria-label")).toBe("--");
+});
+
+it("findet ältere Stunden außerhalb der sichtbaren Liste und bearbeitet sie mit vollständigem Bezug", async () => {
+  const user = userEvent.setup();
+  const storage = new MemoryStorage();
+  const repository = new LocalRepository(storage, () => now);
+  const source = reportClass();
+  const sessions = Array.from({ length: 24 }, (_, index) => ({
+    ...source.sessions[0],
+    id: `s${index + 1}`,
+    date: `2026-09-${String(index + 1).padStart(2, "0")}`,
+    lessonSequence: 1,
+  }));
+  repository.save({
+    ...EMPTY_NOTEBOOK,
+    currentClassId: "c1",
+    classes: [{ ...source, sessions }],
+  });
+  render(<App repository={repository} />);
+  expect(document.querySelectorAll(".session-list li")).toHaveLength(20);
+  await user.click(screen.getByRole("button", { name: "Ältere Stunden" }));
+  expect(document.querySelectorAll(".session-list li")).toHaveLength(4);
+  fireEvent.change(screen.getByLabelText("Stunden an einem Datum suchen"), {
+    target: { value: "2026-09-01" },
+  });
+  expect(document.querySelectorAll(".session-list li")).toHaveLength(1);
+  await user.click(screen.getByRole("button", { name: "Bearbeiten" }));
+  expect(screen.getByText(/Stand vor dieser Stunde/).textContent).toContain(
+    "2,00",
+  );
+  await user.click(screen.getByRole("button", { name: "--" }));
+  expect(repository.load().classes[0].sessions).toHaveLength(24);
+  expect(repository.load().classes[0].sessions[0].observations.p1).toEqual({
+    status: "bewertet",
+    symbol: "--",
+  });
+});
+
+it("erklärt bereits beim Start die Rückkehr von einer nicht mehr vorhandenen Stunde", () => {
+  const storage = new MemoryStorage();
+  const repository = new LocalRepository(storage, () => now);
+  repository.save({
+    ...EMPTY_NOTEBOOK,
+    currentClassId: "c1",
+    classes: [reportClass()],
+  });
+  storage.setItem(
+    "gradeflow-workspace-v1",
+    JSON.stringify({
+      page: "klasse",
+      view: "tabelle",
+      classId: "c1",
+      sessionId: "entfernte-stunde",
+      studentId: "p1",
+      historyStudentId: null,
+    }),
+  );
+  render(<App repository={repository} workspaceStorage={storage} />);
+  expect(screen.getByRole("status").textContent).toContain(
+    "nicht mehr verfügbar",
+  );
+  expect(screen.getByRole("button", { name: "Stunde beginnen" })).toBeTruthy();
+  expect(screen.queryByRole("button", { name: "++" })).toBeNull();
 });

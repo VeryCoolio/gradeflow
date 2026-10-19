@@ -1,10 +1,10 @@
 import ExcelJS from "exceljs";
 import { buildClassReport } from "../../application/reporting";
-import { hasVisibleLessonSequence } from "../../domain/sessions/lessonSequence";
-import { observationLabel } from "../../features/presentation";
+import { observationLabel } from "../../application/observationPresentation";
 import { RATING_GUIDE } from "../../application/ratingGuide";
 import type { ClassRecord } from "../local/schema";
-import { namesFromRows } from "./classImport";
+import { namesFromRows } from "./classListRows";
+import { assertXlsxResources } from "./xlsxResources";
 
 export const XLSX_MIME =
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
@@ -117,7 +117,7 @@ export async function exportClassXlsx(
         cell.observation?.status === "bewertet" ? cell.observation.symbol : "";
       sheet.addRow([
         new Date(`${cell.session.date}T12:00:00Z`),
-        hasVisibleLessonSequence(report.sessions, cell.session.date)
+        report.lessons.get(cell.session.id)!.showSequence
           ? cell.session.lessonSequence
           : null,
         cell.observation?.status === "bewertet"
@@ -141,6 +141,7 @@ export async function exportClassXlsx(
 }
 
 export async function readClassXlsx(raw: ArrayBuffer): Promise<string[]> {
+  assertXlsxResources(raw);
   const workbook = new ExcelJS.Workbook();
   try {
     await workbook.xlsx.load(raw);
