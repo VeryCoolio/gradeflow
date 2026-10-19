@@ -1,0 +1,18 @@
+{
+  "verifiedAtUTC": "2026-10-19T19:15:50.011857+00:00",
+  "branch": "main",
+  "auditCommit": "e8b6d2d70038d1adee8ec51591ab555bb791067f",
+  "githubMainAtVerification": "e8b6d2d70038d1adee8ec51591ab555bb791067f",
+  "push": "successful",
+  "remoteMatch": true,
+  "auditFilesChanged": 67,
+  "documentationOnly": true,
+  "appVersion": "0.8.2",
+  "appBaseline": "ead4b637f1e4e938be62fb05486e33485c1386bb",
+  "frozenV050": "0556967fbbfa0e51954507f5cd141b17b2d08740",
+  "skillInstallation": "Drei lokale Skills erreichbar und ausgeführt; zwei neu installiert, einer vorhanden.",
+  "additionalCostEUR": 0,
+  "cleanup": "Eigene Prüfbrowser und eigener Prüfserver 4190 geschlossen. Nutzer-Vorschau 4186 nicht verändert.",
+  "followupCommit": "Dieses Abschlussprotokoll ist der einzige zusätzliche Inhalt des folgenden Commits. Dessen Remote-Stand wird vor der finalen Antwort separat geprüft.",
+  "deploymentManuallyTriggered": false
+}
