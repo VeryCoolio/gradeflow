@@ -1,0 +1,27 @@
+{
+  "version": "0.8.1",
+  "checks": {
+    "typecheck": {
+      "exit_code": 0,
+      "log": "typecheck.txt"
+    },
+    "test": {
+      "exit_code": 0,
+      "log": "test.txt"
+    },
+    "lint": {
+      "exit_code": 0,
+      "log": "lint.txt"
+    },
+    "format:check": {
+      "exit_code": 0,
+      "log": "format-check.txt"
+    },
+    "build": {
+      "exit_code": 0,
+      "log": "build.txt"
+    }
+  },
+  "tests": 119,
+  "test_files": 21
+}

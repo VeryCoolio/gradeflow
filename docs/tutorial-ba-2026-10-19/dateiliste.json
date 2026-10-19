@@ -1,0 +1,511 @@
+{
+  "version": "0.8.1",
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 7744,
+      "sha256": "0502ffd178f4ae82064598432fcc7811b9dc2ee5c1fd1b157f0d2c9489fbfbd2"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6705,
+      "sha256": "672c107a45a2c7ea805d0734c828b2b5be58244d50aebb6d783fefa7e7a57117"
+    },
+    {
+      "path": "app/e2e/guided_tutorial.py",
+      "bytes": 4722,
+      "sha256": "0695b301b85aedda42c8c2c3b1d9fc47e60ba176bda0cf7b72986823547f1576"
+    },
+    {
+      "path": "app/e2e/tutorial_additional.py",
+      "bytes": 5713,
+      "sha256": "6596a419489b40aee16e54070332fe345d39669cfb2d20722922f4f2c124bd71"
+    },
+    {
+      "path": "app/e2e/usability_revision.py",
+      "bytes": 10232,
+      "sha256": "c375b5be336d415a61a93d590358d7c42f95a8fda3d82768b4b6ff50b4c63d84"
+    },
+    {
+      "path": "app/package-lock.json",
+      "bytes": 238686,
+      "sha256": "9d7bd9aca2b69a3de72494f64dc2b348253bae3d3fe286fe6e640fe10f722e23"
+    },
+    {
+      "path": "app/package.json",
+      "bytes": 995,
+      "sha256": "3d3c99acf60e6ebec4d29425a3283bbe9759273636e05f2b2a02571c13a3264f"
+    },
+    {
+      "path": "app/src/App.tsx",
+      "bytes": 25148,
+      "sha256": "32ac82e9f50da4f70fd2093dc5b77494676c84129a253176609cb87d0fa07f00"
+    },
+    {
+      "path": "app/src/components/AppNavigation.tsx",
+      "bytes": 2984,
+      "sha256": "dfb5fd59b85ae74c06ba3a2e3e0a96ebf58f9cd80681bc6712389d5672147b69"
+    },
+    {
+      "path": "app/src/components/ClassSwitcher.tsx",
+      "bytes": 1801,
+      "sha256": "6d7fea8307b4f73647b64d13d7d08aa0f433781b4ed6810a9466e6b5ed953ffd"
+    },
+    {
+      "path": "app/src/features/assessment/AssessmentWorkspace.tsx",
+      "bytes": 12764,
+      "sha256": "022d235fd6b4878da2bec38441d6a656cda84d2475012752ef48b1676fa44a91"
+    },
+    {
+      "path": "app/src/features/backup/BackupPanel.tsx",
+      "bytes": 10223,
+      "sha256": "e698727ebdbf82373d18d3d6b35b4e8d00bd683ade0dbae12f48a9230041923c"
+    },
+    {
+      "path": "app/src/features/classes/ClassCreation.tsx",
+      "bytes": 12283,
+      "sha256": "8424916c21d1a1b3a957126634ad8ad4ef25de10bab93843c5c162e43844da01"
+    },
+    {
+      "path": "app/src/features/classes/ClassWorkspace.tsx",
+      "bytes": 18907,
+      "sha256": "d1f660c1702daa0021d161d1d4a455a0646146429369fcfce0c09578848f7e6a"
+    },
+    {
+      "path": "app/src/features/help/InfoPages.tsx",
+      "bytes": 9670,
+      "sha256": "c570650b8604f78c5e733ad282f62bc948abfa080e511d86e50b331e17bde28f"
+    },
+    {
+      "path": "app/src/features/help/Tutorial.test.tsx",
+      "bytes": 6734,
+      "sha256": "306ffadbc3bdaef8482cbd8bda6b2a33a9a186156cc6996cd4b7c58550d87f6a"
+    },
+    {
+      "path": "app/src/features/help/Tutorial.tsx",
+      "bytes": 17172,
+      "sha256": "00eab79a39269d34b7abe8fe74010093be96705e00ac020640d3c09ad120ed88"
+    },
+    {
+      "path": "app/src/features/useWorkspace.ts",
+      "bytes": 3030,
+      "sha256": "ea86d26845d4cf4be0a0d30653b795a85a838f8a98dd4151b09e84f93b381489"
+    },
+    {
+      "path": "app/src/styles.css",
+      "bytes": 45391,
+      "sha256": "51a94bc6d7ce039e73713592a35329246a8cb20aea9dbff891c15a6149688c53"
+    },
+    {
+      "path": "docs/08-bezug-zur-bachelorarbeit.md",
+      "bytes": 3111,
+      "sha256": "68d174754ed55da233e6c6237269d4e71164f1afe184f48e1dbb4416f05c6b92"
+    },
+    {
+      "path": "docs/ba-abgleich-2026-10-19.md",
+      "bytes": 3881,
+      "sha256": "810203bf5791adde874a6713aeff674182c763077ba0212bf7f327c251b61937"
+    },
+    {
+      "path": "docs/bedienrevision-2026-10-19.md",
+      "bytes": 7974,
+      "sha256": "d8f7439645c9172b686a1ee8b5b6d59f49f4919a7691551cde508fab3dba500a"
+    },
+    {
+      "path": "docs/entwicklungsprotokoll.md",
+      "bytes": 46585,
+      "sha256": "fede36d500018d4e0ce6562999d0b9e25fb84cbef20785734607416b312e5209"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19.md",
+      "bytes": 7243,
+      "sha256": "4d9a650d83df9d004b012f952a2b0084c8dd08ef78c32902c00943b937df4ff0"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/abschluss-1440.png",
+      "bytes": 77275,
+      "sha256": "691fca1adc6c00ed047e0f03f20c10a1bf36c0208fca00700f0c244c6c1069bc"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/abschluss-390.png",
+      "bytes": 55311,
+      "sha256": "1e2806c42aa065bee5d82ee43ec9860ffaba2cb5829d5f257f755dbd880da7ac"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/abschluss-768.png",
+      "bytes": 60708,
+      "sha256": "f814f50d85a90a207ca6949e2aaf362436f236e39dd161b55c2db51e0a84c7c0"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/bearbeiten-1440.png",
+      "bytes": 148378,
+      "sha256": "9f1cf56e8f0a2c9bfc8e0b8c2ee5a168fa31b3a8a1ace9cf412b38403741ee2b"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/bearbeiten-390.png",
+      "bytes": 125181,
+      "sha256": "3ff2ca001430a5417426c016bcaae53244eb363c17eab8ff0c0cb4b7774dae38"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/bearbeiten-768.png",
+      "bytes": 130609,
+      "sha256": "f5f2329d3a1d9428a9629aeb8bceff644f9f9df81062e8acb5dcd6444ece4ebb"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/bericht-1440.xlsx",
+      "bytes": 10963,
+      "sha256": "d5c201794e2f5a8debf74a99c65156158e4b08b0940bf97916ca3c73a8872ae1"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/bericht-390.xlsx",
+      "bytes": 10963,
+      "sha256": "50fec29ad34d1ac7ea9efac0d0e2bc3cc9bdec65ca51f349b1df3da887344c6b"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/bericht-768.xlsx",
+      "bytes": 10963,
+      "sha256": "ba0c02c0a4358c4613870458f1e172cf14fa8a4e6fe506e34d02f64e662b0d41"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/bewertung-1440.png",
+      "bytes": 114665,
+      "sha256": "2d6a0be7b505bb16a2ff09a4bf6d597271854bec08744b8cb0a0f535ba5c0775"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/bewertung-390.png",
+      "bytes": 85164,
+      "sha256": "e52a22be0ba4ac5d9baaf60eaf58cda8f915cb9e6153704bcca9ec9dcb37d20d"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/bewertung-768.png",
+      "bytes": 93159,
+      "sha256": "48aa792ded93a916e80f8e992d6fb03d9afc94b3ce235f16205bba362270c1b0"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/daten-1440.png",
+      "bytes": 299529,
+      "sha256": "13c68aa1252259322f1b1f0a1074c32456d5a081d1f07ca01c202fcb97744f7a"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/daten-390.png",
+      "bytes": 254580,
+      "sha256": "74255caa77ba7c531037a01175c515110c233ab05d454fc8ab89bc8c650bc752"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/daten-768.png",
+      "bytes": 275958,
+      "sha256": "57d6c45b2cf9be8e754ee407344604b394ea8618ff3a961ecf8a21e5771d5392"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/entwurf-1440.png",
+      "bytes": 122568,
+      "sha256": "b906e9d7f620c889bff7b22896a2cabcade5a57d75ee6f9901cd8a7c1472aa89"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/entwurf-390.png",
+      "bytes": 98326,
+      "sha256": "0d55381073e4fdb06ef3d145971be2ba48387afe8a6e113ee9d8c4cfe0c1e57e"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/entwurf-768.png",
+      "bytes": 101252,
+      "sha256": "68ccd0e6ebee1877385e69bf15835218eeacb8920dc1c147235e255ffb79cb05"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/ergebnisse.json",
+      "bytes": 3127,
+      "sha256": "5971c4bcf70a1293704da7acbb44103613eb9f41c53f80f14689498c40393c04"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/excel-dateipruefung.json",
+      "bytes": 639,
+      "sha256": "971684fd60c6d559d67ea5c162fe8408a3b80f01f212b56e96f5210825851005"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/klassenwahl-1440.png",
+      "bytes": 196551,
+      "sha256": "faa33acecaeef1b78b50ce58f0e85e844436ad2e172d3ec64cecc4ba01c1a8ba"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/klassenwahl-390.png",
+      "bytes": 130948,
+      "sha256": "3e69e32deed2939217fada1aa898dcbfc45d9da11e012b8d9ebf3e48e8dcb03c"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/klassenwahl-768.png",
+      "bytes": 136316,
+      "sha256": "426d33ae914f996da2433478d04a243eb9854d2abf68b4aa9adb8bd35ab836e9"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-1440-01.png",
+      "bytes": 116576,
+      "sha256": "29f1c0076f5832fe7640caee61b4c191a0883c6e99c7d5a10fab4facdb87baa1"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-1440-03.png",
+      "bytes": 111477,
+      "sha256": "2a92d4a3fc5ee0ce5a512f74728d9f07dbff07d3568b55672e4c1996b68bbd2c"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-1440-06.png",
+      "bytes": 142316,
+      "sha256": "76fbf15e161b0e7ff815dab75f4949a4545ffec6fe85847d10c3b4d4a58f3ce1"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-1440-10.png",
+      "bytes": 124492,
+      "sha256": "aa8d2e14350143963367387753286e3f89b8d25cc7ce320f744a37c1e98c2383"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-1440-15.png",
+      "bytes": 211924,
+      "sha256": "f06187fb98586d7de21ff18967b025f1b5a5956421154909e0917de23fcb4c18"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-390-01.png",
+      "bytes": 72938,
+      "sha256": "1faa9a52c4f6fab45bef11222ae40bb4ca9755636726c9beee7c6898b3f33514"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-390-03.png",
+      "bytes": 67642,
+      "sha256": "8af25fd60371fb9f7be2d9ed86e09dc1a0f1bf96d79b2555905639e2868df2ba"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-390-06.png",
+      "bytes": 77396,
+      "sha256": "ec81fc2a0930ce9c7871f7e6291b0400547a55a25cdec83d3be2e65d76c9f1b0"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-390-10.png",
+      "bytes": 66809,
+      "sha256": "a535e39f98a107813bb8c6125c34417782122fdd4397d62ec4933022951c992b"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-390-15.png",
+      "bytes": 86663,
+      "sha256": "94e5fadb846d73e82fcb8340850b9fafa79e7980d988608a4b5c42a4b359e5df"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-768-01.png",
+      "bytes": 97018,
+      "sha256": "62705b471c9b3f6417da0e644956e77d64e946981d6585841a647f7a0c02ab9d"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-768-03.png",
+      "bytes": 91050,
+      "sha256": "8928b1b8f064a78ec81abd77c9ae4b092edee5c05c897eecdbf12b184b9c1bf9"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-768-06.png",
+      "bytes": 108777,
+      "sha256": "df4c2c67f1b240e6ec72e21bf737f6488fc72c7094f44a43dfcc660e9286b568"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-768-10.png",
+      "bytes": 112795,
+      "sha256": "51ae7c627e2d37c1dda7b4bce0913844d8c3cf8d720a9ed56171dccaf9d366bc"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-768-15.png",
+      "bytes": 160583,
+      "sha256": "7312f59ebf859238208ab6f7ed91f7e5a09a54af7fff4230193477aecfc044d3"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-geometrie-1440.json",
+      "bytes": 3718,
+      "sha256": "2a7242f08238b7703076d27f825177c22cfc3a7c00578bb3ef1d8ad5f15e8623"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-geometrie-390.json",
+      "bytes": 3686,
+      "sha256": "d2666aeb5100b9cd38709c177106af49f75a1bd0302741d0cb1d7f6153b50dba"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/tour-geometrie-768.json",
+      "bytes": 3692,
+      "sha256": "08b25b1f89f214c793dbe8d2e1acc708b0d2c6ca8a75054d3bfff63648b2ac11"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/uebung-1440.json",
+      "bytes": 1385,
+      "sha256": "7f19d9d5673f168d3ee2212ab07cb13ae5569795c34d2057ba3e0af2f80f4507"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/uebung-390.json",
+      "bytes": 1385,
+      "sha256": "f1d11195233dc35b2d7bb622db12d0568cfd704a92d3449ea14faafa4928d02a"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/uebung-768.json",
+      "bytes": 1385,
+      "sha256": "40efddb911f6972e0769d7648454e3e60e90cde1c0ab62cd8e32363ee3881294"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/verlauf-1440.png",
+      "bytes": 197469,
+      "sha256": "a569249da66cb9635673c911f6b2463519f27d4d7ac2878cba81d9ba413922c1"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/verlauf-390.png",
+      "bytes": 122249,
+      "sha256": "dc511372f02942bc68d65e63417bdd4d536c745e11c85ec95b204223b60c636e"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/nachweise-final/verlauf-768.png",
+      "bytes": 137338,
+      "sha256": "6e380fc9a1d0decec13594deb7cba4d34fe32dc2ac1fa3c6628f707f9a6e333a"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/pruefungen/build.txt",
+      "bytes": 1067,
+      "sha256": "7980fbf1b4e466218fce1ddb4dae54f1e868c99141933e8d1257c8cf711b3351"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/pruefungen/ergebnisse.json",
+      "bytes": 441,
+      "sha256": "a8cb62c29ed73697c84df9f9cbfd62cef1afc480ddd84bf3c8e346ba536ea87e"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/pruefungen/format-check.txt",
+      "bytes": 138,
+      "sha256": "520624837f0f8541e27ba93b20d47783515f999511b2d8767788ce5ba898f5ed"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/pruefungen/lint.txt",
+      "bytes": 53,
+      "sha256": "0538d8642d19382c7ed24e45e362be7a70d5ffb240c34d5db1776b84ccd79316"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/pruefungen/test.txt",
+      "bytes": 452,
+      "sha256": "3b7debb6c280562363f4c17f3a1524f536128025941bae34a2acaafc25dad8f0"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/pruefungen/typecheck.txt",
+      "bytes": 62,
+      "sha256": "7cfbce16bec01bf269c08f3f5365daf8ccbb812d9aa92d08f3a93ab06d9b0be1"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/480/tour-390-01.png",
+      "bytes": 42076,
+      "sha256": "6ce82abf000a88119a3d23fb614ca944c9f8c2ef420af57b734757e118c9bff7"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/480/tour-390-03.png",
+      "bytes": 36155,
+      "sha256": "ae223f93ec51f6da8105240cc52417cf3e14c3be63da2c920003794e772b389c"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/480/tour-390-06.png",
+      "bytes": 40331,
+      "sha256": "be64b32155dc291297ca26b214fa92a1f335717cf9f9cec29eb3256388775486"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/480/tour-390-10.png",
+      "bytes": 38027,
+      "sha256": "63b7975227ea6e68defba210851fd621117f0052dd1d57fe167f722b1f45c6cf"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/480/tour-390-15.png",
+      "bytes": 42815,
+      "sha256": "1edbb902c6894056ad9e9446e69fd36c9dcbadc2a76bf8cb7b2626b9e7b98a10"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/480/tour-geometrie-390.json",
+      "bytes": 3684,
+      "sha256": "ddaf8c4968f1e828e5994bc4d16783d3ac974327e913a6ae03597897d8044df2"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/480/uebung-390.json",
+      "bytes": 1385,
+      "sha256": "14b1cbf6f18e2b3c60ac227c0688839269c84a13a538b56a30d457bb750c8300"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/667/tour-390-01.png",
+      "bytes": 54158,
+      "sha256": "975c170dab2a06a157ef8ca69e308bfef22d8b959f64aa367f6df71716aa4276"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/667/tour-390-03.png",
+      "bytes": 50819,
+      "sha256": "598d469db709ad2cf56b77e2e60a928a85ebb18d50366f84c2e8c4a1a2fe1e0c"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/667/tour-390-06.png",
+      "bytes": 52123,
+      "sha256": "c56ca1cb456f937140bf3a8cade159832fef77def06b1cc412cd2eda0391f24a"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/667/tour-390-10.png",
+      "bytes": 49839,
+      "sha256": "6e421dd7a57afeb3f562d056a8a28faa20571c0e4b9aee7f5b8dd7151fd7767a"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/667/tour-390-15.png",
+      "bytes": 52554,
+      "sha256": "6f4fcc432913e27975dcc1f5b0dca4c3ec9db4ed00c4689e3ce10f46f93bcc22"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/667/tour-geometrie-390.json",
+      "bytes": 3686,
+      "sha256": "6e023894621f6310f1e7dc939a2a9ab260c50f81905596e2f3d84f703284d0d3"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/667/uebung-390.json",
+      "bytes": 1385,
+      "sha256": "79c0e4aa77c328f535fafbb0bcfddc8615fcf2d857ccb3f93ef96f00c46fff8c"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/844/tour-390-01.png",
+      "bytes": 66080,
+      "sha256": "ac9a4084a5e7ad0b9f0ec49d6cc047890db7fec8f8fbd08a2e934bd862b9a0a7"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/844/tour-390-03.png",
+      "bytes": 59083,
+      "sha256": "e8d89b2def1ebbc156c1dcd375cdb5c5c9592116af15d1d4458aad34e1e689c3"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/844/tour-390-06.png",
+      "bytes": 69796,
+      "sha256": "55bc8fea5c2078ad1763293b0468b0dc4718f47005d9a164181c122a9381da04"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/844/tour-390-10.png",
+      "bytes": 56646,
+      "sha256": "f3a9fc7b2898ac0ffc217505483706f22ce96d056827d80a7b49b76f9d1df3dc"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/844/tour-390-15.png",
+      "bytes": 69717,
+      "sha256": "481fd63a1c7e11be8bfea92786290e6bd89586a071df409ff5ae77f848da7a67"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/844/tour-geometrie-390.json",
+      "bytes": 3686,
+      "sha256": "02beb2c33d3a5edb954078d836ab7d0476f348d0b9016eddb063021266398e20"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/844/uebung-390.json",
+      "bytes": 1385,
+      "sha256": "6c208ed77d777a4a50ec5536ff97664d86dca607e85cab1ef460a1f5ad3db7d5"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/eigener-entwurf.png",
+      "bytes": 113283,
+      "sha256": "a07bff4c6cf2cedfa393fd872c862066e8f4b485f6680bb40a9be362d7598d58"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zusatz-abgeschlossen/ergebnisse.json",
+      "bytes": 1489,
+      "sha256": "2dbffc962609d36a2210624b1d72e415309459c4012fc5255054475f67c575da"
+    },
+    {
+      "path": "docs/tutorial-ba-2026-10-19/zwischenlaeufe.json",
+      "bytes": 31605,
+      "sha256": "3e6118c2e74dc8ff43963d1639927a877814fce4135a4e071bd0c83663bf8696"
+    }
+  ],
+  "note": "Alle geänderten Dateien vor dem Commit außer dieser Datei; ergänzter GitHub-Abschluss im Git-Verlauf."
+}

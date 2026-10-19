@@ -137,6 +137,7 @@ export function ClassWorkspace({
             key={key}
             type="button"
             aria-current={dashboardView === key ? "page" : undefined}
+            data-tour={`view-${key}`}
             onClick={() => setDashboardView(key)}
           >
             {label}
@@ -323,7 +324,11 @@ export function ClassWorkspace({
                 onChange={(event) => setLessonDate(event.target.value)}
                 required
               />
-              <button className="primary" type="submit">
+              <button
+                data-tour="start-lesson"
+                className="primary"
+                type="submit"
+              >
                 Stunde beginnen
               </button>
             </fieldset>

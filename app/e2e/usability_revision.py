@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 import traceback
 from playwright.sync_api import sync_playwright, expect
+from guided_tutorial import exercise_tutorial
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE = os.environ.get("GRADEFLOW_AUDIT_BASE", "http://127.0.0.1:4190/")
@@ -44,21 +45,8 @@ def run(browser, width):
     page.on("pageerror", lambda error: errors.append(str(error)))
     try:
         page.goto(BASE); page.wait_for_load_state("networkidle")
-        expect(page.get_by_role("dialog", name="Willkommen bei Gradeflow")).to_be_visible()
-        original = saved(page)
-        screenshot(page, f"tutorial-{width}")
-        for _ in range(8):
-            page.keyboard.press("Tab")
-            assert page.evaluate("document.querySelector('dialog').contains(document.activeElement)")
-        page.keyboard.press("Escape")
-        expect(page.get_by_role("dialog")).to_have_count(0)
-        page.reload(); page.wait_for_load_state("networkidle")
-        expect(page.get_by_role("dialog")).to_have_count(0)
-        help_page(page, "Tutorial starten")
-        for _ in range(4): button(page, "Weiter").click()
-        button(page, "Einführung abschließen").click()
-        assert saved(page) == original
-        record(f"Tutorial {width}", first_visit=True, focus_trapped=True, escape=True, repeat_on_request=True)
+        tutorial = exercise_tutorial(page, width, OUT)
+        record(f"Tutorial {width}", **tutorial)
 
         nav(page, "Klasse anlegen")
         page.get_by_label("Klassenname", exact=True).fill("Fiktive 8b")

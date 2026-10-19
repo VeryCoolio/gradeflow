@@ -1,7 +1,7 @@
 import { AppNavigation } from "./components/AppNavigation";
 import { ClassSwitcher } from "./components/ClassSwitcher";
 import { AboutPage, DataPage } from "./features/help/InfoPages";
-import { Tutorial } from "./features/help/Tutorial";
+import { Tutorial, type TutorialAction } from "./features/help/Tutorial";
 import { AssessmentWorkspace } from "./features/assessment/AssessmentWorkspace";
 import { ClassWorkspace } from "./features/classes/ClassWorkspace";
 import { BackupPanel } from "./features/backup/BackupPanel";
@@ -56,6 +56,8 @@ function messageFrom(error: unknown): string {
 }
 
 interface AppProps {
+  practice?: boolean;
+  onTutorialAction?: (action: TutorialAction) => void;
   repository?: LocalRepository;
   workspaceStorage?: StoragePort;
   createId?: () => string;
@@ -70,6 +72,8 @@ interface AppProps {
 }
 
 export function App({
+  practice = false,
+  onTutorialAction,
   repository,
   workspaceStorage,
   createId = () => crypto.randomUUID(),
@@ -96,6 +100,7 @@ export function App({
     notebook,
     workspaceStorage ?? (repository ? undefined : browserStorage),
     canWrite,
+    !practice,
   );
   const {
     page,
@@ -212,6 +217,7 @@ export function App({
     setActiveSessionId(null);
     setSelectedStudentId(null);
     startingRef.current = false;
+    onTutorialAction?.("class-created");
     return true;
   }
 
@@ -253,6 +259,7 @@ export function App({
       setHistoryStudentId(null);
       setPage("klasse");
       startingRef.current = false;
+      onTutorialAction?.("class-switched");
     }
   }
 
@@ -343,6 +350,7 @@ export function App({
       setReviewSessionId(null);
       setActiveSessionId(id);
       setSelectedStudentId(null);
+      onTutorialAction?.("lesson-started");
     } else {
       startingRef.current = false;
     }
@@ -373,6 +381,7 @@ export function App({
       return;
     }
     setFailedObservation(null);
+    onTutorialAction?.("observation-saved");
     const updatedSession = updated.classes
       .find((item) => item.id === currentClass.id)!
       .sessions.find((item) => item.id === activeSession.id)!;
@@ -394,6 +403,7 @@ export function App({
       recordObservation(failedObservation.observation, 1, student);
   }
   function leaveSession(announceSaved = true) {
+    onTutorialAction?.("lesson-left");
     setFailedObservation(null);
     setActiveSessionId(null);
     setSelectedStudentId(null);
@@ -547,7 +557,7 @@ export function App({
     );
   }
 
-  return (
+  const application = (
     <div className="app-shell">
       <a
         className="skip-link"
@@ -564,6 +574,7 @@ export function App({
         classes={notebook.classes}
         classId={classId}
         onTutorial={() => setTutorialRequest((value) => value + 1)}
+        onHelpOpen={() => onTutorialAction?.("help-opened")}
         onClass={chooseClass}
         onPage={(next) => {
           changeWorkspace({
@@ -573,6 +584,8 @@ export function App({
           setError("");
           setNotice("");
           setFailedObservation(null);
+          if (next === "anlegen" || next === "sicherung" || next === "ueber")
+            onTutorialAction?.(`page-${next}`);
         }}
       />
       <div className="layout">
@@ -714,7 +727,11 @@ export function App({
               currentClass={currentClass}
               report={report}
               dashboardView={dashboardView}
-              setDashboardView={setDashboardView}
+              setDashboardView={(view) => {
+                setDashboardView(view);
+                if (view === "tabelle" || view === "verlauf")
+                  onTutorialAction?.(`view-${view}`);
+              }}
               canWrite={canWrite}
               lessonDate={lessonDate}
               setLessonDate={setLessonDate}
@@ -747,11 +764,35 @@ export function App({
           ) : null}
         </main>
       </div>
-      <Tutorial
-        storage={workspaceStorage ?? (repository ? undefined : browserStorage)}
-        request={tutorialRequest}
-        onStorageError={tutorialStorageError}
-      />
     </div>
+  );
+  if (practice) return application;
+  return (
+    <Tutorial
+      storage={workspaceStorage ?? (repository ? undefined : browserStorage)}
+      request={tutorialRequest}
+      onStorageError={tutorialStorageError}
+      autoStart={!repository}
+      renderPractice={({
+        repository: practiceRepository,
+        storage,
+        onAction,
+      }) => (
+        <App
+          practice
+          repository={practiceRepository}
+          workspaceStorage={storage}
+          onTutorialAction={onAction}
+          today={today}
+          now={now}
+          download={(filename, contents, mime) => {
+            download(`uebung-${filename}`, contents, mime);
+            if (filename.endsWith(".json")) onAction("backup-downloaded");
+          }}
+        />
+      )}
+    >
+      {application}
+    </Tutorial>
   );
 }

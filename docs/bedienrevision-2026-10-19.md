@@ -10,10 +10,10 @@ Ausgangsstand: `3bd003c`, Version 0.7.0. Auftrag: die im Chat genannten Bedienpr
 - [x] 4. Klasse bearbeiten: lesbare Stammdaten, klarer Speicherabschluss, Archivieren und Löschen getrennt.
 - [x] 5. Stundenabschluss: eigenständige Zusammenfassung statt letzter Person und aktiven Bewertungstasten; Korrektur bewusst öffnen.
 - [x] 6. App erklären: Zweck, Ablauf und Grenzen aus den bestätigten Projektvorgaben verständlich darstellen.
-- [ ] 7. Aktuelle Bachelorarbeit: angekündigte Datei prüfen und den Erklärungsteil daran begründen. Wartet auf die Datei; keine Quellen oder Wirkungsnachweise erfinden.
+- [x] 7. Aktuelle Bachelorarbeit: vorgelegte Datei auswerten und den Erklärungsteil daran begründen; Abgleich und Grenzen dokumentieren.
 - [x] 8. Bewertungshilfe aus dem Eingabebereich in einen getrennten Hilfebereich verlegen.
 - [x] 9. Eigene Seite zu Datenablage, Sicherung, Wiederherstellung und Grenzen ergänzen.
-- [x] 10. Erstbesuch-Tutorial als schließbare, tastaturbedienbare Dialogfolge; später ausdrücklich wieder startbar.
+- [x] 10. Nach Präzisierung: geführte Übung an den echten Feldern und Schaltflächen, mit Hervorhebung und Fortschritt durch tatsächliche Eingaben; Erstbesuch und bewusster Neustart.
 - [x] 11. Verlauf: AW, NB und Offen grafisch markieren, getrennt von der Notenachse und mit Textlegende.
 - [x] 12. Excel: genannten Endnoten-Satz entfernen, Blattnavigation erklären, Namen intern verlinken, Symbole größer und farblich/inhaltlich verständlich gestalten.
 - [x] 13. Einmalige und doppelte Stunden einheitlich mit Datum und ausgeschriebener Stundennummer anzeigen; Berechnung und Zwei-Stunden-Grenze erhalten.
@@ -23,7 +23,9 @@ Ausgangsstand: `3bd003c`, Version 0.7.0. Auftrag: die im Chat genannten Bedienpr
 
 Die vorhandene Gradeflow-Gestaltung bleibt Grundlage: Papier `#f6f5f8`, Weiß `#ffffff`, Text `#242238`, Violett `#5b477e`, Grün `#315f48`, Statusblau `#245d89`. Systemschrift für Bedienung, vorhandene Personen-Typografie beibehalten. Auf dem Desktop links ein Klassenregister, rechts der Arbeitsbereich; auf kleinen Displays eine kompakte Klassenwahl. Die Stammdaten erhalten ein ruhiges Formular, riskantere Verwaltungsaktionen einen eigenen Abschnitt. Der Stundenabschluss ersetzt die Erfassung vollständig. Hilfen stehen außerhalb der Symbol- und Statusauswahl. Keine neue Schrift, Bibliothek oder externer Dienst erforderlich.
 
-## Nachweise
+## Nachweise des Ausgangsabschlusses 0.8.0
+
+Die folgenden Angaben beschreiben den vor dem BA-Upload geprüften Stand. Der spätere Abgleich und die auf Nutzerpräzisierung ersetzte Tour stehen im [Nachtrag 0.8.1](tutorial-ba-2026-10-19.md).
 
 Version 0.8.0. Die Personenseite, der Fachkern und das Notebook-Schema bleiben erhalten. Neue Erläuterungen behaupten keine pädagogische Wirksamkeit. Der Abgleich mit der noch nicht vorliegenden Bachelorarbeit bleibt als eigener offener Punkt sichtbar.
 
@@ -47,3 +49,7 @@ Nicht geprüft: native Excel-Bedienung, Windows-/Mobilgeräte, weitere Browseren
 ## GitHub-Abschluss
 
 Der Implementierungsstand wurde mit Commit `ea5bbce6fb538a10af46d6430cc3660fb8aa4245` auf `main` gepusht. Der anschließende direkte Remote-Abruf bestätigte exakt diese Commit-ID. Der historische Tag `v0.5.0` bleibt bei `0556967fbbfa0e51954507f5cd141b17b2d08740`. Dieser zusätzliche Dokumentationsstand setzt Aufgabe 14 erst nach dem tatsächlichen Push auf erledigt. Einziger verbleibender Aufgabenpunkt ist der noch fehlende Bachelorarbeitsabgleich.
+
+## Nachtrag 0.8.1
+
+Die vorgelegte Bachelorarbeitsfassung wurde am 19.10.2026 lokal ausgewertet; Aufgabe 7 ist jetzt abgeschlossen. Die präzisierte Aufgabe 10 ersetzt die frühere Dialogfolge durch eine echte geführte Übung an den Bedienelementen. Alle 14 fachlichen und Bedienpunkte sind umgesetzt. Aktuelle Prüfungen und der GitHub-Abschluss dieses Nachtrags stehen im [Bericht 0.8.1](tutorial-ba-2026-10-19.md). Die Aussagen zur damals fehlenden Datei oben bleiben als zeitlich eingeordneter Ausgangsnachweis erhalten.

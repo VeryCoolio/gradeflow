@@ -1,0 +1,15 @@
+
+> muendliche-notengebung-core@0.8.1 test
+> vitest run
+
+
+ RUN  v5.0.1 <Projekt>/app
+
+
+ Test Files  21 passed (21)
+      Tests  119 passed (119)
+   Start at  16:51:21
+   Duration  13.64s (environment 39%, tests 34%, import 19%, transform 7%, worker 1%)
+
+    Isolate  21 workers spawned · ~1.17s startup each (spawn + environment, per file)
+             at least ~1.56s faster with isolate: false — reuses workers across files instead of one per file

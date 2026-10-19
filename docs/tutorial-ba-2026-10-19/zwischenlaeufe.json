@@ -1,0 +1,481 @@
+[
+  {
+    "lauf": "nachweise-r1",
+    "ergebnisse": [
+      {
+        "name": "Browserlauf 390",
+        "status": "ERROR",
+        "message": "Locator expected to contain text 'Schritt 5 von 15'\nActual value: Übung · Schritt 4 von 15Übernimm die KlasseKlicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.Tutorial beenden \nCall log:\n  - Expect \"to_contain_text\" get_by_role(\"complementary\", name=\"Geführtes Tutorial\") with timeout 5000ms\n  - waiting for get_by_role(\"complementary\", name=\"Geführtes Tutorial\")\n    14 × locator resolved to <aside class=\"tour-card\" data-placement=\"above\" aria-label=\"Geführtes Tutorial\">…</aside>\n       - unexpected value \"Übung · Schritt 4 von 15Übernimm die KlasseKlicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.Tutorial beenden\"\n\nAria snapshot:\n- complementary \"Geführtes Tutorial\":\n  - status: Übung · Schritt 4 von 15\n  - heading \"Übernimm die Klasse\" [level=2]\n  - paragraph: Klicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.\n  - button \"Tutorial beenden\"",
+        "trace": "Traceback (most recent call last):\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 178, in <module>\n    try: run(browser, width)\n         ^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 48, in run\n    tutorial = exercise_tutorial(page, width, OUT)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/guided_tutorial.py\", line 47, in exercise_tutorial\n    step(5, '[data-tour=\"start-lesson\"]').click()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/guided_tutorial.py\", line 17, in step\n    expect(tour).to_contain_text(f\"Schritt {number} von 15\")\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 14961, in to_contain_text\n    self._sync(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 111, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py\", line 303, in to_contain_text\n    await self._expect_impl(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py\", line 128, in _expect_impl\n    _record_soft_or_raise(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py\", line 60, in _record_soft_or_raise\n    raise error\nAssertionError: Locator expected to contain text 'Schritt 5 von 15'\nActual value: Übung · Schritt 4 von 15Übernimm die KlasseKlicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.Tutorial beenden \nCall log:\n  - Expect \"to_contain_text\" get_by_role(\"complementary\", name=\"Geführtes Tutorial\") with timeout 5000ms\n  - waiting for get_by_role(\"complementary\", name=\"Geführtes Tutorial\")\n    14 × locator resolved to <aside class=\"tour-card\" data-placement=\"above\" aria-label=\"Geführtes Tutorial\">…</aside>\n       - unexpected value \"Übung · Schritt 4 von 15Übernimm die KlasseKlicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.Tutorial beenden\"\n\nAria snapshot:\n- complementary \"Geführtes Tutorial\":\n  - status: Übung · Schritt 4 von 15\n  - heading \"Übernimm die Klasse\" [level=2]\n  - paragraph: Klicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.\n  - button \"Tutorial beenden\"\n"
+      },
+      {
+        "name": "Browserlauf 768",
+        "status": "ERROR",
+        "message": "Locator expected to contain text 'Schritt 5 von 15'\nActual value: Übung · Schritt 4 von 15Übernimm die KlasseKlicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.Tutorial beenden \nCall log:\n  - Expect \"to_contain_text\" get_by_role(\"complementary\", name=\"Geführtes Tutorial\") with timeout 5000ms\n  - waiting for get_by_role(\"complementary\", name=\"Geführtes Tutorial\")\n    14 × locator resolved to <aside class=\"tour-card\" data-placement=\"above\" aria-label=\"Geführtes Tutorial\">…</aside>\n       - unexpected value \"Übung · Schritt 4 von 15Übernimm die KlasseKlicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.Tutorial beenden\"\n\nAria snapshot:\n- complementary \"Geführtes Tutorial\":\n  - status: Übung · Schritt 4 von 15\n  - heading \"Übernimm die Klasse\" [level=2]\n  - paragraph: Klicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.\n  - button \"Tutorial beenden\"",
+        "trace": "Traceback (most recent call last):\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 178, in <module>\n    try: run(browser, width)\n         ^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 48, in run\n    tutorial = exercise_tutorial(page, width, OUT)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/guided_tutorial.py\", line 47, in exercise_tutorial\n    step(5, '[data-tour=\"start-lesson\"]').click()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/guided_tutorial.py\", line 17, in step\n    expect(tour).to_contain_text(f\"Schritt {number} von 15\")\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 14961, in to_contain_text\n    self._sync(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 111, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py\", line 303, in to_contain_text\n    await self._expect_impl(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py\", line 128, in _expect_impl\n    _record_soft_or_raise(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py\", line 60, in _record_soft_or_raise\n    raise error\nAssertionError: Locator expected to contain text 'Schritt 5 von 15'\nActual value: Übung · Schritt 4 von 15Übernimm die KlasseKlicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.Tutorial beenden \nCall log:\n  - Expect \"to_contain_text\" get_by_role(\"complementary\", name=\"Geführtes Tutorial\") with timeout 5000ms\n  - waiting for get_by_role(\"complementary\", name=\"Geführtes Tutorial\")\n    14 × locator resolved to <aside class=\"tour-card\" data-placement=\"above\" aria-label=\"Geführtes Tutorial\">…</aside>\n       - unexpected value \"Übung · Schritt 4 von 15Übernimm die KlasseKlicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.Tutorial beenden\"\n\nAria snapshot:\n- complementary \"Geführtes Tutorial\":\n  - status: Übung · Schritt 4 von 15\n  - heading \"Übernimm die Klasse\" [level=2]\n  - paragraph: Klicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.\n  - button \"Tutorial beenden\"\n"
+      },
+      {
+        "name": "Browserlauf 1440",
+        "status": "ERROR",
+        "message": "Locator expected to contain text 'Schritt 5 von 15'\nActual value: Übung · Schritt 4 von 15Übernimm die KlasseKlicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.Tutorial beenden \nCall log:\n  - Expect \"to_contain_text\" get_by_role(\"complementary\", name=\"Geführtes Tutorial\") with timeout 5000ms\n  - waiting for get_by_role(\"complementary\", name=\"Geführtes Tutorial\")\n    14 × locator resolved to <aside class=\"tour-card\" data-placement=\"below\" aria-label=\"Geführtes Tutorial\">…</aside>\n       - unexpected value \"Übung · Schritt 4 von 15Übernimm die KlasseKlicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.Tutorial beenden\"\n\nAria snapshot:\n- complementary \"Geführtes Tutorial\":\n  - status: Übung · Schritt 4 von 15\n  - heading \"Übernimm die Klasse\" [level=2]\n  - paragraph: Klicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.\n  - button \"Tutorial beenden\"",
+        "trace": "Traceback (most recent call last):\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 178, in <module>\n    try: run(browser, width)\n         ^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/usability_revision.py\", line 48, in run\n    tutorial = exercise_tutorial(page, width, OUT)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/guided_tutorial.py\", line 47, in exercise_tutorial\n    step(5, '[data-tour=\"start-lesson\"]').click()\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<Projekt>/app/e2e/guided_tutorial.py\", line 17, in step\n    expect(tour).to_contain_text(f\"Schritt {number} von 15\")\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/sync_api/_generated.py\", line 14961, in to_contain_text\n    self._sync(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_sync_base.py\", line 111, in _sync\n    return task.result()\n           ^^^^^^^^^^^^^\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py\", line 303, in to_contain_text\n    await self._expect_impl(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py\", line 128, in _expect_impl\n    _record_soft_or_raise(\n  File \"/Users/yannis/.cache/codex-fact-tools/venv/lib/python3.12/site-packages/playwright/_impl/_assertions.py\", line 60, in _record_soft_or_raise\n    raise error\nAssertionError: Locator expected to contain text 'Schritt 5 von 15'\nActual value: Übung · Schritt 4 von 15Übernimm die KlasseKlicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.Tutorial beenden \nCall log:\n  - Expect \"to_contain_text\" get_by_role(\"complementary\", name=\"Geführtes Tutorial\") with timeout 5000ms\n  - waiting for get_by_role(\"complementary\", name=\"Geführtes Tutorial\")\n    14 × locator resolved to <aside class=\"tour-card\" data-placement=\"below\" aria-label=\"Geführtes Tutorial\">…</aside>\n       - unexpected value \"Übung · Schritt 4 von 15Übernimm die KlasseKlicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.Tutorial beenden\"\n\nAria snapshot:\n- complementary \"Geführtes Tutorial\":\n  - status: Übung · Schritt 4 von 15\n  - heading \"Übernimm die Klasse\" [level=2]\n  - paragraph: Klicke auf „Klasse lokal anlegen“. Bisher war die Eingabe ein Entwurf; diese Schaltfläche übernimmt sie als Klasse. In der Tour gilt das nur für die Übungsdaten.\n  - button \"Tutorial beenden\"\n"
+      }
+    ]
+  },
+  {
+    "lauf": "nachweise-r2",
+    "ergebnisse": [
+      {
+        "name": "Tutorial 390",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Entwurf und Klassenanlage 390",
+        "status": "PASS",
+        "reloads": 2
+      },
+      {
+        "name": "Bewertung, Wiederaufnahme und Abschluss 390",
+        "status": "PASS",
+        "reloads": 2,
+        "no_active_ratings_after_completion": true
+      },
+      {
+        "name": "Hilfe und Datenseite 390",
+        "status": "PASS"
+      },
+      {
+        "name": "Zehn Klassen und Wechsel 390",
+        "status": "PASS",
+        "notebook_unchanged": true
+      },
+      {
+        "name": "Statusverlauf und Excel-Download 390",
+        "status": "PASS",
+        "separate_status_markers": 3
+      },
+      {
+        "name": "Layout und Browserfehler 390",
+        "status": "PASS",
+        "horizontal_overflow": false,
+        "errors": []
+      },
+      {
+        "name": "Tutorial 768",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Entwurf und Klassenanlage 768",
+        "status": "PASS",
+        "reloads": 2
+      },
+      {
+        "name": "Bewertung, Wiederaufnahme und Abschluss 768",
+        "status": "PASS",
+        "reloads": 2,
+        "no_active_ratings_after_completion": true
+      },
+      {
+        "name": "Hilfe und Datenseite 768",
+        "status": "PASS"
+      },
+      {
+        "name": "Zehn Klassen und Wechsel 768",
+        "status": "PASS",
+        "notebook_unchanged": true
+      },
+      {
+        "name": "Statusverlauf und Excel-Download 768",
+        "status": "PASS",
+        "separate_status_markers": 3
+      },
+      {
+        "name": "Layout und Browserfehler 768",
+        "status": "PASS",
+        "horizontal_overflow": false,
+        "errors": []
+      },
+      {
+        "name": "Tutorial 1440",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Entwurf und Klassenanlage 1440",
+        "status": "PASS",
+        "reloads": 2
+      },
+      {
+        "name": "Hover Desktop",
+        "status": "PASS",
+        "maximum_height_change": 0
+      },
+      {
+        "name": "Bewertung, Wiederaufnahme und Abschluss 1440",
+        "status": "PASS",
+        "reloads": 2,
+        "no_active_ratings_after_completion": true
+      },
+      {
+        "name": "Hilfe und Datenseite 1440",
+        "status": "PASS"
+      },
+      {
+        "name": "Zehn Klassen und Wechsel 1440",
+        "status": "PASS",
+        "notebook_unchanged": true
+      },
+      {
+        "name": "Statusverlauf und Excel-Download 1440",
+        "status": "PASS",
+        "separate_status_markers": 3
+      },
+      {
+        "name": "Layout und Browserfehler 1440",
+        "status": "PASS",
+        "horizontal_overflow": false,
+        "errors": []
+      }
+    ]
+  },
+  {
+    "lauf": "nachweise-abschluss",
+    "ergebnisse": [
+      {
+        "name": "Tutorial 390",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Entwurf und Klassenanlage 390",
+        "status": "PASS",
+        "reloads": 2
+      },
+      {
+        "name": "Bewertung, Wiederaufnahme und Abschluss 390",
+        "status": "PASS",
+        "reloads": 2,
+        "no_active_ratings_after_completion": true
+      },
+      {
+        "name": "Hilfe und Datenseite 390",
+        "status": "PASS"
+      },
+      {
+        "name": "Zehn Klassen und Wechsel 390",
+        "status": "PASS",
+        "notebook_unchanged": true
+      },
+      {
+        "name": "Statusverlauf und Excel-Download 390",
+        "status": "PASS",
+        "separate_status_markers": 3
+      },
+      {
+        "name": "Layout und Browserfehler 390",
+        "status": "PASS",
+        "horizontal_overflow": false,
+        "errors": []
+      },
+      {
+        "name": "Tutorial 768",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Entwurf und Klassenanlage 768",
+        "status": "PASS",
+        "reloads": 2
+      },
+      {
+        "name": "Bewertung, Wiederaufnahme und Abschluss 768",
+        "status": "PASS",
+        "reloads": 2,
+        "no_active_ratings_after_completion": true
+      },
+      {
+        "name": "Hilfe und Datenseite 768",
+        "status": "PASS"
+      },
+      {
+        "name": "Zehn Klassen und Wechsel 768",
+        "status": "PASS",
+        "notebook_unchanged": true
+      },
+      {
+        "name": "Statusverlauf und Excel-Download 768",
+        "status": "PASS",
+        "separate_status_markers": 3
+      },
+      {
+        "name": "Layout und Browserfehler 768",
+        "status": "PASS",
+        "horizontal_overflow": false,
+        "errors": []
+      },
+      {
+        "name": "Tutorial 1440",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Entwurf und Klassenanlage 1440",
+        "status": "PASS",
+        "reloads": 2
+      },
+      {
+        "name": "Hover Desktop",
+        "status": "PASS",
+        "maximum_height_change": 0
+      },
+      {
+        "name": "Bewertung, Wiederaufnahme und Abschluss 1440",
+        "status": "PASS",
+        "reloads": 2,
+        "no_active_ratings_after_completion": true
+      },
+      {
+        "name": "Hilfe und Datenseite 1440",
+        "status": "PASS"
+      },
+      {
+        "name": "Zehn Klassen und Wechsel 1440",
+        "status": "PASS",
+        "notebook_unchanged": true
+      },
+      {
+        "name": "Statusverlauf und Excel-Download 1440",
+        "status": "PASS",
+        "separate_status_markers": 3
+      },
+      {
+        "name": "Layout und Browserfehler 1440",
+        "status": "PASS",
+        "horizontal_overflow": false,
+        "errors": []
+      }
+    ]
+  },
+  {
+    "lauf": "zusatz-r2",
+    "ergebnisse": [
+      {
+        "name": "Niedrige Ansicht 844",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Zusatzprüfung",
+        "status": "FAIL",
+        "error": "(15, {'x': 31.390625, 'y': 277.140625, 'width': 327.21875, 'height': 31.1875}, {'x': 26, 'y': 12, 'width': 352, 'height': 334.765625})"
+      }
+    ]
+  },
+  {
+    "lauf": "zusatz-r3",
+    "ergebnisse": [
+      {
+        "name": "Niedrige Ansicht 844",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Niedrige Ansicht 667",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Zusatzprüfung",
+        "status": "FAIL",
+        "error": "Locator.click: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\".rating-option[aria-label=\\\"+\\\"]\").visible.first\n    - locator resolved to <button type=\"button\" aria-label=\"+\" aria-pressed=\"false\" class=\"rating-option positive\" aria-describedby=\"rating-+ rating-result-+ rating-buffer-+ tour-description\">…</button>\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <p class=\"observation-status\">…</p> from <div class=\"assessment-context assessment-header\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"tutorial-actions\">…</div> from <aside class=\"tour-card\" data-placement=\"below\" aria-label=\"Geführtes Tutorial\">…</aside> subtree intercepts pointer events\n  - retrying click action\n    - waiting 20ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <p id=\"tour-description\">Klicke für die Übung auf „+“. Du siehst bereits a…</p> from <aside class=\"tour-card\" data-placement=\"above\" aria-label=\"Geführtes Tutorial\">…</aside> subtree intercepts pointer events\n  - retrying click action\n    - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"tour-shade\"></div> intercepts pointer events\n  - retrying click action\n    - waiting 100ms\n    14 × waiting for element to be visible, enabled and stable\n       - element is visible, enabled and stable\n       - scrolling into view if needed\n       - done scrolling\n       - <div class=\"lesson-context\">…</div> from <div class=\"assessment-context assessment-header\">…</div> subtree intercepts pointer events\n     - retrying click action\n       - waiting 500ms\n       - waiting for element to be visible, enabled and stable\n       - element is visible, enabled and stable\n       - scrolling into view if needed\n       - done scrolling\n       - <div class=\"tour-shade\"></div> intercepts pointer events\n     - retrying click action\n       - waiting 500ms\n       - waiting for element to be visible, enabled and stable\n       - element is visible, enabled and stable\n       - scrolling into view if needed\n       - done scrolling\n       - <p id=\"tour-description\">Klicke für die Übung auf „+“. Du siehst bereits a…</p> from <aside class=\"tour-card\" data-placement=\"above\" aria-label=\"Geführtes Tutorial\">…</aside> subtree intercepts pointer events\n     - retrying click action\n       - waiting 500ms\n       - waiting for element to be visible, enabled and stable\n       - element is visible, enabled and stable\n       - scrolling into view if needed\n       - done scrolling\n       - <div class=\"tour-shade\"></div> intercepts pointer events\n     - retrying click action\n       - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"lesson-context\">…</div> from <div class=\"assessment-context assessment-header\">…</div> subtree intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <div class=\"tour-shade\"></div> intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n"
+      }
+    ]
+  },
+  {
+    "lauf": "zusatz-abschluss",
+    "ergebnisse": [
+      {
+        "name": "Niedrige Ansicht 844",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Niedrige Ansicht 667",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Niedrige Ansicht 480",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Zusatzprüfung",
+        "status": "FAIL",
+        "error": "Locator expected to contain text 'Schritt 2 von 15'\nActual value: Übung · Schritt 1 von 15Lege eine Übungsklasse anKlicke auf die markierte Schaltfläche „Klasse anlegen“. Du übst an den echten Bedienelementen. Alles in dieser Tour bleibt von deinen eigenen Klassen getrennt.Tutorial beenden \nCall log:\n  - Expect \"to_contain_text\" locator(\".tour-card\") with timeout 5000ms\n  - waiting for locator(\".tour-card\")\n    - locator resolved to <aside class=\"tour-card\" data-placement=\"above\" aria-label=\"Geführtes Tutorial\">…</aside>\n    - unexpected value \"Übung · Schritt 1 von 15Lege eine Übungsklasse anKlicke auf die markierte Schaltfläche „Klasse anlegen“. Du übst an den echten Bedienelementen. Alles in dieser Tour bleibt von deinen eigenen Klassen getrennt.Das passende Bedienelement wird gesucht …Tutorial beenden\"\n    13 × locator resolved to <aside class=\"tour-card\" data-placement=\"below\" aria-label=\"Geführtes Tutorial\">…</aside>\n       - unexpected value \"Übung · Schritt 1 von 15Lege eine Übungsklasse anKlicke auf die markierte Schaltfläche „Klasse anlegen“. Du übst an den echten Bedienelementen. Alles in dieser Tour bleibt von deinen eigenen Klassen getrennt.Tutorial beenden\"\n\nAria snapshot:\n- complementary \"Geführtes Tutorial\":\n  - status: Übung · Schritt 1 von 15\n  - heading \"Lege eine Übungsklasse an\" [level=2]\n  - paragraph: Klicke auf die markierte Schaltfläche „Klasse anlegen“. Du übst an den echten Bedienelementen. Alles in dieser Tour bleibt von deinen eigenen Klassen getrennt.\n  - button \"Tutorial beenden\""
+      }
+    ]
+  },
+  {
+    "lauf": "zusatz-final",
+    "ergebnisse": [
+      {
+        "name": "Niedrige Ansicht 844",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Niedrige Ansicht 667",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Niedrige Ansicht 480",
+        "status": "PASS",
+        "steps": 15,
+        "clickable_targets": true,
+        "overlaps": 0,
+        "download": "uebung-gradeflow-notebook-v1.json",
+        "own_data_unchanged": true,
+        "url_unchanged": true,
+        "first_visit_once": true,
+        "manual_restart": true,
+        "keyboard_cycle": true,
+        "escape": true
+      },
+      {
+        "name": "Zusatzprüfung",
+        "status": "FAIL",
+        "error": "Locator expected to contain text 'Schritt 4 von 15'\nActual value: Übung · Schritt 3 von 15Trage eine fiktive Person einGib in die beiden markierten Felder zum Beispiel „Ada“ und „Beispiel“ ein. Eine Person genügt für diese Übung. Im Alltag kannst du weitere Namen ergänzen oder eine Liste importieren.Das passende Bedienelement wird gesucht …Eingabe fertigTutorial beenden \nCall log:\n  - Expect \"to_contain_text\" locator(\".tour-card\") with timeout 5000ms\n  - waiting for locator(\".tour-card\")\n    14 × locator resolved to <aside class=\"tour-card\" data-placement=\"above\" aria-label=\"Geführtes Tutorial\">…</aside>\n       - unexpected value \"Übung · Schritt 3 von 15Trage eine fiktive Person einGib in die beiden markierten Felder zum Beispiel „Ada“ und „Beispiel“ ein. Eine Person genügt für diese Übung. Im Alltag kannst du weitere Namen ergänzen oder eine Liste importieren.Das passende Bedienelement wird gesucht …Eingabe fertigTutorial beenden\"\n\nAria snapshot:\n- complementary \"Geführtes Tutorial\":\n  - status: Übung · Schritt 3 von 15\n  - heading \"Trage eine fiktive Person ein\" [level=2]\n  - paragraph: Gib in die beiden markierten Felder zum Beispiel „Ada“ und „Beispiel“ ein. Eine Person genügt für diese Übung. Im Alltag kannst du weitere Namen ergänzen oder eine Liste importieren.\n  - status: Das passende Bedienelement wird gesucht …\n  - button \"Eingabe fertig\"\n  - button \"Tutorial beenden\""
+      }
+    ]
+  }
+]

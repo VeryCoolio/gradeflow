@@ -330,7 +330,12 @@ export function ClassCreation({
               </p>
             </div>
           )}
-          <button className="primary" type="submit" disabled={busy}>
+          <button
+            data-tour="create-class"
+            className="primary"
+            type="submit"
+            disabled={busy}
+          >
             {busy ? "Klassenliste wird geprüft …" : "Klasse lokal anlegen"}
           </button>
         </fieldset>

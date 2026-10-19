@@ -35,6 +35,7 @@ export function ClassSwitcher({
           <button
             key={group.id}
             type="button"
+            data-tour-class={group.id}
             aria-pressed={group.id === classId}
             onClick={() => onClass(group.id)}
           >

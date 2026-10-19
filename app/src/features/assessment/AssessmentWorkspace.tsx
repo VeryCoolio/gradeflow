@@ -165,6 +165,7 @@ export function AssessmentWorkspace({
           className="primary"
           type="button"
           ref={completion}
+          data-tour="lesson-complete"
           onClick={onLeave}
         >
           Zur Klassenübersicht

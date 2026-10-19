@@ -2158,37 +2158,88 @@ td small {
   stroke: #615d70;
   stroke-width: 2px;
 }
-.tutorial-dialog {
-  width: min(36rem, calc(100vw - 2rem));
-  max-height: calc(100dvh - 2rem);
-  overflow-y: auto;
-  overscroll-behavior: contain;
+.tutorial-banner {
+  margin: 0;
+  padding: 0.65rem 1rem;
+  background: var(--accent);
+  color: white;
+  text-align: center;
+  font-size: 0.85rem;
+}
+.tutorial-surface {
+  padding-bottom: 60dvh;
+}
+.tutorial-practice .assessment-context {
+  position: static;
+}
+.tutorial-practice .name-row > button {
+  visibility: hidden;
+}
+.tour-shade {
+  position: fixed;
+  z-index: 100;
+  background: #2422389c;
+  touch-action: none;
+}
+.tour-spotlight {
+  position: fixed;
+  z-index: 101;
+  border: 3px solid #5b477e;
+  border-radius: 8px;
+  box-shadow: 0 0 0 3px white;
+  pointer-events: none;
+}
+.tour-card {
+  position: fixed;
+  z-index: 102;
+  width: min(22rem, calc(100vw - 24px));
+  padding: 1rem 1.1rem;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius);
-  padding: 2rem;
-  color: var(--ink);
   background: var(--surface);
-  box-shadow: 0 12px 60px #24223833;
+  color: var(--ink);
+  box-shadow: 0 8px 36px #24223833;
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
 }
-.tutorial-dialog::backdrop {
-  background: #24223880;
+.tour-card::before {
+  content: "";
+  position: absolute;
+  left: 1.4rem;
+  width: 12px;
+  height: 12px;
+  background: var(--surface);
+  transform: rotate(45deg);
 }
-.tutorial-dialog h2:focus {
-  outline: none;
+.tour-card[data-placement="below"]::before {
+  top: -7px;
+  border-top: 1px solid var(--line-strong);
+  border-left: 1px solid var(--line-strong);
+}
+.tour-card[data-placement="above"]::before {
+  bottom: -7px;
+  border-bottom: 1px solid var(--line-strong);
+  border-right: 1px solid var(--line-strong);
+}
+.tour-card h2 {
+  font-size: 1.15rem;
+  margin: 0.4rem 0 0.6rem;
+}
+.tour-card p {
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 .tutorial-progress {
   color: var(--secondary);
-  font-size: 0.8rem;
-  margin-bottom: 1.5rem;
+  margin: 0;
 }
 .tutorial-actions {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.7rem;
+  margin-top: 0.75rem;
 }
-.tutorial-close {
-  margin-top: 1rem;
+.tutorial-actions button {
   min-height: 44px;
 }
 @media (min-width: 1100px) {
@@ -2275,8 +2326,5 @@ td small {
   }
   .completion-counts dt {
     font-size: 0.75rem;
-  }
-  .tutorial-dialog {
-    padding: 1.25rem;
   }
 }

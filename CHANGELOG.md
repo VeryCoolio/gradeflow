@@ -2,6 +2,13 @@
 
 Der Git-Verlauf beginnt mit dem Projektstand nach Meilenstein 2. Frühere Arbeitsschritte sind im [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) festgehalten; dafür werden keine rückdatierten Commits erzeugt.
 
+## 0.8.1 – 19.10.2026
+
+- Textdialogfolge durch eine geführte Tour an den echten Formularen und Schaltflächen ersetzt. Markiertes Ziel, Fortschritt nach erfolgreichen Aktionen, Tastaturbedienung, Abbruch und bewusster Neustart.
+- Getrennte flüchtige Übungsklassen und ausdrücklich benannter Übungsdownload; eigene Klassen und URL bleiben erhalten.
+- App-Erklärung anhand der vorgelegten Bachelorarbeitsfassung begründet: fachliche Kriterien, Startwert, Puffer, Korrekturfolgen und Grenzen der Interpretation. Geplante Evaluation nicht als Ergebnis dargestellt.
+- Keine neue Abhängigkeit, Fachregel oder Datenmigration. [Abgleich](docs/ba-abgleich-2026-10-19.md) und [Prüfung](docs/tutorial-ba-2026-10-19.md).
+
 ## 0.8.0 – 19.10.2026
 
 - Suchbares Klassenregister am Desktop und Klassenwahl während der Erfassung auf kleinen Displays.

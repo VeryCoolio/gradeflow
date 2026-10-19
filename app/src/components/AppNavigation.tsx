@@ -9,6 +9,7 @@ export function AppNavigation({
   onPage,
   onClass,
   onTutorial,
+  onHelpOpen,
 }: {
   page: Page;
   classes: readonly ClassRecord[];
@@ -16,6 +17,7 @@ export function AppNavigation({
   onPage: (page: Page) => void;
   onClass: (id: string) => void;
   onTutorial: () => void;
+  onHelpOpen?: () => void;
 }) {
   const helpMenu = useRef<HTMLDetailsElement>(null);
   function openHelp(next: Page) {
@@ -39,6 +41,7 @@ export function AppNavigation({
           <button
             key={key}
             type="button"
+            data-tour={`page-${key}`}
             aria-current={page === key ? "page" : undefined}
             onClick={() => onPage(key)}
           >
@@ -46,10 +49,20 @@ export function AppNavigation({
           </button>
         ))}
       </nav>
-      <details className="help-menu" ref={helpMenu}>
-        <summary>Hilfe und Einstieg</summary>
+      <details
+        className="help-menu"
+        ref={helpMenu}
+        onToggle={(event) => {
+          if (event.currentTarget.open) onHelpOpen?.();
+        }}
+      >
+        <summary data-tour="help-menu">Hilfe und Einstieg</summary>
         <nav aria-label="Hilfe">
-          <button type="button" onClick={() => openHelp("ueber")}>
+          <button
+            type="button"
+            data-tour="page-ueber"
+            onClick={() => openHelp("ueber")}
+          >
             So funktioniert Gradeflow
           </button>
           <button type="button" onClick={() => openHelp("hilfe")}>

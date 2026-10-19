@@ -154,6 +154,7 @@ export function BackupPanel({
           <button
             type="button"
             className="primary"
+            data-tour="download-backup"
             onClick={() =>
               attempt(() => {
                 download(

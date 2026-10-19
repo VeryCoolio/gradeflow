@@ -64,3 +64,7 @@ In der Bachelorarbeit ausdrücklich diskutieren:
 - begrenzter Entwicklungszeitraum,
 - Datenschutz- und Betriebsfragen außerhalb eines vollständigen Produktivnachweises,
 - keine Cloud-Synchronisierung und deshalb keine Prüfung eines Mehrgerätebetriebs.
+
+## 6. Abgleich mit der vorgelegten Zwischenfassung
+
+Am 19.10.2026 wurde die 27-seitige Zwischenfassung lokal gelesen und mit der App-Erklärung abgeglichen. Die [Zuordnung nach Kapiteln und Seiten](ba-abgleich-2026-10-19.md) hält übernommene Begründungen, offene Gestaltungsfragen und die jüngere abweichende Entscheidung zur Stundennummer fest. Der im Manuskript geplante Usability-Test wird nicht als durchgeführte Evaluation ausgegeben. Das Manuskript selbst bleibt außerhalb dieses Repositorys und unverändert.

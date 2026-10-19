@@ -13,10 +13,14 @@ export function useWorkspace(
   notebook: NotebookV1 | null,
   storage: StoragePort | undefined,
   canWrite: boolean,
+  syncUrl = true,
 ) {
   const [initial] = useState(() =>
     resolveWorkspace(
-      readWorkspacePosition(storage, storage ? window.location.hash : ""),
+      readWorkspacePosition(
+        storage,
+        storage && syncUrl ? window.location.hash : "",
+      ),
       notebook,
     ),
   );
@@ -51,7 +55,7 @@ export function useWorkspace(
           position[key as keyof WorkspacePosition],
       );
     try {
-      if (window.location.hash !== hash) {
+      if (syncUrl && window.location.hash !== hash) {
         if (routeChanged && !replaceNext.current)
           window.history.pushState(null, "", hash);
         else window.history.replaceState(null, "", hash);
@@ -70,10 +74,10 @@ export function useWorkspace(
         );
       }
     }
-  }, [position, storage, canWrite, notebook]);
+  }, [position, storage, canWrite, notebook, syncUrl]);
 
   useEffect(() => {
-    if (!storage) return;
+    if (!storage || !syncUrl) return;
     const back = () => {
       replaceNext.current = true;
       const resolved = resolveWorkspace(
@@ -85,7 +89,7 @@ export function useWorkspace(
     };
     window.addEventListener("popstate", back);
     return () => window.removeEventListener("popstate", back);
-  }, [storage, notebook]);
+  }, [storage, notebook, syncUrl]);
 
   return { position, warning, change };
 }
