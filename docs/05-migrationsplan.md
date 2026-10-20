@@ -116,4 +116,4 @@ Abnahme:
 - Versionsnummer und Commit eindeutig dokumentiert,
 - keine Änderungen an der Testversion während laufender Erhebung.
 
-Umsetzungsstand vom 25.09.2026: Der Tag `v0.5.0` definiert die Testversion. Reproduzierbarer Start, fiktiver Datensatz und Aufgabenfolge stehen in [usability-testversion.md](usability-testversion.md); die technische Teilprüfung der Barrierefreiheit in [barrierefreiheitspruefung.md](barrierefreiheitspruefung.md). Ein Test mit Lehramtsstudierenden und eine umfassende Prüfung mit assistiver Technik folgen als eigene Erhebung.
+Umsetzungsstand vom 25.09.2026: Der Tag `v0.5.0` definiert die Testversion. Reproduzierbarer Start, fiktiver Datensatz und Aufgabenfolge stehen in der [historischen Testanleitung 0.5.0](usability-testversion-0.5.0.md); die technische Teilprüfung der Barrierefreiheit in [barrierefreiheitspruefung.md](barrierefreiheitspruefung.md). Ein Test mit Lehramtsstudierenden und eine umfassende Prüfung mit assistiver Technik folgen als eigene Erhebung.

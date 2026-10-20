@@ -16,9 +16,7 @@ Meilensteine 1 bis 5 sind umgesetzt; Version 0.6.0 überarbeitet die Bedienung n
 
 Version 0.6.1 verfeinert die Bewertungshierarchie und Symbolfolge, macht den Stundentausch sichtbar und ergänzt eine kompakte, größenveränderbare Tabelle mit Stundenfenstern. Der Verlauf verwendet feste Stundenabstände und klare Statuskürzel. [Bedienkorrekturen 0.6.1](docs/bedienkorrekturen-0.6.1.md) dokumentiert Änderungen und Prüfungen.
 
-
-
-Der Tag `v0.5.0` bleibt der unveränderte historische [Usability-Teststand](docs/usability-testversion.md). Die Überarbeitung wird separat geprüft und vor einer neuen Erhebung erneut festgelegt.
+Die aktuelle [kurze Testanleitung für 0.10.0](docs/usability-testversion.md) legt den App-Commit und einen einheitlichen fiktiven Datensatz fest. Der Tag `v0.5.0` und seine [historische Testanleitung](docs/usability-testversion-0.5.0.md) bleiben unverändert erhalten.
 
 ## Entwicklung
 

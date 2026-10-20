@@ -1,46 +1,34 @@
-# Usability-Testversion 0.5.0
+# Benutzertest – Gradeflow 0.10.0
 
-## Festgelegter technischer Stand
+## Vorbereitung für die Testleitung
 
-Für die Erhebung ist ausschließlich der Git-Tag `v0.5.0` vorgesehen. Dieser Tag bezeichnet genau einen Commit und darf während der laufenden Erhebung nicht verändert werden. Die Commit-ID lässt sich mit `git rev-parse v0.5.0` prüfen. Änderungen nach der Freigabe werden auf einem neuen Versionsstand entwickelt und nicht in die laufende Testversion übernommen.
+- Fester App-Stand: **0.10.0**, Commit `2a429eaf96894f852be9f9761ee07547102a05d4`. Während der Erhebung nicht aktualisieren. Der historische Stand [0.5.0](usability-testversion-0.5.0.md) bleibt unverändert erhalten.
+- Je Testperson ein neues, leeres Browserprofil; gleiche Adresse und gleiche Gerätekonfiguration verwenden. Adresse, Commit, Browser und Gerät protokollieren. Das Erstbesuchs-Tutorial bleibt für alle verfügbar; Nutzung oder Überspringen festhalten.
+- Die [Testklasse mit vier fiktiven Personen](testdaten/klasse-8b.csv) vor dem Auschecken außerhalb der Arbeitskopie speichern und bereitstellen. Keine Demo-Wochen erzeugen und keine echten Schülerdaten verwenden.
+- Vor der Erhebung einmal alle Aufgaben selbst über die tatsächliche Testadresse durchlaufen. Die Online-Version ist hiermit nicht als geprüft bestätigt.
 
-Die Anwendung läuft ohne Konto und ohne Cloud-Synchronisierung. Alle Eingaben liegen im `localStorage` des verwendeten Browserprofils und Ursprungs. Die Lehrkraft beziehungsweise Testleitung muss für jede Testperson ein frisches Browserprofil verwenden. Testdaten dürfen nur fiktive Namen enthalten.
-
-## Reproduzierbarer Start
-
-Voraussetzung: Node.js 24 und npm. Aus dem Repository:
+Lokaler Start in einer separaten Arbeitskopie mit Node.js 24 und npm:
 
 ```bash
-git checkout v0.5.0
+git switch --detach 2a429eaf96894f852be9f9761ee07547102a05d4
 cd app
 npm ci
-npm run typecheck
-npm test
-npm run lint
-npm run format:check
 npm run build
 npm run preview -- --host 127.0.0.1 --port 4173
 ```
 
-Anschließend `http://127.0.0.1:4173/` in einem frischen Browserprofil öffnen. Für alle Testpersonen denselben Ursprung und Port verwenden. Ein anderes Browserprofil oder ein Wechsel zwischen `localhost` und `127.0.0.1` hat einen anderen lokalen Datenbestand. Die Testleitung prüft vor Beginn, dass noch keine Klasse vorhanden ist.
+Adresse: `http://127.0.0.1:4173/`. Beim Wiederöffnen denselben Browser und dieselbe Adresse verwenden.
 
-## Fiktiver Ausgangsdatensatz
+## Aufgaben für die Testperson
 
-Die Datei `app/public/demo-klasse.csv` enthält in dieser Reihenfolge `Fiktiv Ada`, `Fiktiv Bea`, `Fiktiv Cem` und `Fiktiv Dana`. Sie kann in der App über „Fiktive Beispiel-Klassenliste herunterladen“ bezogen werden. Für den Importversuch lauten Klassenname `Demo 8b` und Bewertungszeitraum `Usability-Test`. Die Schaltfläche „Demo-Klasse mit fiktiven Namen anlegen“ erzeugt denselben Ausgangsstand, falls ein Test ohne Importaufgabe vorbereitet wird. Beide Wege erzeugen eine Klasse ohne Stunden und mit Startwert `2,00` für jede Person.
+1. Importiere die bereitgestellte Klassenliste als **Klasse 8b**, Zeitraum **Benutzertest**.
+2. Beginne am **01.09.2026** eine Stunde. Bewerte **Fiktiv Ada** mit `+` und markiere **Fiktiv Bea** als abwesend.
+3. Schließe die App und öffne sie erneut. Setze die Stunde fort: **Fiktiv Cem** wurde nicht beobachtet, **Fiktiv Dana** erhält `0`. Öffne die Tabelle.
+4. Erfasse am **02.09.2026** eine zweite Stunde mit `0` für alle vier Personen. Korrigiere anschließend Adas Eintrag vom 01.09. auf `++` und öffne ihren Verlauf.
+5. Lade einen **Excel-Bericht**, eine **CSV-Auswertung** und die vollständige **JSON-Sicherung** herunter.
 
-## Aufgabenfolge für die Erhebung
+## Kurzprotokoll und Abschluss
 
-Die folgende Folge ist eine technische Vorlage für den Bedientest; Einweisung, Messinstrument und Auswertung sind im Methodenteil festzulegen.
+Je Aufgabe: Erfolg, Zeit, Fehlversuche und benötigte Hilfe notieren. Abschließend fragen: „Was war unklar oder umständlich?“ Fragebogen und Auswertungsmethode richten sich nach dem Methodenteil der Bachelorarbeit; diese Anleitung legt kein Messinstrument fest.
 
-1. Fiktive Beispiel-Klassenliste herunterladen und als `Demo 8b` mit Bewertungszeitraum `Usability-Test` importieren.
-2. Für den 01.09.2026 eine Stunde beginnen. `Fiktiv Ada` mit `+` bewerten und `Fiktiv Bea` als abwesend erfassen.
-3. Die Seite schließen und über dieselbe Adresse im selben Browserprofil erneut öffnen. Prüfen, ob die Stunde mit `Fiktiv Cem` als nächster offener Person fortgesetzt wird.
-4. `Fiktiv Cem` als nicht beobachtet markieren und `Fiktiv Dana` mit `0` bewerten. Die vollständige Stunde und die Tabelle ansehen.
-5. Für den 02.09.2026 eine weitere Stunde mit fiktiven Eingaben erfassen. Anschließend die erste Bewertung von `Fiktiv Ada` auf `++` korrigieren und ihren Verlauf ansehen.
-6. Die Klasse als CSV exportieren und die vollständige JSON-Sicherung herunterladen.
-
-Die Testleitung kann Aufgabenerfolg, Zeit, sichtbare Fehlversuche und Hilfestellungen erfassen. Aus diesen Beobachtungen dürfen keine Aussagen über pädagogische Wirksamkeit oder Notengerechtigkeit abgeleitet werden. Für die nächste Testperson wird ein neues, leeres Browserprofil verwendet; vorhandene Daten werden nicht stillschweigend gelöscht.
-
-## Grenzen und Schutz
-
-Die JSON-Datei enthält sämtliche lokalen Klassen und Beobachtungen. Auch im Test ist sie geschützt aufzubewahren und nicht in Git einzuchecken. Die lokale Rückfallsicherung schützt nicht gegen Verlust des Browserprofils oder Geräts. Die Version ist für einen Usability-Test mit fiktiven Daten bestimmt; Datenschutz- und Betriebsfragen für echte Schülerdaten sind nicht abschließend geprüft.
+Excel wurde laut Yannis am **20.10.2026** bereits manuell geprüft; dies ist eine Nutzerbestätigung, kein neuer automatisierter Nachweis. Sicherungen geschützt aufbewahren. Die nächste Testperson beginnt mit einem neuen Browserprofil; vorhandene Daten nicht ungefragt löschen. Der Test untersucht die Bedienbarkeit, nicht pädagogische Wirksamkeit.

@@ -115,7 +115,6 @@ Diese Datei wird ab Beginn der neuen Implementierung fortgeführt.
 - Ergebnis: Redesign lokal unter `http://127.0.0.1:5174/` verfügbar. CSS 29,66 kB / 6,73 kB gzip; Haupt-JavaScript und separates Excel-Modul bleiben bei 284,72/87,31 bzw. 940,22/272,17 kB. Keine neue fachliche Entscheidung, kein automatischer Abschluss/Reset und keine Cloud-Synchronisierung.
 - Grenzen: Bekannte Excel-Buildwarnung bleibt. Keine LCP-/FPS-Messung, kein Screenreader-/vollständiger WCAG-Audit, kein echter Browser-/OS-Zoomtest, keine Prüfung schwacher Geräte oder weiteren Browserengines. Dateiauswahl, JSON-Rückfall/Ladefehlerwiederherstellung und native Excel-Bedienung wurden nicht erneut vollständig manuell geprüft. Bestehende Datenschutz-/Speicher- und Sicherungsrisiken sowie Usability-Erhebung bleiben offen. Details und Vorher-/Nachherbelege im Bericht.
 
-
 ### 2026-10-18 – Grundlegende Produkt- und Qualitätsrevision: Ausgangsprüfung
 
 - Problem: Ein grüner Build und der bestehende CSS-Entwurf belegten weder sichere Zustandsführung noch gute Orientierung im tatsächlichen Bewertungsablauf. Vorhandene uncommittete Designarbeit musste erhalten bleiben.
@@ -203,7 +202,6 @@ Diese Datei wird ab Beginn der neuen Implementierung fortgeführt.
 
 - Abschluss 0.8.2: Implementierungscommit 335e2c2 auf main gepusht und direkt bei GitHub bestätigt; CI-Lauf 39293773104 erfolgreich. Öffentliche Bereitstellung bytegleich und alle 15 Schritte ohne Eingaben/Downloads live geprüft. [Nachweis](tutorial-weiter-2026-10-19/live-pruefung.json).
 
-
 ### 2026-10-19 – Drei getrennte Skills für Design-, Regel- und Browseraudit
 
 - Auftrag: Design Audit, Web Design Guidelines und Playwright Interactive installieren bzw. prüfen und nacheinander für eine umfassende Websiteprüfung verwenden. Ergebnis ist ein Reparaturbericht; kein weiterer App-Umbau in diesem Meilenstein.
@@ -212,25 +210,21 @@ Diese Datei wird ab Beginn der neuen Implementierung fortgeführt.
 - Prüfung: 121 Tests in 21 Dateien, Typecheck, Lint, Format und Build bestanden. 56 abgeschlossene interaktive Funktionsprüfungen, drei zusätzliche Mangelreproduktionen, 60 Tutorialpositionen und 15 Datenansichten in fünf Breiten. Zehn Axe-Zustände ohne automatisch bestätigten Verstoß; manuelle Restprüfungen bleiben. Fünf Beobachtungen separat nachgestellt. Netlify HTTP 200, identische Hauptdateien und erfolgreicher Live-Kurzablauf. Zwischenfehler des Prüfwerkzeugs sind dokumentiert.
 - Erhalt und Grenzen: Keine App-/Schema-/Fachregeländerung, kein manuelles Deployment, keine BA-PDF oder echten Daten im Upload. Chromium auf diesem Mac, simulierte Ansichten und CSS-Großschrift; keine weiteren Engines, echten Mobilgeräte, Windows-, Screenreader- oder native Excel-Bedienprüfung. Nur eigene Prüfbrowser und Port 4190 geschlossen. GitHub-Abschluss nach Dateiprüfung gemäß dauerhafter Freigabe.
 
-
 ### 2026-10-20 – Audit-Reparatur B01: ungesicherte Bewertung erhalten
 
 - Problem: Hauptnavigation und Rückweg entfernten den Wiederholungsauftrag einer fehlgeschlagenen Beobachtung.
 - Änderung: Auftrag mit stabilen Klassen-/Stunden-/Personen-IDs und Fehlertext erhalten; Wiederholung oder Rückkehr von anderen Seiten, bestätigtes Verwerfen und Warnung vor Neuladen. Weitere Eingaben überschreiben den offenen Auftrag nicht. Keine Schema-/Fachregeländerung.
 - Prüfung: Zwei neue Regressionen zuerst fehlgeschlagen; danach 30 App-Integrationstests sowie Typecheck, Lint und Build bestanden. Ein unzulässiger Test-Selektorparameter wurde im Prüftest korrigiert. Einzelaufgaben und Abschluss stehen in [Umsetzung](reparaturen-2026-10-20.md). Browser-Gegenprüfung folgt im nächsten Oberflächenschritt.
 
-
 ### 2026-10-20 – Audit-Reparatur B02: Daten und Eingaben mobil früher sichtbar
 
 - Änderung: Kompakte Kopfzeile und Ansichtenwahl, aufklappbare Exporte/Tabellenoptionen/Diagrammerklärung, verdichtete Bewertung mit unverändert großen Touchzielen. Tutorial zeigt am kleinen Bildschirm die tatsächliche Ansichtenwahl. Fehlender allgemeiner sr-only-Stil ergänzt. Bestehende Farbwelt und Fachregeln erhalten.
 - Prüfung: 123 Tests, Typecheck, Produktions-Build; vier Breiten visuell geprüft, kein Seitenüberlauf. Bei 390 × 844 passen fünf Symbole plus AW/NB, Tabelle zeigt Datenzeilen. Alle 15 Tour-Schritte mit echter Auswahl von Tabelle/Verlauf bestanden. [Aufgaben und Belege](reparaturen-2026-10-20.md).
 
-
 ### 2026-10-20 – Audit-Reparatur B03: Personen-Editor am Auslöser
 
 - Änderung: Formular direkt in der gewählten Personenzeile, Fokus und sichtbarer Scrollbereich, Fokus zurück nach Abschluss/Abbruch.
 - Prüfung: Ergänzte Fokusregression zuerst fehlgeschlagen, danach Umbenennungstest und Typecheck bestanden. Abschlusslauf umfasst erste/mittlere/letzte Person bei großen Klassen.
-
 
 ### 2026-10-20 – Audit-Reparatur B04: offene Namensänderungen schützen
 
@@ -272,3 +266,10 @@ Leere Demo bleibt der erste Schritt. In der angelegten Demo erzeugt eine eigene 
 - Kompatibilität: altes Schema 1 bleibt ohne optionale Felder lesbar; Farben/Demo-Markierungen werden vollständig gesichert. Keine Migration, neue Abhängigkeit oder geänderte Rechenregel.
 - Prüfung: 138 Tests/24 Dateien, Typecheck, Lint, Formatcheck und Build bestanden. Praktische Browserprüfung von sechs Klassen, Farbvorschlägen/freier heller Farbe, Speichern/Neuladen, beiden Nutzungsreihenfolgen, JSON-Sicherung/Import, zweitem schreibgeschützten Tab und Demo mit vorhandener Stunde. Ein Darstellungs-Speicherfehler wurde erst rot reproduziert, dann korrigiert und tatsächlich geprüft. Vier Breiten plus 200 Prozent Schrift ohne Seitenüberlauf; bestehende Tour vollständig bestanden.
 - Ergebnis und Grenzen: [Bericht, Bedienwege und Bilder](personalisierung-2026-10-20.md). Keine physische Geräte-/Screenreader-Prüfung, kein manueller Deploy. Nach geprüfter Dateiliste regulärer Commit, Push und Remote-Abgleich.
+
+### 20.10.2026 – Kurze Testanleitung für 0.10.0
+
+- Auftrag: Testanleitung kurz auf den aktuellen Stand bringen. Yannis bestätigt die manuelle Excel-Prüfung; keine eigene Wiederholung behauptet.
+- Änderung: App-Stand auf Commit `2a429eaf96894f852be9f9761ee07547102a05d4` festgelegt, vier fiktive Personen als feste Importdatei und fünf Aufgaben für Import, Erfassung, Wiederaufnahme, Korrektur, Verlauf und Exporte. Einheitlicher Erstbesuch und kurzes Beobachtungsprotokoll beschrieben.
+- Historische Testanleitung 0.5.0 unverändert kopiert; Links im README und historischen Migrationsstand angepasst. Keine App- oder Fachregeländerung und kein Deployment.
+- Prüfung: Formatierung der geänderten Markdown-Dateien, interne Dateilinks, CSV-Spalten/Namen und unverändertes historisches Original geprüft; `git diff --check`. Kein erneuter App-Testlauf für reine Dokumentation. Der Probelauf auf der tatsächlichen Testadresse bleibt vor Erhebungsbeginn erforderlich.
