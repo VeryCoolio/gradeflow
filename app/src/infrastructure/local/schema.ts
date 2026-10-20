@@ -1,3 +1,4 @@
+import { isClassColor, type ClassColor } from "../../domain/classes/classColor";
 import { recalculateClassState } from "../../domain/sessions/recalculate";
 import type { LessonSession } from "../../domain/sessions/types";
 import { RATING_SYMBOLS, type Observation } from "../../domain/grading/types";
@@ -11,6 +12,7 @@ export interface StudentRecord {
 }
 
 export interface ClassRecord {
+  readonly color?: ClassColor;
   readonly demo?: true;
   readonly demoDataGenerated?: true;
   readonly id: string;
@@ -88,6 +90,9 @@ export function assertNotebook(value: unknown): asserts value is NotebookV1 {
         (classValue.demoDataGenerated !== true || classValue.demo !== true))
     ) {
       throw new RangeError("Ungültige Demo-Kennzeichnung.");
+    }
+    if (classValue.color !== undefined && !isClassColor(classValue.color)) {
+      throw new RangeError("Ungültige Klassenfarbe.");
     }
     assertTimestamp(classValue.createdAt, "Erstellungszeit der Klasse");
     assertTimestamp(classValue.updatedAt, "Änderungszeit der Klasse");

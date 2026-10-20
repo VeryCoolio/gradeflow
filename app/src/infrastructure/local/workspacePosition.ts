@@ -9,6 +9,7 @@ export const PAGES = [
   "hilfe",
   "ueber",
   "daten",
+  "darstellung",
 ] as const;
 export const CLASS_VIEWS = [
   "stunden",

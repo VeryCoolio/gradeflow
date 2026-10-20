@@ -1248,3 +1248,91 @@ it("erstellt zuerst eine leere Demo und ergänzt danach auf Wunsch fünf Wochen"
   expect(screen.getAllByTitle("Nicht beobachtet").length).toBeGreaterThan(0);
   expect(screen.getAllByTitle("Offen").length).toBeGreaterThan(0);
 });
+
+it("speichert App-Farbe, Klassenfarbe und Sortierung und nimmt sie nach erneutem Öffnen wieder auf", async () => {
+  const user = userEvent.setup();
+  const storage = new MemoryStorage();
+  const source = reportClass();
+  const second = { ...source, id: "c2", name: "7a" };
+  storage.setItem(
+    NOTEBOOK_STORAGE_KEY,
+    JSON.stringify({
+      ...EMPTY_NOTEBOOK,
+      currentClassId: source.id,
+      classes: [source, second],
+    }),
+  );
+  storage.setItem("gradeflow-tutorial-v2", "gesehen");
+  const props = {
+    repository: new LocalRepository(storage, () => now),
+    workspaceStorage: storage,
+  };
+  const first = render(<App {...props} />);
+  await user.click(screen.getByRole("link", { name: "Meine Klassen" }));
+  await user.click(screen.getByRole("button", { name: "Klasse bearbeiten" }));
+  await user.click(screen.getByRole("button", { name: "Salbei" }));
+  expect(props.repository.load().classes[0].color).toBe("sage");
+  expect(
+    document
+      .querySelector('[data-tour-class="c1"]')
+      ?.getAttribute("data-class-color"),
+  ).toBe("sage");
+  await user.selectOptions(
+    screen.getByLabelText("Klassen sortieren"),
+    "oldest",
+  );
+  const before = storage.getItem(NOTEBOOK_STORAGE_KEY);
+  await user.click(screen.getByText("Hilfe und Einstieg"));
+  await user.click(
+    screen.getByRole("link", { name: "Darstellung und Farben" }),
+  );
+  await user.click(screen.getByRole("button", { name: "Blau" }));
+  expect(storage.getItem(NOTEBOOK_STORAGE_KEY)).toBe(before);
+  expect(document.documentElement.style.getPropertyValue("--accent")).toBe(
+    "#315f7a",
+  );
+  first.unmount();
+  render(<App {...props} />);
+  expect(
+    screen.getByRole("button", { name: "Blau" }).getAttribute("aria-pressed"),
+  ).toBe("true");
+  expect(
+    (screen.getByLabelText("Reihenfolge der Klassen") as HTMLSelectElement)
+      .value,
+  ).toBe("oldest");
+  expect(props.repository.load().classes[0].color).toBe("sage");
+});
+
+it("behält die gewählte Darstellung bei einem Speicherfehler auch beim Ändern einer weiteren Einstellung", async () => {
+  const user = userEvent.setup();
+  const storage = new MemoryStorage();
+  storage.setItem(
+    NOTEBOOK_STORAGE_KEY,
+    JSON.stringify({
+      ...EMPTY_NOTEBOOK,
+      currentClassId: "c1",
+      classes: [reportClass()],
+    }),
+  );
+  storage.setItem("gradeflow-tutorial-v2", "gesehen");
+  render(
+    <App
+      repository={new LocalRepository(storage, () => now)}
+      workspaceStorage={storage}
+    />,
+  );
+  await user.click(screen.getByText("Hilfe und Einstieg"));
+  await user.click(
+    screen.getByRole("link", { name: "Darstellung und Farben" }),
+  );
+  storage.fail = true;
+  await user.click(screen.getByRole("button", { name: "Blau" }));
+  await user.selectOptions(
+    screen.getByLabelText("Reihenfolge der Klassen"),
+    "oldest",
+  );
+  expect(document.documentElement.style.getPropertyValue("--accent")).toBe(
+    "#315f7a",
+  );
+  expect(screen.getByRole("alert").textContent).toContain("für diesen Besuch");
+});

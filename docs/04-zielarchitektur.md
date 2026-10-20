@@ -171,3 +171,11 @@ Die technische Neufassung allein macht die App nicht automatisch bereit für ech
 - `browserStorage.ts` verzögert den Zugriff auf das Storage-Objekt bis in den abgesicherten Aufruf. `notebookCoordinator.ts` hält genau einen Schreib-Lock; andere Tabs sehen Aktualisierungen und können nach dessen Freigabe übernehmen. Ohne API bleibt lesender Betrieb. Das löst keine geräteübergreifenden Konflikte nach O6.
 - JSON-Import: höchstens 5 MiB vor `File.text`, vollständige Schemavalidierung und bestehender Rückfall. XLSX: Prüfung des komprimierten Umfangs, ZIP-Verzeichnis (höchstens 256 Einträge, 2 MiB je Eintrag, 8 MiB zusammen laut Metadaten), Browser-Worker mit 10 Sekunden Laufzeitgrenze und Terminierung. Metadatenprüfung ist keine absolute Heap-Quotierung; ohne Worker erfolgt dieselbe Umfangsprüfung vor dem direkten Parser.
 - `app/e2e/` enthält lokale Playwright-Regressionen sowie unabhängige Fach- und Dateiprüfungen. Keine neue Produktionsbibliothek. App-Version 0.7.0, Notebook-Schema weiter Version 1.
+
+## 10. Personalisierung 0.10.0
+
+`appearance.ts` leitet aus einer validierten Hex-Farbe abgestimmte UI-Variablen ab und berücksichtigt den Kontrast. `uiPreferences.ts`/`useUiPreferences.ts` speichern Farbauswahl, Sortiermodus und eine Reihenfolge zuletzt geöffneter Klassen getrennt vom Notebook. Andere Tabs erhalten Änderungen über Storage-Ereignisse; fehlgeschlagenes Speichern erhält die Auswahl im Arbeitsspeicher und zeigt eine Warnung.
+
+`classOrder.ts` sortiert numerisch nach der erkennbaren Klassenstufe und danach der Parallelklasse, unabhängig von üblichen Namenspräfixen. Alternativ gilt die tatsächliche Öffnungsreihenfolge oder ihre Umkehrung; nie geöffnete Klassen stehen bei längster Nichtnutzung zuerst. Nicht zuordenbare Namen stehen im Stufenmodus anschließend alphabetisch.
+
+`ClassColorPicker` nutzt eine feste geprüfte Pastellpalette. Optionale Felder `color`, `demo` und `demoDataGenerated` ergänzen ClassRecord/Schema 1; alte Notebooks ohne diese Angaben bleiben gültig. Klassenfarben und Demo-Kennzeichnung werden mit dem Notebook gesichert. Vorhandene Klassen werden nicht automatisch umgeschrieben. `populateDemoWeeks` ergänzt erst nach einer ausdrücklichen Aktion 25 fiktive Stunden vor der ältesten Stunde bzw. vor der aktuellen Woche. Berechnung und Statusmodell bleiben unverändert.

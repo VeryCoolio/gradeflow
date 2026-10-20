@@ -74,6 +74,9 @@
         },
         "demoDataGenerated": {
           "const": true
+        },
+        "color": {
+          "enum": ["none", "lavender", "blue", "sage", "rose", "sand", "mint"]
         }
       },
       "dependentRequired": {

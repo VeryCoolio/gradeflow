@@ -1,3 +1,4 @@
+import { isClassColor, type ClassColor } from "../domain/classes/classColor";
 import type { ClassRecord, NotebookV1 } from "../infrastructure/local/schema";
 
 function requiredName(value: string, label: string): string {
@@ -140,5 +141,22 @@ export function removeClass(notebook: NotebookV1, classId: string): NotebookV1 {
       notebook.currentClassId === classId
         ? (classes[0]?.id ?? null)
         : notebook.currentClassId,
+  };
+}
+
+export function setClassColor(
+  notebook: NotebookV1,
+  classId: string,
+  color: ClassColor,
+  now: string,
+): NotebookV1 {
+  existingClass(notebook, classId);
+  if (!isClassColor(color))
+    throw new RangeError("Wähle eine der angebotenen Klassenfarben.");
+  return {
+    ...notebook,
+    classes: notebook.classes.map((group) =>
+      group.id === classId ? { ...group, color, updatedAt: now } : group,
+    ),
   };
 }

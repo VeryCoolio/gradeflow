@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { EMPTY_NOTEBOOK } from "../infrastructure/local/schema";
+import {
+  assertNotebook,
+  parseNotebook,
+  EMPTY_NOTEBOOK,
+} from "../infrastructure/local/schema";
 import { reportClass } from "../test/reportClass";
 import {
   addClass,
@@ -8,6 +12,7 @@ import {
   selectClass,
   setClassArchived,
   updateClassDetails,
+  setClassColor,
 } from "./classService";
 
 const now = "2026-09-23T12:00:00.000Z";
@@ -151,4 +156,28 @@ describe("Klassen und Bewertungszeitraum", () => {
       symbol: "-",
     });
   });
+});
+
+it("sichert nur eine geprüfte Klassenfarbe und erhält Beobachtungen in alten und erweiterten Notebooks", () => {
+  const group = reportClass();
+  const source = {
+    ...EMPTY_NOTEBOOK,
+    currentClassId: group.id,
+    classes: [group],
+  };
+  const changed = setClassColor(source, group.id, "sage", now);
+  const restored = parseNotebook(JSON.stringify(changed));
+  expect(restored.classes[0].color).toBe("sage");
+  expect(restored.classes[0].sessions).toEqual(group.sessions);
+  expect(source.classes[0].color).toBeUndefined();
+  expect(() => assertNotebook(source)).not.toThrow();
+  expect(() =>
+    assertNotebook({
+      ...changed,
+      classes: [{ ...changed.classes[0], color: "fremde CSS-Farbe" }],
+    }),
+  ).toThrow(/Klassenfarbe/);
+  expect(() =>
+    assertNotebook({ ...source, classes: [{ ...group, demo: false }] }),
+  ).toThrow(/Demo/);
 });

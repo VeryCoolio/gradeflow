@@ -1,3 +1,8 @@
+import { themeVariables, THEME_KEYS } from "./application/appearance";
+import { orderClasses } from "./application/classOrder";
+import { useUiPreferences } from "./features/useUiPreferences";
+import { AppearancePage } from "./features/settings/AppearancePage";
+import type { ClassColor } from "./domain/classes/classColor";
 import { countLabel } from "./application/countLabel";
 import { AppNavigation } from "./components/AppNavigation";
 import { ClassSwitcher } from "./components/ClassSwitcher";
@@ -25,6 +30,7 @@ import {
   selectClass,
   setClassArchived,
   updateClassDetails,
+  setClassColor,
 } from "./application/classService";
 import { addDemoClass, populateDemoWeeks } from "./application/demoClass";
 import { type Observation } from "./domain/grading/types";
@@ -88,6 +94,26 @@ export function App({
   confirmDiscard = (message) => window.confirm(message),
   download = downloadText,
 }: AppProps) {
+  const {
+    preferences: uiPreferences,
+    warning: appearanceWarning,
+    change: changeUiPreferences,
+    recordClass,
+  } = useUiPreferences(
+    workspaceStorage ?? (repository ? undefined : browserStorage),
+  );
+  useEffect(() => {
+    if (practice) return;
+    const theme = themeVariables(uiPreferences.accent);
+    document
+      .querySelector('meta[name="theme-color"]')
+      ?.setAttribute("content", theme["--canvas"] ?? "#f6f5f8");
+    for (const key of THEME_KEYS) {
+      if (theme[key])
+        document.documentElement.style.setProperty(key, theme[key]);
+      else document.documentElement.style.removeProperty(key);
+    }
+  }, [uiPreferences.accent, practice]);
   const navigationGuard = useRef<() => boolean>(() => true);
   const allowNavigation = useCallback(() => {
     if (!navigationGuard.current()) return false;
@@ -174,6 +200,19 @@ export function App({
   }, [failedObservation]);
 
   const currentClass = notebook?.classes.find((item) => item.id === classId);
+  const sortedClasses = useMemo(
+    () =>
+      orderClasses(
+        notebook?.classes ?? [],
+        uiPreferences.classOrder,
+        uiPreferences.recentClassIds,
+      ),
+    [notebook?.classes, uiPreferences.classOrder, uiPreferences.recentClassIds],
+  );
+  useEffect(() => {
+    if (page === "klasse" && currentClass?.id) recordClass(currentClass.id);
+  }, [page, currentClass?.id, recordClass]);
+
   const activeSession = currentClass?.sessions.find(
     (item) => item.id === activeSessionId,
   );
@@ -278,6 +317,17 @@ export function App({
       setPage("klasse");
       startingRef.current = false;
     }
+  }
+
+  function saveClassColor(color: ClassColor) {
+    if (!currentClass) return;
+    apply(
+      () =>
+        localRepository.update((current) =>
+          setClassColor(current, currentClass.id, color, now()),
+        ),
+      "Klassenfarbe lokal gespeichert.",
+    );
   }
 
   function populateDemo() {
@@ -657,7 +707,7 @@ export function App({
             ...(next === "klasse" ? { sessionId: null, studentId: null } : {}),
           })
         }
-        classes={notebook.classes}
+        classes={sortedClasses}
         classId={classId}
         onTutorial={() => {
           if (allowNavigation()) setTutorialRequest((value) => value + 1);
@@ -677,7 +727,24 @@ export function App({
       />
       <div className="layout">
         <ClassSwitcher
-          classes={notebook.classes}
+          colorSettingsHref={workspaceHash({
+            ...position,
+            page: "klasse",
+            view: "einstellungen",
+            sessionId: null,
+            studentId: null,
+          })}
+          onColorSettings={() =>
+            changeWorkspace({
+              page: "klasse",
+              view: "einstellungen",
+              sessionId: null,
+              studentId: null,
+            })
+          }
+          classOrder={uiPreferences.classOrder}
+          onOrder={(classOrder) => changeUiPreferences({ classOrder })}
+          classes={sortedClasses}
           classId={classId}
           onClass={chooseClass}
         />
@@ -751,6 +818,11 @@ export function App({
             </aside>
           ) : null}
 
+          {appearanceWarning ? (
+            <p className="feedback error" role="alert">
+              {appearanceWarning}
+            </p>
+          ) : null}
           {workspaceWarning ? (
             <p className="feedback" role="status">
               {workspaceWarning}
@@ -787,6 +859,12 @@ export function App({
           ) : null}
           {page === "sicherung" ? (
             <BackupPanel {...backupProps} notebook={notebook} />
+          ) : null}
+          {page === "darstellung" ? (
+            <AppearancePage
+              preferences={uiPreferences}
+              onChange={changeUiPreferences}
+            />
           ) : null}
           {page === "ueber" ? <AboutPage /> : null}
           {page === "daten" ? (
@@ -884,6 +962,7 @@ export function App({
               exporting={exporting}
               actions={{
                 populateDemo,
+                setColor: saveClassColor,
                 saveDetails,
                 saveStudentName,
                 archiveClass,

@@ -4,6 +4,8 @@ Dieses Repository enthält den Neubau einer App zur Dokumentation der fortlaufen
 
 ## Projektstand
 
+Version **0.10.0** ergänzt die Personalisierung: Unter „Hilfe und Einstieg → Darstellung und Farben“ lassen sich App-Farbton und Klassenreihenfolge wählen. Das Klassenregister bietet „Klassenstufe (A–Z)“, „Zuletzt benutzt“ und „Am längsten nicht benutzt“. Sanfte Klassenfarben stehen in „Klasse bearbeiten“ und über den Direktlink im Register bereit. Eine angelegte Demo bleibt zunächst leer; auf Wunsch ergänzt sie 25 fiktive Stunden über fünf Beispielwochen. [Umsetzung und Prüfung](docs/personalisierung-2026-10-20.md).
+
 Version **0.9.0** setzt alle acht Befunde des Drei-Skill-Audits um: kompaktere mobile Ansichten, sichtbare Personenbearbeitung und Importfehler, Schutz offener Änderungen, Erhalt fehlgeschlagener Bewertungen, gespeicherte Tabellenpräferenzen, echte Seitenlinks sowie lesbare Excel-Titel und korrigierte Formulierungen. [Umsetzung und Abnahme](docs/reparaturen-2026-10-20.md) dokumentieren Prüfungen und verbleibende Prüfgrenzen.
 
 Version **0.8.2** führt beim ersten Besuch direkt durch die echten Bedienelemente: Felder ausfüllen, Klasse anlegen, Stunde erfassen, Auswertungen und Sicherung öffnen. Jeder Tutorialschritt lässt sich mit „Weiter“ ohne eigene Eingabe ansehen; fehlende Übungsangaben werden ergänzt. Ein Download bleibt eine ausdrückliche Aktion. Die Tour verwendet getrennte flüchtige Übungsdaten und lässt sich unter „Hilfe und Einstieg“ wieder starten. Die App-Erklärung ist mit der vorgelegten Bachelorarbeitsfassung abgeglichen. [Aufgabenliste](docs/bedienrevision-2026-10-19.md), [Quellenabgleich](docs/ba-abgleich-2026-10-19.md) und [Tutorial-Prüfung](docs/tutorial-ba-2026-10-19.md) dokumentieren Umsetzung und Grenzen.

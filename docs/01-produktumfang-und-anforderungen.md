@@ -119,3 +119,9 @@ Folgende Themen sind wichtig, gehören aber nicht zwingend in den Umfang der ers
 - gewichtete Kategorien.
 
 Sie dürfen den Kernumbau nicht verdrängen. Der Schwerpunkt der Bachelorarbeit liegt auf begründeter technischer Weiterentwicklung und abschließendem Usability-Test.
+
+## 6. Ergänzungen vom 20.10.2026
+
+Auf ausdrücklichen Nutzerwunsch: App-Farbton frei wählen und lokal behalten; Klassen sanfte Pastellfarben zuordnen; Sortierung zwischen Stufe/Parallelklasse (A–Z), zuletzt benutzt und am längsten nicht benutzt wählen. Die Nutzung bezeichnet das Öffnen der Klasse, nicht ihr Bewertungsdatum.
+
+Eine Demo wird zuerst leer angelegt. In der bestehenden Demo kann die Lehrkraft anschließend fünf Beispielwochen mit 25 fiktiven Stunden (Mo–Fr), allen Symbolen, AW, NB und offenen Einträgen erzeugen. Vorhandene Stunden bleiben erhalten; die Beispielwochen liegen zeitlich davor. Die Funktion ist auf Demo-Klassen beschränkt und verhindert versehentliches mehrfaches Füllen.

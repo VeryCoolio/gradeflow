@@ -131,3 +131,13 @@ Yannis beauftragt die einzelnen Bedienkorrekturen der [Aufgabenliste](bedienrevi
 AW, NB und Offen erhalten eigene Symbole unterhalb der Notenachse, ohne erfundene Notenwerte. Excel erhält größere Symbole, Blattnavigation und interne Personenlinks; der genannte Endnoten-Hinweis entfällt dort. Die Stundennummer wird in Oberfläche und Excel immer ausgeschrieben, auch bei nur einer Stunde am Datum. Diese neue Darstellung ersetzt die bisherige Ausblendung in O7; Zwei-Stunden-Grenze, atomarer Tausch, Normalisierung und Neuberechnung bleiben unverändert. Das CSV-v2-Dateiformat bleibt erhalten.
 
 App-Idee und Datenablage werden in eigenen Hilfeseiten erklärt; ein schließbares Tutorial erscheint beim ersten Besuch und bleibt manuell erreichbar. Bis zur angekündigten neuen Bachelorarbeitsdatei beruhen die Inhalte auf den bestätigten Produktvorgaben. Konkrete Zitate, Quellen oder eine Begründung aus dieser noch fehlenden Fassung werden nicht behauptet.
+
+## Personalisierung vom 20.10.2026
+
+### O17 – Farben, Klassensortierung und Beispielwochen – entschieden
+
+Yannis beauftragt die freie Auswahl der App-Farbe, sanfte auswählbare Klassenfarben und eine wählbare Klassenreihenfolge. Standard ist Stufe/Parallelklasse (A–Z); alternativ zuletzt benutzt oder am längsten nicht benutzt. Farben dienen der Orientierung und ersetzen keine Statusbezeichnungen. Die App-Farbe verändert nicht die fachliche Bedeutung der roten/grünen Bewertungsflächen.
+
+Eine Demo soll zuerst angelegt und anschließend auf Wunsch mit fünf Wochen Demowerten gefüllt werden. Technische Ausgestaltung: 25 fiktive Stunden an fünf Montag-bis-Freitag-Wochen vor der aktuellen Woche bzw. vorhandenen Stunden; alle Symbole, AW, NB und offene Einträge. Kein Überschreiben bestehender Stunden und kein versehentliches mehrfaches Füllen.
+
+App-Farbe und Sortier-/Nutzungspräferenzen gehören zum Browserprofil; Klassenfarben und Demo-Markierungen zur JSON-Sicherung. Keine neue pädagogische Regel, keine Cloud-Synchronisierung und kein automatischer Zeitraumwechsel.

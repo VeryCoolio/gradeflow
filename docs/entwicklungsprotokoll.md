@@ -264,3 +264,11 @@ Numerische Einzahl-/Mehrzahlformen vereinheitlicht und den unbeholfenen Satz zur
 ### 20.10.2026 – Personalisierung, Schritt 1: fünf Demo-Wochen
 
 Leere Demo bleibt der erste Schritt. In der angelegten Demo erzeugt eine eigene Aktion 25 fiktive Stunden vor aktuellen/vorhandenen Terminen, mit allen fünf Symbolen, AW/NB/Offen. Bestehende Stunden bleiben unverändert; erneutes Füllen wird verhindert. Optionale geprüfte Demo-Metadaten in Schema 1, ältere unveränderte Demo erkennbar. Anwendungsfall und UI geprüft; Demo-/App-Tests, Typecheck und Lint bestanden.
+
+### 20.10.2026 – Personalisierung, Abschluss 0.10.0
+
+- Auftrag: eigene App-Farbe, sanfte Klassenfarben und drei wählbare Klassenreihenfolgen ergänzen.
+- Umsetzung: getrennte profilbezogene UI-Präferenzen; freie Hex-Farbe mit Kontrastanpassung und abgestimmten UI-Flächen. Klassenpalette als geprüfte optionale Metadaten, über Verwaltung und Register-Direktlink erreichbar. Stufen numerisch/Parallelklassen alphabetisch oder tatsächliche Öffnungsreihenfolge auf-/absteigend; gleiche mobile Auswahl.
+- Kompatibilität: altes Schema 1 bleibt ohne optionale Felder lesbar; Farben/Demo-Markierungen werden vollständig gesichert. Keine Migration, neue Abhängigkeit oder geänderte Rechenregel.
+- Prüfung: 138 Tests/24 Dateien, Typecheck, Lint, Formatcheck und Build bestanden. Praktische Browserprüfung von sechs Klassen, Farbvorschlägen/freier heller Farbe, Speichern/Neuladen, beiden Nutzungsreihenfolgen, JSON-Sicherung/Import, zweitem schreibgeschützten Tab und Demo mit vorhandener Stunde. Ein Darstellungs-Speicherfehler wurde erst rot reproduziert, dann korrigiert und tatsächlich geprüft. Vier Breiten plus 200 Prozent Schrift ohne Seitenüberlauf; bestehende Tour vollständig bestanden.
+- Ergebnis und Grenzen: [Bericht, Bedienwege und Bilder](personalisierung-2026-10-20.md). Keine physische Geräte-/Screenreader-Prüfung, kein manueller Deploy. Nach geprüfter Dateiliste regulärer Commit, Push und Remote-Abgleich.

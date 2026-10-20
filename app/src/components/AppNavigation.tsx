@@ -97,6 +97,13 @@ export function AppNavigation({
           >
             Wo sind meine Daten?
           </a>
+          <a
+            className="button-link"
+            href={hrefForPage("darstellung")}
+            onClick={(event) => navigate(event, "darstellung")}
+          >
+            Darstellung und Farben
+          </a>
           <button
             type="button"
             onClick={() => {

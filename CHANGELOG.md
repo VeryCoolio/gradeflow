@@ -2,6 +2,14 @@
 
 Der Git-Verlauf beginnt mit dem Projektstand nach Meilenstein 2. Frühere Arbeitsschritte sind im [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) festgehalten; dafür werden keine rückdatierten Commits erzeugt.
 
+## 0.10.0 – 20.10.2026
+
+- App-Farbton mit sechs Vorschlägen und freier Farbwahl; helle Töne erhalten ausreichend dunkle Text-/Schaltflächenfarben. Auswahl bleibt im Browserprofil gespeichert.
+- Sechs sanfte Klassenfarben plus Zurücksetzen, direkt aus dem Register erreichbar. Klassenfarben werden mit der JSON-Sicherung übernommen.
+- Klassenliste wahlweise numerisch nach Stufe und alphabetisch nach Parallelklasse, zuletzt geöffnet oder am längsten nicht geöffnet. Gleiche Reihenfolge im mobilen Klassenwähler.
+- Demo zunächst leer; anschließend auf Wunsch 25 fiktive Stunden (fünf Montag-bis-Freitag-Wochen) einschließlich aller Symbole, AW, NB und offenen Einträgen. Vorhandene Stunden bleiben erhalten.
+- Keine neue Abhängigkeit oder Änderung an der Berechnung. Optionale geprüfte Klassenmetadaten ergänzen Schema 1 ohne automatische Migration. [Abnahme](docs/personalisierung-2026-10-20.md).
+
 ## 0.9.0 – 20.10.2026
 
 - Alle acht Auditbefunde umgesetzt: ausstehende Bewertungen über Navigation erhalten, mobile Datenhierarchie verdichtet, Personen-Editor sichtbar geöffnet, ungespeicherte Namensänderungen geschützt und Importfehler direkt erklärt.

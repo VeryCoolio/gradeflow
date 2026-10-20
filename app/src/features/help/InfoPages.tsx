@@ -147,6 +147,13 @@ export function DataPage({ onBackup }: { onBackup: () => void }) {
         anlegen“ übernimmt ihn als Klasse. Ausgewählte Dateien müssen nach einem
         Neuladen erneut ausgewählt werden.
       </p>
+      <h3>Farben und Klassenreihenfolge</h3>
+      <p>
+        Dein App-Farbton, die Sortierung und die Reihenfolge zuletzt geöffneter
+        Klassen werden getrennt in diesem Browserprofil gespeichert. Sie gehören
+        nicht zur JSON-Sicherung. Die Pastellfarbe einer Klasse gehört dagegen
+        zu ihren Angaben und wird in der Sicherung mitgenommen.
+      </p>
       <h3>Was kann verloren gehen?</h3>
       <p>
         Das Löschen von Website- oder Browserdaten, ein verlorenes Gerät oder

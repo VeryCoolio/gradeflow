@@ -1,3 +1,9 @@
+import { ClassColorPicker } from "../../components/ClassColorPicker";
+import {
+  classColorStyle,
+  type ClassColor,
+} from "../../domain/classes/classColor";
+import type { CSSProperties } from "react";
 import { isDemoClass } from "../../application/demoClass";
 import { countLabel } from "../../application/countLabel";
 import {
@@ -53,6 +59,7 @@ interface Props {
   exporting: boolean;
   actions: {
     populateDemo: () => void;
+    setColor: (color: ClassColor) => void;
     saveDetails: (name: string, period: string) => boolean;
     saveStudentName: (id: string, name: string) => boolean;
     archiveClass: () => void;
@@ -187,6 +194,8 @@ export function ClassWorkspace({
   return (
     <>
       <section
+        data-class-color={currentClass.color ?? "none"}
+        style={classColorStyle(currentClass.color) as CSSProperties}
         className={`card class-overview ${currentClass.archived ? "is-archived" : ""}`}
       >
         <div className="section-heading">
@@ -274,6 +283,11 @@ export function ClassWorkspace({
                 <dd>{currentClass.archived ? "Archiviert" : "Geöffnet"}</dd>
               </div>
             </dl>
+            <ClassColorPicker
+              value={currentClass.color}
+              disabled={!canWrite}
+              onChange={actions.setColor}
+            />
             <fieldset disabled={!canWrite}>
               <legend>Bezeichnungen ändern</legend>
               {editingDetails ? (

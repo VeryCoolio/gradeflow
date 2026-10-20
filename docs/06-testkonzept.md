@@ -139,3 +139,11 @@ Die neue Version ersetzt keine bereits laufende Erhebung mit `v0.5.0`. Eine weit
 - Kompakt-/Detailansicht und drei Schriftgrößen wechseln. `AW`, `NB`, `Offen` und bewertete `0` bleiben unterscheidbar; nur bewertete Zellen zeigen einen Zwischenstand.
 - Diagramm mit einer und mit 20 Stunden: identischer fester horizontaler Stundenabstand. Personenwechsel erhält alle Datumspunkte. Unbewertete Stunden tragen Kurztexte und keine erfundenen Leistungsdatenpunkte.
 - Namen, Gesamtstand und Spaltenköpfe beim internen Scrollen prüfen; auch die große Tabelle erzeugt kein horizontales Überlaufen der Seite bei 390 und 768 CSS-Pixeln.
+
+## 10. Personalisierung 0.10.0
+
+- Numerische Stufen/Parallelklassen, Namen mit Präfix, unbekannte Stufen und Nutzungssortierung unabhängig vom Bewertungsdatum prüfen. Quellliste unverändert lassen.
+- Alle Farbvorschläge und freie helle/dunkle Farben: rechnerische Kontraste, tatsächliche Auswahl, Neuladen, Speicherfehler und zweiter Tab.
+- Klassenfarbe setzt nur Metadaten; vorhandene Personen/Beobachtungen bleiben identisch. JSON-Export/-Import erhält die Farben. Alte Notebooks ohne neue optionale Angaben bleiben lesbar; ungültige Farben/Demo-Markierungen werden abgewiesen.
+- Demo erst leer, dann 25 eindeutige Montag-bis-Freitag-Termine mit allen Statusarten. Bestehende Stunden unverändert, wiederholte Generierung verhindert, normale Klassen ohne Demo-Aktion.
+- Vier Breiten 320/390/768/1440 sowie 200 Prozent Grundschrift; Tutorial und schreibgeschützten zweiten Tab gegenprüfen. Reproduzierbarer Ablauf in `app/e2e/personalization.py`.

@@ -24,6 +24,11 @@
   font-synthesis: none;
   line-height: 1.5;
   font-size: 100%;
+  --theme-selected: #e7e0f0;
+  --theme-panel: #f5f3f8;
+  --theme-table-head: #eeebf3;
+  --theme-person: #f6f3f9;
+  --theme-current: #ebe5f2;
 }
 * {
   box-sizing: border-box;
@@ -187,8 +192,8 @@ button.primary:hover:enabled {
 }
 .primary-nav :is(button, a)[aria-current] {
   color: var(--accent-ink);
-  background: #e7e0f0;
-  border-color: #d4c9e3;
+  background: var(--theme-selected);
+  border-color: var(--line);
   box-shadow: inset 3px 0 0 var(--accent);
 }
 .primary-nav :is(button, a)[aria-current]::after {
@@ -202,8 +207,8 @@ button.primary:hover:enabled {
   top: calc(50% - 2px);
 }
 .primary-nav :is(button, a)[aria-current]:hover {
-  background: #e7e0f0;
-  border-color: #b6a7cd;
+  background: var(--theme-selected);
+  border-color: var(--line-strong);
 }
 .content:focus {
   outline: none;
@@ -249,7 +254,7 @@ button.primary:hover:enabled {
   font-size: 0.85rem;
   font-weight: 550;
   border: 1px solid var(--line);
-  background: #f5f3f8;
+  background: var(--theme-panel);
 }
 .error {
   color: #82383c;
@@ -268,7 +273,7 @@ button.primary:hover:enabled {
 .count-pill {
   color: var(--accent-ink);
   background: var(--accent-soft);
-  border: 1px solid #d9cfe5;
+  border: 1px solid var(--line);
   border-radius: 30px;
   padding: 0.45rem 0.85rem;
   font-size: 0.78rem;
@@ -416,7 +421,7 @@ input::file-selector-button {
   left: 0;
   height: 7px;
   width: 7px;
-  border: 1px solid #a398b4;
+  border: 1px solid var(--line-strong);
   border-radius: 50%;
   background: var(--paper);
 }
@@ -457,7 +462,7 @@ input::file-selector-button {
 }
 .session-actions button:first-child {
   background: var(--accent-soft);
-  border-color: #d0c6df;
+  border-color: var(--line);
   color: var(--accent-ink);
 }
 .session-actions button:last-child {
@@ -768,7 +773,7 @@ button.rating-option[aria-pressed="true"]::after {
 }
 .rating-guide p:nth-last-child(3),
 .rating-guide p:nth-last-child(2) {
-  border-left: 2px solid #c6b9d6;
+  border-left: 2px solid var(--line);
   padding-left: 1.2rem;
   margin-top: 1.5rem;
 }
@@ -869,13 +874,13 @@ button.rating-option[aria-pressed="true"]::after {
 .table-modes button[aria-pressed="true"] {
   background: var(--surface);
   color: var(--accent-ink);
-  border-color: #cfc6dd;
+  border-color: var(--line);
   box-shadow:
     inset 0 -2px 0 var(--accent),
     0 1px 3px #2826330b;
 }
 .table-modes button[aria-pressed="true"]:hover:enabled {
-  background: #fcfaff;
+  background: var(--theme-panel);
   border-color: var(--accent);
 }
 .table-legend {
@@ -906,7 +911,7 @@ button.rating-option[aria-pressed="true"]::after {
 .chart-scroll {
   max-width: 100%;
   overflow-x: auto;
-  scrollbar-color: #bbb1c7 #f4f1f7;
+  scrollbar-color: var(--line-strong) var(--theme-panel);
   scrollbar-width: thin;
 }
 table {
@@ -918,7 +923,7 @@ table {
 }
 th,
 td {
-  border-right: 1px solid #e6e2ea;
+  border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 0.8rem 0.85rem;
   white-space: nowrap;
@@ -926,16 +931,16 @@ td {
   vertical-align: top;
 }
 thead th {
-  background: #eeebf3;
-  color: #52435f;
+  background: var(--theme-table-head);
+  color: var(--accent-ink);
   font-weight: 600;
   font-size: 0.8rem;
 }
 tbody tr:nth-child(even) {
-  background: #faf9fc;
+  background: var(--theme-person);
 }
 tbody tr:hover {
-  background: #f0edf5;
+  background: var(--accent-soft);
 }
 td small {
   display: block;
@@ -960,7 +965,7 @@ td small {
   position: sticky;
   top: 0;
   z-index: 2;
-  background: #eeebf3;
+  background: var(--theme-table-head);
   font-size: 0.9em;
 }
 .class-report-scroll .person-column {
@@ -970,16 +975,16 @@ td small {
   min-width: 10rem;
   max-width: 13rem;
   white-space: normal;
-  background: #f6f3f9;
-  border-right: 2px solid #cfc7da;
+  background: var(--theme-person);
+  border-right: 2px solid var(--line-strong);
   font-weight: 550;
 }
 .class-report-scroll .current-column {
   position: sticky;
   right: 0;
   z-index: 1;
-  background: #ebe5f2;
-  border-left: 2px solid #cfc7da;
+  background: var(--theme-current);
+  border-left: 2px solid var(--line-strong);
   min-width: 4.5rem;
   color: var(--accent-ink);
   text-align: center;
@@ -1062,10 +1067,10 @@ td small {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 .chart-scroll svg line {
-  stroke: #ddd7e5;
+  stroke: var(--line);
 }
 .chart-scroll svg g line[y1="222"] {
-  stroke: #8c7d9a;
+  stroke: var(--line-strong);
 }
 /* Finite ink feedback. Controls never translate; existing focus remains in place. */
 @keyframes ink-settle {
@@ -2194,7 +2199,7 @@ td small {
 .tour-spotlight {
   position: fixed;
   z-index: 101;
-  border: 3px solid #5b477e;
+  border: 3px solid var(--accent);
   border-radius: 8px;
   box-shadow: 0 0 0 3px white;
   pointer-events: none;
@@ -2586,4 +2591,95 @@ td small {
   border-left: 3px solid var(--accent);
   background: var(--accent-soft);
   border-radius: var(--radius-small);
+}
+
+/* Persönlicher App-Farbton und davon unabhängige Klassenfarben. */
+.color-picker p {
+  max-width: 65ch;
+}
+.color-choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr));
+  gap: 0.5rem;
+  margin: 0.75rem 0 1rem;
+}
+.color-choices button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  text-align: left;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.color-choices button[aria-pressed="true"] {
+  border: 2px solid var(--accent-ink);
+  box-shadow: inset 0 0 0 1px var(--accent-ink);
+}
+.color-swatch {
+  flex: 0 0 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid var(--class-border, var(--line-strong));
+  border-radius: 50%;
+  background: var(--class-fill);
+}
+.custom-accent {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin: 0.5rem 0 1rem;
+}
+.custom-accent input {
+  width: 5rem;
+  height: 3rem;
+  padding: 0.2rem;
+  cursor: pointer;
+}
+.custom-accent output {
+  font-variant-numeric: tabular-nums;
+}
+.appearance-page select {
+  max-width: 100%;
+}
+.class-sidebar > select {
+  width: 100%;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+.class-sidebar > label {
+  margin-top: 0.75rem;
+}
+.class-register button[data-class-color]:not([data-class-color="none"]) {
+  background: var(--class-fill);
+  box-shadow: inset 5px 0 0 var(--class-marker);
+}
+.class-overview[data-class-color]:not([data-class-color="none"]) .count-pill {
+  background: var(--class-fill);
+  border-color: var(--class-border);
+  color: var(--ink);
+}
+
+.appearance-page p {
+  max-width: 70ch;
+}
+.appearance-page label {
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.help-menu > nav {
+  max-height: min(55dvh, 28rem);
+  overflow-y: auto;
+}
+
+.custom-accent {
+  flex-wrap: wrap;
+}
+.class-register {
+  max-height: max(8rem, calc(100dvh - 28rem));
+}
+.sidebar-color-action {
+  width: 100%;
+  text-align: left;
+  margin-bottom: 0.75rem;
 }
