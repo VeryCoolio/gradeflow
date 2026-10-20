@@ -230,3 +230,9 @@ Diese Datei wird ab Beginn der neuen Implementierung fortgeführt.
 
 - Änderung: Formular direkt in der gewählten Personenzeile, Fokus und sichtbarer Scrollbereich, Fokus zurück nach Abschluss/Abbruch.
 - Prüfung: Ergänzte Fokusregression zuerst fehlgeschlagen, danach Umbenennungstest und Typecheck bestanden. Abschlusslauf umfasst erste/mittlere/letzte Person bei großen Klassen.
+
+
+### 2026-10-20 – Audit-Reparatur B04: offene Namensänderungen schützen
+
+- Änderung: Änderungsstatus, gemeinsamer Navigationsschutz für Klassen-/Personeneditor, Bestätigung bei bewusstem Verwerfen, Browserwarnung vor Reload. Route und Eingabe bleiben nach Abbrechen erhalten; unveränderte Formulare erzeugen keine Rückfrage.
+- Prüfung: Zwei zusätzliche Regressionen erst fehlgeschlagen, danach bestanden, Typecheck erfolgreich. Gemeinsame Navigation einschließlich Browserhistorie im Abschluss zu prüfen.

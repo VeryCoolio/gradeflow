@@ -82,6 +82,19 @@ export function App({
   confirmDiscard = (message) => window.confirm(message),
   download = downloadText,
 }: AppProps) {
+  const navigationGuard = useRef<() => boolean>(() => true);
+  const allowNavigation = useCallback(() => {
+    if (!navigationGuard.current()) return false;
+    navigationGuard.current = () => true;
+    return true;
+  }, []);
+  const registerNavigationGuard = useCallback((guard: () => boolean) => {
+    navigationGuard.current = guard;
+    return () => {
+      if (navigationGuard.current === guard)
+        navigationGuard.current = () => true;
+    };
+  }, []);
   const {
     repository: localRepository,
     notebook,
@@ -101,6 +114,7 @@ export function App({
     workspaceStorage ?? (repository ? undefined : browserStorage),
     canWrite,
     !practice,
+    allowNavigation,
   );
   const {
     page,
@@ -259,6 +273,7 @@ export function App({
 
   function chooseClass(classId: string) {
     if (!notebook) return;
+    if (!allowNavigation()) return;
     if (
       failedObservation &&
       !confirmDiscard(
@@ -617,7 +632,9 @@ export function App({
         page={page}
         classes={notebook.classes}
         classId={classId}
-        onTutorial={() => setTutorialRequest((value) => value + 1)}
+        onTutorial={() => {
+          if (allowNavigation()) setTutorialRequest((value) => value + 1);
+        }}
         onHelpOpen={() => onTutorialAction?.("help-opened")}
         onClass={chooseClass}
         onPage={(next) => {
@@ -816,6 +833,8 @@ export function App({
             <ClassWorkspace
               key={currentClass.id}
               currentClass={currentClass}
+              registerNavigationGuard={registerNavigationGuard}
+              confirmNavigation={confirmDiscard}
               report={report}
               dashboardView={dashboardView}
               setDashboardView={(view) => {

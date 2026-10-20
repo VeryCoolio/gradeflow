@@ -5,7 +5,7 @@ Grundlage: [Audit vom 19.10.2026](drei-skill-audit-2026-10-19/bericht.md), Ausga
 - [x] B01 Fehlgeschlagene Eingabe bei Navigation erhalten.
 - [x] B02 Mobile Datenhierarchie und Bewertung kompakter gestalten.
 - [x] B03 Personen-Editor sichtbar und fokussiert öffnen.
-- [ ] B04 Ungespeicherte Namensänderungen schützen.
+- [x] B04 Ungespeicherte Namensänderungen schützen.
 - [ ] B05 Importfehler am Formular anzeigen.
 - [ ] B06 Lange Excel-Titel lesbar ausgeben.
 - [ ] B07 Tabellenpräferenzen erhalten und Seiten verlinken.
@@ -27,3 +27,9 @@ Prüfung: 123 Tests, Typecheck und Build bestanden. Tatsächliche Sichtprüfung 
 ## B03
 
 Der Personen-Editor steht direkt in der gewählten Personenzeile. Das Namensfeld erhält Fokus und wird bei Bedarf sichtbar gescrollt. Nach Speichern oder Abbrechen kehrt der Fokus zum zugehörigen Auslöser zurück. Der bestehende Demo-/Umbenennungstest prüft nun ausdrücklich die Fokusübergabe; diese Prüfung schlug vor der Änderung fehl und besteht danach. Typecheck bestanden. Die visuelle Gegenprüfung mit 20/45 Personen erfolgt im Abschlusslauf.
+
+## B04
+
+Offene Namen-/Zeitraumänderungen werden als ungespeichert angezeigt. Ein gemeinsamer Navigationsschutz fragt vor dem Verwerfen; Abbrechen erhält die Eingabe. Das gilt für Seiten, Klassen, Ansichten, andere Personen, Tourstart und Browser-Zurück. Neuladen nutzt die native Browserwarnung. Unveränderte Formulare verlangen keine Bestätigung.
+
+Prüfung: Zwei neue Regressionen zuerst fehlgeschlagen, danach bestanden; Typecheck erfolgreich. Browser-Zurück und Klassenwechsel werden im Abschluss zusätzlich tatsächlich bedient.

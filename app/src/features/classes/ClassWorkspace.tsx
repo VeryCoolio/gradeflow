@@ -1,4 +1,11 @@
-import { useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  type FormEvent,
+} from "react";
 import { compareLessonSessions } from "../../domain/sessions/lessonSequence";
 import { observationFor } from "../../domain/sessions/observations";
 import type { LessonSession } from "../../domain/sessions/types";
@@ -22,6 +29,8 @@ const viewLabels = [
 ] as const;
 
 interface Props {
+  registerNavigationGuard: (guard: () => boolean) => () => void;
+  confirmNavigation: (message: string) => boolean;
   currentClass: ClassRecord;
   report: ClassReport;
   dashboardView: ClassView;
@@ -49,6 +58,8 @@ interface Props {
   };
 }
 export function ClassWorkspace({
+  registerNavigationGuard,
+  confirmNavigation,
   currentClass,
   report,
   dashboardView,
@@ -81,6 +92,44 @@ export function ClassWorkspace({
   const swapButtonRef = useRef<HTMLButtonElement>(null);
   const studentInput = useRef<HTMLInputElement>(null);
   const studentTrigger = useRef<HTMLButtonElement>(null);
+  const detailsDirty =
+    editingDetails &&
+    (detailName !== currentClass.name ||
+      detailPeriod !== currentClass.periodLabel);
+  const studentDirty = Boolean(
+    editingStudentId &&
+    studentName !==
+      currentClass.students.find((person) => person.id === editingStudentId)
+        ?.displayName,
+  );
+  const dirty = detailsDirty || studentDirty;
+  const canLeaveEditor = useCallback(() => {
+    if (!dirty) return true;
+    if (
+      !confirmNavigation(
+        "Ungespeicherte Namens- oder Zeitraumänderung verwerfen? Mit Abbrechen bleibt deine Eingabe erhalten.",
+      )
+    ) {
+      studentInput.current?.focus();
+      return false;
+    }
+    setEditingDetails(false);
+    setEditingStudentId(null);
+    return true;
+  }, [dirty, confirmNavigation]);
+  useEffect(
+    () => registerNavigationGuard(canLeaveEditor),
+    [registerNavigationGuard, canLeaveEditor],
+  );
+  useEffect(() => {
+    if (!dirty) return;
+    const warn = (event: BeforeUnloadEvent) => {
+      event.preventDefault();
+      event.returnValue = "";
+    };
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [dirty]);
   useEffect(() => {
     if (editingStudentId && dashboardView === "personen") {
       studentInput.current?.focus();
@@ -219,6 +268,11 @@ export function ClassWorkspace({
               <legend>Bezeichnungen ändern</legend>
               {editingDetails ? (
                 <form className="details-form" onSubmit={saveDetails}>
+                  {detailsDirty ? (
+                    <p className="feedback" role="status">
+                      Ungespeicherte Änderungen
+                    </p>
+                  ) : null}
                   <label htmlFor="detail-name">Klassenname</label>
                   <input
                     id="detail-name"
@@ -322,6 +376,8 @@ export function ClassWorkspace({
                     type="button"
                     aria-label={`Namen von ${student.displayName} bearbeiten`}
                     onClick={(event) => {
+                      if (editingStudentId !== student.id && !canLeaveEditor())
+                        return;
                       studentTrigger.current = event.currentTarget;
                       setEditingStudentId(student.id);
                       setStudentName(student.displayName);
@@ -334,6 +390,9 @@ export function ClassWorkspace({
                       onSubmit={saveStudentName}
                       className="student-name-form"
                     >
+                      {studentDirty ? (
+                        <p role="status">Ungespeicherte Änderungen</p>
+                      ) : null}
                       <label htmlFor="student-name">Neuer Personenname</label>
                       <input
                         ref={studentInput}

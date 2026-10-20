@@ -1107,3 +1107,64 @@ it("kann die ursprüngliche Eingabe von einer anderen Seite wiederholen und warn
   window.dispatchEvent(after);
   expect(after.defaultPrevented).toBe(false);
 });
+
+it("schützt ungespeicherte Klassendetails vor Navigation und Neuladen", async () => {
+  const user = userEvent.setup();
+  let allowed = false;
+  let questions = 0;
+  const { repository } = makeApp(undefined, () => {
+    questions += 1;
+    return allowed;
+  });
+  await user.click(
+    screen.getByRole("button", {
+      name: "Demo-Klasse mit fiktiven Namen anlegen",
+    }),
+  );
+  await user.click(screen.getByRole("button", { name: "Klasse bearbeiten" }));
+  await user.click(
+    screen.getByRole("button", { name: "Namen und Zeitraum bearbeiten" }),
+  );
+  await user.clear(screen.getByLabelText("Klassenname"));
+  await user.type(screen.getByLabelText("Klassenname"), "Fiktive Änderung");
+  await user.click(screen.getByRole("button", { name: "Datensicherung" }));
+  expect((screen.getByLabelText("Klassenname") as HTMLInputElement).value).toBe(
+    "Fiktive Änderung",
+  );
+  expect(questions).toBe(1);
+  const before = new Event("beforeunload", { cancelable: true });
+  window.dispatchEvent(before);
+  expect(before.defaultPrevented).toBe(true);
+  allowed = true;
+  await user.click(screen.getByRole("button", { name: "Datensicherung" }));
+  expect(screen.getByRole("heading", { name: "Datensicherung" })).toBeTruthy();
+  expect(questions).toBe(2);
+  expect(repository.load().classes[0].name).not.toBe("Fiktive Änderung");
+});
+
+it("behält einen bearbeiteten Personennamen bei abgelehntem Personen- und Ansichtswechsel", async () => {
+  const user = userEvent.setup();
+  makeApp(undefined, () => false);
+  await user.click(
+    screen.getByRole("button", {
+      name: "Demo-Klasse mit fiktiven Namen anlegen",
+    }),
+  );
+  await user.click(screen.getByRole("button", { name: "Personen" }));
+  await user.click(
+    screen.getByRole("button", { name: "Namen von Fiktiv Ada bearbeiten" }),
+  );
+  await user.clear(screen.getByLabelText("Neuer Personenname"));
+  await user.type(
+    screen.getByLabelText("Neuer Personenname"),
+    "Fiktive Eingabe",
+  );
+  await user.click(
+    screen.getByRole("button", { name: "Namen von Fiktiv Bea bearbeiten" }),
+  );
+  expect(
+    (screen.getByLabelText("Neuer Personenname") as HTMLInputElement).value,
+  ).toBe("Fiktive Eingabe");
+  await user.click(screen.getByRole("button", { name: "Tabelle" }));
+  expect(screen.getByLabelText("Neuer Personenname")).toBeTruthy();
+});

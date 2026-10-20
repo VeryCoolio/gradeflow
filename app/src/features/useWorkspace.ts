@@ -14,6 +14,7 @@ export function useWorkspace(
   storage: StoragePort | undefined,
   canWrite: boolean,
   syncUrl = true,
+  beforeChange: () => boolean = () => true,
 ) {
   const [initial] = useState(() =>
     resolveWorkspace(
@@ -29,10 +30,14 @@ export function useWorkspace(
   const previous = useRef<WorkspacePosition | null>(null);
   const replaceNext = useRef(false);
 
-  const change = useCallback((patch: Partial<WorkspacePosition>) => {
-    setWarning("");
-    setPosition((current) => ({ ...current, ...patch }));
-  }, []);
+  const change = useCallback(
+    (patch: Partial<WorkspacePosition>) => {
+      if (!beforeChange()) return;
+      setWarning("");
+      setPosition((current) => ({ ...current, ...patch }));
+    },
+    [beforeChange],
+  );
 
   useEffect(() => {
     const resolved = resolveWorkspace(position, notebook);
@@ -79,6 +84,10 @@ export function useWorkspace(
   useEffect(() => {
     if (!storage || !syncUrl) return;
     const back = () => {
+      if (!beforeChange()) {
+        window.history.pushState(null, "", workspaceHash(position));
+        return;
+      }
       replaceNext.current = true;
       const resolved = resolveWorkspace(
         readWorkspacePosition(undefined, window.location.hash),
@@ -89,7 +98,7 @@ export function useWorkspace(
     };
     window.addEventListener("popstate", back);
     return () => window.removeEventListener("popstate", back);
-  }, [storage, notebook, syncUrl]);
+  }, [storage, notebook, syncUrl, beforeChange, position]);
 
   return { position, warning, change };
 }
