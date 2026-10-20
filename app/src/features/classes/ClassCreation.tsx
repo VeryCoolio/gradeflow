@@ -1,4 +1,4 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { schoolYearLabel } from "../../application/schoolYear";
 import { importClassFile } from "../../infrastructure/importExport/classImport";
 import {
@@ -12,6 +12,7 @@ import type { StoragePort } from "../../infrastructure/local/localRepository";
 export function ClassCreation({
   today,
   canWrite = true,
+  error = "",
   storage,
   onCreate,
   onDemo,
@@ -19,6 +20,7 @@ export function ClassCreation({
 }: {
   today: string;
   canWrite?: boolean;
+  error?: string;
   storage?: StoragePort;
   onCreate: (name: string, period: string, names: string[]) => boolean;
   onDemo: () => void;
@@ -74,9 +76,22 @@ export function ClassCreation({
   const setPeople = (people: ClassDraft["people"]) => update({ people });
   const [file, setFile] = useState<File | null>(null);
   const [busy, setBusy] = useState(false);
+  const [formError, setFormError] = useState("");
+  const [fileProblem, setFileProblem] = useState(false);
+  const errorMessage = error || formError;
+  const errorSummary = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (errorMessage) {
+      errorSummary.current?.focus();
+      errorSummary.current?.scrollIntoView?.({ block: "nearest" });
+    }
+  }, [errorMessage]);
   async function submit(event: FormEvent) {
     event.preventDefault();
     if (busy || !canWrite) return;
+    setFormError("");
+    setFileProblem(false);
+    onError("");
     setBusy(true);
     try {
       let names: string[];
@@ -102,11 +117,13 @@ export function ClassCreation({
         }
       }
     } catch (error) {
-      onError(
+      const message =
         error instanceof Error
           ? error.message
-          : "Die Klassenliste konnte nicht gelesen werden.",
-      );
+          : "Die Klassenliste konnte nicht gelesen werden.";
+      setFormError(message);
+      setFileProblem(mode === "datei");
+      onError(message);
     } finally {
       setBusy(false);
     }
@@ -150,7 +167,10 @@ export function ClassCreation({
           Klasse importieren
         </button>
       </div>
-      <form onSubmit={submit}>
+      <form
+        onSubmit={submit}
+        aria-describedby={errorMessage ? "class-creation-error" : undefined}
+      >
         <fieldset disabled={!canWrite || busy}>
           <legend className="sr-only">Klasse und Personen</legend>
           <label htmlFor="class-name">Klassenname</label>
@@ -309,10 +329,17 @@ export function ClassCreation({
               <label htmlFor="class-file">Klassenliste</label>
               <input
                 id="class-file"
+                aria-invalid={fileProblem || undefined}
+                aria-describedby={
+                  fileProblem ? "class-creation-error" : undefined
+                }
                 type="file"
                 accept=".xlsx,.csv,.txt"
                 required
                 onChange={(event) => {
+                  setFormError("");
+                  setFileProblem(false);
+                  onError("");
                   const selected = event.target.files?.[0] ?? null;
                   setFile(selected);
                   update({ fileName: selected?.name ?? null });
@@ -330,6 +357,21 @@ export function ClassCreation({
               </p>
             </div>
           )}
+          {errorMessage ? (
+            <div
+              id="class-creation-error"
+              ref={errorSummary}
+              className="feedback error"
+              role="alert"
+              tabIndex={-1}
+            >
+              <p>{errorMessage}</p>
+              <p>
+                Prüfe die Angaben und wähle bei Bedarf eine korrigierte Datei.
+                Deine Eingaben bleiben erhalten.
+              </p>
+            </div>
+          ) : null}
           <button
             data-tour="create-class"
             className="primary"

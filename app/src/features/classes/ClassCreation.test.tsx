@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { afterEach, expect, it, vi } from "vitest";
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { ClassCreation } from "./ClassCreation";
 import {
@@ -92,4 +92,38 @@ it("meldet einen fehlgeschlagenen Entwurfsschreibvorgang und kann dieselben Eing
   );
   expect(readClassDraft(local)?.name).toBe("Fiktive 8b");
   expect(screen.queryByRole("alert")).toBeNull();
+});
+
+it("zeigt Dateifehler am Formular, verknüpft das Feld und fokussiert den Hinweis", async () => {
+  const user = userEvent.setup();
+  const onCreate = vi.fn(() => true);
+  render(
+    <ClassCreation
+      today="2026-10-20"
+      onCreate={onCreate}
+      onDemo={() => {}}
+      onError={() => {}}
+    />,
+  );
+  await user.type(screen.getByLabelText("Klassenname"), "Fiktiver Import");
+  await user.click(screen.getByRole("button", { name: "Klasse importieren" }));
+  const raw = "NurEineSpalte\nFiktiv Ada";
+  const file = new File([raw], "ungueltig.csv", { type: "text/csv" });
+  Object.defineProperty(file, "text", { value: async () => raw });
+  await user.upload(screen.getByLabelText("Klassenliste"), file);
+  fireEvent.submit(
+    screen
+      .getByRole("button", { name: "Klasse lokal anlegen" })
+      .closest("form")!,
+  );
+  const alert = await screen.findByRole("alert");
+  expect(alert.textContent).toContain("Vorname");
+  expect(document.activeElement).toBe(alert);
+  expect(
+    screen.getByLabelText("Klassenliste").getAttribute("aria-describedby"),
+  ).toContain(alert.id);
+  expect(
+    screen.getByLabelText("Klassenliste").getAttribute("aria-invalid"),
+  ).toBe("true");
+  expect(onCreate).not.toHaveBeenCalled();
 });

@@ -236,3 +236,7 @@ Diese Datei wird ab Beginn der neuen Implementierung fortgeführt.
 
 - Änderung: Änderungsstatus, gemeinsamer Navigationsschutz für Klassen-/Personeneditor, Bestätigung bei bewusstem Verwerfen, Browserwarnung vor Reload. Route und Eingabe bleiben nach Abbrechen erhalten; unveränderte Formulare erzeugen keine Rückfrage.
 - Prüfung: Zwei zusätzliche Regressionen erst fehlgeschlagen, danach bestanden, Typecheck erfolgreich. Gemeinsame Navigation einschließlich Browserhistorie im Abschluss zu prüfen.
+
+### 20.10.2026 – B05: Importfehler am Formular
+
+Fehlerzusammenfassung mit Fokus, sichtbarer Fokusmarkierung und Feldzuordnung ergänzt. Dateiauswahl entfernt veraltete Fehler. Formular-/App-Regressionen sowie Typecheck und Lint bestanden.

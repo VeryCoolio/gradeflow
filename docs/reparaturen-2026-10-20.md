@@ -6,7 +6,7 @@ Grundlage: [Audit vom 19.10.2026](drei-skill-audit-2026-10-19/bericht.md), Ausga
 - [x] B02 Mobile Datenhierarchie und Bewertung kompakter gestalten.
 - [x] B03 Personen-Editor sichtbar und fokussiert öffnen.
 - [x] B04 Ungespeicherte Namensänderungen schützen.
-- [ ] B05 Importfehler am Formular anzeigen.
+- [x] B05 Importfehler am Formular anzeigen.
 - [ ] B06 Lange Excel-Titel lesbar ausgeben.
 - [ ] B07 Tabellenpräferenzen erhalten und Seiten verlinken.
 - [ ] B08 Sprache korrigieren.
@@ -33,3 +33,7 @@ Der Personen-Editor steht direkt in der gewählten Personenzeile. Das Namensfeld
 Offene Namen-/Zeitraumänderungen werden als ungespeichert angezeigt. Ein gemeinsamer Navigationsschutz fragt vor dem Verwerfen; Abbrechen erhält die Eingabe. Das gilt für Seiten, Klassen, Ansichten, andere Personen, Tourstart und Browser-Zurück. Neuladen nutzt die native Browserwarnung. Unveränderte Formulare verlangen keine Bestätigung.
 
 Prüfung: Zwei neue Regressionen zuerst fehlgeschlagen, danach bestanden; Typecheck erfolgreich. Browser-Zurück und Klassenwechsel werden im Abschluss zusätzlich tatsächlich bedient.
+
+## B05
+
+Fehler beim Anlegen/Importieren erscheinen direkt vor dem Absenden im Formular. Der Hinweis erhält Fokus, ist mit dem betroffenen Dateifeld verknüpft und erklärt den nächsten Schritt. Eingaben bleiben erhalten; ein neu gewähltes Dokument entfernt den veralteten Dateifehler. Drei Formular- und 32 App-Tests, Typecheck und Lint bestanden. Die tatsächliche mobile Fehlerbedienung folgt im Abschlusslauf.

@@ -68,7 +68,8 @@ select:focus-visible,
 a:focus-visible,
 summary:focus-visible,
 .table-scroll:focus-visible,
-.chart-scroll:focus-visible {
+.chart-scroll:focus-visible,
+#class-creation-error:focus {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
 }

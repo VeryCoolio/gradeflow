@@ -730,6 +730,7 @@ export function App({
             </p>
           ) : null}
           {error &&
+          page !== "anlegen" &&
           !failedObservation &&
           !(page === "klasse" && activeSession) ? (
             <p className="feedback error" role="alert">
@@ -743,6 +744,7 @@ export function App({
           ) : null}
           {page === "anlegen" ? (
             <ClassCreation
+              error={error}
               today={today()}
               canWrite={canWrite}
               storage={
