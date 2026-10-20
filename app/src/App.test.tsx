@@ -1055,3 +1055,60 @@ it("erklärt bereits beim Start die Rückkehr von einer nicht mehr vorhandenen S
   expect(screen.getByRole("button", { name: "Stunde beginnen" })).toBeTruthy();
   expect(screen.queryByRole("button", { name: "++" })).toBeNull();
 });
+
+it("erhält eine fehlgeschlagene Bewertung über Rückweg, Hauptnavigation und Hilfe", async () => {
+  const user = userEvent.setup();
+  const { storage, repository } = makeApp();
+  await importTwoStudents(user);
+  await user.click(screen.getByRole("button", { name: "Stunde beginnen" }));
+  storage.fail = true;
+  await user.click(screen.getByRole("button", { name: "+" }));
+  await user.click(
+    screen.getByRole("button", { name: "← Zur Klasse" }),
+  );
+  await user.click(
+    screen.getByRole("button", { name: "Datensicherung" }),
+  );
+  expect(screen.getByRole("alert").textContent).toContain("Fiktiv Ada");
+  await user.click(
+    screen.getByRole("button", { name: "Zur nicht gespeicherten Eingabe" }),
+  );
+  await user.click(document.querySelectorAll(".student-list button")[1]);
+  storage.fail = false;
+  await user.click(
+    screen.getByRole("button", { name: "Eingabe erneut speichern" }),
+  );
+  expect(repository.load().classes[0].sessions[0].observations).toEqual({
+    "id-2": { status: "bewertet", symbol: "+" },
+  });
+  expect(screen.getByRole("heading", { name: "Fiktiv Bea" })).toBeTruthy();
+  expect(screen.queryByRole("alert")).toBeNull();
+});
+
+it("kann die ursprüngliche Eingabe von einer anderen Seite wiederholen und warnt vor Neuladen", async () => {
+  const user = userEvent.setup();
+  const { storage, repository } = makeApp();
+  await importTwoStudents(user);
+  await user.click(screen.getByRole("button", { name: "Stunde beginnen" }));
+  storage.fail = true;
+  await user.click(
+    screen.getByRole("button", { name: "Abwesend" }),
+  );
+  const event = new Event("beforeunload", { cancelable: true });
+  window.dispatchEvent(event);
+  expect(event.defaultPrevented).toBe(true);
+  await user.click(
+    screen.getByRole("button", { name: "Datensicherung" }),
+  );
+  storage.fail = false;
+  await user.click(
+    screen.getByRole("button", { name: "Eingabe erneut speichern" }),
+  );
+  expect(repository.load().classes[0].sessions[0].observations).toEqual({
+    "id-2": { status: "abwesend" },
+  });
+  expect(screen.getByRole("heading", { name: "Datensicherung" })).toBeTruthy();
+  const after = new Event("beforeunload", { cancelable: true });
+  window.dispatchEvent(after);
+  expect(after.defaultPrevented).toBe(false);
+});

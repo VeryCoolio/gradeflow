@@ -136,13 +136,32 @@ export function App({
   const [lessonDate, setLessonDate] = useState(today);
   const startingRef = useRef(false);
   const [failedObservation, setFailedObservation] = useState<{
+    classId: string;
+    sessionId: string;
     studentId: string;
+    name: string;
+    message: string;
     observation: Observation;
   } | null>(null);
+  useEffect(() => {
+    if (!failedObservation) return;
+    const warn = (event: BeforeUnloadEvent) => {
+      event.preventDefault();
+      event.returnValue = "";
+    };
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [failedObservation]);
 
   const currentClass = notebook?.classes.find((item) => item.id === classId);
   const activeSession = currentClass?.sessions.find(
     (item) => item.id === activeSessionId,
+  );
+  const failedHere = Boolean(
+    failedObservation &&
+    page === "klasse" &&
+    failedObservation.classId === classId &&
+    failedObservation.sessionId === activeSessionId,
   );
   useEffect(() => {
     const main = document.getElementById("main-content");
@@ -253,7 +272,6 @@ export function App({
     );
     if (updated) {
       changeWorkspace({ classId, sessionId: null });
-      setFailedObservation(null);
       setSelectedStudentId(null);
       setDashboardView("stunden");
       setHistoryStudentId(null);
@@ -359,52 +377,79 @@ export function App({
   function recordObservation(
     observation: Observation,
     clickCount: number,
-    student = selectedStudent,
+    target = currentClass && activeSession && selectedStudent
+      ? {
+          classId: currentClass.id,
+          sessionId: activeSession.id,
+          studentId: selectedStudent.id,
+        }
+      : null,
   ) {
     if (clickCount > 1) return;
-    if (!currentClass || !activeSession || !student) return;
+    if (!target) return;
+    if (
+      failedObservation &&
+      (failedObservation.classId !== target.classId ||
+        failedObservation.sessionId !== target.sessionId ||
+        failedObservation.studentId !== target.studentId)
+    ) {
+      setError(
+        "Sichere zuerst die noch nicht gespeicherte Eingabe oder verwirf sie ausdrücklich.",
+      );
+      return;
+    }
+    const group = notebook?.classes.find((item) => item.id === target.classId);
+    const student = group?.students.find(
+      (person) => person.id === target.studentId,
+    );
+    if (!group || !student) return;
     const updated = apply(
       () =>
         localRepository.saveObservation(
-          currentClass.id,
-          activeSession.id,
+          target.classId,
+          target.sessionId,
           student.id,
           observation,
         ),
       `${student.displayName}: ${observationShortLabel(observation)} lokal gespeichert.`,
     );
     if (!updated) {
-      setFailedObservation({ studentId: student.id, observation });
-      setError(
-        `Die Eingabe für ${student.displayName} wurde nicht gespeichert. ${lastError.current}`,
-      );
+      const message = `Die Eingabe für ${student.displayName} wurde nicht gespeichert. ${lastError.current}`;
+      setFailedObservation({
+        ...target,
+        name: student.displayName,
+        message,
+        observation,
+      });
+      setError(message);
       return;
     }
     setFailedObservation(null);
     onTutorialAction?.("observation-saved");
     const updatedSession = updated.classes
-      .find((item) => item.id === currentClass.id)!
-      .sessions.find((item) => item.id === activeSession.id)!;
-    const next = currentClass.students.find(
+      .find((item) => item.id === target.classId)!
+      .sessions.find((item) => item.id === target.sessionId)!;
+    const next = group.students.find(
       (student) => !observationFor(updatedSession, student.id),
     );
-    setSelectedStudentId(next?.id ?? student.id);
-    if (!next)
+    if (target.classId === classId && target.sessionId === activeSessionId)
+      setSelectedStudentId(next?.id ?? student.id);
+    if (
+      !next &&
+      target.classId === classId &&
+      target.sessionId === activeSessionId
+    )
       setNotice(
         "Alle Personen sind erfasst. Die gesamte Stunde ist lokal gespeichert.",
       );
   }
 
   function retryObservation() {
-    const student = currentClass?.students.find(
-      (person) => person.id === failedObservation?.studentId,
-    );
-    if (failedObservation && student)
-      recordObservation(failedObservation.observation, 1, student);
+    if (failedObservation)
+      recordObservation(failedObservation.observation, 1, failedObservation);
   }
   function leaveSession(announceSaved = true) {
     onTutorialAction?.("lesson-left");
-    setFailedObservation(null);
     setActiveSessionId(null);
     setSelectedStudentId(null);
     startingRef.current = false;
@@ -535,7 +580,6 @@ export function App({
       });
       setError("");
       setNotice(message);
-      setFailedObservation(null);
     },
     onNotice: (message: string) => {
       setError("");
@@ -583,7 +627,6 @@ export function App({
           });
           setError("");
           setNotice("");
-          setFailedObservation(null);
           if (next === "anlegen" || next === "sicherung" || next === "ueber")
             onTutorialAction?.(`page-${next}`);
         }}
@@ -595,6 +638,52 @@ export function App({
           onClass={chooseClass}
         />
         <main className="content" id="main-content" tabIndex={-1}>
+          {failedObservation && !failedHere ? (
+            <aside className="feedback error pending-observation" role="alert">
+              <p>{failedObservation.message}</p>
+              <p>
+                Diese Eingabe ist noch nicht gesichert und bleibt bis zum
+                Speichern oder ausdrücklichen Verwerfen erhalten.
+              </p>
+              <div className="actions">
+                <button
+                  type="button"
+                  onClick={() =>
+                    changeWorkspace({
+                      page: "klasse",
+                      classId: failedObservation.classId,
+                      sessionId: failedObservation.sessionId,
+                      studentId: failedObservation.studentId,
+                    })
+                  }
+                >
+                  Zur nicht gespeicherten Eingabe
+                </button>
+                <button
+                  type="button"
+                  disabled={!canWrite}
+                  onClick={retryObservation}
+                >
+                  Eingabe erneut speichern
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    if (
+                      confirmDiscard(
+                        `Nicht gespeicherte Eingabe für ${failedObservation.name} wirklich verwerfen?`,
+                      )
+                    ) {
+                      setFailedObservation(null);
+                      setError("");
+                    }
+                  }}
+                >
+                  Eingabe verwerfen
+                </button>
+              </div>
+            </aside>
+          ) : null}
           {!canWrite ? (
             <aside
               className="feedback readonly-notice"
@@ -623,7 +712,9 @@ export function App({
               {workspaceWarning}
             </p>
           ) : null}
-          {error && !(page === "klasse" && activeSession) ? (
+          {error &&
+          !failedObservation &&
+          !(page === "klasse" && activeSession) ? (
             <p className="feedback error" role="alert">
               {error}
             </p>
@@ -710,9 +801,9 @@ export function App({
               before={gradeBeforeLesson}
               label={report!.lessons.get(activeSession.id)!.label}
               canWrite={canWrite}
-              error={error}
+              error={failedHere ? failedObservation!.message : error}
               notice={notice}
-              canRetry={failedObservation !== null}
+              canRetry={failedHere}
               onRetry={retryObservation}
               onSelect={setSelectedStudentId}
               onRecord={recordObservation}
@@ -753,7 +844,6 @@ export function App({
                   setSelectedStudentId(null);
                   setError("");
                   setNotice("");
-                  setFailedObservation(null);
                 },
                 swapSessions,
                 deleteStoredSession,
