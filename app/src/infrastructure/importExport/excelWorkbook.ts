@@ -9,6 +9,19 @@ import { assertXlsxResources } from "./xlsxResources";
 export const XLSX_MIME =
   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
+// Excel berechnet bei verbundenen Zellen keine automatische Zeilenhöhe.
+// Reserve für breite Buchstaben und explizite Zeilenumbrüche einplanen.
+function textHeight(text: string, width: number, fontSize = 11): number {
+  const characters = Math.max(1, Math.floor(width * 0.8 * (11 / fontSize)));
+  const lines = text
+    .split(/\r?\n/)
+    .reduce(
+      (count, line) => count + Math.max(1, Math.ceil(line.length / characters)),
+      0,
+    );
+  return Math.max(30, Math.ceil(lines * fontSize * 1.4 + 10));
+}
+
 function styleSheet(
   sheet: ExcelJS.Worksheet,
   headerRow: number,
@@ -66,7 +79,9 @@ export async function exportClassXlsx(
   }));
   const summary = workbook.addWorksheet("Klassenübersicht");
   summary.addRow([classRecord.name]);
+  summary.mergeCells("A1:D1");
   summary.addRow(["Bewertungszeitraum", classRecord.periodLabel]);
+  summary.mergeCells("B2:D2");
   summary.addRow([
     "Unten findest du die einzelnen Tabellenblätter je Person. Ein Klick auf einen Namen öffnet direkt das zugehörige Personenblatt.",
   ]);
@@ -86,10 +101,18 @@ export async function exportClassXlsx(
     ]),
   );
   styleSheet(summary, 5, [34, 23, 23, 23]);
+  summary.getCell("A1").font = { name: "Arial", size: 14, bold: true };
+  summary.getRow(1).height = textHeight(classRecord.name, 103, 14);
+  summary.getRow(2).height = textHeight(classRecord.periodLabel, 69);
   summary.getColumn(2).numFmt = "0.00";
   summary.getColumn(3).numFmt = "0.00";
   summary.getRow(3).height = 40;
   people.forEach((_, index) => {
+    summary.getRow(index + 6).height = textHeight(
+      people[index].result.student.displayName,
+      34,
+      12,
+    );
     summary.getCell(index + 6, 1).font = {
       name: "Arial",
       size: 12,
@@ -100,12 +123,17 @@ export async function exportClassXlsx(
   for (const { result, sheetName } of people) {
     const sheet = workbook.addWorksheet(sheetName);
     sheet.addRow([result.student.displayName]);
+    sheet.mergeCells("A1:G1");
     sheet.addRow([
       "Klasse",
       classRecord.name,
+      null,
+      null,
       "Bewertungszeitraum",
       classRecord.periodLabel,
     ]);
+    sheet.mergeCells("B2:D2");
+    sheet.mergeCells("F2:G2");
     sheet.addRow([
       "Startwert",
       result.start.gradeQuarterSteps / 4,
@@ -177,8 +205,13 @@ export async function exportClassXlsx(
       };
       symbol.alignment = { horizontal: "center", vertical: "middle" };
     });
-    sheet.getRow(1).height = 28;
-    sheet.getRow(2).height = 44;
+    sheet.getCell("A1").font = { name: "Arial", size: 14, bold: true };
+    sheet.getRow(1).height = textHeight(result.student.displayName, 134, 14);
+    sheet.getRow(2).height = Math.max(
+      44,
+      textHeight(classRecord.name, 55),
+      textHeight(classRecord.periodLabel, 37),
+    );
     sheet.getRow(3).height = 32;
     sheet.getColumn(1).numFmt = "dd.mm.yyyy";
     sheet.getColumn(6).numFmt = "0.00";

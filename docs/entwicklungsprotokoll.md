@@ -240,3 +240,7 @@ Diese Datei wird ab Beginn der neuen Implementierung fortgeführt.
 ### 20.10.2026 – B05: Importfehler am Formular
 
 Fehlerzusammenfassung mit Fokus, sichtbarer Fokusmarkierung und Feldzuordnung ergänzt. Dateiauswahl entfernt veraltete Fehler. Formular-/App-Regressionen sowie Typecheck und Lint bestanden.
+
+### 20.10.2026 – B06: Lange Excel-Titel
+
+Titel und Metadaten über mehrere Zellen verbunden, Zeilenhöhe mit Umbruchreserve angepasst. Prüfung mit 200 Zeichen langen Bezeichnungen, unveränderten Fachwerten und Datumstypen; fünf Excel-Tests und Typecheck bestanden.

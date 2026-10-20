@@ -77,6 +77,42 @@ describe("Excel-Dateien", () => {
     );
   });
 
+  it("gibt lange Titel vollständig in verbundenen Zellen mit passender Zeilenhöhe aus", async () => {
+    const source = reportClass();
+    const long = "Fiktive sehr lange Bezeichnung mit vielen breiten Wörtern "
+      .repeat(4)
+      .slice(0, 200);
+    const workbook = new ExcelJS.Workbook();
+    await workbook.xlsx.load(
+      (
+        await exportClassXlsx({
+          ...source,
+          name: long,
+          periodLabel: long,
+          students: source.students.map((student) => ({
+            ...student,
+            displayName: long,
+          })),
+        })
+      ).buffer,
+    );
+    const summary = workbook.worksheets[0];
+    const person = workbook.worksheets[1];
+    expect(summary.getCell("D1").master.address).toBe("A1");
+    expect(summary.getCell("D2").master.address).toBe("B2");
+    expect(summary.getRow(6).height).toBeGreaterThan(100);
+    expect(person.getCell("G1").master.address).toBe("A1");
+    expect(person.getCell("D2").master.address).toBe("B2");
+    expect(person.getCell("G2").master.address).toBe("F2");
+    expect(person.getCell("A1").text).toBe(long);
+    expect(person.getCell("B2").text).toBe(long);
+    expect(person.getCell("F2").text).toBe(long);
+    expect(person.getRow(1).height).toBeGreaterThan(40);
+    expect(person.getRow(2).height).toBeGreaterThan(100);
+    expect(person.getCell("D3").value).toBe(1.5);
+    expect(person.getCell("A6").value).toBeInstanceOf(Date);
+  });
+
   it("liest Vorname und Nachname aus einem XLSX-Blatt und verwirft ungültige Daten", async () => {
     expect(
       await readClassXlsx(

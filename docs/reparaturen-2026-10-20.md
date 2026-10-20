@@ -7,7 +7,7 @@ Grundlage: [Audit vom 19.10.2026](drei-skill-audit-2026-10-19/bericht.md), Ausga
 - [x] B03 Personen-Editor sichtbar und fokussiert öffnen.
 - [x] B04 Ungespeicherte Namensänderungen schützen.
 - [x] B05 Importfehler am Formular anzeigen.
-- [ ] B06 Lange Excel-Titel lesbar ausgeben.
+- [x] B06 Lange Excel-Titel lesbar ausgeben.
 - [ ] B07 Tabellenpräferenzen erhalten und Seiten verlinken.
 - [ ] B08 Sprache korrigieren.
 - [ ] Abschließende Browser-/Designprüfung und GitHub-Remote bestätigen.
@@ -37,3 +37,7 @@ Prüfung: Zwei neue Regressionen zuerst fehlgeschlagen, danach bestanden; Typech
 ## B05
 
 Fehler beim Anlegen/Importieren erscheinen direkt vor dem Absenden im Formular. Der Hinweis erhält Fokus, ist mit dem betroffenen Dateifeld verknüpft und erklärt den nächsten Schritt. Eingaben bleiben erhalten; ein neu gewähltes Dokument entfernt den veralteten Dateifehler. Drei Formular- und 32 App-Tests, Typecheck und Lint bestanden. Die tatsächliche mobile Fehlerbedienung folgt im Abschlusslauf.
+
+## B06
+
+Excel-Titel nutzen verbundene Zellen über die gesamte Blattbreite. Klassenname und Bewertungszeitraum erhalten ausreichend breite getrennte Bereiche; Zeilenhöhen berücksichtigen Textlänge und Zeilenumbrüche. Lange Namen in der Übersicht erhalten ebenfalls mehr Höhe. Fachwerte, Datumstypen und interne Links bleiben erhalten. Fünf Excel-Regressionen und Typecheck bestanden; Sichtprüfung des tatsächlichen Exports folgt im Abschlusslauf.
