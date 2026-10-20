@@ -49,8 +49,12 @@ def exercise_tutorial(page, width, out):
     step(6, '.rating-option[aria-label="+"]').click()
     expect(page.get_by_role("region", name="Stundenabschluss")).to_be_visible()
     step(7, '[data-tour="lesson-complete"]').click()
-    step(8, '[data-tour="view-tabelle"]').click()
-    step(9, '[data-tour="view-verlauf"]').click()
+    for number, view in [(8, "tabelle"), (9, "verlauf")]:
+        target = step(number, f'[data-tour="view-{view}"], [data-tour="view-select"]')
+        if target.evaluate("e => e.tagName") == "SELECT":
+            target.select_option(view)
+        else:
+            target.click()
     switch = step(10, '[data-tour-class="tutorial-existing"], #current-class')
     if width >= 1100:
         switch.click()

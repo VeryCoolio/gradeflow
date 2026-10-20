@@ -7,11 +7,28 @@ import {
   observationTone,
 } from "../../application/observationPresentation";
 
-export function ClassTable({ report }: { report: ClassReport }) {
-  const [compact, setCompact] = useState(true);
-  const [size, setSize] = useState("normal");
-  const [windowSize, setWindowSize] = useState(10);
-  const [page, setPage] = useState(0);
+import {
+  DEFAULT_TABLE_OPTIONS,
+  type TableOptions,
+} from "../../infrastructure/local/workspacePosition";
+
+export function ClassTable({
+  report,
+  options,
+  onOptionsChange,
+}: {
+  report: ClassReport;
+  options?: TableOptions;
+  onOptionsChange?: (options: TableOptions) => void;
+}) {
+  const [localOptions, setLocalOptions] = useState(DEFAULT_TABLE_OPTIONS);
+  const settings = options ?? localOptions;
+  const { compact, size, windowSize, page } = settings;
+  function change(patch: Partial<TableOptions>) {
+    const next = { ...settings, ...patch };
+    if (onOptionsChange) onOptionsChange(next);
+    else setLocalOptions(next);
+  }
   const total = report.sessions.length;
   const pageSize = windowSize || Math.max(1, total);
   const currentPage = Math.min(
@@ -31,14 +48,14 @@ export function ClassTable({ report }: { report: ClassReport }) {
             <button
               type="button"
               aria-pressed={compact}
-              onClick={() => setCompact(true)}
+              onClick={() => change({ compact: true })}
             >
               Kompakt
             </button>
             <button
               type="button"
               aria-pressed={!compact}
-              onClick={() => setCompact(false)}
+              onClick={() => change({ compact: false })}
             >
               Mit Notenverlauf
             </button>
@@ -48,8 +65,12 @@ export function ClassTable({ report }: { report: ClassReport }) {
             <select
               value={windowSize}
               onChange={(event) => {
-                setWindowSize(Number(event.target.value));
-                setPage(0);
+                change({
+                  windowSize: Number(
+                    event.target.value,
+                  ) as TableOptions["windowSize"],
+                  page: 0,
+                });
               }}
             >
               <option value={10}>10 Stunden</option>
@@ -61,7 +82,9 @@ export function ClassTable({ report }: { report: ClassReport }) {
             Tabellengröße
             <select
               value={size}
-              onChange={(event) => setSize(event.target.value)}
+              onChange={(event) =>
+                change({ size: event.target.value as TableOptions["size"] })
+              }
             >
               <option value="small">Klein</option>
               <option value="normal">Normal</option>
@@ -82,7 +105,7 @@ export function ClassTable({ report }: { report: ClassReport }) {
         <button
           type="button"
           disabled={start === 0}
-          onClick={() => setPage(currentPage + 1)}
+          onClick={() => change({ page: currentPage + 1 })}
         >
           Ältere Stunden
         </button>
@@ -94,7 +117,7 @@ export function ClassTable({ report }: { report: ClassReport }) {
         <button
           type="button"
           disabled={currentPage === 0}
-          onClick={() => setPage(currentPage - 1)}
+          onClick={() => change({ page: currentPage - 1 })}
         >
           Neuere Stunden
         </button>

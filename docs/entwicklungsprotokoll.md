@@ -244,3 +244,7 @@ Fehlerzusammenfassung mit Fokus, sichtbarer Fokusmarkierung und Feldzuordnung er
 ### 20.10.2026 – B06: Lange Excel-Titel
 
 Titel und Metadaten über mehrere Zellen verbunden, Zeilenhöhe mit Umbruchreserve angepasst. Prüfung mit 200 Zeichen langen Bezeichnungen, unveränderten Fachwerten und Datumstypen; fünf Excel-Tests und Typecheck bestanden.
+
+### 20.10.2026 – B07: Tabellenpräferenzen und Seitenlinks
+
+Ansichtseinstellungen in Arbeitsposition/URL mit geprüften Standardwerten ergänzt. Haupt-/Hilfenavigation nutzt echte Links und respektiert veränderte Klicks für neue Tabs. Regressionen für Rückkehr, Wiederöffnen und ungültige Werte bestanden; Browserprüfung folgt.

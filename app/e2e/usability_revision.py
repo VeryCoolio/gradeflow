@@ -80,7 +80,7 @@ def run(browser, width):
         page.locator("#lesson-date").fill("2026-10-19")
         button(page, "Stunde beginnen").click()
         expect(page.get_by_role("heading", name="19.10.2026 · 1. Stunde")).to_be_visible()
-        assert page.locator(".grading-panel").get_by_role("button", name="Bewertung und Puffer erklärt").count() == 0
+        assert page.locator(".grading-panel").get_by_role("link", name="Bewertung und Puffer erklärt").count() == 0
         if width >= 1100:
             maximum = 0
             for label in ["--", "-", "0", "+", "++"]:

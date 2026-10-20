@@ -10,7 +10,10 @@ import { compareLessonSessions } from "../../domain/sessions/lessonSequence";
 import { observationFor } from "../../domain/sessions/observations";
 import type { LessonSession } from "../../domain/sessions/types";
 import type { ClassRecord } from "../../infrastructure/local/schema";
-import type { ClassView } from "../../infrastructure/local/workspacePosition";
+import type {
+  ClassView,
+  TableOptions,
+} from "../../infrastructure/local/workspacePosition";
 import type { ClassReport } from "../../application/reporting";
 import { schoolYearLabel } from "../../application/schoolYear";
 import {
@@ -29,6 +32,8 @@ const viewLabels = [
 ] as const;
 
 interface Props {
+  tableOptions: TableOptions;
+  setTableOptions: (options: TableOptions) => void;
   registerNavigationGuard: (guard: () => boolean) => () => void;
   confirmNavigation: (message: string) => boolean;
   currentClass: ClassRecord;
@@ -58,6 +63,8 @@ interface Props {
   };
 }
 export function ClassWorkspace({
+  tableOptions,
+  setTableOptions,
   registerNavigationGuard,
   confirmNavigation,
   currentClass,
@@ -600,7 +607,11 @@ export function ClassWorkspace({
         </section>
       ) : null}
       {dashboardView === "tabelle" && report ? (
-        <ClassTable report={report} />
+        <ClassTable
+          report={report}
+          options={tableOptions}
+          onOptionsChange={setTableOptions}
+        />
       ) : null}
       {dashboardView === "verlauf" && report ? (
         <StudentHistory

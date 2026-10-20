@@ -41,3 +41,46 @@ it("ignoriert beschädigte Positionsdaten und verwirft ungültige Ziele ohne Dat
   expect(result.notice).toContain("nicht mehr verfügbar");
   expect(JSON.stringify(notebook)).toBe(before);
 });
+
+it("erhält Tabellenpräferenzen in URL und Speicherung und normalisiert ungültige Werte", () => {
+  const withTable: WorkspacePosition = {
+    ...position,
+    table: { compact: false, size: "large", windowSize: 20, page: 2 },
+  };
+  expect(readWorkspacePosition(undefined, workspaceHash(withTable))).toEqual(
+    withTable,
+  );
+  const storage = {
+    getItem: () => JSON.stringify(withTable),
+    setItem() {},
+    removeItem() {},
+  };
+  expect(readWorkspacePosition(storage)).toEqual(withTable);
+  const invalid = readWorkspacePosition(
+    undefined,
+    workspaceHash(position) +
+      "&tabellenmodus=kaputt&tabellengroesse=riesig&stundenfenster=-1&tabellenseite=NaN",
+  );
+  expect(invalid?.table).toEqual({
+    compact: true,
+    size: "normal",
+    windowSize: 10,
+    page: 0,
+  });
+  expect(invalid?.classId).toBe(position.classId);
+  expect(
+    readWorkspacePosition({
+      ...storage,
+      getItem: () =>
+        JSON.stringify({
+          ...withTable,
+          table: {
+            page: -9,
+            compact: "false",
+            size: "riesig",
+            windowSize: "20",
+          },
+        }),
+    })?.table,
+  ).toEqual({ compact: true, size: "normal", windowSize: 10, page: 0 });
+});

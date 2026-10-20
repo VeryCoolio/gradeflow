@@ -40,7 +40,12 @@ import type {
 import { useNotebook } from "./features/useNotebook";
 import { useWorkspace } from "./features/useWorkspace";
 import { browserStorage } from "./infrastructure/local/browserStorage";
-import type { Page, ClassView } from "./infrastructure/local/workspacePosition";
+import {
+  workspaceHash,
+  DEFAULT_TABLE_OPTIONS,
+  type Page,
+  type ClassView,
+} from "./infrastructure/local/workspacePosition";
 import { observationFor } from "./domain/sessions/observations";
 import type { NotebookV1 } from "./infrastructure/local/schema";
 
@@ -630,6 +635,13 @@ export function App({
       </a>
       <AppNavigation
         page={page}
+        hrefForPage={(next) =>
+          workspaceHash({
+            ...position,
+            page: next,
+            ...(next === "klasse" ? { sessionId: null, studentId: null } : {}),
+          })
+        }
         classes={notebook.classes}
         classId={classId}
         onTutorial={() => {
@@ -833,6 +845,8 @@ export function App({
           ) : null}
           {page === "klasse" && currentClass && !activeSession && report ? (
             <ClassWorkspace
+              tableOptions={position.table ?? DEFAULT_TABLE_OPTIONS}
+              setTableOptions={(table) => changeWorkspace({ table })}
               key={currentClass.id}
               currentClass={currentClass}
               registerNavigationGuard={registerNavigationGuard}

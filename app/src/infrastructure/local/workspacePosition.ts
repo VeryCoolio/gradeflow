@@ -20,7 +20,42 @@ export const CLASS_VIEWS = [
 export type Page = (typeof PAGES)[number];
 export type ClassView = (typeof CLASS_VIEWS)[number];
 
+export interface TableOptions {
+  readonly compact: boolean;
+  readonly size: "small" | "normal" | "large";
+  readonly windowSize: 0 | 10 | 20;
+  readonly page: number;
+}
+export const DEFAULT_TABLE_OPTIONS: TableOptions = {
+  compact: true,
+  size: "normal",
+  windowSize: 10,
+  page: 0,
+};
+function tableOptions(value: unknown): TableOptions {
+  const input = (value && typeof value === "object" ? value : {}) as Record<
+    string,
+    unknown
+  >;
+  return {
+    compact: typeof input.compact === "boolean" ? input.compact : true,
+    size: ["small", "normal", "large"].includes(String(input.size))
+      ? (input.size as TableOptions["size"])
+      : "normal",
+    windowSize: [0, 10, 20].includes(input.windowSize as number)
+      ? (input.windowSize as TableOptions["windowSize"])
+      : 10,
+    page:
+      Number.isInteger(input.page) &&
+      Number(input.page) >= 0 &&
+      Number(input.page) <= 10000
+        ? Number(input.page)
+        : 0,
+  };
+}
+
 export interface WorkspacePosition {
+  readonly table?: TableOptions;
   readonly page: Page;
   readonly classId: string | null;
   readonly view: ClassView;
@@ -56,6 +91,28 @@ export function readWorkspacePosition(
       sessionId: params.get("stunde"),
       studentId: params.get("person"),
       historyStudentId: params.get("verlauf"),
+      ...(params.has("tabellenmodus") ||
+      params.has("tabellengroesse") ||
+      params.has("stundenfenster") ||
+      params.has("tabellenseite")
+        ? {
+            table: tableOptions({
+              compact:
+                params.get("tabellenmodus") === "verlauf"
+                  ? false
+                  : params.get("tabellenmodus") === "kompakt"
+                    ? true
+                    : undefined,
+              size: params.get("tabellengroesse"),
+              windowSize: params.has("stundenfenster")
+                ? Number(params.get("stundenfenster"))
+                : undefined,
+              page: params.has("tabellenseite")
+                ? Number(params.get("tabellenseite"))
+                : undefined,
+            }),
+          }
+        : {}),
     };
     if (validPosition(fromUrl)) return fromUrl;
   }
@@ -63,7 +120,13 @@ export function readWorkspacePosition(
     const raw = storage?.getItem(WORKSPACE_STORAGE_KEY);
     if (raw && raw.length < 16_384) {
       const value: unknown = JSON.parse(raw);
-      if (validPosition(value)) return value;
+      if (validPosition(value))
+        return {
+          ...value,
+          ...(value.table !== undefined
+            ? { table: tableOptions(value.table) }
+            : {}),
+        };
     }
   } catch {
     /* Beschädigte Positionsdaten verändern keine Fachdaten. */
@@ -83,6 +146,13 @@ export function workspaceHash(position: WorkspacePosition): string {
     ["verlauf", position.historyStudentId],
   ]) {
     if (value) params.set(key!, value);
+  }
+  if (position.table) {
+    const table = tableOptions(position.table);
+    params.set("tabellenmodus", table.compact ? "kompakt" : "verlauf");
+    params.set("tabellengroesse", table.size);
+    params.set("stundenfenster", String(table.windowSize));
+    params.set("tabellenseite", String(table.page));
   }
   return `#${params}`;
 }

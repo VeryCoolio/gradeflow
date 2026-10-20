@@ -13,7 +13,7 @@ TARGETS = [
     '[data-tour="page-anlegen"]', '#class-name', '.name-row',
     '[data-tour="create-class"]', '[data-tour="start-lesson"]',
     '.rating-option[aria-label="+"]', '[data-tour="lesson-complete"]',
-    '[data-tour="view-tabelle"]', '[data-tour="view-verlauf"]',
+    '[data-tour="view-tabelle"], [data-tour="view-select"]', '[data-tour="view-verlauf"], [data-tour="view-select"]',
     '[data-tour-class="tutorial-existing"], #current-class',
     '[data-tour="page-sicherung"]', '[data-tour="download-backup"]',
     '[data-tour="help-menu"]', '[data-tour="page-ueber"]',

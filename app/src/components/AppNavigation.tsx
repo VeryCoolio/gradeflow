@@ -1,9 +1,10 @@
-import { useRef } from "react";
+import { useRef, type MouseEvent } from "react";
 import type { ClassRecord } from "../infrastructure/local/schema";
 import type { Page } from "../infrastructure/local/workspacePosition";
 
 export function AppNavigation({
   page,
+  hrefForPage,
   classes,
   classId,
   onPage,
@@ -12,6 +13,7 @@ export function AppNavigation({
   onHelpOpen,
 }: {
   page: Page;
+  hrefForPage: (page: Page) => string;
   classes: readonly ClassRecord[];
   classId: string | null;
   onPage: (page: Page) => void;
@@ -20,7 +22,16 @@ export function AppNavigation({
   onHelpOpen?: () => void;
 }) {
   const helpMenu = useRef<HTMLDetailsElement>(null);
-  function openHelp(next: Page) {
+  function navigate(event: MouseEvent<HTMLAnchorElement>, next: Page) {
+    if (
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    )
+      return;
+    event.preventDefault();
     if (helpMenu.current) helpMenu.current.open = false;
     onPage(next);
   }
@@ -38,15 +49,16 @@ export function AppNavigation({
             ["sicherung", "Datensicherung"],
           ] as const
         ).map(([key, label]) => (
-          <button
+          <a
             key={key}
-            type="button"
+            className="button-link"
+            href={hrefForPage(key)}
             data-tour={`page-${key}`}
             aria-current={page === key ? "page" : undefined}
-            onClick={() => onPage(key)}
+            onClick={(event) => navigate(event, key)}
           >
             {label}
-          </button>
+          </a>
         ))}
       </nav>
       <details
@@ -63,19 +75,28 @@ export function AppNavigation({
           </span>
         </summary>
         <nav aria-label="Hilfe">
-          <button
-            type="button"
+          <a
+            className="button-link"
+            href={hrefForPage("ueber")}
             data-tour="page-ueber"
-            onClick={() => openHelp("ueber")}
+            onClick={(event) => navigate(event, "ueber")}
           >
             So funktioniert Gradeflow
-          </button>
-          <button type="button" onClick={() => openHelp("hilfe")}>
+          </a>
+          <a
+            className="button-link"
+            href={hrefForPage("hilfe")}
+            onClick={(event) => navigate(event, "hilfe")}
+          >
             Bewertung und Puffer erklärt
-          </button>
-          <button type="button" onClick={() => openHelp("daten")}>
+          </a>
+          <a
+            className="button-link"
+            href={hrefForPage("daten")}
+            onClick={(event) => navigate(event, "daten")}
+          >
             Wo sind meine Daten?
-          </button>
+          </a>
           <button
             type="button"
             onClick={() => {

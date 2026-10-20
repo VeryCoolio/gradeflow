@@ -66,7 +66,7 @@ function makeApp(
 async function importTwoStudents(user: ReturnType<typeof userEvent.setup>) {
   await user.click(
     within(screen.getByRole("navigation", { name: "Hauptseiten" })).getByRole(
-      "button",
+      "link",
       { name: "Klasse anlegen" },
     ),
   );
@@ -207,7 +207,7 @@ it("zeigt bei verweigertem Zugriff auf das Storage-Objekt eine Fehleransicht", (
 it("weist eine zu große JSON-Sicherung vor dem Lesen ab", async () => {
   const user = userEvent.setup();
   const { repository } = makeApp();
-  await user.click(screen.getByRole("button", { name: "Datensicherung" }));
+  await user.click(screen.getByRole("link", { name: "Datensicherung" }));
   let read = false;
   const file = new File(["{}"], "gross.json", { type: "application/json" });
   Object.defineProperty(file, "size", { value: 5 * 1024 * 1024 + 1 });
@@ -231,7 +231,7 @@ it("importiert eine ausgefüllte Excel-Klassenliste über den Dateiablauf", asyn
   const { repository } = makeApp();
   await user.click(
     within(screen.getByRole("navigation", { name: "Hauptseiten" })).getByRole(
-      "button",
+      "link",
       { name: "Klasse anlegen" },
     ),
   );
@@ -265,7 +265,7 @@ it("legt eine Klasse manuell mit zwei Namensfeldern und vorbelegtem Schuljahr an
   const { repository } = makeApp();
   await user.click(
     within(screen.getByRole("navigation", { name: "Hauptseiten" })).getByRole(
-      "button",
+      "link",
       { name: "Klasse anlegen" },
     ),
   );
@@ -354,7 +354,7 @@ it("erklärt die Bedeutung der Symbole und zeigt bei alter Stunde den Stand davo
   ).toEqual(["--", "-", "0", "+", "++"]);
   expect(screen.queryByText(/^Symbole:/)).toBeNull();
   await user.click(
-    screen.getByRole("button", { name: "Bewertung und Puffer erklärt" }),
+    screen.getByRole("link", { name: "Bewertung und Puffer erklärt" }),
   );
   expect(
     screen.getByRole("heading", {
@@ -776,7 +776,7 @@ describe("Kernoberfläche", () => {
       (_name, contents) => downloads.push(String(contents)),
     );
     await importTwoStudents(user);
-    await user.click(screen.getByRole("button", { name: "Datensicherung" }));
+    await user.click(screen.getByRole("link", { name: "Datensicherung" }));
     await user.click(
       screen.getByRole("button", {
         name: "Vollständige JSON-Sicherung herunterladen",
@@ -856,7 +856,7 @@ describe("Kernoberfläche", () => {
     await user.click(screen.getByRole("button", { name: "Klasse löschen" }));
     expect(repository.load().classes).toHaveLength(0);
     expect(storage.getItem(CLASS_DELETION_BACKUP_KEY)).not.toBeNull();
-    await user.click(screen.getByRole("button", { name: "Datensicherung" }));
+    await user.click(screen.getByRole("link", { name: "Datensicherung" }));
     await user.click(
       screen.getByRole("button", {
         name: "Stand vor letzter Klassenlöschung wiederherstellen",
@@ -932,7 +932,7 @@ describe("Kernoberfläche", () => {
       () => true,
       (_name, contents) => downloads.push(String(contents)),
     );
-    await user.click(screen.getByRole("button", { name: "Datensicherung" }));
+    await user.click(screen.getByRole("link", { name: "Datensicherung" }));
     await user.click(
       screen.getByRole("button", {
         name: "Legacy-Migrationssicherung herunterladen",
@@ -1067,7 +1067,7 @@ it("erhält eine fehlgeschlagene Bewertung über Rückweg, Hauptnavigation und H
   storage.fail = true;
   await user.click(screen.getByRole("button", { name: "+" }));
   await user.click(screen.getByRole("button", { name: "← Zur Klasse" }));
-  await user.click(screen.getByRole("button", { name: "Datensicherung" }));
+  await user.click(screen.getByRole("link", { name: "Datensicherung" }));
   expect(screen.getByRole("alert").textContent).toContain("Fiktiv Ada");
   await user.click(
     screen.getByRole("button", { name: "Zur nicht gespeicherten Eingabe" }),
@@ -1094,7 +1094,7 @@ it("kann die ursprüngliche Eingabe von einer anderen Seite wiederholen und warn
   const event = new Event("beforeunload", { cancelable: true });
   window.dispatchEvent(event);
   expect(event.defaultPrevented).toBe(true);
-  await user.click(screen.getByRole("button", { name: "Datensicherung" }));
+  await user.click(screen.getByRole("link", { name: "Datensicherung" }));
   storage.fail = false;
   await user.click(
     screen.getByRole("button", { name: "Eingabe erneut speichern" }),
@@ -1127,7 +1127,7 @@ it("schützt ungespeicherte Klassendetails vor Navigation und Neuladen", async (
   );
   await user.clear(screen.getByLabelText("Klassenname"));
   await user.type(screen.getByLabelText("Klassenname"), "Fiktive Änderung");
-  await user.click(screen.getByRole("button", { name: "Datensicherung" }));
+  await user.click(screen.getByRole("link", { name: "Datensicherung" }));
   expect((screen.getByLabelText("Klassenname") as HTMLInputElement).value).toBe(
     "Fiktive Änderung",
   );
@@ -1136,7 +1136,7 @@ it("schützt ungespeicherte Klassendetails vor Navigation und Neuladen", async (
   window.dispatchEvent(before);
   expect(before.defaultPrevented).toBe(true);
   allowed = true;
-  await user.click(screen.getByRole("button", { name: "Datensicherung" }));
+  await user.click(screen.getByRole("link", { name: "Datensicherung" }));
   expect(screen.getByRole("heading", { name: "Datensicherung" })).toBeTruthy();
   expect(questions).toBe(2);
   expect(repository.load().classes[0].name).not.toBe("Fiktive Änderung");
@@ -1167,4 +1167,57 @@ it("behält einen bearbeiteten Personennamen bei abgelehntem Personen- und Ansic
   ).toBe("Fiktive Eingabe");
   await user.click(screen.getByRole("button", { name: "Tabelle" }));
   expect(screen.getByLabelText("Neuer Personenname")).toBeTruthy();
+});
+
+it("erhält Tabellenmodus und Größe nach Ansichtswechsel und erneutem Öffnen", async () => {
+  const user = userEvent.setup();
+  const storage = new MemoryStorage();
+  const source = reportClass();
+  storage.setItem(
+    NOTEBOOK_STORAGE_KEY,
+    JSON.stringify({
+      ...EMPTY_NOTEBOOK,
+      currentClassId: source.id,
+      classes: [source],
+    }),
+  );
+  storage.setItem("gradeflow-tutorial-v2", "gesehen");
+  const repository = new LocalRepository(storage, () => now);
+  const props = { repository, workspaceStorage: storage };
+  const first = render(<App {...props} />);
+  await user.click(screen.getByRole("link", { name: "Meine Klassen" }));
+  await user.click(
+    screen.getByRole("button", { name: "Tabelle", exact: true }),
+  );
+  await user.click(screen.getByRole("button", { name: "Mit Notenverlauf" }));
+  await user.selectOptions(screen.getByLabelText("Tabellengröße"), "large");
+  await user.selectOptions(screen.getByLabelText("Stunden pro Ansicht"), "20");
+  await user.click(
+    screen.getByRole("button", { name: "Verlauf", exact: true }),
+  );
+  await user.click(
+    screen.getByRole("button", { name: "Tabelle", exact: true }),
+  );
+  expect(
+    screen
+      .getByRole("button", { name: "Mit Notenverlauf" })
+      .getAttribute("aria-pressed"),
+  ).toBe("true");
+  expect(
+    (screen.getByLabelText("Tabellengröße") as HTMLSelectElement).value,
+  ).toBe("large");
+  first.unmount();
+  render(<App {...props} />);
+  expect(
+    (screen.getByLabelText("Stunden pro Ansicht") as HTMLSelectElement).value,
+  ).toBe("20");
+  expect(
+    screen
+      .getByRole("region", { name: "Stundentabelle" })
+      .classList.contains("table-size-large"),
+  ).toBe(true);
+  const link = screen.getByRole("link", { name: "Datensicherung" });
+  expect(link.getAttribute("href")).toContain("seite=sicherung");
+  await user.click(link);
+  expect(screen.getByRole("heading", { name: "Datensicherung" })).toBeTruthy();
 });

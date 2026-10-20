@@ -8,7 +8,7 @@ Grundlage: [Audit vom 19.10.2026](drei-skill-audit-2026-10-19/bericht.md), Ausga
 - [x] B04 Ungespeicherte Namensänderungen schützen.
 - [x] B05 Importfehler am Formular anzeigen.
 - [x] B06 Lange Excel-Titel lesbar ausgeben.
-- [ ] B07 Tabellenpräferenzen erhalten und Seiten verlinken.
+- [x] B07 Tabellenpräferenzen erhalten und Seiten verlinken.
 - [ ] B08 Sprache korrigieren.
 - [ ] Abschließende Browser-/Designprüfung und GitHub-Remote bestätigen.
 
@@ -41,3 +41,7 @@ Fehler beim Anlegen/Importieren erscheinen direkt vor dem Absenden im Formular. 
 ## B06
 
 Excel-Titel nutzen verbundene Zellen über die gesamte Blattbreite. Klassenname und Bewertungszeitraum erhalten ausreichend breite getrennte Bereiche; Zeilenhöhen berücksichtigen Textlänge und Zeilenumbrüche. Lange Namen in der Übersicht erhalten ebenfalls mehr Höhe. Fachwerte, Datumstypen und interne Links bleiben erhalten. Fünf Excel-Regressionen und Typecheck bestanden; Sichtprüfung des tatsächlichen Exports folgt im Abschlusslauf.
+
+## B07
+
+Tabellenmodus, Schriftgröße, Stundenfenster und Blätterposition gehören zur gespeicherten Arbeitsposition und zur kopierbaren URL. Fehlerhafte Werte erhalten sichere Standardwerte. Alte Positionen funktionieren weiter. Hauptseiten und Hilfeseiten sind echte Links mit unverändertem Schutz beim normalen Wechsel; neue Tabs bleiben möglich. 33 App-Tests, Tabellen-/Positionsprüfungen, Typecheck und Lint bestanden. Die aktive Browser-Tour wurde auf Links und mobile Ansichtenwahl angepasst.

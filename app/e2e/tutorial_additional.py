@@ -37,7 +37,7 @@ with sync_playwright() as p:
         page = context.new_page()
         page.goto(BASE); page.wait_for_load_state('networkidle');page.keyboard.press('Escape')
         nav = page.get_by_role('navigation', name='Hauptseiten')
-        nav.get_by_role('button', name='Klasse anlegen', exact=True).click()
+        nav.get_by_role('link', name='Klasse anlegen', exact=True).click()
         page.get_by_label('Klassenname', exact=True).fill('Fiktive eigene Klasse')
         for index, name in [(1, 'Ada'), (2, 'Bea')]:
             if index == 2: page.get_by_role('button', name='Weitere Person', exact=True).click()
@@ -69,7 +69,7 @@ with sync_playwright() as p:
         assert page.url == url
         assert page.evaluate('key => localStorage.getItem(key)', KEY) == original
         record('Begonnene Stunde und Tastatureingabe erhalten', selected_person='Fiktiv Bea', notebook_unchanged=True, url_unchanged=True)
-        nav.get_by_role('button', name='Klasse anlegen', exact=True).click()
+        nav.get_by_role('link', name='Klasse anlegen', exact=True).click()
         page.get_by_label('Klassenname', exact=True).fill('Fiktiver Entwurf')
         page.get_by_label('Vorname 1', exact=True).fill('Fiktiv')
         draft = page.evaluate("localStorage.getItem('gradeflow-class-draft-v1')")

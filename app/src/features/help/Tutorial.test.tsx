@@ -80,7 +80,7 @@ it("führt durch echte Formulare und Aktionen, ohne den eigenen Datenbestand ode
   expect(tour().textContent).toContain("Schritt 1 von 15");
   await user.click(
     within(screen.getByRole("navigation", { name: "Hauptseiten" })).getByRole(
-      "button",
+      "link",
       { name: "Klasse anlegen" },
     ),
   );
@@ -119,7 +119,7 @@ it("führt durch echte Formulare und Aktionen, ohne den eigenen Datenbestand ode
   );
   await user.click(
     within(screen.getByRole("navigation", { name: "Hauptseiten" })).getByRole(
-      "button",
+      "link",
       { name: "Datensicherung" },
     ),
   );
@@ -132,9 +132,9 @@ it("führt durch echte Formulare und Aktionen, ohne den eigenen Datenbestand ode
   const exported = JSON.parse(download.mock.calls[0][1] as string);
   expect(exported.classes).toHaveLength(2);
   await user.click(screen.getByText("Hilfe und Einstieg"));
-  await screen.findByRole("button", { name: "So funktioniert Gradeflow" });
+  await screen.findByRole("link", { name: "So funktioniert Gradeflow" });
   await user.click(
-    screen.getByRole("button", { name: "So funktioniert Gradeflow" }),
+    screen.getByRole("link", { name: "So funktioniert Gradeflow" }),
   );
   expect(tour().textContent).toContain("Schritt 15 von 15");
   await user.click(
