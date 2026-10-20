@@ -79,6 +79,11 @@ h3,
 p {
   margin-top: 0;
 }
+h1,
+h2,
+h3 {
+  overflow-wrap: anywhere;
+}
 h1 {
   font-size: clamp(1.5rem, 2.4vw, 2rem);
   font-weight: 650;
@@ -255,6 +260,10 @@ button.primary:hover:enabled {
   color: #315d4c;
   background: #edf6ef;
   border-color: #b9d2c2;
+}
+#class-creation-error {
+  margin-block: 1rem;
+  scroll-margin-block: 1rem;
 }
 .count-pill {
   color: var(--accent-ink);
@@ -2397,20 +2406,21 @@ td small {
 }
 @media (max-width: 600px) {
   .app-navigation {
-    grid-template-columns: minmax(0, 1fr) auto;
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.45rem 0.75rem;
   }
   .app-navigation .app-brand {
-    grid-column: 1;
-    grid-row: 1;
+    flex: 1 1 9rem;
+    min-width: 0;
   }
   .app-navigation .primary-nav {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    grid-template-columns: 0.9fr 0.9fr 1.2fr;
+    order: 2;
+    flex: 1 0 100%;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 6.8rem), 1fr));
   }
   .app-navigation .primary-nav :is(button, a) {
-    overflow-wrap: normal;
+    overflow-wrap: anywhere;
   }
   .app-brand h1 {
     font-size: 1rem;
@@ -2422,9 +2432,8 @@ td small {
     display: inline;
   }
   .help-menu {
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: end;
+    order: 1;
+    margin-left: auto;
   }
   .help-menu > nav {
     left: auto;
@@ -2432,8 +2441,8 @@ td small {
     width: min(21rem, calc(100vw - 24px));
   }
   .class-picker {
-    grid-column: 1 / -1;
-    grid-row: 3;
+    order: 3;
+    flex: 1 0 100%;
     padding: 0;
     border: 0;
   }
@@ -2454,10 +2463,17 @@ td small {
     font-size: 1.4rem;
     margin-bottom: 0.2rem;
   }
+  .class-overview .section-heading {
+    flex-wrap: wrap;
+  }
+  .class-overview .section-heading > div {
+    flex: 1 1 10rem;
+  }
   .class-overview .section-heading > div > p:last-child {
     font-size: 0.75rem;
   }
   .workspace-toolbar {
+    flex-wrap: wrap;
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.75rem;
@@ -2468,7 +2484,7 @@ td small {
   }
   .mobile-view-picker {
     display: block;
-    flex: 1;
+    flex: 1 1 8rem;
     min-width: 0;
   }
   .mobile-view-picker select {

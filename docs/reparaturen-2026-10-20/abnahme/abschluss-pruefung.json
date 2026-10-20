@@ -1,0 +1,21 @@
+{
+  "version": "0.9.0",
+  "date": "2026-10-20",
+  "B01_notice_regression": {
+    "first_failed": true,
+    "unit_then_passed": true,
+    "production_browser_false_success_count": 0,
+    "retry_button_count": 1,
+    "original_target_saved": true
+  },
+  "checks": {
+    "tests": 129,
+    "test_files": 21,
+    "typecheck": "PASS",
+    "lint": "PASS",
+    "format": "PASS",
+    "build": "PASS"
+  },
+  "native_excel": "BLOCKED: Computer Use permissions are not granted",
+  "additional_services_eur": 0
+}

@@ -1072,6 +1072,13 @@ it("erhält eine fehlgeschlagene Bewertung über Rückweg, Hauptnavigation und H
   await user.click(
     screen.getByRole("button", { name: "Zur nicht gespeicherten Eingabe" }),
   );
+  await user.click(screen.getByRole("button", { name: "← Zur Klasse" }));
+  expect(
+    screen.queryByText("Der aktuelle Stand ist lokal gespeichert."),
+  ).toBeNull();
+  await user.click(
+    screen.getByRole("button", { name: "Zur nicht gespeicherten Eingabe" }),
+  );
   await user.click(document.querySelectorAll(".student-list button")[1]);
   storage.fail = false;
   await user.click(

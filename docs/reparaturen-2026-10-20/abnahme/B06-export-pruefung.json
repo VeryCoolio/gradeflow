@@ -1,0 +1,19 @@
+{
+  "original_sha256": "16326aa0c5eb54f44fa9271c02a15b386c31eeb04988b10cf909776355d27196",
+  "sheets": [
+    "Klassenübersicht",
+    "Fiktive außergewöhnlich lange B",
+    "Fiktive außergewöhnlich lan (2)"
+  ],
+  "title_characters": 200,
+  "merged_title": true,
+  "metadata_complete": true,
+  "long_name_row_height": 212.0,
+  "dates_recognized": true,
+  "date_format": "dd.mm.yyyy",
+  "numbers_recognized": true,
+  "forward_and_back_link_targets_valid": true,
+  "formulas": 0,
+  "native_excel_visual_check": "BLOCKED: Computer Use permissions are not granted",
+  "renderer_date_serials": "Renderer limitation: original date type and dd.mm.yyyy format independently verified."
+}

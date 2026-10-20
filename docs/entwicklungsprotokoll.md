@@ -252,3 +252,11 @@ Ansichtseinstellungen in Arbeitsposition/URL mit geprüften Standardwerten ergä
 ### 20.10.2026 – B08: verständliche Formulierungen
 
 Numerische Einzahl-/Mehrzahlformen vereinheitlicht und den unbeholfenen Satz zur Flüchtigkeit mündlicher Beiträge korrigiert. Änderungen sprachlich geprüft, fachliche Begrenzungen erhalten. 129 Tests, Typecheck/Build, Lint und Formatprüfung bestanden.
+
+### 20.10.2026 – Abschluss der Audit-Reparaturen, Version 0.9.0
+
+- Alle acht Befunde umgesetzt und tatsächlich bedient. 129 Tests/21 Dateien, Typecheck, Lint, Formatcheck und Produktionsbuild bestanden.
+- Browser: 20/45 Personen, bis 100 Stunden, Speicher-/Importfehler, Schutz offener Änderungen, Präferenzen, schreibgeschützter neuer Tab und Tour mit echten Aktionen/Weiter. Keine Laufzeitfehler.
+- Zusätzliche Sichtprüfung bei 320 Pixeln und 200 Prozent Schrift deckte Überlappungen auf; flexible Navigation und Überschriftenumbruch korrigiert. Fehlermeldung erhält Abstand zum Absenden. Ein ergänzter B01-Test verhindert eine unpassende Speicherbestätigung nach Rückkehr zur fehlgeschlagenen Eingabe; zuerst rot, danach grün und am aktuellen Build bestätigt.
+- Excel-Original unabhängig gelesen und gerendert, lange Texte/Datentypen/Linkziele geprüft. Native Excel-Sichtprüfung wegen fehlender Computerfreigabe blockiert, ausdrücklich nicht als bestanden gewertet. [Abschluss und Nachweise](reparaturen-2026-10-20/abschluss.md).
+- Historische Referenzen und Fachregeln erhalten. Kein manueller Hosting-Deploy; Commit/Push gemäß dauerhafter Nutzeranweisung.

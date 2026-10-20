@@ -477,7 +477,7 @@ export function App({
     setActiveSessionId(null);
     setSelectedStudentId(null);
     startingRef.current = false;
-    if (announceSaved && !error)
+    if (announceSaved && !error && !failedObservation)
       setNotice("Der aktuelle Stand ist lokal gespeichert.");
   }
 

@@ -100,7 +100,7 @@ describe("Excel-Dateien", () => {
     const person = workbook.worksheets[1];
     expect(summary.getCell("D1").master.address).toBe("A1");
     expect(summary.getCell("D2").master.address).toBe("B2");
-    expect(summary.getRow(6).height).toBeGreaterThan(100);
+    expect(summary.getRow(6).height).toBeGreaterThan(180);
     expect(person.getCell("G1").master.address).toBe("A1");
     expect(person.getCell("D2").master.address).toBe("B2");
     expect(person.getCell("G2").master.address).toBe("F2");

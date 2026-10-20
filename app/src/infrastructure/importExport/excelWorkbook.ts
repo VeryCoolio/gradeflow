@@ -12,7 +12,7 @@ export const XLSX_MIME =
 // Excel berechnet bei verbundenen Zellen keine automatische Zeilenhöhe.
 // Reserve für breite Buchstaben und explizite Zeilenumbrüche einplanen.
 function textHeight(text: string, width: number, fontSize = 11): number {
-  const characters = Math.max(1, Math.floor(width * 0.8 * (11 / fontSize)));
+  const characters = Math.max(1, Math.floor(width * 0.6 * (11 / fontSize)));
   const lines = text
     .split(/\r?\n/)
     .reduce(

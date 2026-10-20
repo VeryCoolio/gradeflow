@@ -1,0 +1,61 @@
+[
+  {
+    "name": "B03 erste, mittlere, letzte Person bei 20/45",
+    "status": "PASS",
+    "mouse": true,
+    "keyboard": true,
+    "focus_return": true,
+    "previous_sessions_unchanged": true
+  },
+  {
+    "name": "B04 Navigations- und Neuladeschutz",
+    "status": "PASS",
+    "cancel_preserves_values": true,
+    "unchanged_editor_has_no_prompt": true,
+    "native_reload_warning": true
+  },
+  {
+    "name": "B07 Präferenzen, Browser-Zurück, Neuladen, echte Links und zweiter Tab",
+    "status": "PASS",
+    "second_tab_read_only": true,
+    "invalid_url_defaults": true,
+    "copied_href": "#seite=sicherung&ansicht=tabelle&klasse=c20&tabellenmodus=verlauf&tabellengroesse=large&stundenfenster=20&tabellenseite=1"
+  },
+  {
+    "name": "B05 Fehler sichtbar und gültiger Folgeimport; B08 Einzahl",
+    "status": "PASS",
+    "viewport_widths": [
+      390,
+      1440
+    ],
+    "failed_imports_preserve_notebook": true
+  },
+  {
+    "name": "B01 Auftrag über Navigation und Klassen erhalten, Wiederholung zielgenau",
+    "status": "PASS",
+    "original_person_only": true,
+    "failed_write_preserved_notebook": true
+  },
+  {
+    "name": "B02 vier Breiten und 200 Prozent Grundschrift",
+    "status": "PASS",
+    "widths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "horizontal_page_overflow": false,
+    "first_mobile_data_row": true
+  },
+  {
+    "name": "B06 Export aus echter Oberfläche heruntergeladen",
+    "status": "PASS",
+    "file": "B06-export-lang.xlsx"
+  },
+  {
+    "name": "Keine Browser-Laufzeitfehler",
+    "status": "PASS",
+    "count": 0
+  }
+]

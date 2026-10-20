@@ -2,6 +2,13 @@
 
 Der Git-Verlauf beginnt mit dem Projektstand nach Meilenstein 2. Frühere Arbeitsschritte sind im [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) festgehalten; dafür werden keine rückdatierten Commits erzeugt.
 
+## 0.9.0 – 20.10.2026
+
+- Alle acht Auditbefunde umgesetzt: ausstehende Bewertungen über Navigation erhalten, mobile Datenhierarchie verdichtet, Personen-Editor sichtbar geöffnet, ungespeicherte Namensänderungen geschützt und Importfehler direkt erklärt.
+- Tabellenmodus, Größe, Stundenfenster und Blätterposition in Arbeitsposition/URL erhalten; Haupt-/Hilfeseiten als echte Links.
+- Lange Excel-Titel und Metadaten mit geeigneten Zellbereichen und Zeilenhöhen; Einzahl/Mehrzahl und Erklärungssatz korrigiert.
+- Fachregeln, Notebook-Schema und historische Referenzen bleiben erhalten. [Prüfbericht](docs/reparaturen-2026-10-20.md).
+
 ## 0.8.2 – 19.10.2026
 
 - Jeder Tutorialschritt lässt sich mit „Weiter“ ohne Eingabe oder Aktion ansehen; die passende nächste Ansicht und fehlende fiktive Übungsdaten werden vorbereitet.
