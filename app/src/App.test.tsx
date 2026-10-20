@@ -831,6 +831,9 @@ describe("Kernoberfläche", () => {
     await user.click(
       screen.getByRole("button", { name: "Namen von Fiktiv Ada bearbeiten" }),
     );
+    expect(document.activeElement).toBe(
+      screen.getByLabelText("Neuer Personenname"),
+    );
     await user.clear(screen.getByLabelText("Neuer Personenname"));
     await user.type(screen.getByLabelText("Neuer Personenname"), "Fiktiv Alma");
     await user.click(screen.getByRole("button", { name: "Namen speichern" }));
@@ -1063,12 +1066,8 @@ it("erhält eine fehlgeschlagene Bewertung über Rückweg, Hauptnavigation und H
   await user.click(screen.getByRole("button", { name: "Stunde beginnen" }));
   storage.fail = true;
   await user.click(screen.getByRole("button", { name: "+" }));
-  await user.click(
-    screen.getByRole("button", { name: "← Zur Klasse" }),
-  );
-  await user.click(
-    screen.getByRole("button", { name: "Datensicherung" }),
-  );
+  await user.click(screen.getByRole("button", { name: "← Zur Klasse" }));
+  await user.click(screen.getByRole("button", { name: "Datensicherung" }));
   expect(screen.getByRole("alert").textContent).toContain("Fiktiv Ada");
   await user.click(
     screen.getByRole("button", { name: "Zur nicht gespeicherten Eingabe" }),
@@ -1091,15 +1090,11 @@ it("kann die ursprüngliche Eingabe von einer anderen Seite wiederholen und warn
   await importTwoStudents(user);
   await user.click(screen.getByRole("button", { name: "Stunde beginnen" }));
   storage.fail = true;
-  await user.click(
-    screen.getByRole("button", { name: "Abwesend" }),
-  );
+  await user.click(screen.getByRole("button", { name: "Abwesend" }));
   const event = new Event("beforeunload", { cancelable: true });
   window.dispatchEvent(event);
   expect(event.defaultPrevented).toBe(true);
-  await user.click(
-    screen.getByRole("button", { name: "Datensicherung" }),
-  );
+  await user.click(screen.getByRole("button", { name: "Datensicherung" }));
   storage.fail = false;
   await user.click(
     screen.getByRole("button", { name: "Eingabe erneut speichern" }),

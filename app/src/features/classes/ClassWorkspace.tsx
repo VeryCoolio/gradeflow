@@ -79,6 +79,18 @@ export function ClassWorkspace({
   const [editingStudentId, setEditingStudentId] = useState<string | null>(null);
   const [studentName, setStudentName] = useState("");
   const swapButtonRef = useRef<HTMLButtonElement>(null);
+  const studentInput = useRef<HTMLInputElement>(null);
+  const studentTrigger = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (editingStudentId && dashboardView === "personen") {
+      studentInput.current?.focus();
+      studentInput.current?.scrollIntoView?.({ block: "nearest" });
+    }
+  }, [editingStudentId, dashboardView]);
+  function closeStudentEditor() {
+    setEditingStudentId(null);
+    studentTrigger.current?.focus();
+  }
   useEffect(() => {
     if (lastSwap?.classId === currentClass.id) swapButtonRef.current?.focus();
   }, [lastSwap, currentClass.id]);
@@ -92,7 +104,7 @@ export function ClassWorkspace({
       editingStudentId &&
       actions.saveStudentName(editingStudentId, studentName)
     ) {
-      setEditingStudentId(null);
+      closeStudentEditor();
       setStudentName("");
     }
   }
@@ -309,38 +321,40 @@ export function ClassWorkspace({
                   <button
                     type="button"
                     aria-label={`Namen von ${student.displayName} bearbeiten`}
-                    onClick={() => {
+                    onClick={(event) => {
+                      studentTrigger.current = event.currentTarget;
                       setEditingStudentId(student.id);
                       setStudentName(student.displayName);
                     }}
                   >
                     Namen bearbeiten
                   </button>
+                  {editingStudentId === student.id ? (
+                    <form
+                      onSubmit={saveStudentName}
+                      className="student-name-form"
+                    >
+                      <label htmlFor="student-name">Neuer Personenname</label>
+                      <input
+                        ref={studentInput}
+                        id="student-name"
+                        value={studentName}
+                        onChange={(event) => setStudentName(event.target.value)}
+                        required
+                      />
+                      <div className="actions">
+                        <button className="primary" type="submit">
+                          Namen speichern
+                        </button>
+                        <button type="button" onClick={closeStudentEditor}>
+                          Abbrechen
+                        </button>
+                      </div>
+                    </form>
+                  ) : null}
                 </li>
               ))}
             </ul>
-            {editingStudentId ? (
-              <form onSubmit={saveStudentName} className="student-name-form">
-                <label htmlFor="student-name">Neuer Personenname</label>
-                <input
-                  id="student-name"
-                  value={studentName}
-                  onChange={(event) => setStudentName(event.target.value)}
-                  required
-                />
-                <div className="actions">
-                  <button className="primary" type="submit">
-                    Namen speichern
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setEditingStudentId(null)}
-                  >
-                    Abbrechen
-                  </button>
-                </div>
-              </form>
-            ) : null}
           </fieldset>
         </section>
       ) : null}

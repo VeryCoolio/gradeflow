@@ -2562,3 +2562,11 @@ td small {
     font-size: 0.7rem;
   }
 }
+.class-students .student-name-form {
+  flex-basis: 100%;
+  margin: 0.25rem 0;
+  padding: 1rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: var(--radius-small);
+}

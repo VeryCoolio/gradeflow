@@ -224,3 +224,9 @@ Diese Datei wird ab Beginn der neuen Implementierung fortgeführt.
 
 - Änderung: Kompakte Kopfzeile und Ansichtenwahl, aufklappbare Exporte/Tabellenoptionen/Diagrammerklärung, verdichtete Bewertung mit unverändert großen Touchzielen. Tutorial zeigt am kleinen Bildschirm die tatsächliche Ansichtenwahl. Fehlender allgemeiner sr-only-Stil ergänzt. Bestehende Farbwelt und Fachregeln erhalten.
 - Prüfung: 123 Tests, Typecheck, Produktions-Build; vier Breiten visuell geprüft, kein Seitenüberlauf. Bei 390 × 844 passen fünf Symbole plus AW/NB, Tabelle zeigt Datenzeilen. Alle 15 Tour-Schritte mit echter Auswahl von Tabelle/Verlauf bestanden. [Aufgaben und Belege](reparaturen-2026-10-20.md).
+
+
+### 2026-10-20 – Audit-Reparatur B03: Personen-Editor am Auslöser
+
+- Änderung: Formular direkt in der gewählten Personenzeile, Fokus und sichtbarer Scrollbereich, Fokus zurück nach Abschluss/Abbruch.
+- Prüfung: Ergänzte Fokusregression zuerst fehlgeschlagen, danach Umbenennungstest und Typecheck bestanden. Abschlusslauf umfasst erste/mittlere/letzte Person bei großen Klassen.

@@ -4,7 +4,7 @@ Grundlage: [Audit vom 19.10.2026](drei-skill-audit-2026-10-19/bericht.md), Ausga
 
 - [x] B01 Fehlgeschlagene Eingabe bei Navigation erhalten.
 - [x] B02 Mobile Datenhierarchie und Bewertung kompakter gestalten.
-- [ ] B03 Personen-Editor sichtbar und fokussiert öffnen.
+- [x] B03 Personen-Editor sichtbar und fokussiert öffnen.
 - [ ] B04 Ungespeicherte Namensänderungen schützen.
 - [ ] B05 Importfehler am Formular anzeigen.
 - [ ] B06 Lange Excel-Titel lesbar ausgeben.
@@ -23,3 +23,7 @@ Prüfung: Zwei neue Regressionen schlugen vor der Änderung fehl. Danach 30 App-
 Die bestehende Farb- und Schriftgestaltung bleibt erhalten. Mobile Kopfzeile und Klassenwahl sind kompakter; Klassenansichten liegen in einer benannten Auswahl. Exporte sind ein bewusst zu öffnendes Menü. Tabellenoptionen und ausführliche Diagrammhinweise lassen sich aufklappen. Die Tabelle zeigt bei 390 × 844 bereits Datenzeilen; die fünf Bewertungssymbole sowie AW/NB passen beim normalen Testnamen in die erste Ansicht. Lange Namen und große Schrift dürfen weiter scrollen.
 
 Prüfung: 123 Tests, Typecheck und Build bestanden. Tatsächliche Sichtprüfung bei 320/390/768/1440 Pixeln ohne horizontales Seitenüberlaufen. Alle 15 Tour-Schritte bei 390 Pixeln durchlaufen; Tabelle und Verlauf über die neue Auswahl tatsächlich geöffnet. [Messwerte](reparaturen-2026-10-20/B02-fit.json) und Bilder bleiben getrennt vom Ausgangsaudit.
+
+## B03
+
+Der Personen-Editor steht direkt in der gewählten Personenzeile. Das Namensfeld erhält Fokus und wird bei Bedarf sichtbar gescrollt. Nach Speichern oder Abbrechen kehrt der Fokus zum zugehörigen Auslöser zurück. Der bestehende Demo-/Umbenennungstest prüft nun ausdrücklich die Fokusübergabe; diese Prüfung schlug vor der Änderung fehl und besteht danach. Typecheck bestanden. Die visuelle Gegenprüfung mit 20/45 Personen erfolgt im Abschlusslauf.
