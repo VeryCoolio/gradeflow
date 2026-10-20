@@ -1,3 +1,4 @@
+import { countLabel } from "../../application/countLabel";
 import { useRef, useState, type FormEvent } from "react";
 import {
   exportNotebookJson,
@@ -75,7 +76,7 @@ export function BackupPanel({
         (sum, group) => sum + group.sessions.length,
         0,
       );
-      const summary = `Die Sicherung enthält ${validated.classes.length} Klassen, ${people} Personen und ${lessons} Stunden.`;
+      const summary = `Die Sicherung enthält ${countLabel(validated.classes.length, "Klasse", "Klassen")}, ${countLabel(people, "Person", "Personen")} und ${countLabel(lessons, "Stunde", "Stunden")}.`;
       if (recovery) {
         if (
           !confirm(
@@ -91,7 +92,7 @@ export function BackupPanel({
         if (
           notebook.classes.length &&
           !confirm(
-            `${summary} Sie ersetzt den aktuellen Datenstand mit ${notebook.classes.length} Klassen. Der bisherige Stand wird zuvor lokal als Rückfall gesichert. Wirklich fortfahren?`,
+            `${summary} Sie ersetzt den aktuellen Datenstand mit ${countLabel(notebook.classes.length, "Klasse", "Klassen")}. Der bisherige Stand wird zuvor lokal als Rückfall gesichert. Wirklich fortfahren?`,
           )
         )
           return;

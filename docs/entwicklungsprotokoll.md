@@ -248,3 +248,7 @@ Titel und Metadaten über mehrere Zellen verbunden, Zeilenhöhe mit Umbruchreser
 ### 20.10.2026 – B07: Tabellenpräferenzen und Seitenlinks
 
 Ansichtseinstellungen in Arbeitsposition/URL mit geprüften Standardwerten ergänzt. Haupt-/Hilfenavigation nutzt echte Links und respektiert veränderte Klicks für neue Tabs. Regressionen für Rückkehr, Wiederöffnen und ungültige Werte bestanden; Browserprüfung folgt.
+
+### 20.10.2026 – B08: verständliche Formulierungen
+
+Numerische Einzahl-/Mehrzahlformen vereinheitlicht und den unbeholfenen Satz zur Flüchtigkeit mündlicher Beiträge korrigiert. Änderungen sprachlich geprüft, fachliche Begrenzungen erhalten. 129 Tests, Typecheck/Build, Lint und Formatprüfung bestanden.

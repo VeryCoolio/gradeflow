@@ -1,3 +1,4 @@
+import { countLabel } from "../../application/countLabel";
 import { useEffect, useRef, useState } from "react";
 import { applyRating } from "../../domain/grading/gradingEngine";
 import { formatGradeDecimal } from "../../domain/grading/gradeFormat";
@@ -125,8 +126,8 @@ export function AssessmentWorkspace({
           <strong>{group.name}</strong> · {label}
         </p>
         <p>
-          Alle {captured} Personen sind erfasst. Die Erfassung dieser Stunde ist
-          abgeschlossen.
+          {captured === 1 ? "Die Person ist" : `Alle ${captured} Personen sind`}{" "}
+          erfasst. Die Erfassung dieser Stunde ist abgeschlossen.
         </p>
         <dl className="completion-counts">
           <div>
@@ -217,7 +218,9 @@ export function AssessmentWorkspace({
                 aria-live="polite"
                 aria-atomic="true"
               >
-                {captured} von {group.students.length} Personen erfasst
+                {captured} von{" "}
+                {countLabel(group.students.length, "Person", "Personen")}{" "}
+                erfasst
               </p>
             </div>
             <progress

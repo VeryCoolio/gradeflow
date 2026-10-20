@@ -9,10 +9,10 @@ export function AboutPage() {
       </p>
       <h3>Warum stundenweise dokumentieren?</h3>
       <p>
-        Mündliche Beiträge bleiben nicht wie eine schriftliche Arbeit vorliegen.
-        Eine zeitnahe Zusammenfassung nach jeder Stunde hilft dir, deine
-        Einschätzungen über den Bewertungszeitraum festzuhalten. Gradeflow
-        verarbeitet anschließend deine Eingaben nach festen Regeln.
+        Mündliche Beiträge sind flüchtig. Eine zeitnahe Zusammenfassung nach
+        jeder Stunde hilft dir, deine Einschätzungen über den Bewertungszeitraum
+        festzuhalten. Gradeflow verarbeitet anschließend deine Eingaben nach
+        festen Regeln.
       </p>
       <h3>Was wird eingeschätzt?</h3>
       <p>

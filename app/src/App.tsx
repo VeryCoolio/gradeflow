@@ -1,3 +1,4 @@
+import { countLabel } from "./application/countLabel";
 import { AppNavigation } from "./components/AppNavigation";
 import { ClassSwitcher } from "./components/ClassSwitcher";
 import { AboutPage, DataPage } from "./features/help/InfoPages";
@@ -239,16 +240,19 @@ export function App({
     names: string[],
   ): boolean {
     if (!notebook) return false;
-    const saved = apply(() => {
-      return localRepository.update((current) =>
-        addClass(
-          current,
-          { name, periodLabel, students: names },
-          createId,
-          now(),
-        ),
-      );
-    }, `Klasse mit ${names.length} Personen angelegt und lokal gespeichert.`);
+    const saved = apply(
+      () => {
+        return localRepository.update((current) =>
+          addClass(
+            current,
+            { name, periodLabel, students: names },
+            createId,
+            now(),
+          ),
+        );
+      },
+      `Klasse mit ${countLabel(names.length, "Person", "Personen")} angelegt und lokal gespeichert.`,
+    );
     if (!saved) return false;
     setPage("klasse");
     setDashboardView("stunden");

@@ -1,3 +1,4 @@
+import { countLabel } from "../../application/countLabel";
 import {
   useCallback,
   useEffect,
@@ -197,7 +198,7 @@ export function ClassWorkspace({
             <p>{currentClass.periodLabel}</p>
           </div>
           <span className="count-pill">
-            {currentClass.students.length} Personen
+            {countLabel(currentClass.students.length, "Person", "Personen")}
           </span>
         </div>
       </section>

@@ -9,7 +9,7 @@ Grundlage: [Audit vom 19.10.2026](drei-skill-audit-2026-10-19/bericht.md), Ausga
 - [x] B05 Importfehler am Formular anzeigen.
 - [x] B06 Lange Excel-Titel lesbar ausgeben.
 - [x] B07 Tabellenpräferenzen erhalten und Seiten verlinken.
-- [ ] B08 Sprache korrigieren.
+- [x] B08 Sprache korrigieren.
 - [ ] Abschließende Browser-/Designprüfung und GitHub-Remote bestätigen.
 
 ## B01
@@ -45,3 +45,7 @@ Excel-Titel nutzen verbundene Zellen über die gesamte Blattbreite. Klassenname 
 ## B07
 
 Tabellenmodus, Schriftgröße, Stundenfenster und Blätterposition gehören zur gespeicherten Arbeitsposition und zur kopierbaren URL. Fehlerhafte Werte erhalten sichere Standardwerte. Alte Positionen funktionieren weiter. Hauptseiten und Hilfeseiten sind echte Links mit unverändertem Schutz beim normalen Wechsel; neue Tabs bleiben möglich. 33 App-Tests, Tabellen-/Positionsprüfungen, Typecheck und Lint bestanden. Die aktive Browser-Tour wurde auf Links und mobile Ansichtenwahl angepasst.
+
+## B08
+
+Einzahl und Mehrzahl stimmen jetzt bei Klassenanlage, Personenanzahl, Erfassungsfortschritt, Stundenabschluss und Sicherungszusammenfassung. Der Erklärungstext lautet „Mündliche Beiträge sind flüchtig.“ Die fachliche Aussage bleibt erhalten. 129 Tests bestanden; Produktionsbuild, Lint und Formatprüfung erfolgreich. Eine unzulässige Testoption wurde im neuen B07-Prüftest entfernt; Typecheck über den Build erneut erfolgreich.

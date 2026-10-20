@@ -1186,18 +1186,12 @@ it("erhält Tabellenmodus und Größe nach Ansichtswechsel und erneutem Öffnen"
   const props = { repository, workspaceStorage: storage };
   const first = render(<App {...props} />);
   await user.click(screen.getByRole("link", { name: "Meine Klassen" }));
-  await user.click(
-    screen.getByRole("button", { name: "Tabelle", exact: true }),
-  );
+  await user.click(screen.getByRole("button", { name: "Tabelle" }));
   await user.click(screen.getByRole("button", { name: "Mit Notenverlauf" }));
   await user.selectOptions(screen.getByLabelText("Tabellengröße"), "large");
   await user.selectOptions(screen.getByLabelText("Stunden pro Ansicht"), "20");
-  await user.click(
-    screen.getByRole("button", { name: "Verlauf", exact: true }),
-  );
-  await user.click(
-    screen.getByRole("button", { name: "Tabelle", exact: true }),
-  );
+  await user.click(screen.getByRole("button", { name: "Verlauf" }));
+  await user.click(screen.getByRole("button", { name: "Tabelle" }));
   expect(
     screen
       .getByRole("button", { name: "Mit Notenverlauf" })
