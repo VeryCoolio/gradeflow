@@ -218,3 +218,9 @@ Diese Datei wird ab Beginn der neuen Implementierung fortgeführt.
 - Problem: Hauptnavigation und Rückweg entfernten den Wiederholungsauftrag einer fehlgeschlagenen Beobachtung.
 - Änderung: Auftrag mit stabilen Klassen-/Stunden-/Personen-IDs und Fehlertext erhalten; Wiederholung oder Rückkehr von anderen Seiten, bestätigtes Verwerfen und Warnung vor Neuladen. Weitere Eingaben überschreiben den offenen Auftrag nicht. Keine Schema-/Fachregeländerung.
 - Prüfung: Zwei neue Regressionen zuerst fehlgeschlagen; danach 30 App-Integrationstests sowie Typecheck, Lint und Build bestanden. Ein unzulässiger Test-Selektorparameter wurde im Prüftest korrigiert. Einzelaufgaben und Abschluss stehen in [Umsetzung](reparaturen-2026-10-20.md). Browser-Gegenprüfung folgt im nächsten Oberflächenschritt.
+
+
+### 2026-10-20 – Audit-Reparatur B02: Daten und Eingaben mobil früher sichtbar
+
+- Änderung: Kompakte Kopfzeile und Ansichtenwahl, aufklappbare Exporte/Tabellenoptionen/Diagrammerklärung, verdichtete Bewertung mit unverändert großen Touchzielen. Tutorial zeigt am kleinen Bildschirm die tatsächliche Ansichtenwahl. Fehlender allgemeiner sr-only-Stil ergänzt. Bestehende Farbwelt und Fachregeln erhalten.
+- Prüfung: 123 Tests, Typecheck, Produktions-Build; vier Breiten visuell geprüft, kein Seitenüberlauf. Bei 390 × 844 passen fünf Symbole plus AW/NB, Tabelle zeigt Datenzeilen. Alle 15 Tour-Schritte mit echter Auswahl von Tabelle/Verlauf bestanden. [Aufgaben und Belege](reparaturen-2026-10-20.md).

@@ -227,17 +227,19 @@ export function AssessmentWorkspace({
             >
               {captured} von {group.students.length}
             </progress>
-            <h3 aria-live="polite" aria-atomic="true">
-              {student.displayName}
-            </h3>
+            <div className="assessment-person">
+              <h3 aria-live="polite" aria-atomic="true">
+                {student.displayName}
+              </h3>
+              <p className="observation-status">
+                Gewählter Status: <strong>{observationLabel(selected)}</strong>
+              </p>
+            </div>
             <div className="person-context">
               <p className="current-grade">
                 Stand vor dieser Stunde:{" "}
                 <strong>{formatGradeDecimal(before.gradeQuarterSteps)}</strong>
                 <small> · Puffer {before.bufferPoints}/3</small>
-              </p>
-              <p className="observation-status">
-                Gewählter Status: <strong>{observationLabel(selected)}</strong>
               </p>
             </div>
             {error ? (
@@ -269,9 +271,7 @@ export function AssessmentWorkspace({
             )}
           </div>
           <fieldset disabled={!canWrite} className="assessment-ratings">
-            <legend>
-              Mitarbeit der ganzen Stunde – relativ zum bisherigen Stand
-            </legend>
+            <legend>Mitarbeit dieser Stunde relativ zum Stand</legend>
             <div className="rating-grid">
               {RATING_SYMBOLS.map((symbol, index) => {
                 const result = applyRating(before, symbol);

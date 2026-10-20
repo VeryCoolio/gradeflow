@@ -50,10 +50,11 @@ export function StudentHistory({
       <div className="person-navigation">
         <button
           type="button"
+          aria-label="Vorherige Person"
           disabled={index === 0}
           onClick={() => onStudentChange(report.students[index - 1].student.id)}
         >
-          Vorherige Person
+          ←
         </button>
         <select
           id="history-student"
@@ -68,10 +69,11 @@ export function StudentHistory({
         </select>
         <button
           type="button"
+          aria-label="Nächste Person"
           disabled={index === report.students.length - 1}
           onClick={() => onStudentChange(report.students[index + 1].student.id)}
         >
-          Nächste Person
+          →
         </button>
       </div>
       <p>
@@ -79,38 +81,42 @@ export function StudentHistory({
         {formatGradeDecimal(row.current.gradeQuarterSteps)} · Puffer:{" "}
         {row.current.bufferPoints}/3
       </p>
-      <p className="muted">
-        Jede Unterrichtsstunde hat denselben horizontalen Abstand, bei allen
-        Personen. Die Linie verbindet ausschließlich bewertete Stunden. AW =
-        abwesend, NB = nicht beobachtet, Offen = noch nicht erfasst.
-      </p>
-      <ul
-        className="history-legend"
-        aria-label="Legende der Statusmarkierungen"
-      >
-        <li>
-          <span className="status-key absent" aria-hidden="true">
-            ■
-          </span>{" "}
-          AW · Abwesend
-        </li>
-        <li>
-          <span className="status-key unobserved" aria-hidden="true">
-            ◆
-          </span>{" "}
-          NB · Nicht beobachtet
-        </li>
-        <li>
-          <span className="status-key open" aria-hidden="true">
-            ○
-          </span>{" "}
-          Offen · Noch nicht erfasst
-        </li>
-      </ul>
-      <p className="muted">
-        Die Statusmarkierungen stehen unterhalb der Notenskala und haben keinen
-        Notenwert. Tage ohne angelegte Unterrichtsstunde werden nicht ergänzt.
-      </p>
+      <details className="history-explanation">
+        <summary>Darstellung und Statuszeichen</summary>
+        <p className="muted">
+          Jede Unterrichtsstunde hat denselben horizontalen Abstand, bei allen
+          Personen. Die Linie verbindet ausschließlich bewertete Stunden. AW =
+          abwesend, NB = nicht beobachtet, Offen = noch nicht erfasst.
+        </p>
+        <ul
+          className="history-legend"
+          aria-label="Legende der Statusmarkierungen"
+        >
+          <li>
+            <span className="status-key absent" aria-hidden="true">
+              ■
+            </span>{" "}
+            AW · Abwesend
+          </li>
+          <li>
+            <span className="status-key unobserved" aria-hidden="true">
+              ◆
+            </span>{" "}
+            NB · Nicht beobachtet
+          </li>
+          <li>
+            <span className="status-key open" aria-hidden="true">
+              ○
+            </span>{" "}
+            Offen · Noch nicht erfasst
+          </li>
+        </ul>
+        <p className="muted">
+          Die Statusmarkierungen stehen unterhalb der Notenskala und haben
+          keinen Notenwert. Tage ohne angelegte Unterrichtsstunde werden nicht
+          ergänzt.
+        </p>
+      </details>
       {!row.cells.some((cell) => cell.after) ? (
         <p className="feedback">
           Noch keine bewertete Stunde: Der Startwert bleibt bestehen.

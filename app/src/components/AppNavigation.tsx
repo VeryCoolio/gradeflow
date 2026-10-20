@@ -56,7 +56,12 @@ export function AppNavigation({
           if (event.currentTarget.open) onHelpOpen?.();
         }}
       >
-        <summary data-tour="help-menu">Hilfe und Einstieg</summary>
+        <summary data-tour="help-menu" aria-label="Hilfe und Einstieg">
+          <span className="help-full">Hilfe und Einstieg</span>
+          <span className="help-short" aria-hidden="true">
+            Hilfe
+          </span>
+        </summary>
         <nav aria-label="Hilfe">
           <button
             type="button"

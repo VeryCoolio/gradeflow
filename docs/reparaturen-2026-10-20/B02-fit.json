@@ -1,0 +1,54 @@
+[
+  {
+    "viewport": {
+      "width": 320,
+      "height": 568
+    },
+    "row": {
+      "x": 32.390625,
+      "y": 756.890625,
+      "width": 1045.46875,
+      "height": 48.546875
+    },
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "row": {
+      "x": 32.390625,
+      "y": 677.328125,
+      "width": 1069.34375,
+      "height": 48.546875
+    },
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "row": {
+      "x": 46,
+      "y": 781.6875,
+      "width": 1123.453125,
+      "height": 48.546875
+    },
+    "overflow": false
+  },
+  {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "row": {
+      "x": 276,
+      "y": 649.546875,
+      "width": 1123.453125,
+      "height": 48.546875
+    },
+    "overflow": false
+  }
+]

@@ -13,6 +13,14 @@ import {
 import { ClassTable } from "../table/ClassTable";
 import { StudentHistory } from "../history/StudentHistory";
 
+const viewLabels = [
+  ["stunden", "Stunden"],
+  ["tabelle", "Tabelle"],
+  ["verlauf", "Verlauf"],
+  ["personen", "Personen"],
+  ["einstellungen", "Klasse bearbeiten"],
+] as const;
+
 interface Props {
   currentClass: ClassRecord;
   report: ClassReport;
@@ -107,7 +115,9 @@ export function ClassWorkspace({
   );
   return (
     <>
-      <section className="card class-overview">
+      <section
+        className={`card class-overview ${currentClass.archived ? "is-archived" : ""}`}
+      >
         <div className="section-heading">
           <div>
             <p className="eyebrow">
@@ -123,27 +133,54 @@ export function ClassWorkspace({
           </span>
         </div>
       </section>
-      <nav className="view-tabs" aria-label="Klassenansichten">
-        {(
-          [
-            ["stunden", "Stunden"],
-            ["tabelle", "Tabelle"],
-            ["verlauf", "Verlauf"],
-            ["personen", "Personen"],
-            ["einstellungen", "Klasse bearbeiten"],
-          ] as const
-        ).map(([key, label]) => (
-          <button
-            key={key}
-            type="button"
-            aria-current={dashboardView === key ? "page" : undefined}
-            data-tour={`view-${key}`}
-            onClick={() => setDashboardView(key)}
+      <div className="workspace-toolbar">
+        <nav className="view-tabs" aria-label="Klassenansichten">
+          {viewLabels.map(([key, label]) => (
+            <button
+              key={key}
+              type="button"
+              aria-current={dashboardView === key ? "page" : undefined}
+              data-tour={`view-${key}`}
+              onClick={() => setDashboardView(key)}
+            >
+              {label}
+            </button>
+          ))}
+        </nav>
+        <label className="mobile-view-picker">
+          <span className="sr-only">Klassenansicht</span>
+          <select
+            aria-label="Klassenansicht"
+            data-tour="view-select"
+            value={dashboardView}
+            onChange={(event) =>
+              setDashboardView(event.target.value as ClassView)
+            }
           >
-            {label}
-          </button>
-        ))}
-      </nav>
+            {viewLabels.map(([key, label]) => (
+              <option key={key} value={key}>
+                {label}
+              </option>
+            ))}
+          </select>
+        </label>
+        <details className="report-menu">
+          <summary>Exportieren</summary>
+          <div
+            className="report-downloads actions"
+            aria-label="Klassenberichte"
+          >
+            <button type="button" disabled={exporting} onClick={exportExcel}>
+              {exporting
+                ? "Excel wird erstellt …"
+                : "Klasse als Excel exportieren"}
+            </button>
+            <button type="button" onClick={exportCsv}>
+              Klasse als CSV exportieren
+            </button>
+          </div>
+        </details>
+      </div>
       {dashboardView === "einstellungen" ? (
         <div className="class-settings">
           <section className="card">
@@ -339,19 +376,6 @@ export function ClassWorkspace({
         </section>
       ) : null}
 
-      <div className="report-downloads" aria-label="Klassenberichte">
-        {" "}
-        <div className="actions">
-          <button type="button" disabled={exporting} onClick={exportExcel}>
-            {exporting
-              ? "Excel wird erstellt …"
-              : "Klasse als Excel exportieren"}
-          </button>
-          <button type="button" onClick={exportCsv}>
-            Klasse als CSV exportieren
-          </button>
-        </div>
-      </div>
       {dashboardView === "stunden" ? (
         <section className="card">
           <h2>Unterrichtsstunden</h2>

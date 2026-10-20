@@ -24,53 +24,59 @@ export function ClassTable({ report }: { report: ClassReport }) {
   return (
     <section className="card class-table">
       <h2>Stundentabelle</h2>
-      <div className="table-controls">
-        <div className="table-modes" aria-label="Tabellenansicht">
-          <button
-            type="button"
-            aria-pressed={compact}
-            onClick={() => setCompact(true)}
-          >
-            Kompakt
-          </button>
-          <button
-            type="button"
-            aria-pressed={!compact}
-            onClick={() => setCompact(false)}
-          >
-            Mit Notenverlauf
-          </button>
+      <details className="table-options">
+        <summary>Ansicht und Legende</summary>
+        <div className="table-controls">
+          <div className="table-modes" aria-label="Tabellenansicht">
+            <button
+              type="button"
+              aria-pressed={compact}
+              onClick={() => setCompact(true)}
+            >
+              Kompakt
+            </button>
+            <button
+              type="button"
+              aria-pressed={!compact}
+              onClick={() => setCompact(false)}
+            >
+              Mit Notenverlauf
+            </button>
+          </div>
+          <label>
+            Stunden pro Ansicht
+            <select
+              value={windowSize}
+              onChange={(event) => {
+                setWindowSize(Number(event.target.value));
+                setPage(0);
+              }}
+            >
+              <option value={10}>10 Stunden</option>
+              <option value={20}>20 Stunden</option>
+              <option value={0}>Alle Stunden</option>
+            </select>
+          </label>
+          <label>
+            Tabellengröße
+            <select
+              value={size}
+              onChange={(event) => setSize(event.target.value)}
+            >
+              <option value="small">Klein</option>
+              <option value="normal">Normal</option>
+              <option value="large">Groß</option>
+            </select>
+          </label>
         </div>
-        <label>
-          Stunden pro Ansicht
-          <select
-            value={windowSize}
-            onChange={(event) => {
-              setWindowSize(Number(event.target.value));
-              setPage(0);
-            }}
-          >
-            <option value={10}>10 Stunden</option>
-            <option value={20}>20 Stunden</option>
-            <option value={0}>Alle Stunden</option>
-          </select>
-        </label>
-        <label>
-          Tabellengröße
-          <select
-            value={size}
-            onChange={(event) => setSize(event.target.value)}
-          >
-            <option value="small">Klein</option>
-            <option value="normal">Normal</option>
-            <option value="large">Groß</option>
-          </select>
-        </label>
-      </div>
-      <p className="table-legend">
-        <strong>AW</strong> Abwesend · <strong>NB</strong> Nicht beobachtet ·{" "}
-        <strong>Offen</strong> Noch nicht erfasst. 0 ist eine bewertete Stunde
-        ohne Änderung. Der aktuelle Stand berücksichtigt immer alle Stunden.
+        <p className="table-legend">
+          <strong>AW</strong> Abwesend · <strong>NB</strong> Nicht beobachtet ·{" "}
+          <strong>Offen</strong> Noch nicht erfasst. 0 ist eine bewertete Stunde
+          ohne Änderung. Der aktuelle Stand berücksichtigt immer alle Stunden.
+        </p>
+      </details>
+      <p className="compact-legend">
+        AW: abwesend · NB: nicht beobachtet · Offen: noch nicht erfasst
       </p>
       <div className="table-pagination">
         <button

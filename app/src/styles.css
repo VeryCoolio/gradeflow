@@ -2328,3 +2328,237 @@ td small {
     font-size: 0.75rem;
   }
 }
+
+/* Daten vor Nebenaktionen: kompakte Klassenansicht und benannte Optionen. */
+.help-short,
+.mobile-view-picker {
+  display: none;
+}
+.workspace-toolbar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: start;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+.workspace-toolbar .view-tabs {
+  flex: 1;
+  margin: 0;
+  border: 0;
+}
+.report-menu {
+  position: relative;
+  margin-left: auto;
+}
+.report-menu > summary,
+.table-options > summary,
+.history-explanation > summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 0.65rem 0.75rem;
+  color: var(--accent-ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-small);
+}
+.report-menu[open] > summary,
+.table-options[open] > summary,
+.history-explanation[open] > summary {
+  background: var(--accent-soft);
+}
+.report-menu .report-downloads {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 8;
+  display: grid;
+  width: min(19rem, 80vw);
+  padding: 0.75rem;
+  margin: 0.25rem 0 0;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.compact-legend {
+  color: var(--secondary);
+  font-size: 0.75rem;
+  margin: 0.5rem 0;
+}
+.table-options .table-legend {
+  margin-bottom: 0.75rem;
+}
+.history-explanation {
+  margin-bottom: 0.75rem;
+}
+.history-explanation[open] > p:first-of-type {
+  margin-top: 0.75rem;
+}
+@media (max-width: 600px) {
+  .app-navigation {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.45rem 0.75rem;
+  }
+  .app-navigation .app-brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .app-navigation .primary-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    grid-template-columns: 0.9fr 0.9fr 1.2fr;
+  }
+  .app-navigation .primary-nav button {
+    overflow-wrap: normal;
+  }
+  .app-brand h1 {
+    font-size: 1rem;
+  }
+  .help-full {
+    display: none;
+  }
+  .help-short {
+    display: inline;
+  }
+  .help-menu {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+  }
+  .help-menu > nav {
+    left: auto;
+    right: 0;
+    width: min(21rem, calc(100vw - 24px));
+  }
+  .class-picker {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    padding: 0;
+    border: 0;
+  }
+  .class-picker label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .class-overview {
+    padding-bottom: 0.65rem;
+  }
+  .class-overview:not(.is-archived) .eyebrow {
+    display: none;
+  }
+  .class-overview h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+  }
+  .class-overview .section-heading > div > p:last-child {
+    font-size: 0.75rem;
+  }
+  .workspace-toolbar {
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.65rem;
+  }
+  .workspace-toolbar .view-tabs {
+    display: none;
+  }
+  .mobile-view-picker {
+    display: block;
+    flex: 1;
+    min-width: 0;
+  }
+  .mobile-view-picker select {
+    width: 100%;
+    font-size: 0.85rem;
+  }
+  .report-menu > summary {
+    font-size: 0.78rem;
+    padding-inline: 0.4rem;
+    white-space: nowrap;
+  }
+  .class-table > h2 {
+    margin-bottom: 0.35rem;
+  }
+  .table-options > summary {
+    padding-inline: 0;
+  }
+  .class-table .table-pagination {
+    margin-block: 0.65rem;
+    gap: 0.4rem 0.75rem;
+  }
+  .person-navigation {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    margin-bottom: 0.75rem;
+  }
+  .person-navigation select {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .person-navigation button {
+    font-size: 1rem;
+  }
+  .grading-panel h3 {
+    font-size: 1.6rem;
+  }
+  .assessment-context {
+    padding-block: 0.6rem;
+  }
+  .assessment-header progress {
+    margin-block: 0.35rem;
+  }
+  .person-context {
+    gap: 0.15rem 0.5rem;
+  }
+  .save-status {
+    margin-top: 0.3rem;
+  }
+  .grading-panel fieldset {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+  }
+  .rating-grid {
+    gap: 0.35rem;
+  }
+  .rating-grid button.rating-option {
+    padding: 0.4rem 0.5rem;
+    gap: 0.1rem 0.5rem;
+    min-height: 56px;
+  }
+  .rating-grid button.rating-option > strong {
+    font-size: 1.5rem;
+  }
+  .rating-grid button.rating-option .rating-result b {
+    font-size: 1.15rem;
+  }
+  .assessment-back {
+    margin-bottom: 0.25rem;
+  }
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+.assessment-person {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 1rem;
+}
+@media (max-width: 600px) {
+  .assessment-person {
+    gap: 0.1rem 0.75rem;
+  }
+  .assessment-person .observation-status {
+    font-size: 0.7rem;
+  }
+}

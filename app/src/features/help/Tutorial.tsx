@@ -75,15 +75,15 @@ const steps: readonly Step[] = [
     action: "lesson-left",
   },
   {
-    target: '[data-tour="view-tabelle"]',
+    target: '[data-tour="view-tabelle"], [data-tour="view-select"]',
     title: "Öffne die Stundentabelle",
-    text: "Klicke auf „Tabelle“. Dort stehen die Einträge aller Personen nebeneinander. Excel und CSV kannst du in der Klassenübersicht ebenfalls herunterladen.",
+    text: "Wähle „Tabelle“ in den Klassenansichten. Dort stehen die Einträge aller Personen nebeneinander. Excel und CSV kannst du in der Klassenübersicht ebenfalls herunterladen.",
     action: "view-tabelle",
   },
   {
-    target: '[data-tour="view-verlauf"]',
+    target: '[data-tour="view-verlauf"], [data-tour="view-select"]',
     title: "Sieh dir den Verlauf an",
-    text: "Klicke auf „Verlauf“. Er zeigt den berechneten Stand über die Stunden. Abwesenheit, fehlende Beobachtung und offene Einträge erhalten eigene Markierungen.",
+    text: "Wähle „Verlauf“ in den Klassenansichten. Er zeigt den berechneten Stand über die Stunden. Abwesenheit, fehlende Beobachtung und offene Einträge erhalten eigene Markierungen.",
     action: "view-verlauf",
   },
   {
