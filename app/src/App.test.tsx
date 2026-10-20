@@ -1222,3 +1222,29 @@ it("erhält Tabellenmodus und Größe nach Ansichtswechsel und erneutem Öffnen"
   await user.click(link);
   expect(screen.getByRole("heading", { name: "Datensicherung" })).toBeTruthy();
 });
+
+it("erstellt zuerst eine leere Demo und ergänzt danach auf Wunsch fünf Wochen", async () => {
+  const user = userEvent.setup();
+  const { repository } = makeApp();
+  await user.click(
+    screen.getByRole("button", {
+      name: "Demo-Klasse mit fiktiven Namen anlegen",
+    }),
+  );
+  expect(repository.load().classes[0].sessions).toHaveLength(0);
+  await user.click(
+    screen.getByRole("button", { name: "Demowerte für fünf Wochen erstellen" }),
+  );
+  const group = repository.load().classes[0];
+  expect(group.demoDataGenerated).toBe(true);
+  expect(group.sessions).toHaveLength(25);
+  expect(
+    screen.queryByRole("button", {
+      name: "Demowerte für fünf Wochen erstellen",
+    }),
+  ).toBeNull();
+  await user.click(screen.getByRole("button", { name: "Tabelle" }));
+  expect(screen.getAllByTitle("Abwesend").length).toBeGreaterThan(0);
+  expect(screen.getAllByTitle("Nicht beobachtet").length).toBeGreaterThan(0);
+  expect(screen.getAllByTitle("Offen").length).toBeGreaterThan(0);
+});

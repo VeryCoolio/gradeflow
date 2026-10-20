@@ -11,6 +11,8 @@ export interface StudentRecord {
 }
 
 export interface ClassRecord {
+  readonly demo?: true;
+  readonly demoDataGenerated?: true;
   readonly id: string;
   readonly name: string;
   readonly periodLabel: string;
@@ -80,6 +82,13 @@ export function assertNotebook(value: unknown): asserts value is NotebookV1 {
     assertText(classValue.id, "Klassen-ID");
     assertText(classValue.name, "Klassenname");
     assertText(classValue.periodLabel, "Bewertungszeitraum");
+    if (
+      (classValue.demo !== undefined && classValue.demo !== true) ||
+      (classValue.demoDataGenerated !== undefined &&
+        (classValue.demoDataGenerated !== true || classValue.demo !== true))
+    ) {
+      throw new RangeError("Ungültige Demo-Kennzeichnung.");
+    }
     assertTimestamp(classValue.createdAt, "Erstellungszeit der Klasse");
     assertTimestamp(classValue.updatedAt, "Änderungszeit der Klasse");
     if (typeof classValue.archived !== "boolean") {

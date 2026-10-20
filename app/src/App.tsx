@@ -26,7 +26,7 @@ import {
   setClassArchived,
   updateClassDetails,
 } from "./application/classService";
-import { addDemoClass } from "./application/demoClass";
+import { addDemoClass, populateDemoWeeks } from "./application/demoClass";
 import { type Observation } from "./domain/grading/types";
 import { buildClassReport } from "./application/reporting";
 import type { LessonSession } from "./domain/sessions/types";
@@ -278,6 +278,17 @@ export function App({
       setPage("klasse");
       startingRef.current = false;
     }
+  }
+
+  function populateDemo() {
+    if (!currentClass) return;
+    apply(
+      () =>
+        localRepository.update((current) =>
+          populateDemoWeeks(current, currentClass.id, today(), createId, now()),
+        ),
+      "25 fiktive Stunden für fünf Beispielwochen lokal gespeichert. Tabelle und Verlauf zeigen jetzt die Demowerte.",
+    );
   }
 
   function chooseClass(classId: string) {
@@ -872,6 +883,7 @@ export function App({
               error={error}
               exporting={exporting}
               actions={{
+                populateDemo,
                 saveDetails,
                 saveStudentName,
                 archiveClass,

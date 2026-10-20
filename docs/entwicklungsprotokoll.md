@@ -260,3 +260,7 @@ Numerische Einzahl-/Mehrzahlformen vereinheitlicht und den unbeholfenen Satz zur
 - Zusätzliche Sichtprüfung bei 320 Pixeln und 200 Prozent Schrift deckte Überlappungen auf; flexible Navigation und Überschriftenumbruch korrigiert. Fehlermeldung erhält Abstand zum Absenden. Ein ergänzter B01-Test verhindert eine unpassende Speicherbestätigung nach Rückkehr zur fehlgeschlagenen Eingabe; zuerst rot, danach grün und am aktuellen Build bestätigt.
 - Excel-Original unabhängig gelesen und gerendert, lange Texte/Datentypen/Linkziele geprüft. Native Excel-Sichtprüfung wegen fehlender Computerfreigabe blockiert, ausdrücklich nicht als bestanden gewertet. [Abschluss und Nachweise](reparaturen-2026-10-20/abschluss.md).
 - Historische Referenzen und Fachregeln erhalten. Kein manueller Hosting-Deploy; Commit/Push gemäß dauerhafter Nutzeranweisung.
+
+### 20.10.2026 – Personalisierung, Schritt 1: fünf Demo-Wochen
+
+Leere Demo bleibt der erste Schritt. In der angelegten Demo erzeugt eine eigene Aktion 25 fiktive Stunden vor aktuellen/vorhandenen Terminen, mit allen fünf Symbolen, AW/NB/Offen. Bestehende Stunden bleiben unverändert; erneutes Füllen wird verhindert. Optionale geprüfte Demo-Metadaten in Schema 1, ältere unveränderte Demo erkennbar. Anwendungsfall und UI geprüft; Demo-/App-Tests, Typecheck und Lint bestanden.

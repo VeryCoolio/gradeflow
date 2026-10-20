@@ -1,3 +1,4 @@
+import { isDemoClass } from "../../application/demoClass";
 import { countLabel } from "../../application/countLabel";
 import {
   useCallback,
@@ -51,6 +52,7 @@ interface Props {
   error: string;
   exporting: boolean;
   actions: {
+    populateDemo: () => void;
     saveDetails: (name: string, period: string) => boolean;
     saveStudentName: (id: string, name: string) => boolean;
     archiveClass: () => void;
@@ -457,6 +459,37 @@ export function ClassWorkspace({
         </section>
       ) : null}
 
+      {dashboardView === "stunden" && isDemoClass(currentClass) ? (
+        <section className="card demo-values">
+          <h2>Demo-Werte</h2>
+          {currentClass.demoDataGenerated && currentClass.sessions.length ? (
+            <p role="status">
+              Die Beispielwochen wurden hinzugefügt. Schau sie dir in Tabelle
+              und Verlauf an.
+            </p>
+          ) : (
+            <>
+              <p>
+                Ergänze fünf Beispielwochen mit je fünf Stunden (Montag bis
+                Freitag): alle Bewertungssymbole, Abwesenheit, „Nicht
+                beobachtet“ und offene Einträge.
+              </p>
+              <p className="muted">
+                Die 25 fiktiven Stunden liegen vor dieser Woche bzw. vor deinen
+                vorhandenen Stunden. Deine bisherigen Eingaben bleiben erhalten.
+              </p>
+              <button
+                type="button"
+                className="primary"
+                disabled={!canWrite || currentClass.archived}
+                onClick={actions.populateDemo}
+              >
+                Demowerte für fünf Wochen erstellen
+              </button>
+            </>
+          )}
+        </section>
+      ) : null}
       {dashboardView === "stunden" ? (
         <section className="card">
           <h2>Unterrichtsstunden</h2>
