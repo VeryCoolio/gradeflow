@@ -273,3 +273,9 @@ Leere Demo bleibt der erste Schritt. In der angelegten Demo erzeugt eine eigene 
 - Änderung: App-Stand auf Commit `2a429eaf96894f852be9f9761ee07547102a05d4` festgelegt, vier fiktive Personen als feste Importdatei und fünf Aufgaben für Import, Erfassung, Wiederaufnahme, Korrektur, Verlauf und Exporte. Einheitlicher Erstbesuch und kurzes Beobachtungsprotokoll beschrieben.
 - Historische Testanleitung 0.5.0 unverändert kopiert; Links im README und historischen Migrationsstand angepasst. Keine App- oder Fachregeländerung und kein Deployment.
 - Prüfung: Formatierung der geänderten Markdown-Dateien, interne Dateilinks, CSV-Spalten/Namen und unverändertes historisches Original geprüft; `git diff --check`. Kein erneuter App-Testlauf für reine Dokumentation. Der Probelauf auf der tatsächlichen Testadresse bleibt vor Erhebungsbeginn erforderlich.
+
+### 26.10.2026 – Benutzertest-Unterlagen fertiggestellt
+
+- Arbeitsauftrag auf zwölf einzeln nummerierte Aufgaben und vier kurze Rückmeldethemen reduziert. Import, zwei Bewertungen, Wiederöffnen, manuelle Klasse, Nachtrag, Korrektur, Umbenennung, Excel-Bericht und Demo abgedeckt; keine JSON- oder CSV-Exportaufgabe.
+- Einseitiger Arbeitsauftrag, zweiseitiger Beobachtungsbogen und XLSX-Importdatei mit vier fiktiven Personen ergänzt. Aktuelle Anleitung angeglichen; historische Anleitung unverändert.
+- Prüfung: alle finalen PDF-Seiten gerendert und visuell kontrolliert; Seitenzahlen und Inhalte geprüft. XLSX mit tatsächlicher Gradeflow-Importfunktion erfolgreich eingelesen. Keine App-Änderung, kein Deployment und keine neue Prüfung der tatsächlichen Testadresse.
