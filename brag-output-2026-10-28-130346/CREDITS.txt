@@ -1,0 +1,12 @@
+Gradeflow – Erklärung mit Florian, 28.10.2026
+
+Anwendung: Gradeflow 0.10.0, App-Stand 2a429ea; ausschließlich fiktive Beispieldaten.
+Lokale Videoproduktion: Brag, Hyperframes 0.8.207, GSAP 3.15.0 und FFmpeg.
+Deutsche synthetische Sprecherstimme: Microsoft Edge online read-aloud, de-DE-FlorianMultilingualNeural. Auf Wunsch des Nutzers nach Hörproben gewählt. Erzeugt über edge-tts 7.3.1; keine benannte ChatGPT-Stimme kopiert. Der Sprachdienst arbeitet online, der Videoschnitt lokal. Keine Stimmenmodelle oder Programmpakete mitgeliefert.
+Zeitsteuerung: native WordBoundary-Metadaten der Aufnahme. Zusätzliche Textkontrolle: Whisper small lokal und offline; kein externer Transkriptionsdienst.
+Instrumentalmusik: eigenständig lokal synthetisiert, keine übernommene Musikaufnahme.
+Geräusche: Kenney Interface/Impact, CC0, aus den Brag-Assets.
+Schriften: Manrope und Instrument Serif, SIL Open Font License; Lizenzdateien beiliegend.
+Animationsbibliothek: GSAP, Lizenz im Header der lokal eingebundenen Datei.
+Reale App-Abbildungen und schematische Rechenbeispiele; private BA und Vorgängerfassungen unverändert.
+Keine kostenpflichtigen API-Aufrufe, zusätzlichen Abos oder Ausgaben.

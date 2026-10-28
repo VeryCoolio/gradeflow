@@ -1,0 +1,997 @@
+{
+  "date": "2026-10-28",
+  "title": "Gradeflow – Erklärung mit Florian",
+  "duration_seconds": 108.0,
+  "user_maximum_seconds": 120,
+  "app_version": "0.10.0",
+  "app_source_commit": "2a429ea",
+  "application_code_changed": false,
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": "30/1",
+    "frames": 3240,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "bytes": 11645446,
+    "sha256": "4b2b1a1a021f82bc5c90debd2bd64c5e160ecddd194295a07f23eafb5e0bc46a"
+  },
+  "audio": {
+    "codec": "aac",
+    "channels": 2,
+    "sample_rate_hz": 48000,
+    "voice": "de-DE-FlorianMultilingualNeural",
+    "rate": "+5%",
+    "pitch": "+0Hz",
+    "native_speech_duration_seconds": 102.21600000000001,
+    "artificial_acceleration_or_pause_shortening": false,
+    "online_synthesis": true,
+    "local_editing": true,
+    "ebu_r128_summary": "Summary:\n\n  Integrated loudness:\n    I:         -16.2 LUFS\n    Threshold: -27.0 LUFS\n\n  Loudness range:\n    LRA:         2.4 LU\n    Threshold: -37.0 LUFS\n    LRA low:   -18.2 LUFS\n    LRA high:  -15.9 LUFS\n\n  True peak:\n    Peak:       -2.1 dBFS\n[out#0/null @ 0x137106000] video:1342KiB audio:20250KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown\nframe= 3240 fps=1325 q=-0.0 Lsize=N/A time=00:01:48.00 bitrate=N/A speed=44.2x elapsed=0:00:02.44",
+    "click_synced_to_visible_action_seconds": 26.466
+  },
+  "browser_gate": {
+    "passed": true,
+    "browser_skipped": false,
+    "requested_proof_times": 67,
+    "groups": {
+      "lint": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0
+      },
+      "runtime": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0
+      },
+      "layout": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0
+      },
+      "motion": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0
+      },
+      "contrast": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0
+      },
+      "craft": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 24,
+        "infoCount": 0
+      },
+      "audio": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0
+      }
+    },
+    "reviewed_advisory_findings": {
+      "count": 24,
+      "codes": {
+        "text_below_floor": 11,
+        "line_unread": 13
+      },
+      "decision": "Existing secondary labels and brand metadata retain the accepted visual size. Short kinetic captions intentionally follow the actual spoken rhythm, rather than silent-reading timing. All scene layouts and long caption groups were visually reviewed. These are advisory craft warnings; no layout/runtime/motion/contrast/audio errors.",
+      "findings": [
+        {
+          "code": "text_below_floor",
+          "severity": "warning",
+          "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 4 text elements stay under it for 0.5 s or more, the smallest \"Echte App · Fiktive Beispieldaten · S...\" at 16 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+          "text": "Echte App · Fiktive Beispieldaten · Schematische Rechenbeispiele",
+          "selector": "div.footer > span:nth-of-type(1)",
+          "dataAttributes": {},
+          "sourceFile": "index.html",
+          "bbox": {
+            "x": 88,
+            "y": 1034,
+            "width": 478.45,
+            "height": 22
+          },
+          "time": 0,
+          "times": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fontPx": 16,
+          "floorPx": 28,
+          "seconds": 108,
+          "elements": [
+            {
+              "selector": "div.footer > span:nth-of-type(1)",
+              "text": "Echte App · Fiktive Beispieldaten · Schematische Rechenbeispiele",
+              "fontPx": 16,
+              "time": 0,
+              "seconds": 108
+            },
+            {
+              "selector": "div.footer > span:nth-of-type(2)",
+              "text": "So funktioniert Gradeflow",
+              "fontPx": 16,
+              "time": 0,
+              "seconds": 108
+            },
+            {
+              "selector": "div.top-meta",
+              "text": "VERSTEHEN · ANWENDEN · NACHVOLLZIEHEN",
+              "fontPx": 17,
+              "time": 0,
+              "seconds": 108
+            },
+            {
+              "selector": "div.brand > b:nth-of-type(1)",
+              "text": "G",
+              "fontPx": 23,
+              "time": 0,
+              "seconds": 108
+            }
+          ]
+        },
+        {
+          "code": "text_below_floor",
+          "severity": "warning",
+          "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"MÜNDLICHE MITARBEIT\" renders at 20 px for 8.29 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+          "text": "MÜNDLICHE MITARBEIT",
+          "selector": "#gf-hook > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "dataAttributes": {},
+          "sourceFile": "compositions/hook.html",
+          "bbox": {
+            "x": 94.91,
+            "y": 252,
+            "width": 269.1,
+            "height": 27
+          },
+          "time": 0.18,
+          "times": [
+            0.18
+          ],
+          "fontPx": 20,
+          "floorPx": 28,
+          "seconds": 8.294,
+          "elements": [
+            {
+              "selector": "#gf-hook > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "text": "MÜNDLICHE MITARBEIT",
+              "fontPx": 20,
+              "time": 0.18,
+              "seconds": 8.294
+            }
+          ]
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"Mit Gradeflow hältst du deine\" (5 words) is on screen 1.43 s (±0.01 s), under its 1.50 s floor: hold it about 0.5 s + 0.3 s a word (2.00 s here) before it leaves or changes; see references/motion.md.",
+          "text": "Mit Gradeflow hältst du deine",
+          "selector": "#gf-hook-cap-2",
+          "dataAttributes": {},
+          "sourceFile": "compositions/hook.html",
+          "bbox": {
+            "x": 558.16,
+            "y": 899,
+            "width": 801.15,
+            "height": 77.59999999999991
+          },
+          "time": 3.572,
+          "words": 5,
+          "seconds": 1.431,
+          "floorSeconds": 1.5
+        },
+        {
+          "code": "text_below_floor",
+          "severity": "warning",
+          "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 3 text elements stay under it for 0.5 s or more, the smallest \"VERBESSERUNG\" at 20 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+          "text": "VERBESSERUNG",
+          "selector": "#start-one > span:nth-of-type(1)",
+          "dataAttributes": {},
+          "sourceFile": "compositions/start.html",
+          "bbox": {
+            "x": 1576.63,
+            "y": 353.04,
+            "width": 171.74,
+            "height": 26.5
+          },
+          "time": 13.523,
+          "times": [
+            8.654,
+            8.835,
+            13.523
+          ],
+          "fontPx": 19.88,
+          "floorPx": 28,
+          "seconds": 8.654,
+          "elements": [
+            {
+              "selector": "#start-one > span:nth-of-type(1)",
+              "text": "VERBESSERUNG",
+              "fontPx": 19.88,
+              "time": 13.523,
+              "seconds": 8.654
+            },
+            {
+              "selector": "#gf-start > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "text": "WARUM BEI 2,00 BEGINNEN?",
+              "fontPx": 20,
+              "time": 8.654,
+              "seconds": 13.523
+            },
+            {
+              "selector": "#start-two > span:nth-of-type(1)",
+              "text": "GEMEINSAMER STARTWERT",
+              "fontPx": 22.47,
+              "time": 8.835,
+              "seconds": 13.342
+            }
+          ]
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"Die Zwei ist also ein gemeinsamer\" (6 words) is on screen 1.60 s (±0.01 s), under its 1.72 s floor: hold it about 0.5 s + 0.3 s a word (2.30 s here) before it leaves or changes; see references/motion.md.",
+          "text": "Die Zwei ist also ein gemeinsamer",
+          "selector": "#gf-start-cap-5",
+          "dataAttributes": {},
+          "sourceFile": "compositions/start.html",
+          "bbox": {
+            "x": 491.07,
+            "y": 887.82,
+            "width": 931.0600000000002,
+            "height": 87.38
+          },
+          "time": 17.568,
+          "words": 6,
+          "seconds": 1.6,
+          "floorSeconds": 1.725
+        },
+        {
+          "code": "text_below_floor",
+          "severity": "warning",
+          "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"DIE GANZE STUNDE EINSCHÄTZEN\" renders at 20 px for 10.10 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+          "text": "DIE GANZE STUNDE EINSCHÄTZEN",
+          "selector": "#gf-rating > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "dataAttributes": {},
+          "sourceFile": "compositions/rating.html",
+          "bbox": {
+            "x": 102.34,
+            "y": 225,
+            "width": 394.27,
+            "height": 27
+          },
+          "time": 22.177,
+          "times": [
+            22.177
+          ],
+          "fontPx": 20,
+          "floorPx": 28,
+          "seconds": 10.096,
+          "elements": [
+            {
+              "selector": "#gf-rating > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "text": "DIE GANZE STUNDE EINSCHÄTZEN",
+              "fontPx": 20,
+              "time": 22.177,
+              "seconds": 10.096
+            }
+          ]
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"Nach jeder Stunde schätzt du die\" (6 words) is on screen 1.34 s (±0.01 s), under its 1.72 s floor: hold it about 0.5 s + 0.3 s a word (2.30 s here) before it leaves or changes; see references/motion.md.",
+          "text": "Nach jeder Stunde schätzt du die",
+          "selector": "#gf-rating-cap-0",
+          "dataAttributes": {},
+          "sourceFile": "compositions/rating.html",
+          "bbox": {
+            "x": 493.36,
+            "y": 889.16,
+            "width": 923.41,
+            "height": 86.05000000000007
+          },
+          "time": 22.267,
+          "words": 6,
+          "seconds": 1.341,
+          "floorSeconds": 1.725
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"Ein Plus heißt:\" (3 words) is on screen 0.80 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+          "text": "Ein Plus heißt:",
+          "selector": "#gf-rating-cap-2",
+          "dataAttributes": {},
+          "sourceFile": "compositions/rating.html",
+          "bbox": {
+            "x": 766.57,
+            "y": 906.2,
+            "width": 386.7499999999999,
+            "height": 71.89999999999998
+          },
+          "time": 25.772,
+          "words": 3,
+          "seconds": 0.8,
+          "floorSeconds": 1.05
+        },
+        {
+          "code": "text_below_floor",
+          "severity": "warning",
+          "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 6 text elements stay under it for 0.5 s or more, the smallest \"Zahlenwert\" at 20 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+          "text": "Zahlenwert",
+          "selector": "#step-3 > small:nth-of-type(1)",
+          "dataAttributes": {},
+          "sourceFile": "compositions/steps.html",
+          "bbox": {
+            "x": 1441.36,
+            "y": 456.69,
+            "width": 104.47,
+            "height": 27.11
+          },
+          "time": 32.995,
+          "times": [
+            32.274,
+            32.634,
+            32.815,
+            32.995,
+            32.995,
+            33.175
+          ],
+          "fontPx": 19.88,
+          "floorPx": 28,
+          "seconds": 11.359,
+          "elements": [
+            {
+              "selector": "#step-3 > small:nth-of-type(1)",
+              "text": "Zahlenwert",
+              "fontPx": 19.88,
+              "time": 32.995,
+              "seconds": 11.359
+            },
+            {
+              "selector": "#gf-steps > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "text": "KLEINE SCHRITTE STATT SPRÜNGE",
+              "fontPx": 20,
+              "time": 32.274,
+              "seconds": 12.08
+            },
+            {
+              "selector": "#step-0 > small:nth-of-type(1)",
+              "text": "Zahlenwert",
+              "fontPx": 20.84,
+              "time": 32.634,
+              "seconds": 11.72
+            },
+            {
+              "selector": "#step-4 > small:nth-of-type(1)",
+              "text": "Zahlenwert",
+              "fontPx": 21.01,
+              "time": 33.175,
+              "seconds": 11.179
+            },
+            {
+              "selector": "#step-1 > small:nth-of-type(1)",
+              "text": "Zahlenwert",
+              "fontPx": 21.25,
+              "time": 32.815,
+              "seconds": 11.539
+            },
+            {
+              "selector": "#step-2 > small:nth-of-type(1)",
+              "text": "unverändert",
+              "fontPx": 21.55,
+              "time": 32.995,
+              "seconds": 11.359
+            }
+          ]
+        },
+        {
+          "code": "text_below_floor",
+          "severity": "warning",
+          "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"WAS PASSIERT BEI 1,00?\" at 20 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+          "text": "WAS PASSIERT BEI 1,00?",
+          "selector": "#gf-buffer > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "dataAttributes": {},
+          "sourceFile": "compositions/buffer.html",
+          "bbox": {
+            "x": 92.53,
+            "y": 225,
+            "width": 283.88,
+            "height": 27
+          },
+          "time": 44.534,
+          "times": [
+            44.534,
+            44.715
+          ],
+          "fontPx": 20,
+          "floorPx": 28,
+          "seconds": 9.916,
+          "elements": [
+            {
+              "selector": "#gf-buffer > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "text": "WAS PASSIERT BEI 1,00?",
+              "fontPx": 20,
+              "time": 44.534,
+              "seconds": 9.916
+            },
+            {
+              "selector": "#buffer-board > div:nth-of-type(1) > p:nth-of-type(1)",
+              "text": "BESTER BERECHNETER STAND",
+              "fontPx": 24.43,
+              "time": 44.715,
+              "seconds": 9.735
+            }
+          ]
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"Puffer auf, mit bis zu drei\" (6 words) is on screen 1.53 s (±0.01 s), under its 1.72 s floor: hold it about 0.5 s + 0.3 s a word (2.30 s here) before it leaves or changes; see references/motion.md.",
+          "text": "Puffer auf, mit bis zu drei",
+          "selector": "#gf-buffer-cap-2",
+          "dataAttributes": {},
+          "sourceFile": "compositions/buffer.html",
+          "bbox": {
+            "x": 603.12,
+            "y": 897.18,
+            "width": 707.8099999999998,
+            "height": 78.96000000000004
+          },
+          "time": 48.636,
+          "words": 6,
+          "seconds": 1.533,
+          "floorSeconds": 1.725
+        },
+        {
+          "code": "text_below_floor",
+          "severity": "warning",
+          "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 4 text elements stay under it for 0.5 s or more, the smallest \"RECHENBEISPIEL MIT ZWEI PUNKTEN\" at 20 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+          "text": "RECHENBEISPIEL MIT ZWEI PUNKTEN",
+          "selector": "#gf-buffer-example > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "dataAttributes": {},
+          "sourceFile": "compositions/buffer-example.html",
+          "bbox": {
+            "x": 92.54,
+            "y": 225,
+            "width": 425.11,
+            "height": 27
+          },
+          "time": 54.631,
+          "times": [
+            54.631,
+            54.631,
+            54.631,
+            62.204
+          ],
+          "fontPx": 20,
+          "floorPx": 28,
+          "seconds": 10.818,
+          "elements": [
+            {
+              "selector": "#gf-buffer-example > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "text": "RECHENBEISPIEL MIT ZWEI PUNKTEN",
+              "fontPx": 20,
+              "time": 54.631,
+              "seconds": 10.818
+            },
+            {
+              "selector": "div.stage-label",
+              "text": "MIT PUFFER",
+              "fontPx": 20,
+              "time": 54.631,
+              "seconds": 7.212
+            },
+            {
+              "selector": "#consume-empty > span:nth-of-type(1)",
+              "text": "BEISPIEL OHNE PUFFER",
+              "fontPx": 23.88,
+              "time": 62.204,
+              "seconds": 3.245
+            },
+            {
+              "selector": "#consume-board > div:nth-of-type(2) > p:nth-of-type(1)",
+              "text": "STAND BLEIBT",
+              "fontPx": 25,
+              "time": 54.631,
+              "seconds": 7.212
+            }
+          ]
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"Dann kommt ein Minus:\" (4 words) is on screen 1.13 s (±0.01 s), under its 1.27 s floor: hold it about 0.5 s + 0.3 s a word (1.70 s here) before it leaves or changes; see references/motion.md.",
+          "text": "Dann kommt ein Minus:",
+          "selector": "#gf-buffer-example-cap-1",
+          "dataAttributes": {},
+          "sourceFile": "compositions/buffer-example.html",
+          "bbox": {
+            "x": 631.91,
+            "y": 888.08,
+            "width": 645.4,
+            "height": 87.12
+          },
+          "time": 57.009,
+          "words": 4,
+          "seconds": 1.127,
+          "floorSeconds": 1.275
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"Erst wenn der Puffer nicht reicht,\" (6 words) is on screen 1.37 s (±0.01 s), under its 1.72 s floor: hold it about 0.5 s + 0.3 s a word (2.30 s here) before it leaves or changes; see references/motion.md.",
+          "text": "Erst wenn der Puffer nicht reicht,",
+          "selector": "#gf-buffer-example-cap-4",
+          "dataAttributes": {},
+          "sourceFile": "compositions/buffer-example.html",
+          "bbox": {
+            "x": 500.25,
+            "y": 891.06,
+            "width": 912.7600000000002,
+            "height": 84.45000000000005
+          },
+          "time": 61.967,
+          "words": 6,
+          "seconds": 1.375,
+          "floorSeconds": 1.725
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"verändert sich der Stand.\" (4 words) is on screen 1.24 s (±0.01 s), under its 1.27 s floor: hold it about 0.5 s + 0.3 s a word (1.70 s here) before it leaves or changes; see references/motion.md.",
+          "text": "verändert sich der Stand.",
+          "selector": "#gf-buffer-example-cap-5",
+          "dataAttributes": {},
+          "sourceFile": "compositions/buffer-example.html",
+          "bbox": {
+            "x": 609.22,
+            "y": 895.15,
+            "width": 689.96,
+            "height": 80.62
+          },
+          "time": 63.601,
+          "words": 4,
+          "seconds": 1.239,
+          "floorSeconds": 1.275
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"Und der Graph?\" (3 words) is on screen 0.94 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+          "text": "Und der Graph?",
+          "selector": "#gf-graph-cap-0",
+          "dataAttributes": {},
+          "sourceFile": "compositions/graph.html",
+          "bbox": {
+            "x": 748.93,
+            "y": 902.07,
+            "width": 420.2900000000001,
+            "height": 75.06999999999994
+          },
+          "time": 65.607,
+          "words": 3,
+          "seconds": 0.936,
+          "floorSeconds": 1.05
+        },
+        {
+          "code": "text_below_floor",
+          "severity": "warning",
+          "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and 2 text elements stay under it for 0.5 s or more, the smallest \"WOZU DER PERSÖNLICHE GRAPH?\" at 20 px: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+          "text": "WOZU DER PERSÖNLICHE GRAPH?",
+          "selector": "#gf-graph > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "dataAttributes": {},
+          "sourceFile": "compositions/graph.html",
+          "bbox": {
+            "x": 92.54,
+            "y": 227,
+            "width": 393.78,
+            "height": 27
+          },
+          "time": 65.629,
+          "times": [
+            65.629,
+            65.629
+          ],
+          "fontPx": 20,
+          "floorPx": 28,
+          "seconds": 11.9,
+          "elements": [
+            {
+              "selector": "#gf-graph > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "text": "WOZU DER PERSÖNLICHE GRAPH?",
+              "fontPx": 20,
+              "time": 65.629,
+              "seconds": 11.9
+            },
+            {
+              "selector": "#graph-date",
+              "text": "Start",
+              "fontPx": 25,
+              "time": 65.629,
+              "seconds": 11.9
+            }
+          ]
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"Er zeigt den berechneten Stand von\" (6 words) is on screen 1.41 s (±0.01 s), under its 1.72 s floor: hold it about 0.5 s + 0.3 s a word (2.30 s here) before it leaves or changes; see references/motion.md.",
+          "text": "Er zeigt den berechneten Stand von",
+          "selector": "#gf-graph-cap-1",
+          "dataAttributes": {},
+          "sourceFile": "compositions/graph.html",
+          "bbox": {
+            "x": 473.58,
+            "y": 898.63,
+            "width": 971.0899999999999,
+            "height": 78.13
+          },
+          "time": 66.869,
+          "words": 6,
+          "seconds": 1.409,
+          "floorSeconds": 1.725
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"Stunde zu Stunde:\" (3 words) is on screen 0.83 s (±0.01 s), under its 1.05 s floor: hold it about 0.5 s + 0.3 s a word (1.40 s here) before it leaves or changes; see references/motion.md.",
+          "text": "Stunde zu Stunde:",
+          "selector": "#gf-graph-cap-2",
+          "dataAttributes": {},
+          "sourceFile": "compositions/graph.html",
+          "bbox": {
+            "x": 695.55,
+            "y": 887.81,
+            "width": 513.53,
+            "height": 87.3900000000001
+          },
+          "time": 68.368,
+          "words": 3,
+          "seconds": 0.834,
+          "floorSeconds": 1.05
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"vom gemeinsamen Startwert bis zu den\" (6 words) is on screen 1.63 s (±0.01 s), under its 1.72 s floor: hold it about 0.5 s + 0.3 s a word (2.30 s here) before it leaves or changes; see references/motion.md.",
+          "text": "vom gemeinsamen Startwert bis zu den",
+          "selector": "#gf-graph-cap-3",
+          "dataAttributes": {},
+          "sourceFile": "compositions/graph.html",
+          "bbox": {
+            "x": 428.74,
+            "y": 906.2,
+            "width": 1062.3700000000001,
+            "height": 71.89999999999998
+          },
+          "time": 69.574,
+          "words": 6,
+          "seconds": 1.634,
+          "floorSeconds": 1.725
+        },
+        {
+          "code": "text_below_floor",
+          "severity": "warning",
+          "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"ABWESENHEIT UND FEHLENDE BEOBACHTUNG\" renders at 20 px for 7.93 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+          "text": "ABWESENHEIT UND FEHLENDE BEOBACHTUNG",
+          "selector": "#gf-status > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "dataAttributes": {},
+          "sourceFile": "compositions/status.html",
+          "bbox": {
+            "x": 94.91,
+            "y": 225,
+            "width": 526.78,
+            "height": 27
+          },
+          "time": 77.71,
+          "times": [
+            77.71
+          ],
+          "fontPx": 20,
+          "floorPx": 28,
+          "seconds": 7.932,
+          "elements": [
+            {
+              "selector": "#gf-status > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "text": "ABWESENHEIT UND FEHLENDE BEOBACHTUNG",
+              "fontPx": 20,
+              "time": 77.71,
+              "seconds": 7.932
+            }
+          ]
+        },
+        {
+          "code": "text_below_floor",
+          "severity": "warning",
+          "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"EINTRÄGE PRÜFEN UND MITNEHMEN\" renders at 20 px for 12.98 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+          "text": "EINTRÄGE PRÜFEN UND MITNEHMEN",
+          "selector": "#gf-records > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+          "dataAttributes": {},
+          "sourceFile": "compositions/records.html",
+          "bbox": {
+            "x": 98.13,
+            "y": 225,
+            "width": 414.75,
+            "height": 27
+          },
+          "time": 85.823,
+          "times": [
+            85.823
+          ],
+          "fontPx": 20,
+          "floorPx": 28,
+          "seconds": 12.981,
+          "elements": [
+            {
+              "selector": "#gf-records > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > p:nth-of-type(1)",
+              "text": "EINTRÄGE PRÜFEN UND MITNEHMEN",
+              "fontPx": 20,
+              "time": 85.823,
+              "seconds": 12.981
+            }
+          ]
+        },
+        {
+          "code": "line_unread",
+          "severity": "warning",
+          "message": "\"Mit dem Excel-Export nimmst du sie\" (7 words) is on screen 1.83 s (±0.01 s), under its 1.95 s floor: hold it about 0.5 s + 0.3 s a word (2.60 s here) before it leaves or changes; see references/motion.md.",
+          "text": "Mit dem Excel-Export nimmst du sie",
+          "selector": "#gf-records-cap-1",
+          "dataAttributes": {},
+          "sourceFile": "compositions/records.html",
+          "bbox": {
+            "x": 466.22,
+            "y": 887.8,
+            "width": 980.8,
+            "height": 87.40000000000009
+          },
+          "time": 88.043,
+          "words": 7,
+          "seconds": 1.826,
+          "floorSeconds": 1.95
+        },
+        {
+          "code": "text_below_floor",
+          "severity": "warning",
+          "message": "Type floor is 28 px (2.6% of the 1080 px short side, what a phone can read) and \"BEOBACHTEN · DOKUMENTIEREN · NACHVOLLZIEHEN\" renders at 20 px for 9.02 s: set reading text to at least 28 px, or put data-layout-ignore on text that is texture rather than reading; see references/look.md.",
+          "text": "BEOBACHTEN · DOKUMENTIEREN · NACHVOLLZIEHEN",
+          "selector": "div.end-copy > p:nth-of-type(1)",
+          "dataAttributes": {},
+          "sourceFile": "compositions/outro.html",
+          "bbox": {
+            "x": 98.12,
+            "y": 220,
+            "width": 604.83,
+            "height": 27
+          },
+          "time": 98.985,
+          "times": [
+            98.985
+          ],
+          "fontPx": 20,
+          "floorPx": 28,
+          "seconds": 9.015,
+          "elements": [
+            {
+              "selector": "div.end-copy > p:nth-of-type(1)",
+              "text": "BEOBACHTEN · DOKUMENTIEREN · NACHVOLLZIEHEN",
+              "fontPx": 20,
+              "time": 98.985,
+              "seconds": 9.015
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "verification": {
+    "full_audio_video_decode_passed": true,
+    "all_ten_mounted_scenes_inspected": true,
+    "full_resolution_screenshots_reviewed": true,
+    "decoded_frame_comparisons": [
+      {
+        "second": 4.62,
+        "mean_absolute_channel_error_255": 0.43121
+      },
+      {
+        "second": 7.9,
+        "mean_absolute_channel_error_255": 0.33833
+      },
+      {
+        "second": 13.5,
+        "mean_absolute_channel_error_255": 0.33539
+      },
+      {
+        "second": 15.917,
+        "mean_absolute_channel_error_255": 0.38279
+      },
+      {
+        "second": 27.603,
+        "mean_absolute_channel_error_255": 0.40902
+      },
+      {
+        "second": 30.5,
+        "mean_absolute_channel_error_255": 0.42125
+      },
+      {
+        "second": 38.843,
+        "mean_absolute_channel_error_255": 0.45561
+      },
+      {
+        "second": 49.87,
+        "mean_absolute_channel_error_255": 0.47474
+      },
+      {
+        "second": 57.7,
+        "mean_absolute_channel_error_255": 0.33292
+      },
+      {
+        "second": 59.2,
+        "mean_absolute_channel_error_255": 0.30269
+      },
+      {
+        "second": 60.45,
+        "mean_absolute_channel_error_255": 0.26055
+      },
+      {
+        "second": 62.8,
+        "mean_absolute_channel_error_255": 0.31263
+      },
+      {
+        "second": 72.073,
+        "mean_absolute_channel_error_255": 0.83786
+      },
+      {
+        "second": 82.007,
+        "mean_absolute_channel_error_255": 0.37553
+      },
+      {
+        "second": 91.96,
+        "mean_absolute_channel_error_255": 0.93398
+      },
+      {
+        "second": 92.908,
+        "mean_absolute_channel_error_255": 0.48193
+      },
+      {
+        "second": 94.595,
+        "mean_absolute_channel_error_255": 0.61136
+      },
+      {
+        "second": 103.875,
+        "mean_absolute_channel_error_255": 0.37709
+      },
+      {
+        "second": 107.9,
+        "mean_absolute_channel_error_255": 0.27884
+      }
+    ],
+    "poster_frame_0_mean_error_255": 1.511253375771605,
+    "poster_baked_into_first_frame": true,
+    "last_frame_nonblank_at_107_9_seconds": true,
+    "all_ten_segments_locally_transcribed_offline": true,
+    "normalized_transcript_minimum_similarity": 1.0,
+    "word_boundary_mapping": "All 259 canonical words match native word-boundary metadata in order",
+    "previous_versions_unchanged": true,
+    "application_tests_rerun": false,
+    "python_ast_syntax_checked": [
+      "prepare_timing.py",
+      "build_film.py",
+      "mix_audio.py",
+      "generate_voice.py",
+      "generate_music.py"
+    ]
+  },
+  "content": {
+    "focus": [
+      "Startwert 2,00",
+      "relative Einschätzung einer ganzen Stunde",
+      "Viertelschritte",
+      "Pufferaufbau und Verbrauch",
+      "persönlicher Graph",
+      "AW/NB",
+      "Tabelle, Excel, Sicherung"
+    ],
+    "research_process_or_usability_scenes": false,
+    "claim_mapping": "inhalt-und-belege.md",
+    "private_manuscript_included": false,
+    "only_fictitious_person_data": true,
+    "pedagogical_effect_claimed": false
+  },
+  "render": {
+    "engine": "Hyperframes 0.8.207",
+    "fps": 30,
+    "final_audio_and_poster_finish": "Local FFmpeg; duration and frame count preserved",
+    "capture": "drawelement",
+    "gpu": "hardware",
+    "main_render_seconds": 118.1
+  },
+  "additional_cost_eur": 0,
+  "paid_api_calls": 0,
+  "limitations": [
+    "Florian was chosen after short samples; the full new performance still awaits the user’s subjective approval of pronunciation, emphasis and naturalness.",
+    "Native word metadata and offline transcription check timing and text, but do not prove perfect humanlike delivery.",
+    "24 advisory craft warnings remain for small secondary labels and fast voice-synchronized captions; inspected and documented above.",
+    "No application test rerun or deployment: the application and grading rules are unchanged."
+  ],
+  "changed_files": [
+    ".gitignore",
+    "docs/entwicklungsprotokoll.md",
+    "brag-output-2026-10-28-130346/CREDITS.txt",
+    "brag-output-2026-10-28-130346/README.md",
+    "brag-output-2026-10-28-130346/audio-mix.json",
+    "brag-output-2026-10-28-130346/brag-plan.md",
+    "brag-output-2026-10-28-130346/brag.jpg",
+    "brag-output-2026-10-28-130346/build_film.py",
+    "brag-output-2026-10-28-130346/composition/AGENTS.md",
+    "brag-output-2026-10-28-130346/composition/CLAUDE.md",
+    "brag-output-2026-10-28-130346/composition/assets/fonts/instrument-serif-OFL.txt",
+    "brag-output-2026-10-28-130346/composition/assets/fonts/instrument-serif.ttf",
+    "brag-output-2026-10-28-130346/composition/assets/fonts/manrope-OFL.txt",
+    "brag-output-2026-10-28-130346/composition/assets/fonts/manrope.ttf",
+    "brag-output-2026-10-28-130346/composition/assets/music/film-mix.mp3",
+    "brag-output-2026-10-28-130346/composition/assets/music/gradeflow-score.mp3",
+    "brag-output-2026-10-28-130346/composition/assets/sfx/click_003.ogg",
+    "brag-output-2026-10-28-130346/composition/assets/sfx/impactSoft_medium_000.ogg",
+    "brag-output-2026-10-28-130346/composition/assets/ui/assessment-before.png",
+    "brag-output-2026-10-28-130346/composition/assets/ui/backup.png",
+    "brag-output-2026-10-28-130346/composition/assets/ui/history-chart.png",
+    "brag-output-2026-10-28-130346/composition/assets/ui/history-status-chart.png",
+    "brag-output-2026-10-28-130346/composition/assets/ui/table.png",
+    "brag-output-2026-10-28-130346/composition/assets/voice/buffer-example.mp3",
+    "brag-output-2026-10-28-130346/composition/assets/voice/buffer.mp3",
+    "brag-output-2026-10-28-130346/composition/assets/voice/graph.mp3",
+    "brag-output-2026-10-28-130346/composition/assets/voice/hook.mp3",
+    "brag-output-2026-10-28-130346/composition/assets/voice/outro.mp3",
+    "brag-output-2026-10-28-130346/composition/assets/voice/rating.mp3",
+    "brag-output-2026-10-28-130346/composition/assets/voice/records.mp3",
+    "brag-output-2026-10-28-130346/composition/assets/voice/start.mp3",
+    "brag-output-2026-10-28-130346/composition/assets/voice/status.mp3",
+    "brag-output-2026-10-28-130346/composition/assets/voice/steps.mp3",
+    "brag-output-2026-10-28-130346/composition/compositions/buffer-example.html",
+    "brag-output-2026-10-28-130346/composition/compositions/buffer.html",
+    "brag-output-2026-10-28-130346/composition/compositions/graph.html",
+    "brag-output-2026-10-28-130346/composition/compositions/hook.html",
+    "brag-output-2026-10-28-130346/composition/compositions/outro.html",
+    "brag-output-2026-10-28-130346/composition/compositions/rating.html",
+    "brag-output-2026-10-28-130346/composition/compositions/records.html",
+    "brag-output-2026-10-28-130346/composition/compositions/start.html",
+    "brag-output-2026-10-28-130346/composition/compositions/status.html",
+    "brag-output-2026-10-28-130346/composition/compositions/steps.html",
+    "brag-output-2026-10-28-130346/composition/hyperframes.json",
+    "brag-output-2026-10-28-130346/composition/index.html",
+    "brag-output-2026-10-28-130346/composition/index.motion.json",
+    "brag-output-2026-10-28-130346/composition/meta.json",
+    "brag-output-2026-10-28-130346/composition/package.json",
+    "brag-output-2026-10-28-130346/composition/prepare_assets.mjs",
+    "brag-output-2026-10-28-130346/composition/style.css",
+    "brag-output-2026-10-28-130346/composition-brief.md",
+    "brag-output-2026-10-28-130346/generate_music.py",
+    "brag-output-2026-10-28-130346/generate_voice.py",
+    "brag-output-2026-10-28-130346/inhalt-und-belege.md",
+    "brag-output-2026-10-28-130346/mix_audio.py",
+    "brag-output-2026-10-28-130346/narration.json",
+    "brag-output-2026-10-28-130346/prepare_timing.py",
+    "brag-output-2026-10-28-130346/pruefung.json",
+    "brag-output-2026-10-28-130346/scene-timing.json",
+    "brag-output-2026-10-28-130346/share-copy.txt",
+    "brag-output-2026-10-28-130346/sprachpruefung.json",
+    "brag-output-2026-10-28-130346/sprechertext.txt",
+    "brag-output-2026-10-28-130346/timing.json",
+    "brag-output-2026-10-28-130346/voice-boundaries.json",
+    "brag-output-2026-10-28-130346/voice-production.json"
+  ]
+}

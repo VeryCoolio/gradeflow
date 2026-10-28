@@ -40,3 +40,11 @@ brag-output-2026-10-28-120220/composition/.thumbnails/
 brag-output-2026-10-28-120220/composition/.waveform-cache/
 brag-output-2026-10-28-120220/composition/renders/
 brag-output-2026-10-28-120220/composition/assets/gsap.min.js
+
+# Florian narration edition: local renders and runtime only
+brag-output-2026-10-28-130346/*.mp4
+brag-output-2026-10-28-130346/composition/.hyperframes/
+brag-output-2026-10-28-130346/composition/.thumbnails/
+brag-output-2026-10-28-130346/composition/.waveform-cache/
+brag-output-2026-10-28-130346/composition/renders/
+brag-output-2026-10-28-130346/composition/assets/gsap.min.js

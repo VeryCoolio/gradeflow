@@ -1,0 +1,2992 @@
+{
+  "duration": 108.0,
+  "scenes": [
+    {
+      "id": "hook",
+      "start": 0,
+      "duration": 8.4,
+      "words": [
+        {
+          "text": "Wie",
+          "start": 0.19,
+          "end": 0.5114
+        },
+        {
+          "text": "entwickelt",
+          "start": 0.5114,
+          "end": 0.9638
+        },
+        {
+          "text": "sich",
+          "start": 0.9638,
+          "end": 1.1662
+        },
+        {
+          "text": "mündliche",
+          "start": 1.1662,
+          "end": 1.6067
+        },
+        {
+          "text": "Mitarbeit",
+          "start": 1.6067,
+          "end": 2.1781
+        },
+        {
+          "text": "über",
+          "start": 2.1781,
+          "end": 2.4043
+        },
+        {
+          "text": "mehrere",
+          "start": 2.4043,
+          "end": 2.809
+        },
+        {
+          "text": "Wochen?",
+          "start": 2.809,
+          "end": 3.2614
+        },
+        {
+          "text": "Mit",
+          "start": 3.5829,
+          "end": 3.8448
+        },
+        {
+          "text": "Gradeflow",
+          "start": 3.8448,
+          "end": 4.4876
+        },
+        {
+          "text": "hältst",
+          "start": 4.4876,
+          "end": 4.7614
+        },
+        {
+          "text": "du",
+          "start": 4.7614,
+          "end": 4.8447
+        },
+        {
+          "text": "deine",
+          "start": 4.8447,
+          "end": 5.0828
+        },
+        {
+          "text": "Einschätzungen",
+          "start": 5.0829,
+          "end": 5.7376
+        },
+        {
+          "text": "für",
+          "start": 5.7376,
+          "end": 5.8924
+        },
+        {
+          "text": "jede",
+          "start": 5.8924,
+          "end": 6.1424
+        },
+        {
+          "text": "Person",
+          "start": 6.1424,
+          "end": 6.6305
+        },
+        {
+          "text": "und",
+          "start": 6.6305,
+          "end": 6.809
+        },
+        {
+          "text": "jede",
+          "start": 6.809,
+          "end": 7.059
+        },
+        {
+          "text": "Stunde",
+          "start": 7.059,
+          "end": 7.3686
+        },
+        {
+          "text": "fest.",
+          "start": 7.3686,
+          "end": 7.809
+        }
+      ],
+      "captions": [
+        {
+          "start": 0.19,
+          "end": 2.1781,
+          "words": [
+            {
+              "text": "Wie",
+              "start": 0.19,
+              "end": 0.5114
+            },
+            {
+              "text": "entwickelt",
+              "start": 0.5114,
+              "end": 0.9638
+            },
+            {
+              "text": "sich",
+              "start": 0.9638,
+              "end": 1.1662
+            },
+            {
+              "text": "mündliche",
+              "start": 1.1662,
+              "end": 1.6067
+            },
+            {
+              "text": "Mitarbeit",
+              "start": 1.6067,
+              "end": 2.1781
+            }
+          ]
+        },
+        {
+          "start": 2.1781,
+          "end": 3.2614,
+          "words": [
+            {
+              "text": "über",
+              "start": 2.1781,
+              "end": 2.4043
+            },
+            {
+              "text": "mehrere",
+              "start": 2.4043,
+              "end": 2.809
+            },
+            {
+              "text": "Wochen?",
+              "start": 2.809,
+              "end": 3.2614
+            }
+          ]
+        },
+        {
+          "start": 3.5829,
+          "end": 5.0828,
+          "words": [
+            {
+              "text": "Mit",
+              "start": 3.5829,
+              "end": 3.8448
+            },
+            {
+              "text": "Gradeflow",
+              "start": 3.8448,
+              "end": 4.4876
+            },
+            {
+              "text": "hältst",
+              "start": 4.4876,
+              "end": 4.7614
+            },
+            {
+              "text": "du",
+              "start": 4.7614,
+              "end": 4.8447
+            },
+            {
+              "text": "deine",
+              "start": 4.8447,
+              "end": 5.0828
+            }
+          ]
+        },
+        {
+          "start": 5.0829,
+          "end": 7.059,
+          "words": [
+            {
+              "text": "Einschätzungen",
+              "start": 5.0829,
+              "end": 5.7376
+            },
+            {
+              "text": "für",
+              "start": 5.7376,
+              "end": 5.8924
+            },
+            {
+              "text": "jede",
+              "start": 5.8924,
+              "end": 6.1424
+            },
+            {
+              "text": "Person",
+              "start": 6.1424,
+              "end": 6.6305
+            },
+            {
+              "text": "und",
+              "start": 6.6305,
+              "end": 6.809
+            },
+            {
+              "text": "jede",
+              "start": 6.809,
+              "end": 7.059
+            }
+          ]
+        },
+        {
+          "start": 7.059,
+          "end": 7.809,
+          "words": [
+            {
+              "text": "Stunde",
+              "start": 7.059,
+              "end": 7.3686
+            },
+            {
+              "text": "fest.",
+              "start": 7.3686,
+              "end": 7.809
+            }
+          ]
+        }
+      ],
+      "voice_start": 0.14,
+      "voice_duration": 7.992
+    },
+    {
+      "id": "start",
+      "start": 8.4,
+      "duration": 13.666666666666666,
+      "words": [
+        {
+          "text": "Warum",
+          "start": 0.19,
+          "end": 0.571
+        },
+        {
+          "text": "starten",
+          "start": 0.571,
+          "end": 1.059
+        },
+        {
+          "text": "alle",
+          "start": 1.059,
+          "end": 1.2852
+        },
+        {
+          "text": "bei",
+          "start": 1.2853,
+          "end": 1.4638
+        },
+        {
+          "text": "zwei",
+          "start": 1.4638,
+          "end": 1.7376
+        },
+        {
+          "text": "Komma",
+          "start": 1.7376,
+          "end": 1.9757
+        },
+        {
+          "text": "null?",
+          "start": 1.9757,
+          "end": 2.3447
+        },
+        {
+          "text": "Ein",
+          "start": 2.6656,
+          "end": 2.9156
+        },
+        {
+          "text": "positiver",
+          "start": 2.9156,
+          "end": 3.4989
+        },
+        {
+          "text": "Ausgangspunkt",
+          "start": 3.4989,
+          "end": 4.2846
+        },
+        {
+          "text": "lässt",
+          "start": 4.2965,
+          "end": 4.5465
+        },
+        {
+          "text": "Raum",
+          "start": 4.5465,
+          "end": 4.7965
+        },
+        {
+          "text": "für",
+          "start": 4.7965,
+          "end": 4.9513
+        },
+        {
+          "text": "Verbesserungen.",
+          "start": 4.9513,
+          "end": 5.7251
+        },
+        {
+          "text": "Bei",
+          "start": 6.0805,
+          "end": 6.2709
+        },
+        {
+          "text": "einer",
+          "start": 6.271,
+          "end": 6.5329
+        },
+        {
+          "text": "Eins",
+          "start": 6.5329,
+          "end": 6.8781
+        },
+        {
+          "text": "wäre",
+          "start": 6.8781,
+          "end": 7.1162
+        },
+        {
+          "text": "dieser",
+          "start": 7.1162,
+          "end": 7.3543
+        },
+        {
+          "text": "Spielraum",
+          "start": 7.3543,
+          "end": 7.8781
+        },
+        {
+          "text": "schon",
+          "start": 7.8781,
+          "end": 8.0924
+        },
+        {
+          "text": "ausgeschöpft.",
+          "start": 8.0924,
+          "end": 8.8424
+        },
+        {
+          "text": "Die",
+          "start": 9.1656,
+          "end": 9.356
+        },
+        {
+          "text": "Zwei",
+          "start": 9.3561,
+          "end": 9.7251
+        },
+        {
+          "text": "ist",
+          "start": 9.7251,
+          "end": 9.9156
+        },
+        {
+          "text": "also",
+          "start": 9.9156,
+          "end": 10.1656
+        },
+        {
+          "text": "ein",
+          "start": 10.1656,
+          "end": 10.2965
+        },
+        {
+          "text": "gemeinsamer",
+          "start": 10.2965,
+          "end": 10.868
+        },
+        {
+          "text": "Startwert",
+          "start": 10.868,
+          "end": 11.4751
+        },
+        {
+          "text": "und",
+          "start": 11.4751,
+          "end": 11.6537
+        },
+        {
+          "text": "noch",
+          "start": 11.6537,
+          "end": 11.8204
+        },
+        {
+          "text": "keine",
+          "start": 11.8204,
+          "end": 12.118
+        },
+        {
+          "text": "bewertete",
+          "start": 12.118,
+          "end": 12.606
+        },
+        {
+          "text": "Stunde.",
+          "start": 12.6061,
+          "end": 13.0823
+        }
+      ],
+      "captions": [
+        {
+          "start": 0.19,
+          "end": 2.3447,
+          "words": [
+            {
+              "text": "Warum",
+              "start": 0.19,
+              "end": 0.571
+            },
+            {
+              "text": "starten",
+              "start": 0.571,
+              "end": 1.059
+            },
+            {
+              "text": "alle",
+              "start": 1.059,
+              "end": 1.2852
+            },
+            {
+              "text": "bei",
+              "start": 1.2853,
+              "end": 1.4638
+            },
+            {
+              "text": "2,00?",
+              "start": 1.4638,
+              "end": 2.3447
+            }
+          ]
+        },
+        {
+          "start": 2.6656,
+          "end": 4.9513,
+          "words": [
+            {
+              "text": "Ein",
+              "start": 2.6656,
+              "end": 2.9156
+            },
+            {
+              "text": "positiver",
+              "start": 2.9156,
+              "end": 3.4989
+            },
+            {
+              "text": "Ausgangspunkt",
+              "start": 3.4989,
+              "end": 4.2846
+            },
+            {
+              "text": "lässt",
+              "start": 4.2965,
+              "end": 4.5465
+            },
+            {
+              "text": "Raum",
+              "start": 4.5465,
+              "end": 4.7965
+            },
+            {
+              "text": "für",
+              "start": 4.7965,
+              "end": 4.9513
+            }
+          ]
+        },
+        {
+          "start": 4.9513,
+          "end": 5.7251,
+          "words": [
+            {
+              "text": "Verbesserungen.",
+              "start": 4.9513,
+              "end": 5.7251
+            }
+          ]
+        },
+        {
+          "start": 6.0805,
+          "end": 7.8781,
+          "words": [
+            {
+              "text": "Bei",
+              "start": 6.0805,
+              "end": 6.2709
+            },
+            {
+              "text": "einer",
+              "start": 6.271,
+              "end": 6.5329
+            },
+            {
+              "text": "Eins",
+              "start": 6.5329,
+              "end": 6.8781
+            },
+            {
+              "text": "wäre",
+              "start": 6.8781,
+              "end": 7.1162
+            },
+            {
+              "text": "dieser",
+              "start": 7.1162,
+              "end": 7.3543
+            },
+            {
+              "text": "Spielraum",
+              "start": 7.3543,
+              "end": 7.8781
+            }
+          ]
+        },
+        {
+          "start": 7.8781,
+          "end": 8.8424,
+          "words": [
+            {
+              "text": "schon",
+              "start": 7.8781,
+              "end": 8.0924
+            },
+            {
+              "text": "ausgeschöpft.",
+              "start": 8.0924,
+              "end": 8.8424
+            }
+          ]
+        },
+        {
+          "start": 9.1656,
+          "end": 10.868,
+          "words": [
+            {
+              "text": "Die",
+              "start": 9.1656,
+              "end": 9.356
+            },
+            {
+              "text": "Zwei",
+              "start": 9.3561,
+              "end": 9.7251
+            },
+            {
+              "text": "ist",
+              "start": 9.7251,
+              "end": 9.9156
+            },
+            {
+              "text": "also",
+              "start": 9.9156,
+              "end": 10.1656
+            },
+            {
+              "text": "ein",
+              "start": 10.1656,
+              "end": 10.2965
+            },
+            {
+              "text": "gemeinsamer",
+              "start": 10.2965,
+              "end": 10.868
+            }
+          ]
+        },
+        {
+          "start": 10.868,
+          "end": 13.0823,
+          "words": [
+            {
+              "text": "Startwert",
+              "start": 10.868,
+              "end": 11.4751
+            },
+            {
+              "text": "und",
+              "start": 11.4751,
+              "end": 11.6537
+            },
+            {
+              "text": "noch",
+              "start": 11.6537,
+              "end": 11.8204
+            },
+            {
+              "text": "keine",
+              "start": 11.8204,
+              "end": 12.118
+            },
+            {
+              "text": "bewertete",
+              "start": 12.118,
+              "end": 12.606
+            },
+            {
+              "text": "Stunde.",
+              "start": 12.6061,
+              "end": 13.0823
+            }
+          ]
+        }
+      ],
+      "voice_start": 0.14,
+      "voice_duration": 13.272
+    },
+    {
+      "id": "rating",
+      "start": 22.0667,
+      "duration": 10.066666666666666,
+      "words": [
+        {
+          "text": "Nach",
+          "start": 0.1894,
+          "end": 0.4989
+        },
+        {
+          "text": "jeder",
+          "start": 0.4989,
+          "end": 0.7727
+        },
+        {
+          "text": "Stunde",
+          "start": 0.7728,
+          "end": 1.1537
+        },
+        {
+          "text": "schätzt",
+          "start": 1.1537,
+          "end": 1.4394
+        },
+        {
+          "text": "du",
+          "start": 1.4394,
+          "end": 1.5346
+        },
+        {
+          "text": "die",
+          "start": 1.5346,
+          "end": 1.6417
+        },
+        {
+          "text": "gesamte",
+          "start": 1.6418,
+          "end": 2.0822
+        },
+        {
+          "text": "mündliche",
+          "start": 2.0823,
+          "end": 2.4989
+        },
+        {
+          "text": "Mitarbeit",
+          "start": 2.4989,
+          "end": 2.9751
+        },
+        {
+          "text": "ein.",
+          "start": 2.9751,
+          "end": 3.3323
+        },
+        {
+          "text": "Ein",
+          "start": 3.6995,
+          "end": 3.8424
+        },
+        {
+          "text": "Plus",
+          "start": 3.8424,
+          "end": 4.1043
+        },
+        {
+          "text": "heißt:",
+          "start": 4.1043,
+          "end": 4.4733
+        },
+        {
+          "text": "etwas",
+          "start": 4.9376,
+          "end": 5.1995
+        },
+        {
+          "text": "besser",
+          "start": 5.1995,
+          "end": 5.5686
+        },
+        {
+          "text": "als",
+          "start": 5.5686,
+          "end": 5.759
+        },
+        {
+          "text": "bisher.",
+          "start": 5.759,
+          "end": 6.3067
+        },
+        {
+          "text": "Aus",
+          "start": 6.6305,
+          "end": 6.9757
+        },
+        {
+          "text": "zwei",
+          "start": 6.9757,
+          "end": 7.2257
+        },
+        {
+          "text": "Komma",
+          "start": 7.2257,
+          "end": 7.4638
+        },
+        {
+          "text": "null",
+          "start": 7.4638,
+          "end": 7.7971
+        },
+        {
+          "text": "wird",
+          "start": 7.7971,
+          "end": 7.9876
+        },
+        {
+          "text": "dann",
+          "start": 7.9876,
+          "end": 8.2614
+        },
+        {
+          "text": "eins",
+          "start": 8.321,
+          "end": 8.5233
+        },
+        {
+          "text": "Komma",
+          "start": 8.5233,
+          "end": 8.7495
+        },
+        {
+          "text": "sieben",
+          "start": 8.7495,
+          "end": 9.0352
+        },
+        {
+          "text": "fünf.",
+          "start": 9.0353,
+          "end": 9.4876
+        }
+      ],
+      "captions": [
+        {
+          "start": 0.1894,
+          "end": 1.6417,
+          "words": [
+            {
+              "text": "Nach",
+              "start": 0.1894,
+              "end": 0.4989
+            },
+            {
+              "text": "jeder",
+              "start": 0.4989,
+              "end": 0.7727
+            },
+            {
+              "text": "Stunde",
+              "start": 0.7728,
+              "end": 1.1537
+            },
+            {
+              "text": "schätzt",
+              "start": 1.1537,
+              "end": 1.4394
+            },
+            {
+              "text": "du",
+              "start": 1.4394,
+              "end": 1.5346
+            },
+            {
+              "text": "die",
+              "start": 1.5346,
+              "end": 1.6417
+            }
+          ]
+        },
+        {
+          "start": 1.6418,
+          "end": 3.3323,
+          "words": [
+            {
+              "text": "gesamte",
+              "start": 1.6418,
+              "end": 2.0822
+            },
+            {
+              "text": "mündliche",
+              "start": 2.0823,
+              "end": 2.4989
+            },
+            {
+              "text": "Mitarbeit",
+              "start": 2.4989,
+              "end": 2.9751
+            },
+            {
+              "text": "ein.",
+              "start": 2.9751,
+              "end": 3.3323
+            }
+          ]
+        },
+        {
+          "start": 3.6995,
+          "end": 4.4733,
+          "words": [
+            {
+              "text": "Ein",
+              "start": 3.6995,
+              "end": 3.8424
+            },
+            {
+              "text": "Plus",
+              "start": 3.8424,
+              "end": 4.1043
+            },
+            {
+              "text": "heißt:",
+              "start": 4.1043,
+              "end": 4.4733
+            }
+          ]
+        },
+        {
+          "start": 4.9376,
+          "end": 6.3067,
+          "words": [
+            {
+              "text": "etwas",
+              "start": 4.9376,
+              "end": 5.1995
+            },
+            {
+              "text": "besser",
+              "start": 5.1995,
+              "end": 5.5686
+            },
+            {
+              "text": "als",
+              "start": 5.5686,
+              "end": 5.759
+            },
+            {
+              "text": "bisher.",
+              "start": 5.759,
+              "end": 6.3067
+            }
+          ]
+        },
+        {
+          "start": 6.6305,
+          "end": 9.4876,
+          "words": [
+            {
+              "text": "Aus",
+              "start": 6.6305,
+              "end": 6.9757
+            },
+            {
+              "text": "2,00",
+              "start": 6.9757,
+              "end": 7.7971
+            },
+            {
+              "text": "wird",
+              "start": 7.7971,
+              "end": 7.9876
+            },
+            {
+              "text": "dann",
+              "start": 7.9876,
+              "end": 8.2614
+            },
+            {
+              "text": "1,75.",
+              "start": 8.321,
+              "end": 9.4876
+            }
+          ]
+        }
+      ],
+      "voice_start": 0.14,
+      "voice_duration": 9.672
+    },
+    {
+      "id": "steps",
+      "start": 32.1333,
+      "duration": 12.2,
+      "words": [
+        {
+          "text": "Plus",
+          "start": 0.19,
+          "end": 0.5829
+        },
+        {
+          "text": "und",
+          "start": 0.5829,
+          "end": 0.7733
+        },
+        {
+          "text": "Minus",
+          "start": 0.7733,
+          "end": 1.1543
+        },
+        {
+          "text": "verändern",
+          "start": 1.1543,
+          "end": 1.5947
+        },
+        {
+          "text": "den",
+          "start": 1.5947,
+          "end": 1.7376
+        },
+        {
+          "text": "Stand",
+          "start": 1.7376,
+          "end": 2.1305
+        },
+        {
+          "text": "um",
+          "start": 2.1305,
+          "end": 2.2971
+        },
+        {
+          "text": "einen",
+          "start": 2.2971,
+          "end": 2.4995
+        },
+        {
+          "text": "Viertelschritt.",
+          "start": 2.4995,
+          "end": 3.19
+        },
+        {
+          "text": "Bei",
+          "start": 3.5108,
+          "end": 3.7489
+        },
+        {
+          "text": "doppelten",
+          "start": 3.7489,
+          "end": 4.1656
+        },
+        {
+          "text": "Symbolen",
+          "start": 4.1656,
+          "end": 4.7132
+        },
+        {
+          "text": "sind",
+          "start": 4.7132,
+          "end": 4.9394
+        },
+        {
+          "text": "es",
+          "start": 4.9394,
+          "end": 5.0822
+        },
+        {
+          "text": "zwei.",
+          "start": 5.0822,
+          "end": 5.5585
+        },
+        {
+          "text": "Null",
+          "start": 5.8799,
+          "end": 6.1894
+        },
+        {
+          "text": "bedeutet:",
+          "start": 6.1894,
+          "end": 6.749
+        },
+        {
+          "text": "gleich",
+          "start": 7.1061,
+          "end": 7.3918
+        },
+        {
+          "text": "geblieben.",
+          "start": 7.3918,
+          "end": 7.9989
+        },
+        {
+          "text": "Du",
+          "start": 8.321,
+          "end": 8.4995
+        },
+        {
+          "text": "beurteilst",
+          "start": 8.4995,
+          "end": 9.1543
+        },
+        {
+          "text": "also",
+          "start": 9.1543,
+          "end": 9.3447
+        },
+        {
+          "text": "die",
+          "start": 9.3448,
+          "end": 9.4638
+        },
+        {
+          "text": "Entwicklung",
+          "start": 9.4638,
+          "end": 10.0352
+        },
+        {
+          "text": "und",
+          "start": 10.0471,
+          "end": 10.2138
+        },
+        {
+          "text": "zählst",
+          "start": 10.2138,
+          "end": 10.5709
+        },
+        {
+          "text": "keine",
+          "start": 10.571,
+          "end": 10.8447
+        },
+        {
+          "text": "Wortmeldungen.",
+          "start": 10.8448,
+          "end": 11.6067
+        }
+      ],
+      "captions": [
+        {
+          "start": 0.19,
+          "end": 2.1305,
+          "words": [
+            {
+              "text": "Plus",
+              "start": 0.19,
+              "end": 0.5829
+            },
+            {
+              "text": "und",
+              "start": 0.5829,
+              "end": 0.7733
+            },
+            {
+              "text": "Minus",
+              "start": 0.7733,
+              "end": 1.1543
+            },
+            {
+              "text": "verändern",
+              "start": 1.1543,
+              "end": 1.5947
+            },
+            {
+              "text": "den",
+              "start": 1.5947,
+              "end": 1.7376
+            },
+            {
+              "text": "Stand",
+              "start": 1.7376,
+              "end": 2.1305
+            }
+          ]
+        },
+        {
+          "start": 2.1305,
+          "end": 3.19,
+          "words": [
+            {
+              "text": "um",
+              "start": 2.1305,
+              "end": 2.2971
+            },
+            {
+              "text": "einen",
+              "start": 2.2971,
+              "end": 2.4995
+            },
+            {
+              "text": "Viertelschritt.",
+              "start": 2.4995,
+              "end": 3.19
+            }
+          ]
+        },
+        {
+          "start": 3.5108,
+          "end": 5.5585,
+          "words": [
+            {
+              "text": "Bei",
+              "start": 3.5108,
+              "end": 3.7489
+            },
+            {
+              "text": "doppelten",
+              "start": 3.7489,
+              "end": 4.1656
+            },
+            {
+              "text": "Symbolen",
+              "start": 4.1656,
+              "end": 4.7132
+            },
+            {
+              "text": "sind",
+              "start": 4.7132,
+              "end": 4.9394
+            },
+            {
+              "text": "es",
+              "start": 4.9394,
+              "end": 5.0822
+            },
+            {
+              "text": "zwei.",
+              "start": 5.0822,
+              "end": 5.5585
+            }
+          ]
+        },
+        {
+          "start": 5.8799,
+          "end": 6.749,
+          "words": [
+            {
+              "text": "Null",
+              "start": 5.8799,
+              "end": 6.1894
+            },
+            {
+              "text": "bedeutet:",
+              "start": 6.1894,
+              "end": 6.749
+            }
+          ]
+        },
+        {
+          "start": 7.1061,
+          "end": 7.9989,
+          "words": [
+            {
+              "text": "gleich",
+              "start": 7.1061,
+              "end": 7.3918
+            },
+            {
+              "text": "geblieben.",
+              "start": 7.3918,
+              "end": 7.9989
+            }
+          ]
+        },
+        {
+          "start": 8.321,
+          "end": 10.2138,
+          "words": [
+            {
+              "text": "Du",
+              "start": 8.321,
+              "end": 8.4995
+            },
+            {
+              "text": "beurteilst",
+              "start": 8.4995,
+              "end": 9.1543
+            },
+            {
+              "text": "also",
+              "start": 9.1543,
+              "end": 9.3447
+            },
+            {
+              "text": "die",
+              "start": 9.3448,
+              "end": 9.4638
+            },
+            {
+              "text": "Entwicklung",
+              "start": 9.4638,
+              "end": 10.0352
+            },
+            {
+              "text": "und",
+              "start": 10.0471,
+              "end": 10.2138
+            }
+          ]
+        },
+        {
+          "start": 10.2138,
+          "end": 11.6067,
+          "words": [
+            {
+              "text": "zählst",
+              "start": 10.2138,
+              "end": 10.5709
+            },
+            {
+              "text": "keine",
+              "start": 10.571,
+              "end": 10.8447
+            },
+            {
+              "text": "Wortmeldungen.",
+              "start": 10.8448,
+              "end": 11.6067
+            }
+          ]
+        }
+      ],
+      "voice_start": 0.14,
+      "voice_duration": 11.784
+    },
+    {
+      "id": "buffer",
+      "start": 44.3333,
+      "duration": 10.066666666666666,
+      "words": [
+        {
+          "text": "Und",
+          "start": 0.1894,
+          "end": 0.4275
+        },
+        {
+          "text": "was",
+          "start": 0.4275,
+          "end": 0.5942
+        },
+        {
+          "text": "passiert",
+          "start": 0.5942,
+          "end": 1.0704
+        },
+        {
+          "text": "bei",
+          "start": 1.0704,
+          "end": 1.2727
+        },
+        {
+          "text": "eins",
+          "start": 1.2727,
+          "end": 1.5227
+        },
+        {
+          "text": "Komma",
+          "start": 1.5227,
+          "end": 1.7251
+        },
+        {
+          "text": "null?",
+          "start": 1.7251,
+          "end": 2.1061
+        },
+        {
+          "text": "Weitere",
+          "start": 2.4275,
+          "end": 2.9156
+        },
+        {
+          "text": "positive",
+          "start": 2.9156,
+          "end": 3.4632
+        },
+        {
+          "text": "Schritte",
+          "start": 3.4632,
+          "end": 3.8442
+        },
+        {
+          "text": "bauen",
+          "start": 3.8442,
+          "end": 4.118
+        },
+        {
+          "text": "einen",
+          "start": 4.118,
+          "end": 4.3084
+        },
+        {
+          "text": "Puffer",
+          "start": 4.3085,
+          "end": 4.6061
+        },
+        {
+          "text": "auf,",
+          "start": 4.6061,
+          "end": 4.9275
+        },
+        {
+          "text": "mit",
+          "start": 5.1894,
+          "end": 5.3799
+        },
+        {
+          "text": "bis",
+          "start": 5.3799,
+          "end": 5.5585
+        },
+        {
+          "text": "zu",
+          "start": 5.5585,
+          "end": 5.7132
+        },
+        {
+          "text": "drei",
+          "start": 5.7132,
+          "end": 5.9275
+        },
+        {
+          "text": "Punkten.",
+          "start": 5.9275,
+          "end": 6.5108
+        },
+        {
+          "text": "Der",
+          "start": 6.8322,
+          "end": 7.0703
+        },
+        {
+          "text": "kann",
+          "start": 7.0704,
+          "end": 7.3442
+        },
+        {
+          "text": "eine",
+          "start": 7.3442,
+          "end": 7.5585
+        },
+        {
+          "text": "einzelne",
+          "start": 7.5585,
+          "end": 7.9989
+        },
+        {
+          "text": "schwächere",
+          "start": 7.9989,
+          "end": 8.4394
+        },
+        {
+          "text": "Stunde",
+          "start": 8.4394,
+          "end": 8.8085
+        },
+        {
+          "text": "abfedern.",
+          "start": 8.8085,
+          "end": 9.4513
+        }
+      ],
+      "captions": [
+        {
+          "start": 0.1894,
+          "end": 2.1061,
+          "words": [
+            {
+              "text": "Und",
+              "start": 0.1894,
+              "end": 0.4275
+            },
+            {
+              "text": "was",
+              "start": 0.4275,
+              "end": 0.5942
+            },
+            {
+              "text": "passiert",
+              "start": 0.5942,
+              "end": 1.0704
+            },
+            {
+              "text": "bei",
+              "start": 1.0704,
+              "end": 1.2727
+            },
+            {
+              "text": "1,00?",
+              "start": 1.2727,
+              "end": 2.1061
+            }
+          ]
+        },
+        {
+          "start": 2.4275,
+          "end": 4.3084,
+          "words": [
+            {
+              "text": "Weitere",
+              "start": 2.4275,
+              "end": 2.9156
+            },
+            {
+              "text": "positive",
+              "start": 2.9156,
+              "end": 3.4632
+            },
+            {
+              "text": "Schritte",
+              "start": 3.4632,
+              "end": 3.8442
+            },
+            {
+              "text": "bauen",
+              "start": 3.8442,
+              "end": 4.118
+            },
+            {
+              "text": "einen",
+              "start": 4.118,
+              "end": 4.3084
+            }
+          ]
+        },
+        {
+          "start": 4.3085,
+          "end": 5.9275,
+          "words": [
+            {
+              "text": "Puffer",
+              "start": 4.3085,
+              "end": 4.6061
+            },
+            {
+              "text": "auf,",
+              "start": 4.6061,
+              "end": 4.9275
+            },
+            {
+              "text": "mit",
+              "start": 5.1894,
+              "end": 5.3799
+            },
+            {
+              "text": "bis",
+              "start": 5.3799,
+              "end": 5.5585
+            },
+            {
+              "text": "zu",
+              "start": 5.5585,
+              "end": 5.7132
+            },
+            {
+              "text": "drei",
+              "start": 5.7132,
+              "end": 5.9275
+            }
+          ]
+        },
+        {
+          "start": 5.9275,
+          "end": 6.5108,
+          "words": [
+            {
+              "text": "Punkten.",
+              "start": 5.9275,
+              "end": 6.5108
+            }
+          ]
+        },
+        {
+          "start": 6.8322,
+          "end": 8.8085,
+          "words": [
+            {
+              "text": "Der",
+              "start": 6.8322,
+              "end": 7.0703
+            },
+            {
+              "text": "kann",
+              "start": 7.0704,
+              "end": 7.3442
+            },
+            {
+              "text": "eine",
+              "start": 7.3442,
+              "end": 7.5585
+            },
+            {
+              "text": "einzelne",
+              "start": 7.5585,
+              "end": 7.9989
+            },
+            {
+              "text": "schwächere",
+              "start": 7.9989,
+              "end": 8.4394
+            },
+            {
+              "text": "Stunde",
+              "start": 8.4394,
+              "end": 8.8085
+            }
+          ]
+        },
+        {
+          "start": 8.8085,
+          "end": 9.4513,
+          "words": [
+            {
+              "text": "abfedern.",
+              "start": 8.8085,
+              "end": 9.4513
+            }
+          ]
+        }
+      ],
+      "voice_start": 0.14,
+      "voice_duration": 9.648
+    },
+    {
+      "id": "buffer-example",
+      "start": 54.4,
+      "duration": 11.0,
+      "words": [
+        {
+          "text": "Du",
+          "start": 0.2353,
+          "end": 0.3305
+        },
+        {
+          "text": "hast",
+          "start": 0.3305,
+          "end": 0.5685
+        },
+        {
+          "text": "zum",
+          "start": 0.5686,
+          "end": 0.6876
+        },
+        {
+          "text": "Beispiel",
+          "start": 0.6876,
+          "end": 1.14
+        },
+        {
+          "text": "zwei",
+          "start": 1.14,
+          "end": 1.4376
+        },
+        {
+          "text": "Pufferpunkte.",
+          "start": 1.4376,
+          "end": 2.271
+        },
+        {
+          "text": "Dann",
+          "start": 2.5942,
+          "end": 2.8322
+        },
+        {
+          "text": "kommt",
+          "start": 2.8323,
+          "end": 3.106
+        },
+        {
+          "text": "ein",
+          "start": 3.1061,
+          "end": 3.237
+        },
+        {
+          "text": "Minus:",
+          "start": 3.237,
+          "end": 3.7013
+        },
+        {
+          "text": "Ein",
+          "start": 4.1061,
+          "end": 4.2727
+        },
+        {
+          "text": "Punkt",
+          "start": 4.2727,
+          "end": 4.5465
+        },
+        {
+          "text": "wird",
+          "start": 4.5465,
+          "end": 4.7013
+        },
+        {
+          "text": "verbraucht,",
+          "start": 4.7013,
+          "end": 5.2489
+        },
+        {
+          "text": "der",
+          "start": 5.487,
+          "end": 5.618
+        },
+        {
+          "text": "Stand",
+          "start": 5.618,
+          "end": 5.9513
+        },
+        {
+          "text": "bleibt",
+          "start": 5.9513,
+          "end": 6.2251
+        },
+        {
+          "text": "bei",
+          "start": 6.2251,
+          "end": 6.4037
+        },
+        {
+          "text": "eins",
+          "start": 6.4037,
+          "end": 6.6418
+        },
+        {
+          "text": "Komma",
+          "start": 6.6418,
+          "end": 6.8442
+        },
+        {
+          "text": "null.",
+          "start": 6.8442,
+          "end": 7.1894
+        },
+        {
+          "text": "Erst",
+          "start": 7.5567,
+          "end": 7.7829
+        },
+        {
+          "text": "wenn",
+          "start": 7.7829,
+          "end": 7.9138
+        },
+        {
+          "text": "der",
+          "start": 7.9138,
+          "end": 8.009
+        },
+        {
+          "text": "Puffer",
+          "start": 8.009,
+          "end": 8.3305
+        },
+        {
+          "text": "nicht",
+          "start": 8.3305,
+          "end": 8.5328
+        },
+        {
+          "text": "reicht,",
+          "start": 8.5329,
+          "end": 8.9258
+        },
+        {
+          "text": "verändert",
+          "start": 9.1995,
+          "end": 9.6638
+        },
+        {
+          "text": "sich",
+          "start": 9.6638,
+          "end": 9.8185
+        },
+        {
+          "text": "der",
+          "start": 9.8186,
+          "end": 9.9614
+        },
+        {
+          "text": "Stand.",
+          "start": 9.9614,
+          "end": 10.4257
+        }
+      ],
+      "captions": [
+        {
+          "start": 0.2353,
+          "end": 2.271,
+          "words": [
+            {
+              "text": "Du",
+              "start": 0.2353,
+              "end": 0.3305
+            },
+            {
+              "text": "hast",
+              "start": 0.3305,
+              "end": 0.5685
+            },
+            {
+              "text": "zum",
+              "start": 0.5686,
+              "end": 0.6876
+            },
+            {
+              "text": "Beispiel",
+              "start": 0.6876,
+              "end": 1.14
+            },
+            {
+              "text": "zwei",
+              "start": 1.14,
+              "end": 1.4376
+            },
+            {
+              "text": "Pufferpunkte.",
+              "start": 1.4376,
+              "end": 2.271
+            }
+          ]
+        },
+        {
+          "start": 2.5942,
+          "end": 3.7013,
+          "words": [
+            {
+              "text": "Dann",
+              "start": 2.5942,
+              "end": 2.8322
+            },
+            {
+              "text": "kommt",
+              "start": 2.8323,
+              "end": 3.106
+            },
+            {
+              "text": "ein",
+              "start": 3.1061,
+              "end": 3.237
+            },
+            {
+              "text": "Minus:",
+              "start": 3.237,
+              "end": 3.7013
+            }
+          ]
+        },
+        {
+          "start": 4.1061,
+          "end": 5.9513,
+          "words": [
+            {
+              "text": "Ein",
+              "start": 4.1061,
+              "end": 4.2727
+            },
+            {
+              "text": "Punkt",
+              "start": 4.2727,
+              "end": 4.5465
+            },
+            {
+              "text": "wird",
+              "start": 4.5465,
+              "end": 4.7013
+            },
+            {
+              "text": "verbraucht,",
+              "start": 4.7013,
+              "end": 5.2489
+            },
+            {
+              "text": "der",
+              "start": 5.487,
+              "end": 5.618
+            },
+            {
+              "text": "Stand",
+              "start": 5.618,
+              "end": 5.9513
+            }
+          ]
+        },
+        {
+          "start": 5.9513,
+          "end": 7.1894,
+          "words": [
+            {
+              "text": "bleibt",
+              "start": 5.9513,
+              "end": 6.2251
+            },
+            {
+              "text": "bei",
+              "start": 6.2251,
+              "end": 6.4037
+            },
+            {
+              "text": "1,00.",
+              "start": 6.4037,
+              "end": 7.1894
+            }
+          ]
+        },
+        {
+          "start": 7.5567,
+          "end": 8.9258,
+          "words": [
+            {
+              "text": "Erst",
+              "start": 7.5567,
+              "end": 7.7829
+            },
+            {
+              "text": "wenn",
+              "start": 7.7829,
+              "end": 7.9138
+            },
+            {
+              "text": "der",
+              "start": 7.9138,
+              "end": 8.009
+            },
+            {
+              "text": "Puffer",
+              "start": 8.009,
+              "end": 8.3305
+            },
+            {
+              "text": "nicht",
+              "start": 8.3305,
+              "end": 8.5328
+            },
+            {
+              "text": "reicht,",
+              "start": 8.5329,
+              "end": 8.9258
+            }
+          ]
+        },
+        {
+          "start": 9.1995,
+          "end": 10.4257,
+          "words": [
+            {
+              "text": "verändert",
+              "start": 9.1995,
+              "end": 9.6638
+            },
+            {
+              "text": "sich",
+              "start": 9.6638,
+              "end": 9.8185
+            },
+            {
+              "text": "der",
+              "start": 9.8186,
+              "end": 9.9614
+            },
+            {
+              "text": "Stand.",
+              "start": 9.9614,
+              "end": 10.4257
+            }
+          ]
+        }
+      ],
+      "voice_start": 0.14,
+      "voice_duration": 10.608
+    },
+    {
+      "id": "graph",
+      "start": 65.4,
+      "duration": 12.133333333333333,
+      "words": [
+        {
+          "text": "Und",
+          "start": 0.19,
+          "end": 0.4757
+        },
+        {
+          "text": "der",
+          "start": 0.4757,
+          "end": 0.6424
+        },
+        {
+          "text": "Graph?",
+          "start": 0.6424,
+          "end": 1.1305
+        },
+        {
+          "text": "Er",
+          "start": 1.4519,
+          "end": 1.6543
+        },
+        {
+          "text": "zeigt",
+          "start": 1.6543,
+          "end": 1.9162
+        },
+        {
+          "text": "den",
+          "start": 1.9162,
+          "end": 2.0471
+        },
+        {
+          "text": "berechneten",
+          "start": 2.0471,
+          "end": 2.5352
+        },
+        {
+          "text": "Stand",
+          "start": 2.5352,
+          "end": 2.8329
+        },
+        {
+          "text": "von",
+          "start": 2.8329,
+          "end": 2.9757
+        },
+        {
+          "text": "Stunde",
+          "start": 2.9757,
+          "end": 3.2971
+        },
+        {
+          "text": "zu",
+          "start": 3.2971,
+          "end": 3.4162
+        },
+        {
+          "text": "Stunde:",
+          "start": 3.4162,
+          "end": 3.7972
+        },
+        {
+          "text": "vom",
+          "start": 4.1662,
+          "end": 4.3329
+        },
+        {
+          "text": "gemeinsamen",
+          "start": 4.3329,
+          "end": 4.8805
+        },
+        {
+          "text": "Startwert",
+          "start": 4.8805,
+          "end": 5.4757
+        },
+        {
+          "text": "bis",
+          "start": 5.4757,
+          "end": 5.6424
+        },
+        {
+          "text": "zu",
+          "start": 5.6424,
+          "end": 5.7495
+        },
+        {
+          "text": "den",
+          "start": 5.7495,
+          "end": 5.8924
+        },
+        {
+          "text": "Werten",
+          "start": 5.8924,
+          "end": 6.2733
+        },
+        {
+          "text": "nach",
+          "start": 6.2733,
+          "end": 6.4519
+        },
+        {
+          "text": "bewerteten",
+          "start": 6.4519,
+          "end": 6.94
+        },
+        {
+          "text": "Stunden.",
+          "start": 6.94,
+          "end": 7.4757
+        },
+        {
+          "text": "So",
+          "start": 7.7965,
+          "end": 8.0703
+        },
+        {
+          "text": "erkennst",
+          "start": 8.0704,
+          "end": 8.4275
+        },
+        {
+          "text": "du",
+          "start": 8.4275,
+          "end": 8.4989
+        },
+        {
+          "text": "Entwicklungen",
+          "start": 8.4989,
+          "end": 9.1656
+        },
+        {
+          "text": "und",
+          "start": 9.1656,
+          "end": 9.3203
+        },
+        {
+          "text": "kannst",
+          "start": 9.3204,
+          "end": 9.6656
+        },
+        {
+          "text": "einzelne",
+          "start": 9.6656,
+          "end": 10.0346
+        },
+        {
+          "text": "Zeitpunkte",
+          "start": 10.0346,
+          "end": 10.606
+        },
+        {
+          "text": "genauer",
+          "start": 10.6061,
+          "end": 10.9989
+        },
+        {
+          "text": "ansehen.",
+          "start": 10.9989,
+          "end": 11.5585
+        }
+      ],
+      "captions": [
+        {
+          "start": 0.19,
+          "end": 1.1305,
+          "words": [
+            {
+              "text": "Und",
+              "start": 0.19,
+              "end": 0.4757
+            },
+            {
+              "text": "der",
+              "start": 0.4757,
+              "end": 0.6424
+            },
+            {
+              "text": "Graph?",
+              "start": 0.6424,
+              "end": 1.1305
+            }
+          ]
+        },
+        {
+          "start": 1.4519,
+          "end": 2.9757,
+          "words": [
+            {
+              "text": "Er",
+              "start": 1.4519,
+              "end": 1.6543
+            },
+            {
+              "text": "zeigt",
+              "start": 1.6543,
+              "end": 1.9162
+            },
+            {
+              "text": "den",
+              "start": 1.9162,
+              "end": 2.0471
+            },
+            {
+              "text": "berechneten",
+              "start": 2.0471,
+              "end": 2.5352
+            },
+            {
+              "text": "Stand",
+              "start": 2.5352,
+              "end": 2.8329
+            },
+            {
+              "text": "von",
+              "start": 2.8329,
+              "end": 2.9757
+            }
+          ]
+        },
+        {
+          "start": 2.9757,
+          "end": 3.7972,
+          "words": [
+            {
+              "text": "Stunde",
+              "start": 2.9757,
+              "end": 3.2971
+            },
+            {
+              "text": "zu",
+              "start": 3.2971,
+              "end": 3.4162
+            },
+            {
+              "text": "Stunde:",
+              "start": 3.4162,
+              "end": 3.7972
+            }
+          ]
+        },
+        {
+          "start": 4.1662,
+          "end": 5.8924,
+          "words": [
+            {
+              "text": "vom",
+              "start": 4.1662,
+              "end": 4.3329
+            },
+            {
+              "text": "gemeinsamen",
+              "start": 4.3329,
+              "end": 4.8805
+            },
+            {
+              "text": "Startwert",
+              "start": 4.8805,
+              "end": 5.4757
+            },
+            {
+              "text": "bis",
+              "start": 5.4757,
+              "end": 5.6424
+            },
+            {
+              "text": "zu",
+              "start": 5.6424,
+              "end": 5.7495
+            },
+            {
+              "text": "den",
+              "start": 5.7495,
+              "end": 5.8924
+            }
+          ]
+        },
+        {
+          "start": 5.8924,
+          "end": 7.4757,
+          "words": [
+            {
+              "text": "Werten",
+              "start": 5.8924,
+              "end": 6.2733
+            },
+            {
+              "text": "nach",
+              "start": 6.2733,
+              "end": 6.4519
+            },
+            {
+              "text": "bewerteten",
+              "start": 6.4519,
+              "end": 6.94
+            },
+            {
+              "text": "Stunden.",
+              "start": 6.94,
+              "end": 7.4757
+            }
+          ]
+        },
+        {
+          "start": 7.7965,
+          "end": 9.6656,
+          "words": [
+            {
+              "text": "So",
+              "start": 7.7965,
+              "end": 8.0703
+            },
+            {
+              "text": "erkennst",
+              "start": 8.0704,
+              "end": 8.4275
+            },
+            {
+              "text": "du",
+              "start": 8.4275,
+              "end": 8.4989
+            },
+            {
+              "text": "Entwicklungen",
+              "start": 8.4989,
+              "end": 9.1656
+            },
+            {
+              "text": "und",
+              "start": 9.1656,
+              "end": 9.3203
+            },
+            {
+              "text": "kannst",
+              "start": 9.3204,
+              "end": 9.6656
+            }
+          ]
+        },
+        {
+          "start": 9.6656,
+          "end": 11.5585,
+          "words": [
+            {
+              "text": "einzelne",
+              "start": 9.6656,
+              "end": 10.0346
+            },
+            {
+              "text": "Zeitpunkte",
+              "start": 10.0346,
+              "end": 10.606
+            },
+            {
+              "text": "genauer",
+              "start": 10.6061,
+              "end": 10.9989
+            },
+            {
+              "text": "ansehen.",
+              "start": 10.9989,
+              "end": 11.5585
+            }
+          ]
+        }
+      ],
+      "voice_start": 0.14,
+      "voice_duration": 11.736
+    },
+    {
+      "id": "status",
+      "start": 77.5333,
+      "duration": 8.133333333333333,
+      "words": [
+        {
+          "text": "War",
+          "start": 0.1894,
+          "end": 0.4513
+        },
+        {
+          "text": "jemand",
+          "start": 0.4513,
+          "end": 0.7965
+        },
+        {
+          "text": "abwesend",
+          "start": 0.7965,
+          "end": 1.4394
+        },
+        {
+          "text": "oder",
+          "start": 1.4394,
+          "end": 1.6656
+        },
+        {
+          "text": "wurde",
+          "start": 1.6656,
+          "end": 1.8799
+        },
+        {
+          "text": "nicht",
+          "start": 1.8799,
+          "end": 2.0823
+        },
+        {
+          "text": "beobachtet?",
+          "start": 2.0823,
+          "end": 2.8323
+        },
+        {
+          "text": "Das",
+          "start": 3.1876,
+          "end": 3.39
+        },
+        {
+          "text": "wird",
+          "start": 3.39,
+          "end": 3.6043
+        },
+        {
+          "text": "gesondert",
+          "start": 3.6043,
+          "end": 4.1162
+        },
+        {
+          "text": "markiert.",
+          "start": 4.1162,
+          "end": 4.7352
+        },
+        {
+          "text": "Stand",
+          "start": 5.0585,
+          "end": 5.5346
+        },
+        {
+          "text": "und",
+          "start": 5.5346,
+          "end": 5.6894
+        },
+        {
+          "text": "Puffer",
+          "start": 5.6894,
+          "end": 6.1061
+        },
+        {
+          "text": "bleiben",
+          "start": 6.1061,
+          "end": 6.4156
+        },
+        {
+          "text": "dabei",
+          "start": 6.4156,
+          "end": 6.7489
+        },
+        {
+          "text": "unverändert.",
+          "start": 6.7489,
+          "end": 7.5346
+        }
+      ],
+      "captions": [
+        {
+          "start": 0.1894,
+          "end": 2.0823,
+          "words": [
+            {
+              "text": "War",
+              "start": 0.1894,
+              "end": 0.4513
+            },
+            {
+              "text": "jemand",
+              "start": 0.4513,
+              "end": 0.7965
+            },
+            {
+              "text": "abwesend",
+              "start": 0.7965,
+              "end": 1.4394
+            },
+            {
+              "text": "oder",
+              "start": 1.4394,
+              "end": 1.6656
+            },
+            {
+              "text": "wurde",
+              "start": 1.6656,
+              "end": 1.8799
+            },
+            {
+              "text": "nicht",
+              "start": 1.8799,
+              "end": 2.0823
+            }
+          ]
+        },
+        {
+          "start": 2.0823,
+          "end": 2.8323,
+          "words": [
+            {
+              "text": "beobachtet?",
+              "start": 2.0823,
+              "end": 2.8323
+            }
+          ]
+        },
+        {
+          "start": 3.1876,
+          "end": 4.7352,
+          "words": [
+            {
+              "text": "Das",
+              "start": 3.1876,
+              "end": 3.39
+            },
+            {
+              "text": "wird",
+              "start": 3.39,
+              "end": 3.6043
+            },
+            {
+              "text": "gesondert",
+              "start": 3.6043,
+              "end": 4.1162
+            },
+            {
+              "text": "markiert.",
+              "start": 4.1162,
+              "end": 4.7352
+            }
+          ]
+        },
+        {
+          "start": 5.0585,
+          "end": 7.5346,
+          "words": [
+            {
+              "text": "Stand",
+              "start": 5.0585,
+              "end": 5.5346
+            },
+            {
+              "text": "und",
+              "start": 5.5346,
+              "end": 5.6894
+            },
+            {
+              "text": "Puffer",
+              "start": 5.6894,
+              "end": 6.1061
+            },
+            {
+              "text": "bleiben",
+              "start": 6.1061,
+              "end": 6.4156
+            },
+            {
+              "text": "dabei",
+              "start": 6.4156,
+              "end": 6.7489
+            },
+            {
+              "text": "unverändert.",
+              "start": 6.7489,
+              "end": 7.5346
+            }
+          ]
+        }
+      ],
+      "voice_start": 0.14,
+      "voice_duration": 7.728
+    },
+    {
+      "id": "records",
+      "start": 85.6667,
+      "duration": 13.166666666666666,
+      "words": [
+        {
+          "text": "Die",
+          "start": 0.2353,
+          "end": 0.3424
+        },
+        {
+          "text": "Tabelle",
+          "start": 0.3424,
+          "end": 0.7828
+        },
+        {
+          "text": "zeigt",
+          "start": 0.7829,
+          "end": 1.1757
+        },
+        {
+          "text": "alle",
+          "start": 1.1757,
+          "end": 1.4019
+        },
+        {
+          "text": "Einträge.",
+          "start": 1.4019,
+          "end": 2.0567
+        },
+        {
+          "text": "Mit",
+          "start": 2.3799,
+          "end": 2.618
+        },
+        {
+          "text": "dem",
+          "start": 2.618,
+          "end": 2.8442
+        },
+        {
+          "text": "Excel-Export",
+          "start": 2.8561,
+          "end": 3.7965
+        },
+        {
+          "text": "nimmst",
+          "start": 3.7965,
+          "end": 4.0585
+        },
+        {
+          "text": "du",
+          "start": 4.0585,
+          "end": 4.1418
+        },
+        {
+          "text": "sie",
+          "start": 4.1418,
+          "end": 4.2965
+        },
+        {
+          "text": "ins",
+          "start": 4.2965,
+          "end": 4.5108
+        },
+        {
+          "text": "Auswertungsgespräch",
+          "start": 4.5108,
+          "end": 5.4751
+        },
+        {
+          "text": "mit.",
+          "start": 5.4751,
+          "end": 5.8204
+        },
+        {
+          "text": "Gespeichert",
+          "start": 6.1757,
+          "end": 6.771
+        },
+        {
+          "text": "wird",
+          "start": 6.771,
+          "end": 6.9733
+        },
+        {
+          "text": "direkt",
+          "start": 6.9733,
+          "end": 7.4019
+        },
+        {
+          "text": "im",
+          "start": 7.4019,
+          "end": 7.509
+        },
+        {
+          "text": "Browser.",
+          "start": 7.509,
+          "end": 8.021
+        },
+        {
+          "text": "Für",
+          "start": 8.3442,
+          "end": 8.6299
+        },
+        {
+          "text": "eine",
+          "start": 8.6299,
+          "end": 8.8085
+        },
+        {
+          "text": "vollständige",
+          "start": 8.8085,
+          "end": 9.3918
+        },
+        {
+          "text": "Sicherung",
+          "start": 9.3918,
+          "end": 9.9394
+        },
+        {
+          "text": "lädst",
+          "start": 9.987,
+          "end": 10.2608
+        },
+        {
+          "text": "du",
+          "start": 10.2608,
+          "end": 10.3561
+        },
+        {
+          "text": "zusätzlich",
+          "start": 10.3561,
+          "end": 11.0822
+        },
+        {
+          "text": "eine",
+          "start": 11.0822,
+          "end": 11.2489
+        },
+        {
+          "text": "Sicherungsdatei",
+          "start": 11.2489,
+          "end": 12.0227
+        },
+        {
+          "text": "herunter.",
+          "start": 12.0227,
+          "end": 12.5823
+        }
+      ],
+      "captions": [
+        {
+          "start": 0.2353,
+          "end": 2.0567,
+          "words": [
+            {
+              "text": "Die",
+              "start": 0.2353,
+              "end": 0.3424
+            },
+            {
+              "text": "Tabelle",
+              "start": 0.3424,
+              "end": 0.7828
+            },
+            {
+              "text": "zeigt",
+              "start": 0.7829,
+              "end": 1.1757
+            },
+            {
+              "text": "alle",
+              "start": 1.1757,
+              "end": 1.4019
+            },
+            {
+              "text": "Einträge.",
+              "start": 1.4019,
+              "end": 2.0567
+            }
+          ]
+        },
+        {
+          "start": 2.3799,
+          "end": 4.2965,
+          "words": [
+            {
+              "text": "Mit",
+              "start": 2.3799,
+              "end": 2.618
+            },
+            {
+              "text": "dem",
+              "start": 2.618,
+              "end": 2.8442
+            },
+            {
+              "text": "Excel-Export",
+              "start": 2.8561,
+              "end": 3.7965
+            },
+            {
+              "text": "nimmst",
+              "start": 3.7965,
+              "end": 4.0585
+            },
+            {
+              "text": "du",
+              "start": 4.0585,
+              "end": 4.1418
+            },
+            {
+              "text": "sie",
+              "start": 4.1418,
+              "end": 4.2965
+            }
+          ]
+        },
+        {
+          "start": 4.2965,
+          "end": 5.8204,
+          "words": [
+            {
+              "text": "ins",
+              "start": 4.2965,
+              "end": 4.5108
+            },
+            {
+              "text": "Auswertungsgespräch",
+              "start": 4.5108,
+              "end": 5.4751
+            },
+            {
+              "text": "mit.",
+              "start": 5.4751,
+              "end": 5.8204
+            }
+          ]
+        },
+        {
+          "start": 6.1757,
+          "end": 8.021,
+          "words": [
+            {
+              "text": "Gespeichert",
+              "start": 6.1757,
+              "end": 6.771
+            },
+            {
+              "text": "wird",
+              "start": 6.771,
+              "end": 6.9733
+            },
+            {
+              "text": "direkt",
+              "start": 6.9733,
+              "end": 7.4019
+            },
+            {
+              "text": "im",
+              "start": 7.4019,
+              "end": 7.509
+            },
+            {
+              "text": "Browser.",
+              "start": 7.509,
+              "end": 8.021
+            }
+          ]
+        },
+        {
+          "start": 8.3442,
+          "end": 10.3561,
+          "words": [
+            {
+              "text": "Für",
+              "start": 8.3442,
+              "end": 8.6299
+            },
+            {
+              "text": "eine",
+              "start": 8.6299,
+              "end": 8.8085
+            },
+            {
+              "text": "vollständige",
+              "start": 8.8085,
+              "end": 9.3918
+            },
+            {
+              "text": "Sicherung",
+              "start": 9.3918,
+              "end": 9.9394
+            },
+            {
+              "text": "lädst",
+              "start": 9.987,
+              "end": 10.2608
+            },
+            {
+              "text": "du",
+              "start": 10.2608,
+              "end": 10.3561
+            }
+          ]
+        },
+        {
+          "start": 10.3561,
+          "end": 12.5823,
+          "words": [
+            {
+              "text": "zusätzlich",
+              "start": 10.3561,
+              "end": 11.0822
+            },
+            {
+              "text": "eine",
+              "start": 11.0822,
+              "end": 11.2489
+            },
+            {
+              "text": "Sicherungsdatei",
+              "start": 11.2489,
+              "end": 12.0227
+            },
+            {
+              "text": "herunter.",
+              "start": 12.0227,
+              "end": 12.5823
+            }
+          ]
+        }
+      ],
+      "voice_start": 0.14,
+      "voice_duration": 12.768
+    },
+    {
+      "id": "outro",
+      "start": 98.8333,
+      "duration": 9.1667,
+      "words": [
+        {
+          "text": "Gradeflow",
+          "start": 0.19,
+          "end": 0.8924
+        },
+        {
+          "text": "verbindet",
+          "start": 0.8924,
+          "end": 1.3686
+        },
+        {
+          "text": "deine",
+          "start": 1.3686,
+          "end": 1.5829
+        },
+        {
+          "text": "Beobachtungen",
+          "start": 1.5829,
+          "end": 2.3686
+        },
+        {
+          "text": "mit",
+          "start": 2.3686,
+          "end": 2.5352
+        },
+        {
+          "text": "einem",
+          "start": 2.5352,
+          "end": 2.7376
+        },
+        {
+          "text": "nachvollziehbaren",
+          "start": 2.7376,
+          "end": 3.6067
+        },
+        {
+          "text": "Verlauf.",
+          "start": 3.6067,
+          "end": 4.1424
+        },
+        {
+          "text": "Die",
+          "start": 4.509,
+          "end": 4.6519
+        },
+        {
+          "text": "pädagogische",
+          "start": 4.6519,
+          "end": 5.3305
+        },
+        {
+          "text": "Entscheidung",
+          "start": 5.3305,
+          "end": 5.9376
+        },
+        {
+          "text": "bleibt",
+          "start": 5.9376,
+          "end": 6.259
+        },
+        {
+          "text": "bei",
+          "start": 6.259,
+          "end": 6.4138
+        },
+        {
+          "text": "dir.",
+          "start": 6.4138,
+          "end": 6.8067
+        }
+      ],
+      "captions": [
+        {
+          "start": 0.19,
+          "end": 2.5352,
+          "words": [
+            {
+              "text": "Gradeflow",
+              "start": 0.19,
+              "end": 0.8924
+            },
+            {
+              "text": "verbindet",
+              "start": 0.8924,
+              "end": 1.3686
+            },
+            {
+              "text": "deine",
+              "start": 1.3686,
+              "end": 1.5829
+            },
+            {
+              "text": "Beobachtungen",
+              "start": 1.5829,
+              "end": 2.3686
+            },
+            {
+              "text": "mit",
+              "start": 2.3686,
+              "end": 2.5352
+            }
+          ]
+        },
+        {
+          "start": 2.5352,
+          "end": 4.1424,
+          "words": [
+            {
+              "text": "einem",
+              "start": 2.5352,
+              "end": 2.7376
+            },
+            {
+              "text": "nachvollziehbaren",
+              "start": 2.7376,
+              "end": 3.6067
+            },
+            {
+              "text": "Verlauf.",
+              "start": 3.6067,
+              "end": 4.1424
+            }
+          ]
+        },
+        {
+          "start": 4.509,
+          "end": 6.4138,
+          "words": [
+            {
+              "text": "Die",
+              "start": 4.509,
+              "end": 4.6519
+            },
+            {
+              "text": "pädagogische",
+              "start": 4.6519,
+              "end": 5.3305
+            },
+            {
+              "text": "Entscheidung",
+              "start": 5.3305,
+              "end": 5.9376
+            },
+            {
+              "text": "bleibt",
+              "start": 5.9376,
+              "end": 6.259
+            },
+            {
+              "text": "bei",
+              "start": 6.259,
+              "end": 6.4138
+            }
+          ]
+        },
+        {
+          "start": 6.4138,
+          "end": 6.8067,
+          "words": [
+            {
+              "text": "dir.",
+              "start": 6.4138,
+              "end": 6.8067
+            }
+          ]
+        }
+      ],
+      "voice_start": 0.14,
+      "voice_duration": 7.008
+    }
+  ]
+}

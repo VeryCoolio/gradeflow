@@ -1,0 +1,19 @@
+Wie entwickelt sich mündliche Mitarbeit über mehrere Wochen? Mit Gradeflow hältst du deine Einschätzungen für jede Person und jede Stunde fest.
+
+Warum starten alle bei zwei Komma null? Ein positiver Ausgangspunkt lässt Raum für Verbesserungen. Bei einer Eins wäre dieser Spielraum schon ausgeschöpft. Die Zwei ist also ein gemeinsamer Startwert und noch keine bewertete Stunde.
+
+Nach jeder Stunde schätzt du die gesamte mündliche Mitarbeit ein. Ein Plus heißt: etwas besser als bisher. Aus zwei Komma null wird dann eins Komma sieben fünf.
+
+Plus und Minus verändern den Stand um einen Viertelschritt. Bei doppelten Symbolen sind es zwei. Null bedeutet: gleich geblieben. Du beurteilst also die Entwicklung und zählst keine Wortmeldungen.
+
+Und was passiert bei eins Komma null? Weitere positive Schritte bauen einen Puffer auf, mit bis zu drei Punkten. Der kann eine einzelne schwächere Stunde abfedern.
+
+Du hast zum Beispiel zwei Pufferpunkte. Dann kommt ein Minus: Ein Punkt wird verbraucht, der Stand bleibt bei eins Komma null. Erst wenn der Puffer nicht reicht, verändert sich der Stand.
+
+Und der Graph? Er zeigt den berechneten Stand von Stunde zu Stunde: vom gemeinsamen Startwert bis zu den Werten nach bewerteten Stunden. So erkennst du Entwicklungen und kannst einzelne Zeitpunkte genauer ansehen.
+
+War jemand abwesend oder wurde nicht beobachtet? Das wird gesondert markiert. Stand und Puffer bleiben dabei unverändert.
+
+Die Tabelle zeigt alle Einträge. Mit dem Excel-Export nimmst du sie ins Auswertungsgespräch mit. Gespeichert wird direkt im Browser. Für eine vollständige Sicherung lädst du zusätzlich eine Sicherungsdatei herunter.
+
+Gradeflow verbindet deine Beobachtungen mit einem nachvollziehbaren Verlauf. Die pädagogische Entscheidung bleibt bei dir.

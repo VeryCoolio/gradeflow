@@ -1,0 +1,28 @@
+{
+  "duration": 108.0,
+  "voice_stems": 10,
+  "music_gain": 0.16,
+  "target_loudness_lufs": -16,
+  "cues": [
+    {
+      "start": 26.466,
+      "file": "click_003.ogg",
+      "gain": 0.13
+    },
+    {
+      "start": 44.583,
+      "file": "impactSoft_medium_000.ogg",
+      "gain": 0.1
+    },
+    {
+      "start": 65.65,
+      "file": "impactSoft_medium_000.ogg",
+      "gain": 0.1
+    },
+    {
+      "start": 99.083,
+      "file": "impactSoft_medium_000.ogg",
+      "gain": 0.1
+    }
+  ]
+}

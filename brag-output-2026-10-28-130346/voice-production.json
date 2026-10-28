@@ -1,0 +1,57 @@
+{
+  "voice": "de-DE-FlorianMultilingualNeural",
+  "service": "Microsoft Edge online read-aloud",
+  "runtime": "edge-tts 7.3.1",
+  "rate": "+5%",
+  "pitch": "+0Hz",
+  "boundary": "WordBoundary",
+  "local_synthesis": false,
+  "local_editing": true,
+  "paid_api_calls": 0,
+  "additional_cost_eur": 0,
+  "voice_choice": "Florian chosen by user after two audio samples",
+  "delivery": "Connected conversational sentences; semantic punctuation; original neural timing and pitch, no artificial acceleration or pause removal",
+  "generation_seconds": 26.04,
+  "segments": [
+    {
+      "id": "hook",
+      "duration": 7.992
+    },
+    {
+      "id": "start",
+      "duration": 13.272
+    },
+    {
+      "id": "rating",
+      "duration": 9.672
+    },
+    {
+      "id": "steps",
+      "duration": 11.784
+    },
+    {
+      "id": "buffer",
+      "duration": 9.648
+    },
+    {
+      "id": "buffer-example",
+      "duration": 10.608
+    },
+    {
+      "id": "graph",
+      "duration": 11.736
+    },
+    {
+      "id": "status",
+      "duration": 7.728
+    },
+    {
+      "id": "records",
+      "duration": 12.768
+    },
+    {
+      "id": "outro",
+      "duration": 7.008
+    }
+  ]
+}
