@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-28",
+  "product": "Gradeflow 0.10.0",
+  "sourceAppCommit": "2a429ea",
+  "fakePeopleOnly": true,
+  "durationSeconds": 80,
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "videoFrames": 2400,
+  "videoCodec": "h264",
+  "audioCodec": "aac",
+  "audioChannels": 2,
+  "audioLoudnessLUFS": -20.2,
+  "audioTruePeakDBFS": -6.3,
+  "decodeAllFramesPassed": true,
+  "posterAsFirstFrame": true,
+  "videoBytes": 7281569,
+  "videoSHA256": "e1e06d66b66279ba1beb91241313d642a53a7e2f13b45551064e50625d9269f9",
+  "gate": {
+    "passed": true,
+    "browserSkipped": false,
+    "checks": {
+      "lint": {
+        "errorCount": 0,
+        "warningCount": 13
+      },
+      "runtime": {
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "layout": {
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "motion": {
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "contrast": {
+        "errorCount": 0,
+        "warningCount": 0
+      }
+    }
+  },
+  "reviewedWarnings": [
+    "Repeated screenshots are intentional. Decoded output was compared with browser proof frames.",
+    "Ten scenes share one source file; scene timing and final poses were checked."
+  ],
+  "pixelMeanDifferenceOf255": {
+    "3": 0.4491,
+    "11": 0.491,
+    "28": 0.379,
+    "61": 0.423,
+    "77": 0.3261,
+    "poster-frame0": 1.5169
+  },
+  "decodedFramesVisuallyInspected": [
+    0,
+    3,
+    11,
+    22,
+    28,
+    36,
+    45,
+    53,
+    61,
+    69,
+    77,
+    79.9
+  ],
+  "sourceWarnings": "Responsive browser screenshot in a decorative phone frame; no native-app test. Workbook preview uses actual exported data. No pedagogy or market outcome claims."
+}

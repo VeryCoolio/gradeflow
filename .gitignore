@@ -15,3 +15,11 @@ app/coverage/
 node_modules
 __pycache__/
 *.py[cod]
+
+# Local video renders and runtime state
+brag-output/*.mp4
+brag-output/composition/.hyperframes/
+brag-output/composition/renders/
+brag-output/composition/assets/gsap.min.js
+brag-output/composition/.thumbnails/
+brag-output/composition/.waveform-cache/

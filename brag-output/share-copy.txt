@@ -1,0 +1,1 @@
+Gradeflow dokumentiert mündliche Mitarbeit im Unterricht: Klasse wählen, die Gesamtleistung der Stunde einschätzen und Entwicklungen in Tabelle, Verlauf und Excel nachvollziehen. Der Produktpitch zeigt den Bachelorarbeitsprototyp mit fiktiven Beispieldaten.

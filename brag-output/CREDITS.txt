@@ -1,0 +1,12 @@
+Gradeflow Produktpitch, 28.10.2026
+
+Gestaltung und Produktion: lokaler Brag-/Hyperframes-Ablauf.
+UI-Aufnahmen: Gradeflow 0.10.0, unveränderter App-Commit 2a429ea.
+Alle Personen und Unterrichtseinträge sind fiktive Beispiele.
+Excel-Vorschau: Inhalte aus der tatsächlich exportierten Beispieldatei, als lesbare Filmvorschau gesetzt.
+Instrumentalmusik: eigens für diesen Film lokal synthetisiert; keine übernommene Musikaufnahme.
+Geräusche: Kenney Interface/Impact Pack, CC0, aus den Brag-Skill-Assets.
+Schriften: Manrope und Instrument Serif, SIL Open Font License; Lizenzen unter composition/assets/fonts/.
+Animation: GSAP 3.15.0; Lizenz im Asset-Ordner bzw. im Header der eingebundenen Bibliothek.
+Kamerabewegung: an ui-focus-zoom aus der Hyperframes-Registry angelehnt, für reale App-Abbildungen angepasst.
+Keine automatisierte Sprachspur. Keine externen kostenpflichtigen Dienste.
