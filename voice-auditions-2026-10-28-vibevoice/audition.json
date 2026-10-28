@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-28",
+  "status": "Audition only; user preference pending",
+  "rejected_voice": "de-DE-FlorianMultilingualNeural: rejected by user as too robotic",
+  "model": "mlx-community/VibeVoice-Realtime-0.5B-8bit",
+  "revision": "ae6a233e1b2d6d5e2315e7030581323cc8191bb3",
+  "runtime": "mlx-audio 0.6.2",
+  "model_license": "MIT per model card",
+  "local_synthesis": true,
+  "additional_cost_eur": 0,
+  "paid_api_calls": 0,
+  "music": false,
+  "artificial_speed_or_pitch_change": false,
+  "normalization": "FFmpeg loudnorm -17 LUFS; no tempo, pitch or pause processing",
+  "samples": [
+    {
+      "voice": "de-Spk0_man",
+      "text": "Warum starten alle bei zwei Komma null? Weil noch Raum für Verbesserungen bleiben soll. Ein Plus heißt dann: etwas besser als bisher. Und wenn jemand schon bei eins Komma null angekommen ist? Dann bauen weitere positive Schritte einen Puffer auf.",
+      "duration": 11.2,
+      "generation_seconds": 3.7,
+      "seed": 41,
+      "cfg_scale": 1.5,
+      "ddpm_steps": 10,
+      "local_transcript": " Warum starten alle bei 2,0 weil noch Raum für Verbesserung bleiben soll? Ein Plus heißt dann etwas besser als bisher. Wenn jemand schon bei 1,0 angekommen ist, dann bauen weitere positive Schritte ein Puffer auf.",
+      "similarity": 0.9287598944591029,
+      "file": "probe-A.mp3"
+    },
+    {
+      "voice": "de-Spk1_woman",
+      "text": "Warum starten alle bei zwei Komma null? Weil noch Raum für Verbesserungen bleiben soll. Ein Plus heißt dann: etwas besser als bisher. Und wenn jemand schon bei eins Komma null angekommen ist? Dann bauen weitere positive Schritte einen Puffer auf.",
+      "duration": 16.8,
+      "generation_seconds": 4.08,
+      "seed": 41,
+      "cfg_scale": 1.5,
+      "ddpm_steps": 10,
+      "local_transcript": " Warum starten alle bei 2,0, weil noch Raum für Verbesserungen bleiben soll? Ein Plus heißt dann etwas besser als bisher. Und wenn jemand schon bei 1,0 angekommen ist, dann bauen weitere positive Schritte ein Puffer auf.",
+      "similarity": 0.9427083333333334,
+      "file": "probe-B.mp3"
+    }
+  ],
+  "checks": [
+    "Both MP3 files completely decoded without FFmpeg errors",
+    "Both samples locally transcribed with offline Whisper small; numeric example and buffer explanation checked"
+  ],
+  "limitations": [
+    "Experimental German voices; naturalness and pronunciation await user listening.",
+    "Local transcripts are diagnostic and differ in number spelling and some words; no claim of a word-perfect performance.",
+    "No full video regenerated until a suitable voice is chosen."
+  ]
+}
