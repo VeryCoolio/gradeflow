@@ -1,0 +1,18 @@
+{
+  "duration": 108.0,
+  "assertions": [
+    {
+      "kind": "staysInFrame",
+      "selector": ".brand"
+    },
+    {
+      "kind": "appearsBy",
+      "selector": "#gf-hook .title",
+      "bySec": 0.7
+    },
+    {
+      "kind": "staysInFrame",
+      "selector": "#gf-outro .end-copy"
+    }
+  ]
+}

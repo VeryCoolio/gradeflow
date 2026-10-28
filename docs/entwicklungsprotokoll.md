@@ -279,3 +279,12 @@ Leere Demo bleibt der erste Schritt. In der angelegten Demo erzeugt eine eigene 
 - Arbeitsauftrag auf zwölf einzeln nummerierte Aufgaben und vier kurze Rückmeldethemen reduziert. Import, zwei Bewertungen, Wiederöffnen, manuelle Klasse, Nachtrag, Korrektur, Umbenennung, Excel-Bericht und Demo abgedeckt; keine JSON- oder CSV-Exportaufgabe.
 - Einseitiger Arbeitsauftrag, zweiseitiger Beobachtungsbogen und XLSX-Importdatei mit vier fiktiven Personen ergänzt. Aktuelle Anleitung angeglichen; historische Anleitung unverändert.
 - Prüfung: alle finalen PDF-Seiten gerendert und visuell kontrolliert; Seitenzahlen und Inhalte geprüft. XLSX mit tatsächlicher Gradeflow-Importfunktion erfolgreich eingelesen. Keine App-Änderung, kein Deployment und keine neue Prüfung der tatsächlichen Testadresse.
+
+
+## 28.10.2026 – Funktionsorientierter Erklärfilm mit Sprecherstimme
+
+**Problem:** Die kompakte BA-Videofassung erklärte den Entwicklungsprozess, während gewünscht war, die Funktionsweise und Begründung der Anwendung zu verstehen. Der Nutzer verlangte insbesondere Startwert, Puffer und Graph, mehr Zoom und eine Wortwelle; maximal zwei Minuten.
+
+**Entscheidung und Änderung:** Separate Fassung mit 108 Sekunden. Startwert 2,00 als positiver Bezugspunkt mit Verbesserungsspielraum, relative Symbole, Viertelschritte, Pufferaufbau und -verbrauch sowie tatsächlicher persönlicher Verlauf. Keine Forschungs- oder Usability-Szenen. Kostenlos lokal erzeugte deutsche Sprecherstimme; nach Rückmeldung zur Probe mehr Tempo und Betonung, gekürzte Pausen und synchronisierte Wortimpulse. Zehn editierbare Szenen, gezielte UI-Nahaufnahmen, echte fiktive App-Daten und ausdrücklich schematische Rechenbeispiele. Bisherige Videos, App und privates Manuskript bleiben erhalten.
+
+**Prüfung:** Vollständige lokale Transkription aller zehn Sprachabschnitte und Abgleich mit dem Sprechertext. Hyperframes-Browserprüfung an 68 zusätzlichen Sprach-/Szenenzeitpunkten: keine Fehler oder Warnungen in Linting, Laufzeit, Layout, Bewegung und Kontrast. Alle montierten Szenen visuell kontrolliert. Fertige MP4 vollständig dekodiert: 1920 × 1080, 30 fps, 3240 Bilder, exakt 108 Sekunden, H.264/AAC. Dekodierte Bilder mit Browseraufnahmen verglichen; maximale mittlere Kanalabweichung 0,47805 von 255. Ton: −16,3 LUFS, True Peak −2,6 dBFS. Bestehende Fachkerntests: 14 bestanden. Details und genaue Dateiliste im Prüfprotokoll der neuen Filmfassung. Kein Hosting-Deployment; kein pädagogischer Wirkungsnachweis.

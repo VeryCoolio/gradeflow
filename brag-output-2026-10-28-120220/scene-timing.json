@@ -1,0 +1,52 @@
+[
+  {
+    "id": "hook",
+    "start": 0,
+    "duration": 7.5
+  },
+  {
+    "id": "start",
+    "start": 7.5,
+    "duration": 14.0
+  },
+  {
+    "id": "rating",
+    "start": 21.5,
+    "duration": 11.5
+  },
+  {
+    "id": "steps",
+    "start": 33.0,
+    "duration": 10.0
+  },
+  {
+    "id": "buffer",
+    "start": 43.0,
+    "duration": 9.5
+  },
+  {
+    "id": "buffer-example",
+    "start": 52.5,
+    "duration": 10.5
+  },
+  {
+    "id": "graph",
+    "start": 63.0,
+    "duration": 13.0
+  },
+  {
+    "id": "status",
+    "start": 76.0,
+    "duration": 7.2
+  },
+  {
+    "id": "records",
+    "start": 83.2,
+    "duration": 14.7
+  },
+  {
+    "id": "outro",
+    "start": 97.9,
+    "duration": 10.099999999999994
+  }
+]

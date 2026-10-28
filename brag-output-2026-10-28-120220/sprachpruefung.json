@@ -1,0 +1,148 @@
+{
+  "method": "Lokale Whisper-small-Wortzeiten, normalisierter Vergleich zum vorgegebenen Sprechertext und Sichtprüfung der Transkripte. Zahlen und Graph/Graf werden normalisiert. Die Stimmrichtung wurde vom Nutzer anhand der kurzen Probe beurteilt.",
+  "segments": [
+    {
+      "id": "hook",
+      "canonical_text": "Wie entwickelt sich mündliche Mitarbeit über mehrere Wochen? Gradeflow macht deine Einschätzungen pro Person und Unterrichtsstunde nachvollziehbar.",
+      "local_transcript": "Wie entwickelt sich mündliche Mitarbeit über mehrere Wochen? Gradeflow macht deine Einschätzung in pro Person und Unterrichtsstunde nachvollziehbar.",
+      "normalized_character_similarity": 0.99225
+    },
+    {
+      "id": "start",
+      "canonical_text": "Alle starten bei zwei Komma null. Die Idee: ein positiver Ausgangspunkt mit Raum für Verbesserungen. Bei einer Eins wäre keine Verbesserung mehr sichtbar. Die Zwei ist der gemeinsame Startpunkt, noch keine bewertete Stunde.",
+      "local_transcript": "Alle starten bei 2 Komma null. Die Idee? Ein positiver Ausgangspunkt mit Raum für Verbesserungen. Bei einer Eins wäre keine Verbesserung mehr sichtbar. Die zwei ist der gemeinsame Startpunkt noch keine bewertete Stunde.",
+      "normalized_character_similarity": 1.0
+    },
+    {
+      "id": "rating",
+      "canonical_text": "Nach einer Stunde schätzt du die gesamte mündliche Mitarbeit ein. Ein Plus bedeutet: etwas besser als der bisherige Stand. Bei zwei Komma null wird daraus eins Komma sieben fünf.",
+      "local_transcript": "Nach einer Stunde schätzt du die gesamte münterliche Mitarbeit ein. Ein Plus bedeutet etwas besser als der bisherige Stand. Bei zwei Komma null wird daraus eins Komma sieben fünf.",
+      "normalized_character_similarity": 0.98639
+    },
+    {
+      "id": "steps",
+      "canonical_text": "Plus und Minus verändern den Stand um einen Viertelschritt. Doppelte Symbole um zwei. Null heißt: gleich geblieben. Es geht also um Entwicklung, nicht ums Zählen von Wortmeldungen.",
+      "local_transcript": "Plus und Minus verändern den Stand um einen Viertelschritt. Doppelte Symbole um zwei. Null heißt gleich geblieben. Es geht also um Entwicklung, nicht ums Zählen von Wortmeldungen.",
+      "normalized_character_similarity": 1.0
+    },
+    {
+      "id": "buffer",
+      "canonical_text": "Und was passiert bei eins Komma null? Weitere positive Schritte bauen einen Puffer auf. Bis zu drei Punkte. So kann eine einzelne schwächere Stunde abgefedert werden.",
+      "local_transcript": "Und was passiert bei Eins Komma null? Weitere positive Schritte bauen einen Puffer auf. Bis zu drei Punkte. So kann eine einzelne schwächere Stunde abgefedert werden.",
+      "normalized_character_similarity": 1.0
+    },
+    {
+      "id": "buffer-example",
+      "canonical_text": "Zum Beispiel: Zwei Pufferpunkte, dann ein Minus. Ein Punkt wird verbraucht. Der Stand bleibt bei eins Komma null. Erst wenn der Puffer nicht reicht, verändert sich der Stand.",
+      "local_transcript": "Zum Beispiel zwei Pufferpunkte, dann ein Minus. Ein Punkt wird verbraucht. Der Stand bleibt bei Eins Komma null. Erst wenn der Puffer nicht reicht, verändert sich der Stand.",
+      "normalized_character_similarity": 1.0
+    },
+    {
+      "id": "graph",
+      "canonical_text": "Wofür ist der Graph? Er zeigt den berechneten Stand von Stunde zu Stunde. Du siehst den Startwert und den Stand nach bewerteten Stunden. So erkennst du Entwicklungen und kannst einzelne Zeitpunkte genauer ansehen.",
+      "local_transcript": "Wofür ist der Graf? Er zeigt den berechneten Stand von Stunde zu Stunde. Du siehst den Startwert und den Stand nach bewerteten Stunden. So erkennst du Entwicklungen und kannst einzelne Zeitpunkte genauer ansehen.",
+      "normalized_character_similarity": 1.0
+    },
+    {
+      "id": "status",
+      "canonical_text": "Abwesend und nicht beobachtet werden gesondert markiert. Sie verändern weder den Stand noch den Puffer.",
+      "local_transcript": "Abwesend und nicht beobachtet werden, gesondert markiert. Sie verändern weder den Stand noch den Puffer.",
+      "normalized_character_similarity": 1.0
+    },
+    {
+      "id": "records",
+      "canonical_text": "Die Tabelle zeigt die einzelnen Einträge. Der Excel-Export nimmt sie mit ins Auswertungsgespräch. Gespeichert wird direkt im Browser. Für eine vollständige Sicherung lädst du zusätzlich eine Sicherungsdatei herunter.",
+      "local_transcript": "Die Tabelle zeigt die einzelnen Einträge. Der Excel-Export nimmt sie mit ins Auswertungsgespräch. Gespeichert wird direkt im Browser. Für eine vollständige Sicherung lädst du zusätzlich eine Sicherungsdatei herunter.",
+      "normalized_character_similarity": 1.0
+    },
+    {
+      "id": "outro",
+      "canonical_text": "Gradeflow verbindet deine Beobachtungen mit einem nachvollziehbaren Verlauf. Die pädagogische Entscheidung bleibt bei dir.",
+      "local_transcript": "Gradeflow verbindet deine Beobachtungen mit einem nachvollziehbaren Verlauf. Die pädagogische Entscheidung bleibt bei dir.",
+      "normalized_character_similarity": 1.0
+    }
+  ],
+  "audio_edits": [
+    {
+      "id": "hook",
+      "original_duration": 9.68,
+      "after_pause_edit_duration": 8.28,
+      "edited_duration": 6.792416666666667,
+      "long_pauses_shortened": 1,
+      "atempo": 1.22
+    },
+    {
+      "id": "start",
+      "original_duration": 17.68,
+      "after_pause_edit_duration": 16.5,
+      "edited_duration": 13.536208333333333,
+      "long_pauses_shortened": 3,
+      "atempo": 1.22
+    },
+    {
+      "id": "rating",
+      "original_duration": 14.32,
+      "after_pause_edit_duration": 13.32,
+      "edited_duration": 10.935208333333334,
+      "long_pauses_shortened": 1,
+      "atempo": 1.22
+    },
+    {
+      "id": "steps",
+      "original_duration": 13.52,
+      "after_pause_edit_duration": 10.98,
+      "edited_duration": 9.011125,
+      "long_pauses_shortened": 5,
+      "atempo": 1.22
+    },
+    {
+      "id": "buffer",
+      "original_duration": 11.52,
+      "after_pause_edit_duration": 9.4,
+      "edited_duration": 7.689041666666666,
+      "long_pauses_shortened": 3,
+      "atempo": 1.22
+    },
+    {
+      "id": "buffer-example",
+      "original_duration": 11.28,
+      "after_pause_edit_duration": 9.7,
+      "edited_duration": 7.953291666666667,
+      "long_pauses_shortened": 3,
+      "atempo": 1.22
+    },
+    {
+      "id": "graph",
+      "original_duration": 15.04,
+      "after_pause_edit_duration": 14.36,
+      "edited_duration": 11.781333333333333,
+      "long_pauses_shortened": 1,
+      "atempo": 1.22
+    },
+    {
+      "id": "status",
+      "original_duration": 8.88,
+      "after_pause_edit_duration": 7.86,
+      "edited_duration": 6.448625,
+      "long_pauses_shortened": 2,
+      "atempo": 1.22
+    },
+    {
+      "id": "records",
+      "original_duration": 19.36,
+      "after_pause_edit_duration": 17.36,
+      "edited_duration": 14.245541666666666,
+      "long_pauses_shortened": 3,
+      "atempo": 1.22
+    },
+    {
+      "id": "outro",
+      "original_duration": 9.6,
+      "after_pause_edit_duration": 8.5,
+      "edited_duration": 6.9815,
+      "long_pauses_shortened": 1,
+      "atempo": 1.22
+    }
+  ],
+  "voice_complete": true
+}

@@ -1,0 +1,82 @@
+{
+  "model": "mlx-community/Qwen3-TTS-12Hz-1.7B-VoiceDesign-4bit",
+  "revision": "5c390979e4b93af5f2932f90742ca99c7dd04687",
+  "runtime": "mlx-audio 0.6.2",
+  "seed": 83,
+  "temperature": 0.7,
+  "direction": "A native German male voice in his early thirties, warm clear timbre. Engaging, interested and naturally smiling conversational delivery, like an enthusiastic friend explaining a useful app. Brisk fluent speaking pace around 170 words per minute, NOT slow. Varied natural pitch and expressive sentence melody: lift the pitch for questions, emphasize key numbers and words, relax between examples. Short pauses only. Crisp Standard German pronunciation. Natural human conversation, not a monotone reading voice, not a theatrical announcer, not exaggerated.",
+  "sample_rate": 24000,
+  "generation_seconds": 110.42085695266724,
+  "local": true,
+  "paid_api_calls": 0,
+  "note": "User preferred the pilot timbre, requested more pace and varied intonation. This is an original synthetic voice, not a copy of a named ChatGPT voice.",
+  "segments": [
+    {
+      "id": "hook",
+      "raw_duration": 9.68,
+      "sample_rate": 24000,
+      "words": 17
+    },
+    {
+      "id": "start",
+      "raw_duration": 17.68,
+      "sample_rate": 24000,
+      "words": 33
+    },
+    {
+      "id": "rating",
+      "raw_duration": 14.32,
+      "sample_rate": 24000,
+      "words": 29
+    },
+    {
+      "id": "steps",
+      "raw_duration": 13.52,
+      "sample_rate": 24000,
+      "words": 27
+    },
+    {
+      "id": "buffer",
+      "raw_duration": 11.52,
+      "sample_rate": 24000,
+      "words": 26
+    },
+    {
+      "id": "buffer-example",
+      "raw_duration": 11.28,
+      "sample_rate": 24000,
+      "words": 28
+    },
+    {
+      "id": "graph",
+      "raw_duration": 15.04,
+      "sample_rate": 24000,
+      "words": 33
+    },
+    {
+      "id": "status",
+      "raw_duration": 8.88,
+      "sample_rate": 24000,
+      "words": 15
+    },
+    {
+      "id": "records",
+      "raw_duration": 19.36,
+      "sample_rate": 24000,
+      "words": 28
+    },
+    {
+      "id": "outro",
+      "raw_duration": 9.6,
+      "sample_rate": 24000,
+      "words": 14
+    }
+  ],
+  "segmented_generation": true,
+  "raw_whole_take_rejected": "Long take developed garbled trailing words; complete scene takes were regenerated and transcribed separately.",
+  "rejected_whole_take_raw_duration_seconds": 136.0,
+  "raw_duration_seconds": 130.88,
+  "edited_duration_seconds": 95.37429166666666,
+  "pitch_preserving_atempo": 1.22,
+  "long_pauses": "Runs longer than 450 ms reduced to 220 ms, preserving short consonants and breaths."
+}

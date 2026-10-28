@@ -1,0 +1,259 @@
+{
+  "date": "2026-10-28",
+  "title": "Gradeflow – So funktioniert es",
+  "duration_seconds": 108,
+  "user_maximum_seconds": 120,
+  "app_version": "0.10.0",
+  "app_source_commit": "2a429ea",
+  "application_code_changed": false,
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": "30/1",
+    "frames": 3240,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "bytes": 11546831,
+    "sha256": "5e60184fd78245944f960de5319b804c783a76618459b73ca692771c0c1eaea9"
+  },
+  "audio": {
+    "codec": "aac",
+    "channels": 2,
+    "sample_rate_hz": 48000,
+    "integrated_loudness_lufs": -16.3,
+    "true_peak_dbfs": -2.6,
+    "loudness_range_lu": 3.5,
+    "narration_language": "German",
+    "locally_generated": true,
+    "pitch_preserving_speed_factor": 1.22,
+    "edited_speech_duration_seconds": 95.37429166666666,
+    "speaker_direction_review": "Pilot direction accepted by user; requested more pace and varied intonation, then regenerated and edited.",
+    "soundtrack_rebuilt_from_included_stems": true,
+    "click_synced_to_visible_action_seconds": 26.0
+  },
+  "browser_gate": {
+    "passed": true,
+    "browser_skipped": false,
+    "requested_speech_and_scene_proof_times": 68,
+    "groups": {
+      "lint": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0
+      },
+      "runtime": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0
+      },
+      "layout": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0
+      },
+      "motion": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0
+      },
+      "contrast": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0,
+        "infoCount": 0
+      }
+    }
+  },
+  "verification": {
+    "full_audio_video_decode_passed": true,
+    "decoded_frames_reviewed_seconds": [
+      0,
+      7,
+      13.5,
+      31.5,
+      38,
+      49,
+      54.4,
+      56.5,
+      59.3,
+      70.8,
+      79.5,
+      87,
+      89.36,
+      94,
+      103,
+      107.9
+    ],
+    "all_ten_mounted_scenes_inspected": true,
+    "preview_and_decoded_frame_comparisons": {
+      "frames": [
+        {
+          "second": 7,
+          "mean_absolute_channel_error_255": 0.34077
+        },
+        {
+          "second": 13.5,
+          "mean_absolute_channel_error_255": 0.32594
+        },
+        {
+          "second": 31.5,
+          "mean_absolute_channel_error_255": 0.41872
+        },
+        {
+          "second": 38,
+          "mean_absolute_channel_error_255": 0.24869
+        },
+        {
+          "second": 49,
+          "mean_absolute_channel_error_255": 0.38672
+        },
+        {
+          "second": 56.5,
+          "mean_absolute_channel_error_255": 0.33159
+        },
+        {
+          "second": 59.3,
+          "mean_absolute_channel_error_255": 0.23288
+        },
+        {
+          "second": 70.8,
+          "mean_absolute_channel_error_255": 0.3228
+        },
+        {
+          "second": 79.5,
+          "mean_absolute_channel_error_255": 0.30592
+        },
+        {
+          "second": 87,
+          "mean_absolute_channel_error_255": 0.45545
+        },
+        {
+          "second": 89.36,
+          "mean_absolute_channel_error_255": 0.47805
+        },
+        {
+          "second": 94,
+          "mean_absolute_channel_error_255": 0.41898
+        },
+        {
+          "second": 103,
+          "mean_absolute_channel_error_255": 0.37977
+        },
+        {
+          "second": 107.9,
+          "mean_absolute_channel_error_255": 0.27842
+        }
+      ],
+      "poster_frame_0_mean_error_255": 1.511736914866255
+    },
+    "poster_baked_into_first_frame": true,
+    "last_frame_region_nonblank_at_107_9_seconds": true,
+    "all_ten_voice_segments_locally_transcribed": true,
+    "normalized_transcript_minimum_similarity": 0.98639,
+    "grading_engine_test_files_passed": 1,
+    "grading_engine_tests_passed": 14,
+    "grading_engine_test_command": "vitest run src/domain/grading/gradingEngine.test.ts",
+    "previous_80_and_90_second_versions_unchanged": true
+  },
+  "content": {
+    "focus": [
+      "Startwert 2,00",
+      "relative Einschätzung einer ganzen Stunde",
+      "Viertelschritte",
+      "Pufferaufbau bei 1,00",
+      "Pufferverbrauch und separates Beispiel ohne Puffer",
+      "Nutzen des persönlichen Graphen",
+      "AW/NB",
+      "Tabelle, Excel, lokale Sicherung"
+    ],
+    "research_process_or_usability_scenes": false,
+    "claim_mapping": "inhalt-und-belege.md",
+    "private_manuscript_included": false,
+    "only_fictitious_person_data": true,
+    "pedagogical_effect_claimed": false
+  },
+  "render": {
+    "engine": "Hyperframes 0.8.207",
+    "capture": "drawelement",
+    "gpu": "hardware / Apple M4",
+    "fps": 30,
+    "main_render_seconds": 106.2,
+    "final_audio_poster_finish": "Local FFmpeg, same duration and frame count"
+  },
+  "additional_cost_eur": 0,
+  "paid_api_calls": 0,
+  "limitations": [
+    "Die Stimme ist synthetisch. Die Nutzerrückmeldung bezieht sich auf die kurze Stimmprobe; eine menschliche Abnahme der gesamten finalen Aufnahme steht aus.",
+    "Zeitmarken wurden lokal erkannt und mit dem Sprechertext abgeglichen; automatische Transkription ist kein unabhängiger Nachweis perfekter Aussprache.",
+    "Der kurze Film erklärt die festgelegten Produktregeln und behauptet keinen pädagogischen Wirksamkeitsnachweis.",
+    "Keine erneute vollständige App-Prüfung, da Anwendungscode und Regeln unverändert sind. Der relevante Fachkern wurde mit 14 bestehenden Tests geprüft."
+  ],
+  "changed_files": [
+    ".gitignore",
+    "brag-output-2026-10-28-120220/CREDITS.txt",
+    "brag-output-2026-10-28-120220/README.md",
+    "brag-output-2026-10-28-120220/audio-mix.json",
+    "brag-output-2026-10-28-120220/brag-plan.md",
+    "brag-output-2026-10-28-120220/brag.jpg",
+    "brag-output-2026-10-28-120220/build_film.py",
+    "brag-output-2026-10-28-120220/composition-brief.md",
+    "brag-output-2026-10-28-120220/composition/AGENTS.md",
+    "brag-output-2026-10-28-120220/composition/CLAUDE.md",
+    "brag-output-2026-10-28-120220/composition/assets/fonts/instrument-serif-OFL.txt",
+    "brag-output-2026-10-28-120220/composition/assets/fonts/instrument-serif.ttf",
+    "brag-output-2026-10-28-120220/composition/assets/fonts/manrope-OFL.txt",
+    "brag-output-2026-10-28-120220/composition/assets/fonts/manrope.ttf",
+    "brag-output-2026-10-28-120220/composition/assets/music/film-mix.mp3",
+    "brag-output-2026-10-28-120220/composition/assets/music/gradeflow-score.mp3",
+    "brag-output-2026-10-28-120220/composition/assets/sfx/click_003.ogg",
+    "brag-output-2026-10-28-120220/composition/assets/sfx/impactSoft_medium_000.ogg",
+    "brag-output-2026-10-28-120220/composition/assets/ui/assessment-before.png",
+    "brag-output-2026-10-28-120220/composition/assets/ui/backup.png",
+    "brag-output-2026-10-28-120220/composition/assets/ui/history-chart.png",
+    "brag-output-2026-10-28-120220/composition/assets/ui/history-status-chart.png",
+    "brag-output-2026-10-28-120220/composition/assets/ui/table.png",
+    "brag-output-2026-10-28-120220/composition/assets/voice/buffer-example.mp3",
+    "brag-output-2026-10-28-120220/composition/assets/voice/buffer.mp3",
+    "brag-output-2026-10-28-120220/composition/assets/voice/graph.mp3",
+    "brag-output-2026-10-28-120220/composition/assets/voice/hook.mp3",
+    "brag-output-2026-10-28-120220/composition/assets/voice/outro.mp3",
+    "brag-output-2026-10-28-120220/composition/assets/voice/rating.mp3",
+    "brag-output-2026-10-28-120220/composition/assets/voice/records.mp3",
+    "brag-output-2026-10-28-120220/composition/assets/voice/start.mp3",
+    "brag-output-2026-10-28-120220/composition/assets/voice/status.mp3",
+    "brag-output-2026-10-28-120220/composition/assets/voice/steps.mp3",
+    "brag-output-2026-10-28-120220/composition/compositions/buffer-example.html",
+    "brag-output-2026-10-28-120220/composition/compositions/buffer.html",
+    "brag-output-2026-10-28-120220/composition/compositions/graph.html",
+    "brag-output-2026-10-28-120220/composition/compositions/hook.html",
+    "brag-output-2026-10-28-120220/composition/compositions/outro.html",
+    "brag-output-2026-10-28-120220/composition/compositions/rating.html",
+    "brag-output-2026-10-28-120220/composition/compositions/records.html",
+    "brag-output-2026-10-28-120220/composition/compositions/start.html",
+    "brag-output-2026-10-28-120220/composition/compositions/status.html",
+    "brag-output-2026-10-28-120220/composition/compositions/steps.html",
+    "brag-output-2026-10-28-120220/composition/hyperframes.json",
+    "brag-output-2026-10-28-120220/composition/index.html",
+    "brag-output-2026-10-28-120220/composition/index.motion.json",
+    "brag-output-2026-10-28-120220/composition/meta.json",
+    "brag-output-2026-10-28-120220/composition/package.json",
+    "brag-output-2026-10-28-120220/composition/prepare_assets.mjs",
+    "brag-output-2026-10-28-120220/composition/style.css",
+    "brag-output-2026-10-28-120220/generate_music.py",
+    "brag-output-2026-10-28-120220/inhalt-und-belege.md",
+    "brag-output-2026-10-28-120220/mix_audio.py",
+    "brag-output-2026-10-28-120220/narration.json",
+    "brag-output-2026-10-28-120220/pruefung.json",
+    "brag-output-2026-10-28-120220/scene-timing.json",
+    "brag-output-2026-10-28-120220/share-copy.txt",
+    "brag-output-2026-10-28-120220/sprachpruefung.json",
+    "brag-output-2026-10-28-120220/sprechertext.txt",
+    "brag-output-2026-10-28-120220/timing.json",
+    "brag-output-2026-10-28-120220/voice-production.json",
+    "docs/entwicklungsprotokoll.md"
+  ]
+}

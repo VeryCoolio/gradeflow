@@ -1,0 +1,12 @@
+Gradeflow – So funktioniert es, 28.10.2026
+
+Anwendung: Gradeflow 0.10.0, App-Stand 2a429ea; ausschließlich fiktive Beispieldaten.
+Lokale Produktion mit Brag, Hyperframes 0.8.207 und GSAP 3.15.0.
+Deutsche synthetische Sprecherstimme: Qwen3-TTS VoiceDesign 1.7B, MLX-Community-4bit-Fassung, lokal mit mlx-audio 0.6.2. Modellgrundlage unter Apache 2.0. Keine Nachahmung einer benannten Stimme. Modelldaten sind nicht Teil dieses Projekts.
+Lokale Wortzeiten: Whisper small (OpenAI-Modell, MLX-Konvertierung). Transkripte dienen der Zeitsteuerung und Vollständigkeitskontrolle.
+Instrumentalmusik: eigenständig lokal synthetisiert; keine übernommene Musikaufnahme.
+Geräusche: Kenney Interface/Impact, CC0, aus den Brag-Assets.
+Schriften: Manrope und Instrument Serif; SIL Open Font License, Dateien unter composition/assets/fonts/.
+Animationsbibliothek: GSAP; Lizenz im Header der lokal eingebundenen Bibliothek.
+Reale App-Abbildungen plus schematische Rechenbeispiele. Alle bisherigen Videos und das private Manuskript bleiben unverändert.
+Keine kostenpflichtigen API-Aufrufe oder zusätzlichen Dienste.

@@ -31,3 +31,12 @@ brag-output-2026-10-28-101409/composition/.thumbnails/
 brag-output-2026-10-28-101409/composition/.waveform-cache/
 brag-output-2026-10-28-101409/composition/renders/
 brag-output-2026-10-28-101409/composition/assets/gsap.min.js
+
+# Voice-timed Gradeflow explainer runtime output
+brag-output-2026-10-28-120220/*.mp4
+brag-output-2026-10-28-120220/voice-work/
+brag-output-2026-10-28-120220/composition/.hyperframes/
+brag-output-2026-10-28-120220/composition/.thumbnails/
+brag-output-2026-10-28-120220/composition/.waveform-cache/
+brag-output-2026-10-28-120220/composition/renders/
+brag-output-2026-10-28-120220/composition/assets/gsap.min.js
