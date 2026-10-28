@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-28",
+  "title": "Gradeflow – BA kompakt",
+  "application_version": "0.10.0",
+  "application_source_commit": "2a429ea",
+  "requested_maximum_seconds": 120,
+  "actual_duration_seconds": 90.0,
+  "video": {
+    "width": 1920,
+    "height": 1080,
+    "fps": "30/1",
+    "frames": 2700,
+    "codec": "h264",
+    "pixel_format": "yuv420p",
+    "bytes": 6547831,
+    "sha256": "6a938dc11914eefadd52db1f09af90bd4bb7864787d4d0c7d27da9636600f281"
+  },
+  "audio": {
+    "codec": "aac",
+    "channels": 2,
+    "sample_rate_hz": 48000,
+    "integrated_loudness_lufs": -20.3,
+    "true_peak_dbfs": -6.3,
+    "loudness_range_lu": 1.8,
+    "narration": false,
+    "music": "Locally synthesized original instrumental track"
+  },
+  "hyperframes_gate": {
+    "passed": true,
+    "browser_skipped": false,
+    "groups": {
+      "lint": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 14
+      },
+      "runtime": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "layout": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "motion": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0
+      },
+      "contrast": {
+        "ok": true,
+        "errorCount": 0,
+        "warningCount": 0
+      }
+    },
+    "structural_warning_counts": {
+      "duplicate_media_discovery_risk": 2,
+      "timeline_track_too_dense": 1,
+      "nested_structure_needs_subcomposition": 11
+    },
+    "warning_review": "Intentional repeated UI images and eleven scenes in a single composition. Browser layout/runtime/motion/contrast checks passed; decoded output frames visually reviewed and compared to browser references."
+  },
+  "verification": {
+    "full_audio_video_decode_passed": true,
+    "decoded_frame_samples_seconds": [
+      0,
+      4,
+      12,
+      21,
+      32.5,
+      40,
+      49,
+      57,
+      65,
+      73,
+      81,
+      88,
+      89.9
+    ],
+    "visual_contact_sheet_reviewed": true,
+    "no_blank_tail_at_89_9_seconds": true,
+    "poster_baked_into_first_frame": true,
+    "pixel_comparisons": {
+      "frames": [
+        {
+          "second": 4,
+          "mean_absolute_channel_error_255": 0.45791
+        },
+        {
+          "second": 12,
+          "mean_absolute_channel_error_255": 0.34969
+        },
+        {
+          "second": 21,
+          "mean_absolute_channel_error_255": 0.39478
+        },
+        {
+          "second": 32.5,
+          "mean_absolute_channel_error_255": 0.53101
+        },
+        {
+          "second": 40,
+          "mean_absolute_channel_error_255": 0.25331
+        },
+        {
+          "second": 49,
+          "mean_absolute_channel_error_255": 0.31487
+        },
+        {
+          "second": 65,
+          "mean_absolute_channel_error_255": 0.45972
+        },
+        {
+          "second": 73,
+          "mean_absolute_channel_error_255": 0.49298
+        },
+        {
+          "second": 81,
+          "mean_absolute_channel_error_255": 0.23083
+        },
+        {
+          "second": 88,
+          "mean_absolute_channel_error_255": 0.37777
+        }
+      ],
+      "poster_frame_0_mean_error_255": 1.5067192322530865
+    },
+    "duration_within_user_limit": true,
+    "previous_80_second_video_unchanged": true,
+    "previous_video_sha256": "e1e06d66b66279ba1beb91241313d642a53a7e2f13b45551064e50625d9269f9"
+  },
+  "content_review": {
+    "basis": "Provided BA intermediate manuscript, chapters 1–6; application documentation and actual fictitious examples",
+    "claim_mapping": "inhalt_und_belege.md",
+    "private_manuscript_included": false,
+    "only_fictitious_person_data": true,
+    "usability_results_claimed": false,
+    "pedagogical_effect_claimed": false,
+    "model_choices_identified": true
+  },
+  "cost": {
+    "additional_services_eur": 0,
+    "paid_api_calls": 0
+  },
+  "limitations": [
+    "The content is a concise product explanation, not a complete presentation of the thesis.",
+    "Cursor motion and camera framing are editorial reconstructions around actual application screenshots.",
+    "Automated video checks and technical application tests do not prove pedagogical effectiveness."
+  ]
+}

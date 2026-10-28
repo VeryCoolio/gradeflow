@@ -1,0 +1,18 @@
+{
+  "duration": 90,
+  "assertions": [
+    {
+      "kind": "appearsBy",
+      "selector": "#hook h1",
+      "bySec": 0.3
+    },
+    {
+      "kind": "staysInFrame",
+      "selector": ".brand"
+    },
+    {
+      "kind": "staysInFrame",
+      "selector": ".teacher"
+    }
+  ]
+}

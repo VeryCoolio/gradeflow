@@ -1,0 +1,18 @@
+{
+  "name": "gradeflow-ba-compact-film",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare": "node prepare_assets.mjs",
+    "dev": "hyperframes preview",
+    "check": "hyperframes check",
+    "render": "hyperframes render --quality delivery --fps 30 --output ../brag.mp4"
+  },
+  "dependencies": {
+    "gsap": "3.15.0"
+  },
+  "devDependencies": {
+    "hyperframes": "0.8.207"
+  }
+}

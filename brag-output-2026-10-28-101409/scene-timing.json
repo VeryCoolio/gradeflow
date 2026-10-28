@@ -1,0 +1,57 @@
+[
+  {
+    "id": "hook",
+    "start": 0,
+    "duration": 7
+  },
+  {
+    "id": "thesis",
+    "start": 7,
+    "duration": 10
+  },
+  {
+    "id": "prototype",
+    "start": 17,
+    "duration": 8
+  },
+  {
+    "id": "assess",
+    "start": 25,
+    "duration": 11
+  },
+  {
+    "id": "model",
+    "start": 36,
+    "duration": 9
+  },
+  {
+    "id": "status",
+    "start": 45,
+    "duration": 8
+  },
+  {
+    "id": "continuity",
+    "start": 53,
+    "duration": 8
+  },
+  {
+    "id": "trace",
+    "start": 61,
+    "duration": 8
+  },
+  {
+    "id": "backup",
+    "start": 69,
+    "duration": 8
+  },
+  {
+    "id": "evaluation",
+    "start": 77,
+    "duration": 8
+  },
+  {
+    "id": "outro",
+    "start": 85,
+    "duration": 5
+  }
+]
