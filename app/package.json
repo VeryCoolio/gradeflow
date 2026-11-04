@@ -1,6 +1,6 @@
 {
   "name": "muendliche-notengebung-core",
-  "version": "0.10.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -14,8 +14,10 @@
   },
   "dependencies": {
     "exceljs": "4.4.0",
+    "jszip": "3.10.2",
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "saxes": "6.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",

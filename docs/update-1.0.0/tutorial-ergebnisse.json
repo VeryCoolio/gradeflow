@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Niedrige Ansicht 844",
+    "status": "PASS",
+    "steps": 15,
+    "clickable_targets": true,
+    "overlaps": 0,
+    "download": "uebung-gradeflow-notebook-v1.json",
+    "own_data_unchanged": true,
+    "url_unchanged": true,
+    "first_visit_once": true,
+    "manual_restart": true,
+    "keyboard_cycle": true,
+    "escape": true
+  },
+  {
+    "name": "Niedrige Ansicht 667",
+    "status": "PASS",
+    "steps": 15,
+    "clickable_targets": true,
+    "overlaps": 0,
+    "download": "uebung-gradeflow-notebook-v1.json",
+    "own_data_unchanged": true,
+    "url_unchanged": true,
+    "first_visit_once": true,
+    "manual_restart": true,
+    "keyboard_cycle": true,
+    "escape": true
+  },
+  {
+    "name": "Niedrige Ansicht 480",
+    "status": "PASS",
+    "steps": 15,
+    "clickable_targets": true,
+    "overlaps": 0,
+    "download": "uebung-gradeflow-notebook-v1.json",
+    "own_data_unchanged": true,
+    "url_unchanged": true,
+    "first_visit_once": true,
+    "manual_restart": true,
+    "keyboard_cycle": true,
+    "escape": true
+  },
+  {
+    "name": "Begonnene Stunde und Tastatureingabe erhalten",
+    "status": "PASS",
+    "selected_person": "Fiktiv Bea",
+    "notebook_unchanged": true,
+    "url_unchanged": true
+  },
+  {
+    "name": "Klassenentwurf erhalten",
+    "status": "PASS",
+    "draft_unchanged": true,
+    "notebook_unchanged": true
+  },
+  {
+    "name": "Tour im schreibgeschützten zweiten Tab",
+    "status": "PASS",
+    "notebook_unchanged": true
+  }
+]

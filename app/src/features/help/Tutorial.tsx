@@ -35,7 +35,7 @@ const steps: readonly Step[] = [
   {
     target: '[data-tour="page-anlegen"]',
     title: "Lege eine Übungsklasse an",
-    text: "Klicke auf die markierte Schaltfläche „Klasse anlegen“. Du übst an den echten Bedienelementen. Alles in dieser Tour bleibt von deinen eigenen Klassen getrennt. Mit „Weiter“ kannst du jeden Schritt auch ohne eigene Eingabe ansehen.",
+    text: "Klicke auf die markierte Schaltfläche „Klasse anlegen / importieren“. Du übst an den echten Bedienelementen. Alles in dieser Tour bleibt von deinen eigenen Klassen getrennt. Mit „Weiter“ kannst du jeden Schritt auch ohne eigene Eingabe ansehen.",
     action: "page-anlegen",
   },
   {
@@ -266,7 +266,7 @@ function PracticeTour({
         lastTarget = target;
         target.scrollIntoView?.({ block: "center", behavior: "instant" });
         // Keep keyboard entry on the actual field rather than the explanation.
-        (target.matches("input, select, button, summary")
+        (target.matches("input, select, button, summary, a[href]")
           ? target
           : target.querySelector<HTMLElement>("input")
         )?.focus({ preventScroll: true });
@@ -363,7 +363,7 @@ function PracticeTour({
             const field = surface.current?.querySelector<HTMLElement>(selector);
             return field ? [field] : [];
           })
-        : target?.matches("input, select, button, summary")
+        : target?.matches("input, select, button, summary, a[href]")
           ? [target]
           : Array.from(
               target?.querySelectorAll<HTMLElement>("input, button, select") ??

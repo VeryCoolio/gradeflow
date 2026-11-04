@@ -33,6 +33,13 @@ export function addDemoClass(
   createId: () => string,
   now: string,
 ): NotebookV1 {
+  const activeDemo = (group: ClassRecord) =>
+    !group.archived && group.demo === true;
+  const existing =
+    notebook.classes.find(
+      (group) => group.id === notebook.currentClassId && activeDemo(group),
+    ) ?? notebook.classes.find(activeDemo);
+  if (existing) return { ...notebook, currentClassId: existing.id };
   let name = DEMO_CLASS_NAME;
   let number = 2;
   while (

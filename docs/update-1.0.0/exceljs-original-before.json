@@ -1,0 +1,9 @@
+{
+  "filename": "Klassenliste_Gradeflow.xlsx",
+  "boundSpreadsheetPrefix": true,
+  "prefixedWorkbook": true,
+  "failure": {
+    "name": "TypeError",
+    "message": "Cannot read properties of undefined (reading 'sheets')"
+  }
+}

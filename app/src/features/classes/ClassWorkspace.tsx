@@ -36,7 +36,7 @@ const viewLabels = [
   ["tabelle", "Tabelle"],
   ["verlauf", "Verlauf"],
   ["personen", "Personen"],
-  ["einstellungen", "Klasse bearbeiten"],
+  ["einstellungen", "Klasse und Zeitraum"],
 ] as const;
 
 interface Props {
@@ -164,6 +164,11 @@ export function ClassWorkspace({
     event.preventDefault();
     if (actions.saveDetails(detailName, detailPeriod)) setEditingDetails(false);
   }
+  function openDetailsEditor() {
+    setDetailName(currentClass.name);
+    setDetailPeriod(currentClass.periodLabel);
+    setEditingDetails(true);
+  }
   function saveStudentName(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (
@@ -212,6 +217,19 @@ export function ClassWorkspace({
             {countLabel(currentClass.students.length, "Person", "Personen")}
           </span>
         </div>
+        {!editingDetails && !editingStudentId ? (
+          <button
+            type="button"
+            className="text-button"
+            disabled={!canWrite}
+            onClick={() => {
+              openDetailsEditor();
+              setDashboardView("einstellungen");
+            }}
+          >
+            Zeitraum bearbeiten
+          </button>
+        ) : null}
       </section>
       <div className="workspace-toolbar">
         <nav className="view-tabs" aria-label="Klassenansichten">
@@ -324,15 +342,8 @@ export function ClassWorkspace({
                   </div>
                 </form>
               ) : (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setDetailName(currentClass.name);
-                    setDetailPeriod(currentClass.periodLabel);
-                    setEditingDetails(true);
-                  }}
-                >
-                  Namen und Zeitraum bearbeiten
+                <button type="button" onClick={openDetailsEditor}>
+                  Klassenname und Zeitraum bearbeiten
                 </button>
               )}
               <p>
@@ -475,11 +486,11 @@ export function ClassWorkspace({
 
       {dashboardView === "stunden" && isDemoClass(currentClass) ? (
         <section className="card demo-values">
-          <h2>Demo-Werte</h2>
+          <h2>Beispielstunden für {currentClass.name}</h2>
           {currentClass.demoDataGenerated && currentClass.sessions.length ? (
             <p role="status">
-              Die Beispielwochen wurden hinzugefügt. Schau sie dir in Tabelle
-              und Verlauf an.
+              Die 25 fiktiven Beispielstunden für {currentClass.name} wurden
+              hinzugefügt. Schau sie dir in Tabelle und Verlauf an.
             </p>
           ) : (
             <>
@@ -498,7 +509,7 @@ export function ClassWorkspace({
                 disabled={!canWrite || currentClass.archived}
                 onClick={actions.populateDemo}
               >
-                Demowerte für fünf Wochen erstellen
+                Beispielstunden ergänzen
               </button>
             </>
           )}

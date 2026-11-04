@@ -4,6 +4,7 @@ import { observationLabel } from "../../application/observationPresentation";
 import { RATING_GUIDE } from "../../application/ratingGuide";
 import type { ClassRecord } from "../local/schema";
 import { namesFromRows } from "./classListRows";
+import { normalizeXlsxNamespaces } from "./xlsxNamespaces";
 import { assertXlsxResources } from "./xlsxResources";
 
 export const XLSX_MIME =
@@ -223,26 +224,40 @@ export async function exportClassXlsx(
 export async function readClassXlsx(raw: ArrayBuffer): Promise<string[]> {
   assertXlsxResources(raw);
   const workbook = new ExcelJS.Workbook();
+  let declaredWorksheetCount = 0;
   try {
-    await workbook.xlsx.load(raw);
+    const prepared = await normalizeXlsxNamespaces(raw);
+    declaredWorksheetCount = prepared.worksheetCount;
+    if (declaredWorksheetCount === 1) {
+      if (prepared.normalized) assertXlsxResources(prepared.normalized);
+      await workbook.xlsx.load(prepared.normalized ?? raw);
+      if (workbook.worksheets.length !== 1)
+        throw new RangeError("Das deklarierte Tabellenblatt ist nicht lesbar.");
+    }
   } catch {
     throw new RangeError(
-      "Diese Excel-Datei kann nicht gelesen werden. Verwende die Musterklassenliste als .xlsx oder .csv.",
+      "Diese Excel-Datei kann nicht gelesen werden. Öffne sie in Excel oder LibreOffice und speichere sie erneut als .xlsx. Alternativ übertrage die Namen in die Musterklassenliste oder speichere sie als CSV.",
     );
   }
-  if (workbook.worksheets.length !== 1)
+  if (declaredWorksheetCount !== 1)
     throw new RangeError(
-      "Die Klassenliste muss genau ein Tabellenblatt enthalten: Vorname und Nachname.",
+      "Die Klassenliste muss genau ein Tabellenblatt enthalten. Übertrage Vorname und Nachname in die Musterklassenliste und importiere diese erneut.",
     );
   const sheet = workbook.worksheets[0];
-  if (sheet.rowCount > 46)
-    throw new RangeError("Eine Klasse darf höchstens 45 Personen enthalten.");
   const rows: string[][] = [];
   sheet.eachRow((row, index) => {
     row.eachCell((cell, column) => {
-      if (column > 2 && cell.type !== ExcelJS.ValueType.Null)
+      if (
+        column > 2 &&
+        cell.type !== ExcelJS.ValueType.Null &&
+        !(
+          (cell.type === ExcelJS.ValueType.String ||
+            cell.type === ExcelJS.ValueType.RichText) &&
+          !cell.text.trim()
+        )
+      )
         throw new RangeError(
-          `Zeile ${index}: Es sind nur Vorname und Nachname zulässig.`,
+          `Zeile ${index}: Zelle ${cell.address} enthält zusätzliche Daten. Entferne zusätzliche Inhalte; zulässig sind nur Vorname in A und Nachname in B.`,
         );
     });
     const cells = [row.getCell(1), row.getCell(2)];
@@ -250,13 +265,14 @@ export async function readClassXlsx(raw: ArrayBuffer): Promise<string[]> {
       cells.some(
         (cell) =>
           cell.type !== ExcelJS.ValueType.String &&
+          cell.type !== ExcelJS.ValueType.RichText &&
           cell.type !== ExcelJS.ValueType.Null,
       )
     )
       throw new RangeError(
-        `Zeile ${index}: Bitte Namen als Text eingeben; Formeln sind nicht zulässig.`,
+        `Zeile ${index}: Bitte Namen als Text eingeben; Formeln und andere Zelltypen sind nicht zulässig. Ersetze diese Zellen durch ausgeschriebene Namen und importiere die Datei erneut.`,
       );
-    rows.push(cells.map((cell) => cell.text));
+    rows[index - 1] = cells.map((cell) => cell.text);
   });
   return namesFromRows(rows);
 }

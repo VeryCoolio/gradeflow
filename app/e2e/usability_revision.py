@@ -48,7 +48,7 @@ def run(browser, width):
         tutorial = exercise_tutorial(page, width, OUT)
         record(f"Tutorial {width}", **tutorial)
 
-        nav(page, "Klasse anlegen")
+        nav(page, "Klasse anlegen / importieren")
         page.get_by_label("Klassenname", exact=True).fill("Fiktive 8b")
         page.get_by_label("Vorname 1", exact=True).fill("Fiktiv")
         page.get_by_label("Nachname 1", exact=True).fill("Ada")
@@ -67,8 +67,8 @@ def run(browser, width):
         assert len(saved(page)["classes"][0]["students"]) == 2
         record(f"Entwurf und Klassenanlage {width}", reloads=2)
 
-        button(page, "Klasse bearbeiten").click()
-        button(page, "Namen und Zeitraum bearbeiten").click()
+        button(page, "Klasse und Zeitraum").click()
+        button(page, "Klassenname und Zeitraum bearbeiten").click()
         page.get_by_label("Bewertungszeitraum", exact=True).fill("Freier Testzeitraum")
         button(page, "Änderungen speichern").click()
         expect(page.locator(".settings-details")).to_contain_text("Freier Testzeitraum")

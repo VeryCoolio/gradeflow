@@ -60,4 +60,25 @@ describe("Klassenlistenimport", () => {
       ),
     ).toHaveLength(45);
   });
+
+  it("überspringt vollständig leere Zeilen und erhält mehrteilige Namen", () => {
+    expect(
+      parseClassImport(
+        '\nVorname;Nachname\n;\n"  Fiktiv  Marie  ";"  von Beispiel  "\n   ;   \nFiktiv;Zwei\n;;',
+        "klasse.csv",
+      ),
+    ).toEqual(["Fiktiv  Marie von Beispiel", "Fiktiv Zwei"]);
+  });
+
+  it("nennt die ursprüngliche Dateizeile und das fehlende Namensfeld", () => {
+    expect(() =>
+      parseClassImport("Vorname;Nachname\n\n;\nFiktiv;", "klasse.csv"),
+    ).toThrow(/Zeile 4.*Nachname.*ergänz/);
+    expect(() =>
+      parseClassImport("Vorname;Nachname\n\n;Beispiel", "klasse.csv"),
+    ).toThrow(/Zeile 3.*Vorname.*ergänz/);
+    expect(() =>
+      parseClassImport("Vorname\tNachname\nFiktiv\t", "klasse.txt"),
+    ).toThrow(/Zeile 2.*Nachname.*ergänz/);
+  });
 });

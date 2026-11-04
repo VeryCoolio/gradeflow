@@ -110,8 +110,8 @@ def core(browser, width, height):
     page.on("pageerror", lambda error: errors.append(str(error)))
     page.goto(BASE)
     page.wait_for_load_state("networkidle")
-    button(page, "Klasse anlegen").first.click()
-    button(page, "Klasse importieren").click()
+    button(page, "Klasse anlegen / importieren").first.click()
+    button(page, "Klassenliste importieren").click()
     page.get_by_label("Klassenname", exact=True).fill("Prüfung 8b")
     page.get_by_label("Klassenliste", exact=True).set_input_files(str(ROOT / "app/public/demo-klasse.csv"))
     button(page, "Klasse lokal anlegen").click()
@@ -236,13 +236,13 @@ def failure_cases(browser):
     button(page, "Eingabe erneut speichern").click()
     expect(page.get_by_role("heading", name="Alle Eingaben sind lokal gespeichert")).to_be_visible()
     back(page)
-    button(page, "Klasse bearbeiten").click()
+    button(page, "Klasse und Zeitraum").click()
     page.once("dialog", lambda dialog: dialog.accept())
     button(page, "Zeitraum archivieren").click()
     assert stored(page)["classes"][0]["archived"] is True
     page.reload();page.wait_for_load_state("networkidle")
     assert page.get_by_role("button", name="Stunde beginnen", exact=True).count() == 0
-    button(page, "Klasse bearbeiten").click()
+    button(page, "Klasse und Zeitraum").click()
     button(page, "Zeitraum wieder öffnen").click()
     page.once("dialog", lambda dialog: dialog.accept())
     button(page, "Klasse löschen").click()
@@ -265,12 +265,12 @@ def multi_tab(browser):
     before=stored(a)
     b.get_by_label('Klasse auswählen').select_option('c1')
     assert stored(b)==before
-    button(b,'Klasse bearbeiten').click()
-    for name in ['Namen und Zeitraum bearbeiten','Zeitraum archivieren','Klasse löschen']:
+    button(b,'Klasse und Zeitraum').click()
+    for name in ['Klassenname und Zeitraum bearbeiten','Zeitraum archivieren','Klasse löschen']:
         expect(button(b,name)).to_be_disabled()
     a.close()
     button(b,'Bearbeitung hier übernehmen').click()
-    expect(button(b,'Namen und Zeitraum bearbeiten')).to_be_enabled()
+    expect(button(b,'Klassenname und Zeitraum bearbeiten')).to_be_enabled()
     button(b,'Stunden').click();button(b,'Fortsetzen').click();button(b,'Nicht beobachtet').click()
     assert len(stored(b)['classes'][0]['sessions'][0]['observations'])==2
     record('Zwei Tabs: Schreibschutz Aktualisierung Klassenauswahl und Übernahme', no_data_loss=True, readonly_controls=True)
@@ -386,13 +386,13 @@ def recovery_and_xlsx(browser):
     button(page,'Datensicherung').click();page.once('dialog',lambda d:d.accept());button(page,'Legacy-Schlüssel wiederherstellen').click()
     assert json.loads(page.evaluate("localStorage.getItem('oral-grading-app-v4')"))==legacy
     record('Legacy Migration und Rückfall', unchanged_legacy=True)
-    button(page,'Klasse anlegen').click();button(page,'Klasse importieren').click();page.get_by_label('Klassenname',exact=True).fill('Fiktive Excelklasse')
+    button(page,'Klasse anlegen / importieren').click();button(page,'Klassenliste importieren').click();page.get_by_label('Klassenname',exact=True).fill('Fiktive Excelklasse')
     file=OUT/'klassenliste.xlsx'
     subprocess.run(['node','--input-type=module','-e', "import ExcelJS from 'exceljs';const w=new ExcelJS.Workbook();const s=w.addWorksheet('Klasse');[['Vorname','Nachname'],['Fiktiv','Ada'],['Fiktiv','Bea']].forEach(r=>s.addRow(r));await w.xlsx.writeFile(process.argv[1]);", str(file)],cwd=ROOT/'app',check=True)
     page.get_by_label('Klassenliste',exact=True).set_input_files(file);button(page,'Klasse lokal anlegen').click();expect(page.get_by_role('heading',name='Fiktive Excelklasse',exact=True)).to_be_visible()
     assert len(stored(page)['classes'][-1]['students'])==2
     record('XLSX Import im echten Browser Worker', students=2)
-    button(page,'Klasse anlegen').click();button(page,'Klasse importieren').click();page.get_by_label('Klassenname',exact=True).fill('Fiktive kaputte Excelklasse')
+    button(page,'Klasse anlegen / importieren').click();button(page,'Klassenliste importieren').click();page.get_by_label('Klassenname',exact=True).fill('Fiktive kaputte Excelklasse')
     bomb=OUT/'zu-gross-entpackt.xlsx'
     with zipfile.ZipFile(bomb,'w',compression=zipfile.ZIP_DEFLATED) as z:z.writestr('xl/worksheets/sheet1.xml',b'0'*(2*1024*1024+1))
     old=stored(page);page.get_by_label('Klassenliste',exact=True).set_input_files(bomb);button(page,'Klasse lokal anlegen').click();expect(page.get_by_role('alert')).to_contain_text('entpackte Excel-Datei');assert stored(page)==old

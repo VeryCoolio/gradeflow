@@ -1,23 +1,37 @@
 const MAX_STUDENTS = 45;
 
 export function namesFromRows(rows: readonly (readonly string[])[]): string[] {
-  const header = rows[0]?.map((cell) => cell.trim().toLocaleLowerCase("de"));
+  const headerIndex = rows.findIndex((cells) =>
+    cells?.some((cell) => cell.trim()),
+  );
+  const header = rows[headerIndex]?.map((cell) =>
+    cell.trim().toLocaleLowerCase("de"),
+  );
   if (
     header?.length !== 2 ||
     header[0] !== "vorname" ||
     header[1] !== "nachname"
   ) {
     throw new RangeError(
-      "Die erste Zeile muss genau die Spalten „Vorname“ und „Nachname“ in dieser Reihenfolge enthalten.",
+      "Die erste ausgefüllte Zeile muss genau die Spalten „Vorname“ und „Nachname“ in dieser Reihenfolge enthalten. Verwende die Musterklassenliste und übertrage die Namen in diese beiden Spalten.",
     );
   }
-  const names = rows.slice(1).map((cells, index) => {
-    if (cells.length !== 2 || cells.some((cell) => !cell.trim())) {
+  const names: string[] = [];
+  rows.forEach((cells, index) => {
+    if (index <= headerIndex || cells.every((cell) => !cell.trim())) return;
+    if (cells.length !== 2) {
       throw new RangeError(
-        `Zeile ${index + 2}: Bitte Vorname und Nachname in zwei ausgefüllten Spalten angeben.`,
+        `Zeile ${index + 1}: Die Zeile enthält ${cells.length} Spalten. Verwende genau zwei Spalten: Vorname und Nachname.`,
       );
     }
-    return cells.join(" ").replace(/\s+/g, " ").trim();
+    const trimmed = cells.map((cell) => cell.trim());
+    const missing = trimmed.findIndex((cell) => !cell);
+    if (missing !== -1) {
+      throw new RangeError(
+        `Zeile ${index + 1}: Der ${missing === 0 ? "Vorname" : "Nachname"} in ${missing === 0 ? "A" : "B"}${index + 1} fehlt. Bitte ergänzen und die Datei erneut importieren.`,
+      );
+    }
+    names.push(trimmed.join(" "));
   });
   if (!names.length)
     throw new RangeError(

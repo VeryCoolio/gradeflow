@@ -30,6 +30,7 @@ interface Props {
   error: string;
   notice: string;
   canRetry: boolean;
+  pendingDescription?: string;
   onRetry: () => void;
   onSelect: (id: string) => void;
   onRecord: (observation: Observation, clicks: number) => void;
@@ -49,6 +50,7 @@ export function AssessmentWorkspace({
   error,
   notice,
   canRetry,
+  pendingDescription,
   onRetry,
   onSelect,
   onRecord,
@@ -235,7 +237,8 @@ export function AssessmentWorkspace({
                 {student.displayName}
               </h3>
               <p className="observation-status">
-                Gewählter Status: <strong>{observationLabel(selected)}</strong>
+                Gespeicherter Status:{" "}
+                <strong>{observationLabel(selected)}</strong>
               </p>
             </div>
             <div className="person-context">
@@ -249,7 +252,14 @@ export function AssessmentWorkspace({
               <div className="feedback error" role="alert">
                 {canRetry ? (
                   <>
-                    <p>Die Eingabe wurde nicht gespeichert.</p>
+                    <p>Diese Eingabe ist noch nicht lokal gespeichert:</p>
+                    <p>
+                      <strong>{pendingDescription}</strong>
+                    </p>
+                    <p>
+                      Die Auswahl bleibt für einen erneuten Speicherversuch
+                      erhalten.
+                    </p>
                     <details>
                       <summary>Fehlerdetails</summary>
                       <p>{error}</p>
@@ -266,10 +276,20 @@ export function AssessmentWorkspace({
               </div>
             ) : (
               <p className="save-status" role="status">
-                {notice ||
-                  (canWrite
-                    ? "Jede Auswahl wird sofort lokal gespeichert."
-                    : "Nur zur Ansicht · Eingaben sind gesperrt.")}
+                <strong>
+                  {canWrite
+                    ? notice ||
+                      (captured > 0
+                        ? "Die bisherigen Eingaben sind lokal gespeichert."
+                        : "Automatisches Speichern ist bereit.")
+                    : "Nur zur Ansicht · Eingaben sind gesperrt."}
+                </strong>
+                {canWrite ? (
+                  <span>
+                    Jede Auswahl wird sofort auf diesem Gerät gespeichert. Du
+                    musst nicht zusätzlich speichern.
+                  </span>
+                ) : null}
               </p>
             )}
           </div>

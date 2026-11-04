@@ -1658,6 +1658,11 @@ td small {
   margin: 0.5rem 0 0;
   min-height: 1.1em;
 }
+.save-status span {
+  display: block;
+  margin-top: 0.2rem;
+  color: var(--secondary);
+}
 .assessment-context .feedback {
   margin: 0.5rem 0 0;
   padding: 0.6rem 0.75rem;

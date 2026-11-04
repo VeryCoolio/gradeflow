@@ -141,3 +141,15 @@ Yannis beauftragt die freie Auswahl der App-Farbe, sanfte auswählbare Klassenfa
 Eine Demo soll zuerst angelegt und anschließend auf Wunsch mit fünf Wochen Demowerten gefüllt werden. Technische Ausgestaltung: 25 fiktive Stunden an fünf Montag-bis-Freitag-Wochen vor der aktuellen Woche bzw. vorhandenen Stunden; alle Symbole, AW, NB und offene Einträge. Kein Überschreiben bestehender Stunden und kein versehentliches mehrfaches Füllen.
 
 App-Farbe und Sortier-/Nutzungspräferenzen gehören zum Browserprofil; Klassenfarben und Demo-Markierungen zur JSON-Sicherung. Keine neue pädagogische Regel, keine Cloud-Synchronisierung und kein automatischer Zeitraumwechsel.
+
+## Gezieltes Update für Version 1.0 – 04.11.2026
+
+### O18 – Import, Zeitraum, Speicherbestätigung, Demo und Enter – entschieden
+
+Yannis beauftragt fünf gezielte Bedienverbesserungen auf Grundlage der bestehenden App: einen gut auffindbaren robusten Klassenimport, den sichtbaren und nachträglich bearbeitbaren Bewertungszeitraum, eindeutige Bestätigung der sofortigen lokalen Speicherung, klar getrennte Aktionen für Demoklasse und Beispielstunden sowie Schutz vor unbeabsichtigtem Formularabschluss durch Enter im Namensfeld. Design, Ansichten, Bewertungsmodell und vorhandene Daten bleiben erhalten. Die Bezeichnung **1.0.0** wird erst nach bestandenen betroffenen Abläufen, Tests, Typecheck, Lint, Formatprüfung und Produktionsbuild vergeben.
+
+Die vorhandene Zeitraum-Bearbeitung wird leichter erreichbar; es entsteht keine parallele Verwaltung. Weiterhin freie Bezeichnung, kein automatisches Enddatum und kein Noten-Reset. Kein globaler Speicherschritt: Erfolg folgt dem tatsächlichen lokalen Schreibvorgang, eine fehlgeschlagene Beobachtung bleibt für den bestehenden Wiederholungsweg erhalten. Demoaktionen nennen ihr Ziel und überschreiben weder reguläre Klassen noch vorhandene Stunden; wiederholtes Erstellen öffnet eine bereits ausdrücklich markierte aktive Demo.
+
+**Technische Umsetzung:** vorhandene ExcelJS-Version behalten, namespacekorrekter Vorparser mit den bereits vorhandenen Bibliotheksversionen JSZip und saxes als direkten Abhängigkeiten. Originaldateien bleiben unverändert, Worker und Ressourcenbegrenzungen bleiben bestehen. Details: [Zielarchitektur, Abschnitt 11](04-zielarchitektur.md#11-gezielte-bedienkorrekturen-für-10--04112026).
+
+**Offener historischer Nachweis:** Die datierte Excel-Datei aus dem damaligen Test ist nicht mehr verfügbar; dies hat Yannis am 04.11.2026 klargestellt. Formatvarianten der Website-Vorlage werden tatsächlich geprüft. Ihre erfolgreiche Abnahme ist kein Beleg für die genaue damalige Fehlerursache. Der Fehler der verfügbaren Originaldatei wird davon getrennt dokumentiert. Keine neue Fachregel, Migration oder Cloud-Synchronisierung.

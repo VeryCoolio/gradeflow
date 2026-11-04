@@ -81,7 +81,7 @@ it("führt durch echte Formulare und Aktionen, ohne den eigenen Datenbestand ode
   await user.click(
     within(screen.getByRole("navigation", { name: "Hauptseiten" })).getByRole(
       "link",
-      { name: "Klasse anlegen" },
+      { name: "Klasse anlegen / importieren" },
     ),
   );
   expect(tour().textContent).toContain("Schritt 2 von 15");

@@ -1,4 +1,10 @@
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  type KeyboardEvent,
+} from "react";
 import { schoolYearLabel } from "../../application/schoolYear";
 import { importClassFile } from "../../infrastructure/importExport/classImport";
 import {
@@ -46,7 +52,7 @@ export function ClassCreation({
       : "Noch keine Klasse angelegt. Deine Eingaben werden als lokaler Entwurf gesichert.",
   );
   const [draftError, setDraftError] = useState(initial.error);
-  const { mode, name, period, customPeriod, people } = draft;
+  const { mode, name, period, people } = draft;
   function update(patch: Partial<ClassDraft>) {
     if (!canWrite) return;
     const next = { ...draft, ...patch };
@@ -71,24 +77,74 @@ export function ClassCreation({
   }
   const setMode = (mode: ClassDraft["mode"]) => update({ mode });
   const setName = (name: string) => update({ name });
-  const setPeriod = (period: string) => update({ period });
-  const setCustomPeriod = (customPeriod: boolean) => update({ customPeriod });
+  const setPeriod = (period: string) => {
+    setPeriodError("");
+    update({ period });
+  };
   const setPeople = (people: ClassDraft["people"]) => update({ people });
   const [file, setFile] = useState<File | null>(null);
   const [busy, setBusy] = useState(false);
   const [formError, setFormError] = useState("");
+  const [periodError, setPeriodError] = useState("");
   const [fileProblem, setFileProblem] = useState(false);
+  const periodField = useRef<HTMLInputElement>(null);
+  const firstNameFields = useRef<(HTMLInputElement | null)[]>([]);
+  const lastNameFields = useRef<(HTMLInputElement | null)[]>([]);
+  const morePeople = useRef<HTMLButtonElement>(null);
+  const pendingFirstFocus = useRef<number | null>(null);
   const errorMessage = error || formError;
   const errorSummary = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (pendingFirstFocus.current !== null) {
+      firstNameFields.current[pendingFirstFocus.current]?.focus();
+      pendingFirstFocus.current = null;
+    }
+  }, [people.length]);
   useEffect(() => {
     if (errorMessage) {
       errorSummary.current?.focus();
       errorSummary.current?.scrollIntoView?.({ block: "nearest" });
     }
   }, [errorMessage]);
+  function addPerson() {
+    if (!canWrite || busy || people.length >= 45) return;
+    pendingFirstFocus.current = people.length;
+    setPeople([...people, { firstName: "", lastName: "" }]);
+  }
+  function advanceName(
+    event: KeyboardEvent<HTMLInputElement>,
+    index: number,
+    field: "firstName" | "lastName",
+  ) {
+    if (
+      event.key !== "Enter" ||
+      event.nativeEvent.isComposing ||
+      event.nativeEvent.keyCode === 229
+    )
+      return;
+    event.preventDefault();
+    if (event.repeat || !event.currentTarget.value.trim()) return;
+    const next =
+      field === "firstName"
+        ? lastNameFields.current[index]
+        : !people[index].firstName.trim()
+          ? firstNameFields.current[index]
+          : (firstNameFields.current[index + 1] ?? morePeople.current);
+    next?.focus();
+  }
+  function requirePeriod() {
+    setPeriodError(
+      "Bitte gib eine Bezeichnung für den Bewertungszeitraum ein.",
+    );
+    periodField.current?.focus();
+  }
   async function submit(event: FormEvent) {
     event.preventDefault();
     if (busy || !canWrite) return;
+    if (!period.trim()) {
+      requirePeriod();
+      return;
+    }
     setFormError("");
     setFileProblem(false);
     onError("");
@@ -162,11 +218,16 @@ export function ClassCreation({
         <button
           type="button"
           aria-pressed={mode === "datei"}
+          aria-describedby="class-import-hint"
           onClick={() => setMode("datei")}
         >
-          Klasse importieren
+          Klassenliste importieren
         </button>
       </div>
+      <p id="class-import-hint" className="muted">
+        Import: Excel (.xlsx), CSV oder TXT mit Kopfzeile und genau zwei
+        Spalten: Vorname, Nachname.
+      </p>
       <form
         onSubmit={submit}
         aria-describedby={errorMessage ? "class-creation-error" : undefined}
@@ -182,45 +243,46 @@ export function ClassCreation({
             placeholder="z. B. 8b · Mathematik"
             required
           />
-          <div className="period-default">
-            <span>
-              Bewertungszeitraum: <strong>{period}</strong>
-            </span>
-            <button
-              type="button"
-              onClick={() => setCustomPeriod(!customPeriod)}
-            >
-              Bezeichnung ändern
-            </button>
-          </div>
-          {customPeriod ? (
-            <>
-              <label htmlFor="period-label">Bewertungszeitraum</label>
-              <input
-                id="period-label"
-                maxLength={200}
-                value={period}
-                onChange={(event) => setPeriod(event.target.value)}
-                required
-              />
-              <div className="actions">
-                {[schoolYearLabel(today), "1. Halbjahr", "2. Halbjahr"].map(
-                  (label) => (
-                    <button
-                      type="button"
-                      key={label}
-                      onClick={() => setPeriod(label)}
-                    >
-                      {label}
-                    </button>
-                  ),
-                )}
-              </div>
-            </>
+          <label htmlFor="period-label">Bewertungszeitraum</label>
+          <input
+            id="period-label"
+            ref={periodField}
+            maxLength={200}
+            value={period}
+            onChange={(event) => setPeriod(event.target.value)}
+            onInvalid={(event) => {
+              event.preventDefault();
+              requirePeriod();
+            }}
+            aria-invalid={Boolean(periodError) || undefined}
+            aria-describedby={`period-hint${periodError ? " period-error" : ""}`}
+            required
+          />
+          {periodError ? (
+            <p id="period-error" className="feedback error" role="alert">
+              {periodError}
+            </p>
           ) : null}
-          <p className="muted">
-            Die Bezeichnung setzt keine Frist. Der Zeitraum läuft weiter, bis du
-            ihn selbst archivierst.
+          <div
+            className="actions"
+            aria-label="Vorschläge für den Bewertungszeitraum"
+          >
+            {[schoolYearLabel(today), "1. Halbjahr", "2. Halbjahr"].map(
+              (label) => (
+                <button
+                  type="button"
+                  key={label}
+                  onClick={() => setPeriod(label)}
+                >
+                  {label}
+                </button>
+              ),
+            )}
+          </div>
+          <p id="period-hint" className="muted">
+            Du kannst das Schuljahr, ein Halbjahr oder eine freie Bezeichnung
+            eintragen. Der Zeitraum hat kein automatisches Ende und läuft
+            weiter, bis du ihn selbst archivierst.
           </p>
           {mode === "manuell" ? (
             <>
@@ -233,9 +295,15 @@ export function ClassCreation({
                     </label>
                     <input
                       id={`first-${index}`}
+                      ref={(element) => {
+                        firstNameFields.current[index] = element;
+                      }}
                       maxLength={100}
                       autoComplete="off"
                       value={person.firstName}
+                      onKeyDown={(event) =>
+                        advanceName(event, index, "firstName")
+                      }
                       onChange={(event) =>
                         setPeople(
                           people.map((entry, at) =>
@@ -254,9 +322,15 @@ export function ClassCreation({
                     </label>
                     <input
                       id={`last-${index}`}
+                      ref={(element) => {
+                        lastNameFields.current[index] = element;
+                      }}
                       maxLength={100}
                       autoComplete="off"
                       value={person.lastName}
+                      onKeyDown={(event) =>
+                        advanceName(event, index, "lastName")
+                      }
                       onChange={(event) =>
                         setPeople(
                           people.map((entry, at) =>
@@ -283,16 +357,50 @@ export function ClassCreation({
               ))}
               <button
                 type="button"
+                ref={morePeople}
                 disabled={people.length >= 45}
-                onClick={() =>
-                  setPeople([...people, { firstName: "", lastName: "" }])
-                }
+                onClick={addPerson}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" && event.repeat)
+                    event.preventDefault();
+                }}
               >
                 Weitere Person
               </button>
+              <p className="muted">
+                Enter führt zum nächsten Namensfeld oder zu „Weitere Person“.
+                Mit „Klasse lokal anlegen“ schließt du die Eingabe ab.
+              </p>
             </>
           ) : (
             <div className="import-instructions">
+              <label htmlFor="class-file">Klassenliste</label>
+              <input
+                id="class-file"
+                aria-invalid={fileProblem || undefined}
+                aria-describedby={
+                  fileProblem
+                    ? "class-import-hint class-creation-error"
+                    : "class-import-hint"
+                }
+                type="file"
+                accept=".xlsx,.csv,.txt"
+                required
+                onChange={(event) => {
+                  setFormError("");
+                  setFileProblem(false);
+                  onError("");
+                  const selected = event.target.files?.[0] ?? null;
+                  setFile(selected);
+                  update({ fileName: selected?.name ?? null });
+                }}
+              />
+              {draft.fileName && !file ? (
+                <p className="feedback">
+                  Zuletzt ausgewählt: {draft.fileName}. Bitte die Datei nach dem
+                  Neuladen erneut auswählen.
+                </p>
+              ) : null}
               <h3>Klassenliste vorbereiten</h3>
               <ol>
                 <li>Musterklassenliste herunterladen.</li>
@@ -326,31 +434,6 @@ export function ClassCreation({
                   Musterklassenliste (CSV)
                 </a>
               </div>
-              <label htmlFor="class-file">Klassenliste</label>
-              <input
-                id="class-file"
-                aria-invalid={fileProblem || undefined}
-                aria-describedby={
-                  fileProblem ? "class-creation-error" : undefined
-                }
-                type="file"
-                accept=".xlsx,.csv,.txt"
-                required
-                onChange={(event) => {
-                  setFormError("");
-                  setFileProblem(false);
-                  onError("");
-                  const selected = event.target.files?.[0] ?? null;
-                  setFile(selected);
-                  update({ fileName: selected?.name ?? null });
-                }}
-              />
-              {draft.fileName && !file ? (
-                <p className="feedback">
-                  Zuletzt ausgewählt: {draft.fileName}. Bitte die Datei nach dem
-                  Neuladen erneut auswählen.
-                </p>
-              ) : null}
               <p className="muted">
                 CSV/TXT: zwei Spalten mit Semikolon, Komma oder Tabulator,
                 UTF-8. Einspaltige Listen werden nicht übernommen.
@@ -385,11 +468,13 @@ export function ClassCreation({
       <div className="demo-block">
         <h3>Erst ausprobieren</h3>
         <p>
-          Eine Demo-Klasse mit 20 ausschließlich fiktiven Personen. Vorhandene
-          Klassen bleiben erhalten.
+          Eine neue Demoklasse enthält 20 ausschließlich fiktive Personen und
+          zunächst keine Stunden. Beispielstunden ergänzt du anschließend
+          gesondert in dieser Klasse. Eine vorhandene Demoklasse wird wieder
+          geöffnet; ihre Eingaben bleiben erhalten.
         </p>
         <button type="button" disabled={!canWrite || busy} onClick={onDemo}>
-          Demo-Klasse mit fiktiven Namen anlegen
+          Demoklasse erstellen
         </button>
       </div>
     </section>

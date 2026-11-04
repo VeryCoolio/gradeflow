@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Drei Personen ausschließlich per Tastatur; leeres Feld und expliziter Abschluss",
+    "result": "PASS",
+    "persons": 3
+  },
+  {
+    "name": "Speicherfehler, zwei Wiederholungen und erfolgreiche Korrektur ohne Duplikate",
+    "result": "PASS"
+  },
+  {
+    "name": "Stunde schließen/öffnen und Zeitraum umbenennen/erneut öffnen; Bewertungen erhalten",
+    "result": "PASS"
+  },
+  {
+    "name": "Demoklasse, 25 zusätzliche Stunden, Wiederöffnung und Schutz der normalen Klasse",
+    "result": "PASS"
+  },
+  {
+    "name": "Website-Vorlage ohne Hintergrund, mit Farben/Rahmen/Leerzeilen und gemischten Präfixen",
+    "result": "PASS",
+    "variants": 3,
+    "persons_each": 3
+  },
+  {
+    "name": "Importfehler verständlich; bestehender Notebook-Rohstand exakt erhalten",
+    "result": "PASS"
+  },
+  {
+    "name": "Vorhandene Originaldatei importiert",
+    "result": "PASS",
+    "filename": "Klassenliste_Gradeflow.xlsx",
+    "persons": 5,
+    "source_sha256": "940c38d3d7cbfae66b03b57f5aefa383ebe3290fa663b08282c911d37c6de246"
+  },
+  {
+    "name": "Vorhandene Originaldatei importiert",
+    "result": "PASS",
+    "filename": "musterklassenliste.xlsx",
+    "persons": 5,
+    "source_sha256": "69de03bf683c195626eb0f1cd0612a336bad412be726699d15feb778c1149ca1"
+  },
+  {
+    "name": "Keine Browser-Laufzeitfehler",
+    "result": "PASS",
+    "count": 0
+  }
+]

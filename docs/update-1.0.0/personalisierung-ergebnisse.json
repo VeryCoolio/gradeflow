@@ -1,0 +1,53 @@
+[
+  {
+    "name": "Demo erst leer, dann 25 zusätzliche Stunden mit allen Statusarten",
+    "status": "PASS",
+    "existing_observation_unchanged": true,
+    "duplicate_generation_prevented": true
+  },
+  {
+    "name": "Pastellfarben gezielt vergeben, gleiche Stufe gleich färben",
+    "status": "PASS",
+    "observations_unchanged": true,
+    "grade_alphabet_order": [
+      "7a",
+      "7b",
+      "Klasse 8a · Mathematik",
+      "Demo 8b",
+      "8c",
+      "10a"
+    ]
+  },
+  {
+    "name": "Alle drei Sortierungen nach tatsächlichem Öffnen",
+    "status": "PASS",
+    "recent": ["Demo 8b", "7a", "10a", "8c", "Klasse 8a · Mathematik", "7b"],
+    "oldest": ["7b", "Klasse 8a · Mathematik", "8c", "10a", "7a", "Demo 8b"]
+  },
+  {
+    "name": "App-Farbvorschläge, freie helle Farbe und gespeicherte Auswahl",
+    "status": "PASS",
+    "selected": "#fff5b8",
+    "legible_accent": "#736e53",
+    "notebook_unchanged": true
+  },
+  {
+    "name": "Speicherfehler erhält lokale Farbauswahl und erklärt die Grenze",
+    "status": "PASS"
+  },
+  {
+    "name": "Vier Breiten, 200 Prozent Schrift, mobile Klassenwahl und Farben",
+    "status": "PASS",
+    "horizontal_page_overflow": false
+  },
+  {
+    "name": "JSON-Sicherung und Import erhalten Klassenfarben und Demo-Daten",
+    "status": "PASS",
+    "separate_profile_preferences": true
+  },
+  {
+    "name": "Keine Browser-Laufzeitfehler",
+    "status": "PASS",
+    "count": 0
+  }
+]

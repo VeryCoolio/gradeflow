@@ -2,6 +2,15 @@
 
 Der Git-Verlauf beginnt mit dem Projektstand nach Meilenstein 2. Frühere Arbeitsschritte sind im [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) festgehalten; dafür werden keine rückdatierten Commits erzeugt.
 
+## 1.0.0 – 04.11.2026
+
+- Klarer Einstieg „Klasse anlegen / importieren“ mit direkter Dateiauswahl, Formaten und Spalten. Excel-Import liest gültige Spreadsheet-Präfixe, Rich-Text-Namen und anders formatierte Listen; leere Formatzeilen zählen nicht als Personen. Fehler nennen die Korrekturmöglichkeit und verändern den vorhandenen Bestand nicht.
+- Vorbelegter Zeitraum bei der Anlage sichtbar; bestehende Vorschläge erhalten. „Zeitraum bearbeiten“ öffnet die bisherige Bearbeitung, ohne Bewertungen zu löschen. Weiterhin kein automatisches Ende oder Reset.
+- Vorhandene Speicheranzeige bestätigt erfolgreiche lokale Schreibvorgänge und erklärt, dass kein zusätzliches Speichern nötig ist. Bei Fehlern bleiben konkrete Person und Auswahl für Wiederholung erhalten.
+- „Demoklasse erstellen“ und „Beispielstunden ergänzen“ klar getrennt. Wiederholte Anlage öffnet eine aktive ausdrücklich markierte Demo; reguläre Klassen und vorhandene Stunden bleiben erhalten.
+- Enter führt durch Namensfelder und Personenanlage; expliziter Abschluss über „Klasse lokal anlegen“. Fokuskorrektur für echte Links in der bestehenden Einführung.
+- 180 Tests/26 Dateien, Typecheck, Lint, Formatprüfung, Build und gezielte sowie bestehende Browserabläufe bestanden. Design, Fachkern, Notebook-Schema und historische Referenzen erhalten. Kein manueller Hosting-Deploy. [Vollständige Abnahme mit Dateien und Grenzen](docs/update-1.0.0.md).
+
 ## 0.10.0 – 20.10.2026
 
 - App-Farbton mit sechs Vorschlägen und freier Farbwahl; helle Töne erhalten ausreichend dunkle Text-/Schaltflächenfarben. Auswahl bleibt im Browserprofil gespeichert.

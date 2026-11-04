@@ -114,7 +114,7 @@ with sync_playwright() as pw:
         # B04: cancel page/class/view/back and reload; then deliberately discard.
         choose_class(page, 'c20')
         view(page, 'einstellungen')
-        button(page, 'Namen und Zeitraum bearbeiten').click()
+        button(page, 'Klassenname und Zeitraum bearbeiten').click()
         page.locator('#detail-name').fill('Fiktiv ungespeichert')
         page.locator('#detail-period').fill('Fiktiver offener Entwurf')
         dialogs['accept'] = False
@@ -179,9 +179,9 @@ with sync_playwright() as pw:
         # B05: three import failures on desktop and mobile, valid follow-up.
         for width in [390, 1440]:
             page.set_viewport_size({'width': width, 'height': 844 if width == 390 else 1000})
-            nav(page, 'Klasse anlegen')
+            nav(page, 'Klasse anlegen / importieren')
             page.locator('#class-name').fill('Fiktiver Importtest')
-            button(page, 'Klasse importieren').click()
+            button(page, 'Klassenliste importieren').click()
             invalids = [('spalten.csv', 'NurEineSpalte\nFiktiv Ada'.encode()),
                         ('zu-viele.csv', ('Vorname;Nachname\n' + '\n'.join(f'Fiktiv;Person {i}' for i in range(46))).encode()),
                         ('unlesbar.xlsx', b'kein Excel')]

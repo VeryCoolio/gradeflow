@@ -45,7 +45,7 @@ export function AppNavigation({
         {(
           [
             ["klasse", "Meine Klassen"],
-            ["anlegen", "Klasse anlegen"],
+            ["anlegen", "Klasse anlegen / importieren"],
             ["sicherung", "Datensicherung"],
           ] as const
         ).map(([key, label]) => (

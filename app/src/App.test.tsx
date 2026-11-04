@@ -67,12 +67,13 @@ async function importTwoStudents(user: ReturnType<typeof userEvent.setup>) {
   await user.click(
     within(screen.getByRole("navigation", { name: "Hauptseiten" })).getByRole(
       "link",
-      { name: "Klasse anlegen" },
+      { name: "Klasse anlegen / importieren" },
     ),
   );
-  await user.click(screen.getByRole("button", { name: "Klasse importieren" }));
+  await user.click(
+    screen.getByRole("button", { name: "Klassenliste importieren" }),
+  );
   await user.type(screen.getByLabelText("Klassenname"), "8b");
-  await user.click(screen.getByRole("button", { name: "Bezeichnung ändern" }));
   await user.clear(screen.getByLabelText("Bewertungszeitraum"));
   await user.type(
     screen.getByLabelText("Bewertungszeitraum"),
@@ -232,10 +233,12 @@ it("importiert eine ausgefüllte Excel-Klassenliste über den Dateiablauf", asyn
   await user.click(
     within(screen.getByRole("navigation", { name: "Hauptseiten" })).getByRole(
       "link",
-      { name: "Klasse anlegen" },
+      { name: "Klasse anlegen / importieren" },
     ),
   );
-  await user.click(screen.getByRole("button", { name: "Klasse importieren" }));
+  await user.click(
+    screen.getByRole("button", { name: "Klassenliste importieren" }),
+  );
   await user.type(screen.getByLabelText("Klassenname"), "Fiktive Excel-Klasse");
   const workbook = new ExcelJS.Workbook();
   const sheet = workbook.addWorksheet("Klassenliste");
@@ -266,7 +269,7 @@ it("legt eine Klasse manuell mit zwei Namensfeldern und vorbelegtem Schuljahr an
   await user.click(
     within(screen.getByRole("navigation", { name: "Hauptseiten" })).getByRole(
       "link",
-      { name: "Klasse anlegen" },
+      { name: "Klasse anlegen / importieren" },
     ),
   );
   await user.type(screen.getByLabelText("Klassenname"), "Fiktiv 9a");
@@ -531,9 +534,13 @@ describe("Kernoberfläche", () => {
     const user = userEvent.setup();
     const { repository } = makeApp();
     await importTwoStudents(user);
-    await user.click(screen.getByRole("button", { name: "Klasse bearbeiten" }));
     await user.click(
-      screen.getByRole("button", { name: "Namen und Zeitraum bearbeiten" }),
+      screen.getByRole("button", { name: "Klasse und Zeitraum" }),
+    );
+    await user.click(
+      screen.getByRole("button", {
+        name: "Klassenname und Zeitraum bearbeiten",
+      }),
     );
     await user.clear(
       screen.getByLabelText("Bewertungszeitraum", {
@@ -819,7 +826,7 @@ describe("Kernoberfläche", () => {
     const { repository } = makeApp();
     await user.click(
       screen.getByRole("button", {
-        name: "Demo-Klasse mit fiktiven Namen anlegen",
+        name: "Demoklasse erstellen",
       }),
     );
     expect(
@@ -848,7 +855,9 @@ describe("Kernoberfläche", () => {
     let allowed = false;
     const { repository, storage } = makeApp(undefined, () => allowed);
     await importTwoStudents(user);
-    await user.click(screen.getByRole("button", { name: "Klasse bearbeiten" }));
+    await user.click(
+      screen.getByRole("button", { name: "Klasse und Zeitraum" }),
+    );
     await user.click(screen.getByRole("button", { name: "Klasse löschen" }));
     expect(repository.load().classes).toHaveLength(1);
     expect(storage.getItem(CLASS_DELETION_BACKUP_KEY)).toBeNull();
@@ -1125,12 +1134,12 @@ it("schützt ungespeicherte Klassendetails vor Navigation und Neuladen", async (
   });
   await user.click(
     screen.getByRole("button", {
-      name: "Demo-Klasse mit fiktiven Namen anlegen",
+      name: "Demoklasse erstellen",
     }),
   );
-  await user.click(screen.getByRole("button", { name: "Klasse bearbeiten" }));
+  await user.click(screen.getByRole("button", { name: "Klasse und Zeitraum" }));
   await user.click(
-    screen.getByRole("button", { name: "Namen und Zeitraum bearbeiten" }),
+    screen.getByRole("button", { name: "Klassenname und Zeitraum bearbeiten" }),
   );
   await user.clear(screen.getByLabelText("Klassenname"));
   await user.type(screen.getByLabelText("Klassenname"), "Fiktive Änderung");
@@ -1154,7 +1163,7 @@ it("behält einen bearbeiteten Personennamen bei abgelehntem Personen- und Ansic
   makeApp(undefined, () => false);
   await user.click(
     screen.getByRole("button", {
-      name: "Demo-Klasse mit fiktiven Namen anlegen",
+      name: "Demoklasse erstellen",
     }),
   );
   await user.click(screen.getByRole("button", { name: "Personen" }));
@@ -1228,19 +1237,19 @@ it("erstellt zuerst eine leere Demo und ergänzt danach auf Wunsch fünf Wochen"
   const { repository } = makeApp();
   await user.click(
     screen.getByRole("button", {
-      name: "Demo-Klasse mit fiktiven Namen anlegen",
+      name: "Demoklasse erstellen",
     }),
   );
   expect(repository.load().classes[0].sessions).toHaveLength(0);
   await user.click(
-    screen.getByRole("button", { name: "Demowerte für fünf Wochen erstellen" }),
+    screen.getByRole("button", { name: "Beispielstunden ergänzen" }),
   );
   const group = repository.load().classes[0];
   expect(group.demoDataGenerated).toBe(true);
   expect(group.sessions).toHaveLength(25);
   expect(
     screen.queryByRole("button", {
-      name: "Demowerte für fünf Wochen erstellen",
+      name: "Beispielstunden ergänzen",
     }),
   ).toBeNull();
   await user.click(screen.getByRole("button", { name: "Tabelle" }));
@@ -1269,7 +1278,7 @@ it("speichert App-Farbe, Klassenfarbe und Sortierung und nimmt sie nach erneutem
   };
   const first = render(<App {...props} />);
   await user.click(screen.getByRole("link", { name: "Meine Klassen" }));
-  await user.click(screen.getByRole("button", { name: "Klasse bearbeiten" }));
+  await user.click(screen.getByRole("button", { name: "Klasse und Zeitraum" }));
   await user.click(screen.getByRole("button", { name: "Salbei" }));
   expect(props.repository.load().classes[0].color).toBe("sage");
   expect(
@@ -1335,4 +1344,189 @@ it("behält die gewählte Darstellung bei einem Speicherfehler auch beim Ändern
     "#315f7a",
   );
   expect(screen.getByRole("alert").textContent).toContain("für diesen Besuch");
+});
+
+it("bestätigt eine Bewertung nach dem Schreiben und benennt die erhaltene Fehlerauswahl", async () => {
+  const user = userEvent.setup();
+  const storage = new MemoryStorage();
+  const repository = new LocalRepository(storage, () => now);
+  repository.save({
+    ...EMPTY_NOTEBOOK,
+    currentClassId: "c1",
+    classes: [{ ...reportClass(), sessions: [] }],
+  });
+  makeApp(storage);
+  await user.click(screen.getByRole("button", { name: "Stunde beginnen" }));
+  let statusDuringWrite = "";
+  const write = storage.setItem.bind(storage);
+  storage.setItem = (key, value) => {
+    if (key === NOTEBOOK_STORAGE_KEY)
+      statusDuringWrite =
+        document.querySelector(".save-status")?.textContent ?? "";
+    write(key, value);
+  };
+  await user.click(screen.getByRole("button", { name: "++" }));
+  expect(statusDuringWrite).not.toContain("Fiktiv Ada: ++ lokal gespeichert.");
+  expect(document.querySelector(".save-status")?.textContent).toContain(
+    "Fiktiv Ada: ++ lokal gespeichert.",
+  );
+  expect(document.querySelector(".save-status")?.textContent).toContain(
+    "nicht zusätzlich speichern",
+  );
+  const saved = storage.getItem(NOTEBOOK_STORAGE_KEY);
+  storage.fail = true;
+  await user.click(screen.getByRole("button", { name: "--" }));
+  expect(screen.getByRole("alert").textContent).toContain(
+    "Fiktiv Bea: Bewertet: --",
+  );
+  expect(document.querySelector(".save-status")).toBeNull();
+  await user.click(
+    screen.getByRole("button", { name: "Eingabe erneut speichern" }),
+  );
+  expect(storage.getItem(NOTEBOOK_STORAGE_KEY)).toBe(saved);
+  expect(screen.getByRole("alert").textContent).toContain(
+    "Fiktiv Bea: Bewertet: --",
+  );
+  storage.fail = false;
+  await user.click(
+    screen.getByRole("button", { name: "Eingabe erneut speichern" }),
+  );
+  const hour = repository.load().classes[0].sessions[0];
+  expect(Object.keys(hour.observations)).toEqual(["p1", "p2"]);
+  expect(hour.observations.p2).toEqual({ status: "bewertet", symbol: "--" });
+  expect(repository.load().classes[0].sessions).toHaveLength(1);
+  expect(screen.queryByRole("alert")).toBeNull();
+  expect(
+    screen.getByRole("heading", {
+      name: "Alle Eingaben sind lokal gespeichert",
+    }),
+  ).toBeTruthy();
+});
+
+it("ändert den Zeitraum über den sichtbaren Einstieg ohne Bewertungen oder Stand zu verlieren", async () => {
+  const user = userEvent.setup();
+  const storage = new MemoryStorage();
+  const repository = new LocalRepository(storage, () => now);
+  const group = reportClass();
+  repository.save({
+    ...EMPTY_NOTEBOOK,
+    currentClassId: group.id,
+    classes: [group],
+  });
+  const app = makeApp(storage);
+  await user.click(screen.getByRole("button", { name: "← Zur Klasse" }));
+  await user.click(screen.getByRole("button", { name: "Zeitraum bearbeiten" }));
+  await user.clear(
+    screen.getByLabelText("Bewertungszeitraum", { selector: "#detail-period" }),
+  );
+  await user.type(
+    screen.getByLabelText("Bewertungszeitraum", { selector: "#detail-period" }),
+    "Projektphase ohne Enddatum",
+  );
+  await user.click(
+    screen.getByRole("button", { name: "Änderungen speichern" }),
+  );
+  expect(repository.load().classes[0].sessions).toEqual(group.sessions);
+  expect(repository.load().classes[0].students).toEqual(group.students);
+  expect(repository.load().classes[0].periodLabel).toBe(
+    "Projektphase ohne Enddatum",
+  );
+  app.unmount();
+  makeApp(storage);
+  expect(screen.getByText("Projektphase ohne Enddatum")).toBeTruthy();
+  expect(repository.load().classes[0].sessions).toEqual(group.sessions);
+  expect(repository.load().classes[0].archived).toBe(false);
+});
+
+it("lässt vorhandene Klassen und Bewertungen bei einem Importfehler unverändert", async () => {
+  const user = userEvent.setup();
+  const storage = new MemoryStorage();
+  const repository = new LocalRepository(storage, () => now);
+  repository.save({
+    ...EMPTY_NOTEBOOK,
+    currentClassId: "c1",
+    classes: [reportClass()],
+  });
+  makeApp(storage);
+  const before = storage.getItem(NOTEBOOK_STORAGE_KEY);
+  await user.click(
+    screen.getByRole("link", {
+      name: "Klasse anlegen / importieren",
+    }),
+  );
+  await user.click(
+    screen.getByRole("button", {
+      name: "Klassenliste importieren",
+    }),
+  );
+  await user.type(
+    screen.getByLabelText("Klassenname"),
+    "Nicht angelegte Importklasse",
+  );
+  const text = "Vorname;Nachname\nFiktiv;\n";
+  const file = new File([text], "fehler.csv", { type: "text/csv" });
+  Object.defineProperty(file, "text", { value: async () => text });
+  await user.upload(
+    screen.getByLabelText("Klassenliste", { exact: true }),
+    file,
+  );
+  fireEvent.submit(
+    screen.getByLabelText("Klassenliste", { exact: true }).closest("form")!,
+  );
+  await screen.findByRole("alert");
+  expect(storage.getItem(NOTEBOOK_STORAGE_KEY)).toBe(before);
+  expect(repository.load().classes).toHaveLength(1);
+  expect((screen.getByLabelText("Klassenname") as HTMLInputElement).value).toBe(
+    "Nicht angelegte Importklasse",
+  );
+});
+
+it("öffnet nach wiederholter Demoaktion dieselbe Demo und schützt die normale Testklasse", async () => {
+  const user = userEvent.setup();
+  const storage = new MemoryStorage();
+  const repository = new LocalRepository(storage, () => now);
+  const source = reportClass();
+  repository.save({
+    ...EMPTY_NOTEBOOK,
+    currentClassId: "c1",
+    classes: [source],
+  });
+  makeApp(storage);
+  await user.click(
+    screen.getByRole("link", {
+      name: "Klasse anlegen / importieren",
+    }),
+  );
+  await user.click(
+    screen.getByRole("button", { name: "Demoklasse erstellen" }),
+  );
+  expect(repository.load().classes).toHaveLength(2);
+  const demo = repository.load().classes.find((c) => c.demo)!;
+  await user.click(
+    screen.getByRole("button", {
+      name: "Beispielstunden ergänzen",
+    }),
+  );
+  const generated = repository.load().classes.find((c) => c.id === demo.id)!;
+  expect(generated.sessions).toHaveLength(25);
+  await user.selectOptions(screen.getByLabelText("Klasse auswählen"), "c1");
+  await user.click(
+    screen.getByRole("link", {
+      name: "Klasse anlegen / importieren",
+    }),
+  );
+  await user.click(
+    screen.getByRole("button", { name: "Demoklasse erstellen" }),
+  );
+  expect(repository.load().classes).toHaveLength(2);
+  expect(screen.getByRole("heading", { name: demo.name })).toBeTruthy();
+  expect(repository.load().classes.find((c) => c.id === demo.id)).toEqual(
+    generated,
+  );
+  expect(repository.load().classes.find((c) => c.id === "c1")).toEqual(source);
+  expect(
+    screen.queryByRole("button", {
+      name: "Beispielstunden ergänzen",
+    }),
+  ).toBeNull();
 });

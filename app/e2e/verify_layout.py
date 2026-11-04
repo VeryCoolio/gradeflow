@@ -17,7 +17,7 @@ with sync_playwright() as p:
         context=browser.new_context(viewport=dict(width=width,height=height),locale='de-DE')
         page=context.new_page();errors=[];page.on('pageerror',lambda error:errors.append(str(error)))
         page.goto(BASE);page.wait_for_load_state('networkidle')
-        button(page,'Klasse anlegen').first.click();button(page,'Klasse importieren').click()
+        button(page,'Klasse anlegen / importieren').first.click();button(page,'Klassenliste importieren').click()
         page.get_by_label('Klassenname',exact=True).fill('Prüfung 8b')
         page.get_by_label('Klassenliste',exact=True).set_input_files(ROOT/'app/public/demo-klasse.csv')
         button(page,'Klasse lokal anlegen').click();expect(page.get_by_role('heading',name='Prüfung 8b',exact=True)).to_be_visible()

@@ -4,6 +4,8 @@ Dieses Repository enthält den Neubau einer App zur Dokumentation der fortlaufen
 
 ## Projektstand
 
+Version **1.0.0** verbessert fünf bestehende Abläufe: gut sichtbarer und formatierungsunabhängiger Klassenimport, sichtbarer und direkt bearbeitbarer Bewertungszeitraum, eindeutige lokale Speicherbestätigung mit gezieltem Wiederholen bei Fehlern, klar getrennte Demoklasse und Beispielstunden sowie sichere Tastaturanlage ohne versehentlichen Enter-Abschluss. Bestehendes Design, Ansichten, Bewertungen und Fachmodell bleiben erhalten. 180 Tests sowie Typecheck, Lint, Formatprüfung, Produktionsbuild und betroffene Browserabläufe sind bestanden. [Änderungen, Dateiliste, Importursache und Prüfgrenzen](docs/update-1.0.0.md).
+
 Version **0.10.0** ergänzt die Personalisierung: Unter „Hilfe und Einstieg → Darstellung und Farben“ lassen sich App-Farbton und Klassenreihenfolge wählen. Das Klassenregister bietet „Klassenstufe (A–Z)“, „Zuletzt benutzt“ und „Am längsten nicht benutzt“. Sanfte Klassenfarben stehen in „Klasse bearbeiten“ und über den Direktlink im Register bereit. Eine angelegte Demo bleibt zunächst leer; auf Wunsch ergänzt sie 25 fiktive Stunden über fünf Beispielwochen. [Umsetzung und Prüfung](docs/personalisierung-2026-10-20.md).
 
 Version **0.9.0** setzt alle acht Befunde des Drei-Skill-Audits um: kompaktere mobile Ansichten, sichtbare Personenbearbeitung und Importfehler, Schutz offener Änderungen, Erhalt fehlgeschlagener Bewertungen, gespeicherte Tabellenpräferenzen, echte Seitenlinks sowie lesbare Excel-Titel und korrigierte Formulierungen. [Umsetzung und Abnahme](docs/reparaturen-2026-10-20.md) dokumentieren Prüfungen und verbleibende Prüfgrenzen.
@@ -16,7 +18,7 @@ Meilensteine 1 bis 5 sind umgesetzt; Version 0.6.0 überarbeitet die Bedienung n
 
 Version 0.6.1 verfeinert die Bewertungshierarchie und Symbolfolge, macht den Stundentausch sichtbar und ergänzt eine kompakte, größenveränderbare Tabelle mit Stundenfenstern. Der Verlauf verwendet feste Stundenabstände und klare Statuskürzel. [Bedienkorrekturen 0.6.1](docs/bedienkorrekturen-0.6.1.md) dokumentiert Änderungen und Prüfungen.
 
-Die aktuelle [kurze Testanleitung für 0.10.0](docs/usability-testversion.md) legt den App-Commit und einen einheitlichen fiktiven Datensatz fest. Der Tag `v0.5.0` und seine [historische Testanleitung](docs/usability-testversion-0.5.0.md) bleiben unverändert erhalten.
+Die eingefrorene [kurze Testanleitung für 0.10.0](docs/usability-testversion.md) legt den App-Commit und einen einheitlichen fiktiven Datensatz fest. Der Tag `v0.5.0` und seine [historische Testanleitung](docs/usability-testversion-0.5.0.md) bleiben unverändert erhalten.
 
 ## Entwicklung
 
@@ -51,7 +53,7 @@ Die Daten bleiben auch bei einer über HTTPS bereitgestellten App im jeweiligen 
 
 ## Klassenliste
 
-Genau zwei Spalten, in dieser Reihenfolge: `Vorname` und `Nachname`. Zeile 1 enthält diese Überschriften, ab Zeile 2 steht je Person ein vollständiges Namenspaar. Höchstens 45 Personen, maximal 5 MiB. Excel (.xlsx) enthält ein Blatt ohne Formeln; CSV/TXT verwendet UTF-8 mit Semikolon, Komma oder Tabulator. Einspaltige Listen werden abgewiesen. Die App bietet eine leere Musterklassenliste als Excel oder CSV an. Für Tests ausschließlich fiktive Namen verwenden.
+Genau zwei Spalten, in dieser Reihenfolge: `Vorname` und `Nachname`. Die erste ausgefüllte Zeile enthält diese Überschriften, danach steht je Person ein vollständiges Namenspaar. Farben und Rahmen beeinflussen den Import nicht; vollständig leere und nur formatierte Zeilen werden übersprungen. Äußere Leerzeichen werden entfernt, mehrteilige Namen bleiben erhalten. Höchstens 45 Personen, maximal 5 MiB. Excel (.xlsx) enthält ein Blatt ohne Formeln; CSV/TXT verwendet UTF-8 mit Semikolon, Komma oder Tabulator. Einspaltige Listen werden abgewiesen. Die App bietet eine leere Musterklassenliste als Excel oder CSV an. Für Tests ausschließlich fiktive Namen verwenden.
 
 ## Daten
 
@@ -60,5 +62,7 @@ Der Excel-Export enthält eine Klassenübersicht und je Person ein Blatt mit den
 Tests und Beispiele verwenden ausschließlich fiktive Personen. Lokale Notebook-Daten, Sicherungen, Zugangsdaten, `node_modules/` und Build-Dateien gehören nicht in Git. Ein produktiver Einsatz mit echten Schülerdaten erfordert eine gesonderte Datenschutz- und Betriebsprüfung.
 
 Browserdaten sind an Browserprofil und Ursprung gebunden, einschließlich Port. Für denselben Datenbestand dieselbe lokale Adresse verwenden. Die App schützt parallele Tabs desselben Ursprungs mit der Browser-Lock-API; ohne diese API ist sie zur Ansicht und zum Export geöffnet. Eine Geräte-Synchronisierung und Verschlüsselung werden damit nicht bereitgestellt.
+
+Die gezielte Browserabnahme für 1.0 steht in [release_1_0.py](app/e2e/release_1_0.py); Voraussetzungen und Wiederholung beschreibt der [Abnahmebericht](docs/update-1.0.0.md#3-tatsächlich-ausgeführte-prüfungen).
 
 Die wiederholbare Browserprüfung für 0.7.0 liegt in `app/e2e/`. Die Anleitung im [Revisionsordner](docs/revision-2026-10-18/README.md) nennt Voraussetzungen und Befehle. Die dortigen älteren Ausgangsskripte sind als historische Vergleichsgrundlage erhalten.

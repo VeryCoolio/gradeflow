@@ -63,18 +63,18 @@ with sync_playwright() as pw:
     try:
         page.goto(BASE); page.wait_for_load_state('networkidle')
         button(page, 'Tutorial beenden').click()
-        button(page, 'Demo-Klasse mit fiktiven Namen anlegen').click()
+        button(page, 'Demoklasse erstellen').click()
         demo_id = data(page)['classes'][0]['id']
         assert data(page)['classes'][0]['sessions'] == []
         button(page, 'Stunde beginnen').click()
         button(page, '+').click()
         button(page, '← Zur Klasse').click()
         existing = data(page)['classes'][0]['sessions'][0]
-        button(page, 'Demowerte für fünf Wochen erstellen').click()
+        button(page, 'Beispielstunden ergänzen').click()
         demo = data(page)['classes'][0]
         assert len(demo['sessions']) == 26 and demo['sessions'][0] == existing
         assert demo['demo'] and demo['demoDataGenerated']
-        assert button(page, 'Demowerte für fünf Wochen erstellen').count() == 0
+        assert button(page, 'Beispielstunden ergänzen').count() == 0
         statuses = {o['status'] for s in demo['sessions'] for o in s['observations'].values()}
         assert statuses == {'bewertet', 'abwesend', 'nicht_beobachtet'}
         view(page, 'tabelle')
@@ -85,13 +85,13 @@ with sync_playwright() as pw:
         record('Demo erst leer, dann 25 zusätzliche Stunden mit allen Statusarten', existing_observation_unchanged=True, duplicate_generation_prevented=True)
 
         for name in ['10a','Klasse 8a · Mathematik','7b','7a','8c']:
-            nav(page, 'Klasse anlegen')
+            nav(page, 'Klasse anlegen / importieren')
             page.get_by_label('Klassenname', exact=True).fill(name)
             page.get_by_label('Vorname 1', exact=True).fill('Fiktiv')
             page.get_by_label('Nachname 1', exact=True).fill('Beispiel')
             button(page, 'Klasse lokal anlegen').click()
             expect(page.get_by_role('heading', name=name, exact=True)).to_be_visible()
-            assert button(page, 'Demowerte für fünf Wochen erstellen').count() == 0
+            assert button(page, 'Beispielstunden ergänzen').count() == 0
         ids = {g['name']:g['id'] for g in data(page)['classes']}
         expected = ['7a','7b','Klasse 8a · Mathematik','Demo 8b','8c','10a']
         assert names(page) == expected

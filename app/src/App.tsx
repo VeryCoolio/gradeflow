@@ -36,7 +36,10 @@ import { addDemoClass, populateDemoWeeks } from "./application/demoClass";
 import { type Observation } from "./domain/grading/types";
 import { buildClassReport } from "./application/reporting";
 import type { LessonSession } from "./domain/sessions/types";
-import { observationShortLabel } from "./application/observationPresentation";
+import {
+  observationLabel,
+  observationShortLabel,
+} from "./application/observationPresentation";
 import { ClassCreation } from "./features/classes/ClassCreation";
 import { RatingGuide } from "./features/assessment/RatingGuide";
 import { exportClassCsv } from "./infrastructure/importExport/csvExport";
@@ -304,17 +307,35 @@ export function App({
 
   function createDemoClass() {
     if (!notebook) return;
-    if (
-      apply(() => {
-        return localRepository.update((current) =>
-          addDemoClass(current, createId, now()),
-        );
-      }, "Demo-Klasse mit ausschließlich fiktiven Namen lokal angelegt.")
-    ) {
-      setActiveSessionId(null);
-      setSelectedStudentId(null);
-      setDashboardView("stunden");
-      setPage("klasse");
+    const saved = apply(() => {
+      return localRepository.update((current) =>
+        addDemoClass(
+          {
+            ...current,
+            currentClassId: currentClass?.id ?? current.currentClassId,
+          },
+          createId,
+          now(),
+        ),
+      );
+    }, "Demoklasse lokal gespeichert.");
+    if (saved) {
+      const demo = saved.classes.find(
+        (group) => group.id === saved.currentClassId,
+      )!;
+      changeWorkspace({
+        page: "klasse",
+        classId: demo.id,
+        view: "stunden",
+        sessionId: null,
+        studentId: null,
+        historyStudentId: null,
+      });
+      setNotice(
+        notebook.classes.some((group) => group.id === demo.id)
+          ? `Demoklasse „${demo.name}“ geöffnet. Vorhandene Personen und Bewertungen bleiben erhalten.`
+          : `Demoklasse „${demo.name}“ mit 20 fiktiven Personen lokal erstellt. Beispielstunden kannst du zusätzlich ergänzen.`,
+      );
       startingRef.current = false;
     }
   }
@@ -898,7 +919,7 @@ export function App({
                   type="button"
                   onClick={() => setPage("anlegen")}
                 >
-                  Klasse anlegen
+                  Klasse anlegen / importieren
                 </button>
                 {notebook.classes.length === 0 ? (
                   <button
@@ -906,7 +927,7 @@ export function App({
                     disabled={!canWrite}
                     onClick={createDemoClass}
                   >
-                    Demo-Klasse mit fiktiven Namen anlegen
+                    Demoklasse erstellen
                   </button>
                 ) : null}
               </div>
@@ -928,6 +949,11 @@ export function App({
               error={failedHere ? failedObservation!.message : error}
               notice={notice}
               canRetry={failedHere}
+              pendingDescription={
+                failedHere
+                  ? `${failedObservation!.name}: ${observationLabel(failedObservation!.observation)}`
+                  : undefined
+              }
               onRetry={retryObservation}
               onSelect={setSelectedStudentId}
               onRecord={recordObservation}
