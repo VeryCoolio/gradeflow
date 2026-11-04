@@ -1,17 +1,21 @@
-# Erster Auftrag für Codex
+# Mit Gradeflow weiterarbeiten
 
-Lies zuerst `AGENTS.md` und anschließend alle nummerierten Dateien in `docs/`. Untersuche danach den unveränderten Bestand unter `legacy-source/`.
+Die Anwendung ist umgesetzt. Der aktuelle freigegebene App-Stand ist **1.0.0**; die ursprünglichen Meilensteine 1 bis 5 sind abgeschlossen. Der erste Prüfbericht und die anschließende Implementierung wurden vom Nutzer freigegeben. Die Arbeit beginnt deshalb nicht erneut bei Meilenstein 1.
 
-Erstelle zunächst **keinen neuen Anwendungscode**. Liefere stattdessen einen kompakten Prüfbericht mit:
+## Einstieg für Änderungen
 
-1. deinem Verständnis des Produktziels und der Abgrenzung,
-2. einer Liste der bestätigten fachlichen Regeln,
-3. allen Widersprüchen zwischen Dokumentation und Legacy-Code,
-4. den bestätigten Entscheidungen sowie noch offenen Punkten aus `docs/07-offene-entscheidungen.md`,
-5. einem konkreten Ziel-Dateibaum für `app/`,
-6. einem umsetzbaren Meilensteinplan mit eindeutigen Abnahmekriterien,
-7. den Risiken für Datenmigration, Datenschutz, lokale Speicherung und Wiederherstellung unterbrochener Stunden.
+1. [AGENTS.md](AGENTS.md) und die dort genannten Dokumente 01–08 lesen. Bestätigte Entscheidungen in Dokument 07 haben Vorrang.
+2. Den aktuellen Nutzerauftrag und den vorhandenen Code unter [app/](app/) prüfen. Alte Pläne und historische Prüfungen anhand ihrer Version einordnen.
+3. Nur den beauftragten Bereich ändern; jede Beobachtung weiterhin sofort lokal speichern. Der Zeitraum hat kein automatisches Ende und keinen automatischen Noten-Reset.
+4. Die betroffenen Abläufe, Tests, Typecheck, Lint, Formatierung und Build prüfen. Änderungen im [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) dokumentieren.
+5. Aufgenommene Dateien prüfen, regulär committen und zum eingerichteten GitHub-Remote pushen; den Remote-Stand abgleichen. Dafür besteht die dauerhafte Nutzerfreigabe. Ein manuelles Hosting-Deployment braucht einen eigenen Auftrag.
 
-Berücksichtige dabei ausdrücklich, dass jede einzelne Eingabe sofort lokal gespeichert werden muss und die Bachelorarbeitsversion keine Cloud-Synchronisierung enthält. Verweise bei jeder Feststellung auf die konkrete Datei oder Codestelle. Unterscheide klar zwischen geprüftem Iststand, Entscheidung, Empfehlung und offenem Punkt. Warte nach dem Prüfbericht auf meine Freigabe für Meilenstein 1.
+## Wo liegt was?
 
-Ein Bewertungszeitraum ist nicht automatisch auf ein Halbjahr oder Schuljahr begrenzt. Die Lehrkraft entscheidet selbst, wann sie ihn beendet oder archiviert. Plane deshalb weder ein automatisches Enddatum noch einen automatischen Noten-Reset ein.
+- [Projektübersicht und lokaler Start](README.md)
+- [Dokumentationswegweiser](docs/README.md)
+- [Entwicklung und Prüfungen](docs/entwicklung.md)
+- [Abnahme 1.0.0](docs/update-1.0.0.md)
+- [Archivierter ursprünglicher Erstauftrag](archive/projektstart/erster-auftrag.md)
+
+`legacy-source/` und `reference/` bleiben historische Grundlagen. Die Medien im [Archiv](archive/README.md) gehören nicht zum App-Build und zeigen ältere Produktstände.

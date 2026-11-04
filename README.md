@@ -1,38 +1,34 @@
-# Mündliche Notengebung – Bachelorarbeitsversion
+# Gradeflow
 
-Dieses Repository enthält den Neubau einer App zur Dokumentation der fortlaufenden mündlichen Mitarbeit pro Person und Unterrichtsstunde. Die Bewertung bleibt eine Entscheidung der Lehrkraft. Die Bachelorarbeitsversion arbeitet ausschließlich lokal.
+**Mündliche Mitarbeit im Unterricht nachvollziehbar dokumentieren.**
 
-## Projektstand
+Gradeflow unterstützt Lehrkräfte bei der Einschätzung einer ganzen Unterrichtsstunde pro Person. Die pädagogische Entscheidung bleibt bei der Lehrkraft. Die Bachelorarbeitsversion speichert ausschließlich lokal im Browser und enthält keine Anmeldung oder Cloud-Synchronisierung.
 
-Version **1.0.0** verbessert fünf bestehende Abläufe: gut sichtbarer und formatierungsunabhängiger Klassenimport, sichtbarer und direkt bearbeitbarer Bewertungszeitraum, eindeutige lokale Speicherbestätigung mit gezieltem Wiederholen bei Fehlern, klar getrennte Demoklasse und Beispielstunden sowie sichere Tastaturanlage ohne versehentlichen Enter-Abschluss. Bestehendes Design, Ansichten, Bewertungen und Fachmodell bleiben erhalten. 180 Tests sowie Typecheck, Lint, Formatprüfung, Produktionsbuild und betroffene Browserabläufe sind bestanden. [Änderungen, Dateiliste, Importursache und Prüfgrenzen](docs/update-1.0.0.md).
+**Aktueller Stand: 1.0.0** · [Änderungen und Abnahme](docs/update-1.0.0.md) · [Versionsverlauf](CHANGELOG.md)
 
-Version **0.10.0** ergänzt die Personalisierung: Unter „Hilfe und Einstieg → Darstellung und Farben“ lassen sich App-Farbton und Klassenreihenfolge wählen. Das Klassenregister bietet „Klassenstufe (A–Z)“, „Zuletzt benutzt“ und „Am längsten nicht benutzt“. Sanfte Klassenfarben stehen in „Klasse bearbeiten“ und über den Direktlink im Register bereit. Eine angelegte Demo bleibt zunächst leer; auf Wunsch ergänzt sie 25 fiktive Stunden über fünf Beispielwochen. [Umsetzung und Prüfung](docs/personalisierung-2026-10-20.md).
+## Orientierung
 
-Version **0.9.0** setzt alle acht Befunde des Drei-Skill-Audits um: kompaktere mobile Ansichten, sichtbare Personenbearbeitung und Importfehler, Schutz offener Änderungen, Erhalt fehlgeschlagener Bewertungen, gespeicherte Tabellenpräferenzen, echte Seitenlinks sowie lesbare Excel-Titel und korrigierte Formulierungen. [Umsetzung und Abnahme](docs/reparaturen-2026-10-20.md) dokumentieren Prüfungen und verbleibende Prüfgrenzen.
+| Bereich                          | Inhalt                                                                                                  |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| [app/](app/)                     | Aktuelle React-Anwendung mit Fachkern und Tests.                                                        |
+| [docs/](docs/README.md)          | Anforderungen, Entscheidungen, Entwicklung und Prüfnachweise. Hier beginnt die fachliche Dokumentation. |
+| [archive/](archive/README.md)    | Frühere Filmfassungen, Sprachproben und der abgeschlossene Erstauftrag.                                 |
+| [legacy-source/](legacy-source/) | Unveränderte historische Anwendung als Vergleichsgrundlage.                                             |
+| [reference/](reference/)         | Ursprüngliche technische Unterlagen; historische Referenz.                                              |
 
-Version **0.8.2** führt beim ersten Besuch direkt durch die echten Bedienelemente: Felder ausfüllen, Klasse anlegen, Stunde erfassen, Auswertungen und Sicherung öffnen. Jeder Tutorialschritt lässt sich mit „Weiter“ ohne eigene Eingabe ansehen; fehlende Übungsangaben werden ergänzt. Ein Download bleibt eine ausdrückliche Aktion. Die Tour verwendet getrennte flüchtige Übungsdaten und lässt sich unter „Hilfe und Einstieg“ wieder starten. Die App-Erklärung ist mit der vorgelegten Bachelorarbeitsfassung abgeglichen. [Aufgabenliste](docs/bedienrevision-2026-10-19.md), [Quellenabgleich](docs/ba-abgleich-2026-10-19.md) und [Tutorial-Prüfung](docs/tutorial-ba-2026-10-19.md) dokumentieren Umsetzung und Grenzen.
-
-Version **0.7.0** setzt die freigegebene Produktrevision um: kompakte Navigation und Bewertung mit sichtbarem Personen-/Stundenkontext, sichere Wiederaufnahme derselben Ansicht, ein schreibender Tab mit aktualisierten Zweitansichten, verständliche Speicherfehler mit Wiederholung und begrenzte Dateiimporte. Die Stundenliste lässt sich blättern und nach Datum durchsuchen. Der Fachkern und das Notebook-Schema bleiben erhalten. [Abschluss und Nachweise](docs/revision-2026-10-18/umsetzung/abschluss.md) sowie der [Bildvergleich](docs/revision-2026-10-18/umsetzung/vergleich.html) dokumentieren den Stand.
-
-Meilensteine 1 bis 5 sind umgesetzt; Version 0.6.0 überarbeitet die Bedienung nach Nutzerfeedback. Feste Seiten für Klassen, Klassenerstellung, Sicherung und Bewertungshilfe ersetzen die Aufklappbereiche. Klassen lassen sich manuell oder aus zweispaltigen Excel-/CSV-/TXT-Listen anlegen. Neue Klassen erhalten eine änderbare Schuljahresbezeichnung ohne Enddatum oder automatischen Reset. Die Demo enthält 20 fiktive Personen. Farbige Symbole zeigen Bedeutung und konkretes Ergebnis; jede Beobachtung wird sofort lokal gespeichert. Vollständige Stunden erhalten eine Speicherbestätigung mit Rückweg zur Übersicht. Tabelle, Verlauf mit Datumsachse, Excel mit Personenblättern, vereinfachte CSV und wiederherstellbare JSON-Vollsicherung stehen bereit. Vorhandene Daten und `legacy-source/` bleiben erhalten. [Entwicklungsprotokoll](docs/entwicklungsprotokoll.md) und [Versionsverlauf](CHANGELOG.md) beschreiben die Änderungen.
-
-Version 0.6.1 verfeinert die Bewertungshierarchie und Symbolfolge, macht den Stundentausch sichtbar und ergänzt eine kompakte, größenveränderbare Tabelle mit Stundenfenstern. Der Verlauf verwendet feste Stundenabstände und klare Statuskürzel. [Bedienkorrekturen 0.6.1](docs/bedienkorrekturen-0.6.1.md) dokumentiert Änderungen und Prüfungen.
-
-Die eingefrorene [kurze Testanleitung für 0.10.0](docs/usability-testversion.md) legt den App-Commit und einen einheitlichen fiktiven Datensatz fest. Der Tag `v0.5.0` und seine [historische Testanleitung](docs/usability-testversion-0.5.0.md) bleiben unverändert erhalten.
-
-## Entwicklung
+## Lokal starten
 
 Node.js 24 und npm verwenden:
 
-```bash
+```sh
 cd app
 npm ci
 npm run dev
 ```
 
-Für die Qualitätssicherung:
+## Qualität prüfen
 
-```bash
+```sh
 cd app
 npm run typecheck
 npm test
@@ -41,28 +37,13 @@ npm run format:check
 npm run build
 ```
 
-GitHub Actions führt diese Prüfungen bei Pushes und Pull Requests aus. Änderungen an Fachregeln gehören mit Tests und einem Eintrag im Entwicklungsprotokoll in einen eigenen Commit. Freigegebene Projektstände erhalten einen Git-Tag.
+GitHub Actions führt diese Prüfungen bei Pushes und Pull Requests aus. Freigegebene Versionen sind durch Git-Tags wie `v1.0.0` auffindbar.
 
-## Netlify
+## Weiterarbeiten
 
-Die `netlify.toml` im Repository-Hauptverzeichnis legt Node.js 24, `app` als Basisordner, `npm run build` als Build-Befehl und `dist` als Veröffentlichungsordner relativ zu `app` fest. Netlify veröffentlicht damit ausschließlich die fertigen Dateien aus `app/dist`. Das GitHub-Repository mit dem Produktionsbranch `main` verbinden; die Datei überschreibt entsprechende Build-Einstellungen in der Netlify-Oberfläche.
+- **Entwicklung und vorhandene Netlify-Konfiguration:** [Entwicklungsanleitung](docs/entwicklung.md).
+- **Anforderungen und Entscheidungen:** [Dokumentationsübersicht](docs/README.md).
+- **Klassenlisten und Sicherung:** Excel/CSV/TXT benötigen die Spalten `Vorname` und `Nachname`; [Formate und Datengrenzen](docs/entwicklung.md#klassenlisten-und-sicherung).
+- **Arbeit mit Codex:** [Aktueller Einstieg](START_HERE.md) und [Projektregeln](AGENTS.md).
 
-Bei „Page not found“ im Netlify-Deploy prüfen, ob der aktuelle Commit gebaut wurde und im veröffentlichten Ordner direkt eine `index.html` sowie `assets/` liegen. Ein Upload des Quellordners ist nicht lauffähig. Bei manueller Bereitstellung zuerst lokal `npm run build` in `app` ausführen und anschließend den Inhalt von `app/dist` hochladen. Die Navigation verwendet den URL-Hash und benötigt keine Pfadweiterleitung.
-
-Die Daten bleiben auch bei einer über HTTPS bereitgestellten App im jeweiligen Browser gespeichert. Die Netlify-Adresse hat einen eigenen Datenbestand; lokale Daten bei Bedarf als JSON sichern und auf der neuen Adresse importieren.
-
-## Klassenliste
-
-Genau zwei Spalten, in dieser Reihenfolge: `Vorname` und `Nachname`. Die erste ausgefüllte Zeile enthält diese Überschriften, danach steht je Person ein vollständiges Namenspaar. Farben und Rahmen beeinflussen den Import nicht; vollständig leere und nur formatierte Zeilen werden übersprungen. Äußere Leerzeichen werden entfernt, mehrteilige Namen bleiben erhalten. Höchstens 45 Personen, maximal 5 MiB. Excel (.xlsx) enthält ein Blatt ohne Formeln; CSV/TXT verwendet UTF-8 mit Semikolon, Komma oder Tabulator. Einspaltige Listen werden abgewiesen. Die App bietet eine leere Musterklassenliste als Excel oder CSV an. Für Tests ausschließlich fiktive Namen verwenden.
-
-## Daten
-
-Der Excel-Export enthält eine Klassenübersicht und je Person ein Blatt mit den chronologischen Stunden. [Excel und CSV](docs/csv-exportformat.md) sind lesbare Auswertungen ohne technische IDs, keine Wiederherstellungsformate. Die JSON-Sicherung enthält das gesamte lokale Notebook und kann bis 5 MiB pro Datei nach einer Formatprüfung wieder importiert werden. Größere Dateien werden mit einer klaren Fehlermeldung abgewiesen; der vorhandene Bestand bleibt erhalten. Beim Ersetzen vorhandener Klassen erscheint eine Warnung; der vorherige Datenstand wird im selben Browser als Rückfall gespeichert. Bewahre eine heruntergeladene JSON-Datei geschützt außerhalb des Browsers auf, da lokaler Speicher und lokaler Rückfall gemeinsam verloren gehen können.
-
-Tests und Beispiele verwenden ausschließlich fiktive Personen. Lokale Notebook-Daten, Sicherungen, Zugangsdaten, `node_modules/` und Build-Dateien gehören nicht in Git. Ein produktiver Einsatz mit echten Schülerdaten erfordert eine gesonderte Datenschutz- und Betriebsprüfung.
-
-Browserdaten sind an Browserprofil und Ursprung gebunden, einschließlich Port. Für denselben Datenbestand dieselbe lokale Adresse verwenden. Die App schützt parallele Tabs desselben Ursprungs mit der Browser-Lock-API; ohne diese API ist sie zur Ansicht und zum Export geöffnet. Eine Geräte-Synchronisierung und Verschlüsselung werden damit nicht bereitgestellt.
-
-Die gezielte Browserabnahme für 1.0 steht in [release_1_0.py](app/e2e/release_1_0.py); Voraussetzungen und Wiederholung beschreibt der [Abnahmebericht](docs/update-1.0.0.md#3-tatsächlich-ausgeführte-prüfungen).
-
-Die wiederholbare Browserprüfung für 0.7.0 liegt in `app/e2e/`. Die Anleitung im [Revisionsordner](docs/revision-2026-10-18/README.md) nennt Voraussetzungen und Befehle. Die dortigen älteren Ausgangsskripte sind als historische Vergleichsgrundlage erhalten.
+Browserdaten sind an Browserprofil und Adresse einschließlich Port gebunden. JSON-Sicherungen geschützt außerhalb des Browsers aufbewahren. Tests und Beispiele verwenden fiktive Personen; der produktive Einsatz mit echten Schülerdaten erfordert eine gesonderte Datenschutz- und Betriebsprüfung.

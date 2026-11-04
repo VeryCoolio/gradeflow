@@ -1,8 +1,7 @@
 from pathlib import Path
 import json,os
 from playwright.sync_api import sync_playwright
-ROOT=Path(__file__).resolve().parent.parent
-OUT=ROOT/'brag-output/composition/assets/ui';OUT.mkdir(parents=True,exist_ok=True)
+OUT=Path(__file__).resolve().parent/'composition/assets/ui';OUT.mkdir(parents=True,exist_ok=True)
 BASE=os.environ.get('GRADEFLOW_VIDEO_BASE','http://127.0.0.1:4197/').rstrip('/')+'/'
 T='2026-10-28T08:00:00.000Z'
 N=['Ada Berger','Ben Fischer','Clara König','Deniz Weber','Emil Winter']

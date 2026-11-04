@@ -16,35 +16,12 @@ node_modules
 __pycache__/
 *.py[cod]
 
-# Local video renders and runtime state
-brag-output/*.mp4
-brag-output/composition/.hyperframes/
-brag-output/composition/renders/
-brag-output/composition/assets/gsap.min.js
-brag-output/composition/.thumbnails/
-brag-output/composition/.waveform-cache/
-
-# Compact BA film runtime output
-brag-output-2026-10-28-101409/*.mp4
-brag-output-2026-10-28-101409/composition/.hyperframes/
-brag-output-2026-10-28-101409/composition/.thumbnails/
-brag-output-2026-10-28-101409/composition/.waveform-cache/
-brag-output-2026-10-28-101409/composition/renders/
-brag-output-2026-10-28-101409/composition/assets/gsap.min.js
-
-# Voice-timed Gradeflow explainer runtime output
-brag-output-2026-10-28-120220/*.mp4
-brag-output-2026-10-28-120220/voice-work/
-brag-output-2026-10-28-120220/composition/.hyperframes/
-brag-output-2026-10-28-120220/composition/.thumbnails/
-brag-output-2026-10-28-120220/composition/.waveform-cache/
-brag-output-2026-10-28-120220/composition/renders/
-brag-output-2026-10-28-120220/composition/assets/gsap.min.js
-
-# Florian narration edition: local renders and runtime only
-brag-output-2026-10-28-130346/*.mp4
-brag-output-2026-10-28-130346/composition/.hyperframes/
-brag-output-2026-10-28-130346/composition/.thumbnails/
-brag-output-2026-10-28-130346/composition/.waveform-cache/
-brag-output-2026-10-28-130346/composition/renders/
-brag-output-2026-10-28-130346/composition/assets/gsap.min.js
+# Lokale Medienausgaben und Laufzeitdateien im Archiv
+/archive/media/**/*.mp4
+/archive/media/**/voice-work/
+/archive/media/**/composition/.hyperframes/
+/archive/media/**/composition/renders/
+/archive/media/**/composition/assets/gsap.min.js
+/archive/media/**/composition/.thumbnails/
+/archive/media/**/composition/.waveform-cache/
+.brag.hf-transaction-*/

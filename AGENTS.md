@@ -30,7 +30,7 @@ Bei Widersprüchen gilt diese Reihenfolge:
 
 - Behandle `legacy-source/` als unveränderte Referenz. Bearbeite oder lösche dort keine Datei.
 - Lege die neue Anwendung in `app/` an.
-- Beginne nicht mit der Implementierung, bevor der in `START_HERE.md` verlangte Prüfbericht erstellt und vom Nutzer freigegeben wurde.
+- Der initiale Prüfbericht und die Meilensteine 1 bis 5 sind freigegeben und umgesetzt. Für weitere Arbeiten gilt der aktuelle Nutzerauftrag; starte die Erstprüfung nicht erneut. `START_HERE.md` beschreibt den aktuellen Einstieg, `archive/projektstart/erster-auftrag.md` bewahrt den ursprünglichen Auftrag.
 - Unterscheide in Berichten klar zwischen geprüftem Iststand, Entscheidung, Empfehlung und offenem Punkt.
 - Erfinde keine fachlichen Regeln. Wenn eine Regel nicht dokumentiert ist, markiere sie als offen.
 - Halte Änderungen klein und nachvollziehbar. Erstelle nach jedem Meilenstein einen lauffähigen Stand.
@@ -42,6 +42,13 @@ Bei Widersprüchen gilt diese Reihenfolge:
 - Die Bachelorarbeitsversion arbeitet ausschließlich lokal. Implementiere keine Anmeldung, Supabase-Anbindung oder Cloud-Synchronisierung.
 - Speichere jede ausgewählte oder geänderte Beobachtung unmittelbar lokal. Eine unterbrochene Stunde muss beim nächsten Öffnen am zuletzt gespeicherten Stand fortgesetzt werden können.
 - Begrenze einen Bewertungszeitraum nicht automatisch auf Halbjahr oder Schuljahr. Die Lehrkraft beendet oder archiviert ihn selbst; ein automatischer Noten-Reset ist nicht vorgesehen.
+
+## Repository-Struktur
+
+- `app/` enthält die aktuelle Anwendung; `docs/README.md` führt durch Anforderungen und datierte Nachweise.
+- `archive/media/` bündelt historische Filme und Sprachproben. Neue Medienlaufzeiten und Exporte gehören nicht ins Hauptverzeichnis oder in den App-Build.
+- `legacy-source/`, `reference/` und vorhandene historische App-Prüfnachweise behalten ihre festen Pfade. Alte Pfadangaben in Produktionsprotokollen dokumentieren damalige Speicherorte.
+- Die App-Version bleibt bei reinen Dokumentations-/Strukturänderungen unverändert; bestehende Versions-Tags und Commit-Historie werden nicht umgeschrieben.
 
 ## Technische Qualitätsregeln
 
